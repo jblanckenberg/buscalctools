@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
-import { PHASE_1 } from "@/lib/tools";
+import { TOOLS } from "@/lib/tools";
+import { PUBLISHED_POSTS } from "@/lib/blog/posts";
 
 export const dynamic = "force-static";
 
@@ -13,11 +14,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
-    ...PHASE_1.map((t) => ({
+    ...TOOLS.map((t) => ({
       url: `${SITE_URL}/${t.slug}`,
       lastModified: now,
       changeFrequency: "monthly" as const,
-      priority: 0.9,
+      priority: t.phase === 1 ? 0.9 : 0.8,
+    })),
+    {
+      url: `${SITE_URL}/blog`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    ...PUBLISHED_POSTS.map((p) => ({
+      url: `${SITE_URL}/blog/${p.slug}`,
+      lastModified: p.publishedAt ? new Date(p.publishedAt) : now,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
     })),
     {
       url: `${SITE_URL}/privacy`,

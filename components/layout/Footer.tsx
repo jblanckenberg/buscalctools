@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-dark">
-              Phase 1 — Live
+              Profit &amp; pricing
             </h3>
             <ul className="mt-3 space-y-1.5 text-sm">
               {PHASE_1.map((t) => (
@@ -22,35 +22,34 @@ export default function Footer() {
           </div>
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-dark">
-              Phase 2 — Coming soon
+              Planning &amp; valuation
             </h3>
             <ul className="mt-3 space-y-1.5 text-sm">
               {PHASE_2.map((t) => (
-                <li key={t.slug} className="text-gray-500">
-                  {t.name}
+                <li key={t.slug}>
+                  <Link href={`/${t.slug}`} className="text-gray-700 hover:text-brand-primary">
+                    {t.name}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-dark">
-              About
+              Resources
             </h3>
             <ul className="mt-3 space-y-1.5 text-sm">
               <li>
-                <Link href="/" className="text-gray-700 hover:text-brand-primary">
-                  Home
-                </Link>
+                <Link href="/" className="text-gray-700 hover:text-brand-primary">Home</Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-gray-700 hover:text-brand-primary">
-                  Privacy Policy
-                </Link>
+                <Link href="/blog" className="text-gray-700 hover:text-brand-primary">Blog</Link>
               </li>
               <li>
-                <Link href="/disclaimer" className="text-gray-700 hover:text-brand-primary">
-                  Disclaimer
-                </Link>
+                <Link href="/privacy" className="text-gray-700 hover:text-brand-primary">Privacy Policy</Link>
+              </li>
+              <li>
+                <Link href="/disclaimer" className="text-gray-700 hover:text-brand-primary">Disclaimer</Link>
               </li>
             </ul>
           </div>
