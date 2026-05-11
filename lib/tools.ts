@@ -1,0 +1,34 @@
+export type Tool = {
+  slug: string;
+  name: string;
+  short: string;
+  desc: string;
+  phase: 1 | 2;
+};
+
+export const TOOLS: Tool[] = [
+  { slug: "profit-margin-calculator", name: "Profit Margin Calculator", short: "Profit Margin", desc: "Calculate gross and net profit margin instantly.", phase: 1 },
+  { slug: "markup-calculator", name: "Markup Calculator", short: "Markup", desc: "Convert cost price to selling price at any markup %.", phase: 1 },
+  { slug: "break-even-calculator", name: "Break-Even Calculator", short: "Break-Even", desc: "Find the units and revenue needed to break even.", phase: 1 },
+  { slug: "roi-calculator", name: "ROI Calculator", short: "ROI", desc: "Calculate return on investment from any spend.", phase: 1 },
+  { slug: "pricing-calculator", name: "Pricing Calculator", short: "Pricing", desc: "Set the optimal selling price from cost and margin.", phase: 1 },
+  { slug: "invoice-calculator", name: "Invoice Calculator", short: "Invoice", desc: "Build invoice totals with tax in seconds.", phase: 1 },
+  { slug: "freelance-rate-calculator", name: "Freelance Rate Calculator", short: "Freelance Rate", desc: "Calculate a sustainable hourly rate for freelancers.", phase: 1 },
+  { slug: "cash-flow-calculator", name: "Cash Flow Calculator", short: "Cash Flow", desc: "Project 12-month cash flow from income and expenses.", phase: 1 },
+  { slug: "net-profit-calculator", name: "Net Profit Calculator", short: "Net Profit", desc: "Calculate true net profit after all costs and tax.", phase: 1 },
+  { slug: "ecommerce-profit-calculator", name: "Ecommerce Profit Calculator", short: "Ecommerce Profit", desc: "True profit per unit after fees, shipping and ad spend.", phase: 1 },
+  { slug: "cost-per-unit-calculator", name: "Cost Per Unit Calculator", short: "Cost Per Unit", desc: "Calculate production cost per unit from total costs.", phase: 1 },
+  { slug: "business-loan-calculator", name: "Business Loan Calculator", short: "Business Loan", desc: "Calculate monthly repayments and total interest.", phase: 1 },
+  { slug: "payback-period-calculator", name: "Payback Period Calculator", short: "Payback Period", desc: "How long until an investment pays for itself.", phase: 2 },
+  { slug: "burn-rate-calculator", name: "Burn Rate & Runway Calculator", short: "Burn Rate", desc: "Months of runway from cash on hand and monthly burn.", phase: 2 },
+  { slug: "business-valuation-calculator", name: "Business Valuation Calculator", short: "Business Valuation", desc: "Estimate business value from revenue, profit and multiples.", phase: 2 },
+  { slug: "revenue-growth-calculator", name: "Revenue Growth Rate Calculator", short: "Revenue Growth", desc: "Calculate growth rate between two periods.", phase: 2 },
+  { slug: "employee-cost-calculator", name: "Employee Cost Calculator", short: "Employee Cost", desc: "True cost of hiring after taxes, benefits and overhead.", phase: 2 },
+  { slug: "discount-calculator", name: "Discount & Sale Price Calculator", short: "Discount", desc: "Sale price and savings from any discount %.", phase: 2 },
+];
+
+export const PHASE_1 = TOOLS.filter((t) => t.phase === 1);
+export const PHASE_2 = TOOLS.filter((t) => t.phase === 2);
+
+export const toolBySlug = (slug: string): Tool | undefined =>
+  TOOLS.find((t) => t.slug === slug);
