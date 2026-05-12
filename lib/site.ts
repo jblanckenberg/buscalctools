@@ -11,7 +11,7 @@ export const SITE_TAGLINE =
   "Free business calculators for profit, pricing & growth";
 
 export const SITE_DESCRIPTION =
-  "Free online business calculators for profit margin, break-even, ROI, markup, pricing, invoicing and more. Instant results. No sign-up required. Works for USA, UK & South Africa.";
+  "18 free business calculators for profit, pricing, break-even, ROI, loans & cash flow. Instant results, no sign-up. USA, UK, South Africa.";
 
 // Google AdSense publisher ID. Loaded via next/script on every page from the
 // root layout. Replace if the AdSense account changes.
