@@ -51,6 +51,9 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
   },
   robots: { index: true, follow: true },
+  verification: {
+    yandex: "ab67bbbed12622c3",
+  },
 };
 
 export default function RootLayout({
