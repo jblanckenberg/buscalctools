@@ -5,13 +5,18 @@ import FaqList from "@/components/shared/FaqList";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import WebAppSchema from "@/components/shared/WebAppSchema";
+import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
+import { calcBreadcrumb, calcMeta } from "@/lib/calc-meta";
+
+const SLUG = "invoice-calculator";
+const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "invoice-calculator",
-  title: "Invoice Calculator — Calculate Invoice Total with Tax Instantly",
+  title: "Invoice Calculator with VAT, GST & Sales Tax | BusCalcTools",
   description:
-    "Build invoice totals from line items with automatic VAT, GST or sales tax calculation. Free invoice calculator for freelancers and small businesses.",
+    "Free invoice calculator. Build invoice totals from up to 5 line items with automatic VAT, GST, or sales tax. Region-aware for freelancers and small businesses.",
 });
 
 const FAQS = [
@@ -27,11 +32,20 @@ export default function InvoicePage() {
     <CalculatorShell
       h1="Invoice Calculator — Build Invoice Totals with Tax in Seconds"
       intro="Build an invoice from up to 5 line items. Adds VAT, GST or sales tax automatically based on your region. One-click copy of the result."
+      breadcrumbs={calcBreadcrumb(SLUG)}
     >
       <WebAppSchema
-        slug="invoice-calculator"
+        slug={SLUG}
         name="Invoice Calculator"
         description="Free invoice calculator with VAT/GST/sales tax — build a total from up to five line items."
+        featureList={META.featureList}
+        applicationSubCategory={META.applicationSubCategory}
+      />
+      <HowToSchema
+        slug={SLUG}
+        name={META.howToName}
+        description={META.howToDescription}
+        steps={META.howToSteps}
       />
       <InvoiceCalculator />
 

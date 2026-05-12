@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
 import { TOOLS } from "@/lib/tools";
 import { PUBLISHED_POSTS } from "@/lib/blog/posts";
+import { TOPICS } from "@/lib/topics";
 
 export const dynamic = "force-static";
 
@@ -19,6 +20,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: t.phase === 1 ? 0.9 : 0.8,
+    })),
+    ...TOPICS.map((t) => ({
+      url: `${SITE_URL}/topics/${t.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
     })),
     {
       url: `${SITE_URL}/blog`,

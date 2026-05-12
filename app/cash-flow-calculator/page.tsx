@@ -5,13 +5,18 @@ import FaqList from "@/components/shared/FaqList";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import WebAppSchema from "@/components/shared/WebAppSchema";
+import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
+import { calcBreadcrumb, calcMeta } from "@/lib/calc-meta";
+
+const SLUG = "cash-flow-calculator";
+const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "cash-flow-calculator",
-  title: "Cash Flow Calculator — 12-Month Business Cash Flow Projection",
+  title: "Cash Flow Calculator — 12-Month Projection | BusCalcTools",
   description:
-    "Project your business cash flow over 12 months. Identifies negative cash flow months. Free cash flow planning tool for small businesses.",
+    "Free 12-month cash flow calculator. Project monthly income and expenses, flag negative-balance months, and view a running balance chart in your browser.",
 });
 
 const FAQS = [
@@ -27,11 +32,20 @@ export default function CashFlowPage() {
     <CalculatorShell
       h1="Cash Flow Calculator — 12-Month Projection with Visual Chart"
       intro="Project monthly cash in and out across the next 12 months. Spots negative-balance months in advance so you can plan financing or delay spend."
+      breadcrumbs={calcBreadcrumb(SLUG)}
     >
       <WebAppSchema
-        slug="cash-flow-calculator"
+        slug={SLUG}
         name="Cash Flow Calculator"
         description="Free 12-month cash flow projection calculator with running balance chart for small businesses."
+        featureList={META.featureList}
+        applicationSubCategory={META.applicationSubCategory}
+      />
+      <HowToSchema
+        slug={SLUG}
+        name={META.howToName}
+        description={META.howToDescription}
+        steps={META.howToSteps}
       />
       <CashFlowCalculator />
 

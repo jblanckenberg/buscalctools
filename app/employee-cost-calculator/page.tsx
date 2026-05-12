@@ -5,13 +5,18 @@ import FaqList from "@/components/shared/FaqList";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import WebAppSchema from "@/components/shared/WebAppSchema";
+import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
+import { calcBreadcrumb, calcMeta } from "@/lib/calc-meta";
+
+const SLUG = "employee-cost-calculator";
+const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "employee-cost-calculator",
-  title: "Employee Cost Calculator — True Cost of Hiring an Employee",
+  title: "Employee Cost Calculator — True Cost of Hiring | BusCalcTools",
   description:
-    "Calculate the true total cost of an employee including salary, taxes, benefits and overhead. Free for USA, UK and South Africa.",
+    "Free employee cost calculator. Salary + employer tax + benefits + equipment + overhead → all-in annual and hourly cost. Pre-filled rates for USA, UK, SA.",
 });
 
 const FAQS = [
@@ -27,11 +32,20 @@ export default function EmployeeCostPage() {
     <CalculatorShell
       h1="Employee Cost Calculator — Total Cost Beyond the Salary"
       intro="The true annual and hourly cost of an employee — including employer taxes, benefits, equipment, training, and office overhead — for USA, UK, or South Africa."
+      breadcrumbs={calcBreadcrumb(SLUG)}
     >
       <WebAppSchema
-        slug="employee-cost-calculator"
+        slug={SLUG}
         name="Employee Cost Calculator"
         description="Free employee cost calculator — total annual and hourly cost of an employee beyond salary."
+        featureList={META.featureList}
+        applicationSubCategory={META.applicationSubCategory}
+      />
+      <HowToSchema
+        slug={SLUG}
+        name={META.howToName}
+        description={META.howToDescription}
+        steps={META.howToSteps}
       />
       <EmployeeCostCalculator />
 

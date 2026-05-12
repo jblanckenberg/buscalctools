@@ -5,13 +5,18 @@ import FaqList from "@/components/shared/FaqList";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import WebAppSchema from "@/components/shared/WebAppSchema";
+import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
+import { calcBreadcrumb, calcMeta } from "@/lib/calc-meta";
+
+const SLUG = "markup-calculator";
+const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "markup-calculator",
-  title: "Markup Calculator — Convert Cost to Selling Price Instantly | Free",
+  title: "Markup Calculator — Cost to Selling Price | BusCalcTools",
   description:
-    "Calculate selling price from cost and markup percentage. Includes reverse markup calculator and margin vs. markup comparison. Free for USA, UK & South Africa.",
+    "Free markup calculator. Convert any cost to selling price at the markup % you choose, with reverse mode and side-by-side margin. Works for USA, UK, SA.",
 });
 
 const FAQS = [
@@ -27,11 +32,20 @@ export default function MarkupPage() {
     <CalculatorShell
       h1="Markup Calculator — Instant Cost-to-Price Conversion"
       intro="Convert a cost price into a selling price at any markup percentage — or work backwards from a selling price to find the implied markup."
+      breadcrumbs={calcBreadcrumb(SLUG)}
     >
       <WebAppSchema
-        slug="markup-calculator"
+        slug={SLUG}
         name="Markup Calculator"
         description="Free online markup calculator — convert cost to selling price at any markup percentage."
+        featureList={META.featureList}
+        applicationSubCategory={META.applicationSubCategory}
+      />
+      <HowToSchema
+        slug={SLUG}
+        name={META.howToName}
+        description={META.howToDescription}
+        steps={META.howToSteps}
       />
       <MarkupCalculator />
 

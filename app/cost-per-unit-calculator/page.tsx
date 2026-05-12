@@ -5,13 +5,18 @@ import FaqList from "@/components/shared/FaqList";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import WebAppSchema from "@/components/shared/WebAppSchema";
+import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
+import { calcBreadcrumb, calcMeta } from "@/lib/calc-meta";
+
+const SLUG = "cost-per-unit-calculator";
+const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "cost-per-unit-calculator",
-  title: "Cost Per Unit Calculator — Calculate Production Cost Per Unit",
+  title: "Cost Per Unit Calculator — Fixed + Variable CPU | BusCalcTools",
   description:
-    "Calculate cost per unit from total fixed and variable costs. Includes volume scaling table. Free for manufacturers and product businesses.",
+    "Free cost per unit calculator. Split fixed and variable cost, calculate total CPU, and see economies of scale across volume tiers. For manufacturers + product sellers.",
 });
 
 const FAQS = [
@@ -27,11 +32,20 @@ export default function CostPerUnitPage() {
     <CalculatorShell
       h1="Cost Per Unit Calculator — Know Your True Production Cost"
       intro="Split total costs into fixed and variable components, divide by units produced, and see how cost per unit changes with volume."
+      breadcrumbs={calcBreadcrumb(SLUG)}
     >
       <WebAppSchema
-        slug="cost-per-unit-calculator"
+        slug={SLUG}
         name="Cost Per Unit Calculator"
         description="Free cost per unit calculator with volume scaling table showing economies of scale."
+        featureList={META.featureList}
+        applicationSubCategory={META.applicationSubCategory}
+      />
+      <HowToSchema
+        slug={SLUG}
+        name={META.howToName}
+        description={META.howToDescription}
+        steps={META.howToSteps}
       />
       <CostPerUnitCalculator />
 

@@ -5,13 +5,18 @@ import FaqList from "@/components/shared/FaqList";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import WebAppSchema from "@/components/shared/WebAppSchema";
+import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
+import { calcBreadcrumb, calcMeta } from "@/lib/calc-meta";
+
+const SLUG = "burn-rate-calculator";
+const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "burn-rate-calculator",
-  title: "Burn Rate Calculator — How Long Does Your Cash Last?",
+  title: "Burn Rate Calculator — Months of Runway | BusCalcTools",
   description:
-    "Calculate startup burn rate and runway. Find out exactly how many months of cash you have left. Free tool for founders.",
+    "Free burn rate and runway calculator. Get gross burn, net burn, runway in months, and your cash-exhaustion date. Built for founders and finance teams.",
 });
 
 const FAQS = [
@@ -27,11 +32,20 @@ export default function BurnRatePage() {
     <CalculatorShell
       h1="Burn Rate & Runway Calculator — Months of Cash Remaining"
       intro="Gross burn, net burn, and runway in months — the three numbers every founder needs to know at all times."
+      breadcrumbs={calcBreadcrumb(SLUG)}
     >
       <WebAppSchema
-        slug="burn-rate-calculator"
+        slug={SLUG}
         name="Burn Rate & Runway Calculator"
         description="Free burn rate and runway calculator — how many months of cash before a startup runs out."
+        featureList={META.featureList}
+        applicationSubCategory={META.applicationSubCategory}
+      />
+      <HowToSchema
+        slug={SLUG}
+        name={META.howToName}
+        description={META.howToDescription}
+        steps={META.howToSteps}
       />
       <BurnRateCalculator />
 

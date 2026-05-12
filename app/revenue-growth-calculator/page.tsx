@@ -5,13 +5,18 @@ import FaqList from "@/components/shared/FaqList";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import WebAppSchema from "@/components/shared/WebAppSchema";
+import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
+import { calcBreadcrumb, calcMeta } from "@/lib/calc-meta";
+
+const SLUG = "revenue-growth-calculator";
+const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "revenue-growth-calculator",
-  title: "Revenue Growth Rate Calculator — MoM, YoY and CAGR Calculator",
+  title: "Revenue Growth Calculator — MoM, YoY, CAGR | BusCalcTools",
   description:
-    "Calculate revenue growth rate month-over-month, year-over-year, and CAGR. Free business growth calculator.",
+    "Free revenue growth calculator. Month-over-month and year-over-year growth plus multi-year CAGR. Benchmark against investor and industry standards.",
 });
 
 const FAQS = [
@@ -27,11 +32,20 @@ export default function RevenueGrowthPage() {
     <CalculatorShell
       h1="Revenue Growth Rate Calculator — MoM, YoY and CAGR"
       intro="Period-over-period growth (monthly or annual) plus multi-year CAGR to compare against benchmarks and investors' expectations."
+      breadcrumbs={calcBreadcrumb(SLUG)}
     >
       <WebAppSchema
-        slug="revenue-growth-calculator"
+        slug={SLUG}
         name="Revenue Growth Rate Calculator"
         description="Free revenue growth calculator — period-over-period growth and CAGR for any business."
+        featureList={META.featureList}
+        applicationSubCategory={META.applicationSubCategory}
+      />
+      <HowToSchema
+        slug={SLUG}
+        name={META.howToName}
+        description={META.howToDescription}
+        steps={META.howToSteps}
       />
       <RevenueGrowthCalculator />
 

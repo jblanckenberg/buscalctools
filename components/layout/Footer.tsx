@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PHASE_1, PHASE_2 } from "@/lib/tools";
+import { TOPICS } from "@/lib/topics";
 
 export default function Footer() {
   return (
@@ -36,17 +37,21 @@ export default function Footer() {
           </div>
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-dark">
-              Resources
+              Topic guides
             </h3>
             <ul className="mt-3 space-y-1.5 text-sm">
-              <li>
-                <Link href="/" className="text-gray-700 hover:text-brand-primary">Home</Link>
+              {TOPICS.map((t) => (
+                <li key={t.slug}>
+                  <Link href={`/topics/${t.slug}`} className="text-gray-700 hover:text-brand-primary">
+                    {t.name}
+                  </Link>
+                </li>
+              ))}
+              <li className="pt-2">
+                <Link href="/blog" className="text-gray-700 hover:text-brand-primary">All articles</Link>
               </li>
               <li>
-                <Link href="/blog" className="text-gray-700 hover:text-brand-primary">Blog</Link>
-              </li>
-              <li>
-                <Link href="/privacy" className="text-gray-700 hover:text-brand-primary">Privacy Policy</Link>
+                <Link href="/privacy" className="text-gray-700 hover:text-brand-primary">Privacy</Link>
               </li>
               <li>
                 <Link href="/disclaimer" className="text-gray-700 hover:text-brand-primary">Disclaimer</Link>

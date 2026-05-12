@@ -5,13 +5,18 @@ import FaqList from "@/components/shared/FaqList";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import WebAppSchema from "@/components/shared/WebAppSchema";
+import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
+import { calcBreadcrumb, calcMeta } from "@/lib/calc-meta";
+
+const SLUG = "roi-calculator";
+const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "roi-calculator",
-  title: "ROI Calculator — Free Return on Investment Calculator Online",
+  title: "ROI Calculator — Annualised Return on Investment | BusCalcTools",
   description:
-    "Calculate ROI, net profit and annualised return on investment instantly. Free tool for marketing, equipment and business investment decisions.",
+    "Free ROI calculator. Get total and annualised return on any business investment — marketing, equipment, training — in seconds. Compare projects fairly.",
 });
 
 const FAQS = [
@@ -27,11 +32,20 @@ export default function RoiPage() {
     <CalculatorShell
       h1="ROI Calculator — Calculate Return on Investment Instantly"
       intro="Measure return on any business spend — marketing, equipment, training. Add a time period to get an annualised rate so you can compare investments of different lengths."
+      breadcrumbs={calcBreadcrumb(SLUG)}
     >
       <WebAppSchema
-        slug="roi-calculator"
+        slug={SLUG}
         name="ROI Calculator"
         description="Free return on investment calculator with annualised ROI for any business spend."
+        featureList={META.featureList}
+        applicationSubCategory={META.applicationSubCategory}
+      />
+      <HowToSchema
+        slug={SLUG}
+        name={META.howToName}
+        description={META.howToDescription}
+        steps={META.howToSteps}
       />
       <RoiCalculator />
 

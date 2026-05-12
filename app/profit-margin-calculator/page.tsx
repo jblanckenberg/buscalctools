@@ -5,14 +5,19 @@ import FaqList from "@/components/shared/FaqList";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import WebAppSchema from "@/components/shared/WebAppSchema";
+import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
+import { calcBreadcrumb, calcMeta } from "@/lib/calc-meta";
+
+const SLUG = "profit-margin-calculator";
+const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "profit-margin-calculator",
-  title: "Profit Margin Calculator — Free Online Gross & Net Margin Tool",
+  title: "Profit Margin Calculator: Gross & Net Margin | BusCalcTools",
   description:
-    "Calculate gross profit margin, net profit margin and operating margin instantly. Free tool for small businesses. Works for USA, UK and South Africa.",
-  ogTitle: "Profit Margin Calculator — Free & Instant",
+    "Free profit margin calculator. Get gross, operating, and net margin instantly with region-aware tax for USA, UK, and South Africa. No sign-up — start now.",
+  ogTitle: "Profit Margin Calculator — Free, Instant",
 });
 
 const FAQS = [
@@ -43,11 +48,20 @@ export default function ProfitMarginPage() {
     <CalculatorShell
       h1="Profit Margin Calculator — Instant, Free Results"
       intro="Calculate gross, operating, and net profit margin from your revenue and cost figures. Switches automatically between USA, UK, and South Africa tax rates."
+      breadcrumbs={calcBreadcrumb(SLUG)}
     >
       <WebAppSchema
-        slug="profit-margin-calculator"
+        slug={SLUG}
         name="Profit Margin Calculator"
         description="Free online profit margin calculator for small businesses — calculates gross, operating, and net margin."
+        featureList={META.featureList}
+        applicationSubCategory={META.applicationSubCategory}
+      />
+      <HowToSchema
+        slug={SLUG}
+        name={META.howToName}
+        description={META.howToDescription}
+        steps={META.howToSteps}
       />
       <ProfitMarginCalculator />
 

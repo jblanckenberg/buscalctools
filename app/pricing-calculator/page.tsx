@@ -5,13 +5,18 @@ import FaqList from "@/components/shared/FaqList";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import WebAppSchema from "@/components/shared/WebAppSchema";
+import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
+import { calcBreadcrumb, calcMeta } from "@/lib/calc-meta";
+
+const SLUG = "pricing-calculator";
+const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "pricing-calculator",
-  title: "Pricing Calculator — Calculate Selling Price from Cost & Margin",
+  title: "Pricing Calculator — Selling Price from Cost & Margin | BusCalcTools",
   description:
-    "Calculate the optimal selling price from cost and target margin or markup. Includes VAT/sales tax. Free for USA, UK and South Africa.",
+    "Free pricing calculator. Set optimal selling price from cost and target margin or markup, with auto VAT/sales tax for USA, UK, and South Africa.",
 });
 
 const FAQS = [
@@ -27,11 +32,20 @@ export default function PricingPage() {
     <CalculatorShell
       h1="Pricing Calculator — Find the Right Selling Price Instantly"
       intro="Set the optimal selling price from cost and target margin (or markup). Adds VAT or sales tax automatically by region."
+      breadcrumbs={calcBreadcrumb(SLUG)}
     >
       <WebAppSchema
-        slug="pricing-calculator"
+        slug={SLUG}
         name="Pricing Calculator"
         description="Free pricing calculator — set selling price from cost and target margin or markup, with VAT/sales tax."
+        featureList={META.featureList}
+        applicationSubCategory={META.applicationSubCategory}
+      />
+      <HowToSchema
+        slug={SLUG}
+        name={META.howToName}
+        description={META.howToDescription}
+        steps={META.howToSteps}
       />
       <PricingCalculator />
 

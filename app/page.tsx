@@ -5,9 +5,9 @@ import { SITE_URL } from "@/lib/site";
 import { PHASE_1, PHASE_2 } from "@/lib/tools";
 
 export const metadata: Metadata = {
-  title: "Free Business Calculators — Profit, ROI, Break-Even & More",
+  title: "Free Business Calculators — Profit, ROI, Break-Even | BusCalcTools",
   description:
-    "Free online business calculators for profit margin, break-even, ROI, markup, pricing, invoicing and more. Instant results. No sign-up required. Works for USA, UK & South Africa.",
+    "18 free business calculators for profit margin, break-even, ROI, pricing, invoicing, freelance rate, and more. Instant results, no sign-up. USA, UK, South Africa.",
   alternates: { canonical: SITE_URL },
 };
 

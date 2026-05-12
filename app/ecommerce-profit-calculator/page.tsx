@@ -5,13 +5,18 @@ import FaqList from "@/components/shared/FaqList";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import WebAppSchema from "@/components/shared/WebAppSchema";
+import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
+import { calcBreadcrumb, calcMeta } from "@/lib/calc-meta";
+
+const SLUG = "ecommerce-profit-calculator";
+const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "ecommerce-profit-calculator",
-  title: "Ecommerce Profit Calculator — True Profit After Fees & Shipping",
+  title: "Ecommerce Profit Calculator — Amazon, Etsy, eBay | BusCalcTools",
   description:
-    "Calculate true ecommerce profit per unit after Amazon, Etsy or eBay fees, shipping, ad spend and tax. Free for sellers worldwide.",
+    "Free ecommerce profit calculator. True profit per unit after platform fees, shipping, ads, and VAT. Presets for Amazon FBA, Etsy, eBay, Shopify.",
 });
 
 const FAQS = [
@@ -27,11 +32,20 @@ export default function EcommercePage() {
     <CalculatorShell
       h1="Ecommerce Profit Calculator — Find Your True Profit Per Sale"
       intro="True per-unit profit after platform fees, shipping, ad spend, and tax. Presets for Amazon FBA, Etsy, eBay and Shopify."
+      breadcrumbs={calcBreadcrumb(SLUG)}
     >
       <WebAppSchema
-        slug="ecommerce-profit-calculator"
+        slug={SLUG}
         name="Ecommerce Profit Calculator"
         description="Free ecommerce profit calculator — true per-unit profit after Amazon, Etsy, eBay or Shopify fees."
+        featureList={META.featureList}
+        applicationSubCategory={META.applicationSubCategory}
+      />
+      <HowToSchema
+        slug={SLUG}
+        name={META.howToName}
+        description={META.howToDescription}
+        steps={META.howToSteps}
       />
       <EcommerceProfitCalculator />
 

@@ -5,6 +5,7 @@ import { PUBLISHED_POSTS, postBySlug } from "@/lib/blog/posts";
 import { ARTICLE_BODIES } from "@/components/blog/articles";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
+import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 export async function generateStaticParams() {
@@ -75,6 +76,14 @@ export default async function ArticlePage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+
+      <Breadcrumbs
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Blog", href: "/blog" },
+          { label: post.title },
+        ]}
       />
 
       <header className="mb-8">

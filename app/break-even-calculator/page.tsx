@@ -5,13 +5,18 @@ import FaqList from "@/components/shared/FaqList";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import WebAppSchema from "@/components/shared/WebAppSchema";
+import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
+import { calcBreadcrumb, calcMeta } from "@/lib/calc-meta";
+
+const SLUG = "break-even-calculator";
+const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "break-even-calculator",
-  title: "Break-Even Calculator — Free Break-Even Point Analysis Tool",
+  title: "Break-Even Calculator — Units & Revenue Chart | BusCalcTools",
   description:
-    "Calculate your break-even point in units and revenue instantly. Includes break-even chart and target profit calculator. Free for business owners.",
+    "Free break-even calculator. Find break-even units, revenue, and contribution margin with a visual chart and target-profit mode. Built for small business owners.",
 });
 
 const FAQS = [
@@ -27,11 +32,20 @@ export default function BreakEvenPage() {
     <CalculatorShell
       h1="Break-Even Calculator — Find Your Break-Even Point Instantly"
       intro="Find the number of units and total revenue you need to cover all costs — the point where you stop losing money and start making profit."
+      breadcrumbs={calcBreadcrumb(SLUG)}
     >
       <WebAppSchema
-        slug="break-even-calculator"
+        slug={SLUG}
         name="Break-Even Calculator"
         description="Free break-even point calculator — find units and revenue needed to cover all costs, with chart."
+        featureList={META.featureList}
+        applicationSubCategory={META.applicationSubCategory}
+      />
+      <HowToSchema
+        slug={SLUG}
+        name={META.howToName}
+        description={META.howToDescription}
+        steps={META.howToSteps}
       />
       <BreakEvenCalculator />
 

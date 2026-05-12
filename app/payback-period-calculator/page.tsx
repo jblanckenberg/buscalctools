@@ -5,13 +5,18 @@ import FaqList from "@/components/shared/FaqList";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import WebAppSchema from "@/components/shared/WebAppSchema";
+import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
+import { calcBreadcrumb, calcMeta } from "@/lib/calc-meta";
+
+const SLUG = "payback-period-calculator";
+const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "payback-period-calculator",
-  title: "Payback Period Calculator — How Long to Recoup Your Investment?",
+  title: "Payback Period Calculator — Years to Recoup | BusCalcTools",
   description:
-    "Calculate simple and discounted payback period for any business investment. Free capital recovery calculator.",
+    "Free payback period calculator. Get simple and discounted payback in years for any business investment. Color-coded urgency tier. Region-aware currency.",
 });
 
 const FAQS = [
@@ -27,11 +32,20 @@ export default function PaybackPeriodPage() {
     <CalculatorShell
       h1="Payback Period Calculator — Recoup Your Investment Timeframe"
       intro="How many years until an investment pays for itself. Optional discount rate for the more rigorous discounted-payback view that accounts for the time value of money."
+      breadcrumbs={calcBreadcrumb(SLUG)}
     >
       <WebAppSchema
-        slug="payback-period-calculator"
+        slug={SLUG}
         name="Payback Period Calculator"
         description="Free payback period calculator with simple and discounted payback for any business investment."
+        featureList={META.featureList}
+        applicationSubCategory={META.applicationSubCategory}
+      />
+      <HowToSchema
+        slug={SLUG}
+        name={META.howToName}
+        description={META.howToDescription}
+        steps={META.howToSteps}
       />
       <PaybackPeriodCalculator />
 

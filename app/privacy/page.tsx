@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
+import Breadcrumbs from "@/components/shared/Breadcrumbs";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "How BusinessCalc.io handles data, cookies, and analytics.",
+  description: "How BusCalcTools handles data, cookies, and analytics.",
+  alternates: { canonical: `${SITE_URL}/privacy` },
 };
 
 export default function PrivacyPage() {
   return (
     <article className="mx-auto max-w-3xl px-4 py-12 text-sm leading-relaxed text-gray-700">
+      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Privacy Policy" }]} />
       <h1 className="mb-4 text-3xl font-bold text-brand-dark">Privacy Policy</h1>
       <p className="text-xs text-gray-500">Last updated: {new Date().getFullYear()}</p>
 

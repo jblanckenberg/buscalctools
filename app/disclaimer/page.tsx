@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
+import Breadcrumbs from "@/components/shared/Breadcrumbs";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Disclaimer",
-  description: "Important information about using BusinessCalc.io results.",
+  description: "Important information about using BusCalcTools results.",
+  alternates: { canonical: `${SITE_URL}/disclaimer` },
 };
 
 export default function DisclaimerPage() {
   return (
     <article className="mx-auto max-w-3xl px-4 py-12 text-sm leading-relaxed text-gray-700">
+      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Disclaimer" }]} />
       <h1 className="mb-4 text-3xl font-bold text-brand-dark">Disclaimer</h1>
       <p className="text-xs text-gray-500">Last updated: {new Date().getFullYear()}</p>
 

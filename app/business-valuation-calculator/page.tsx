@@ -5,13 +5,18 @@ import FaqList from "@/components/shared/FaqList";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import WebAppSchema from "@/components/shared/WebAppSchema";
+import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
+import { calcBreadcrumb, calcMeta } from "@/lib/calc-meta";
+
+const SLUG = "business-valuation-calculator";
+const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "business-valuation-calculator",
-  title: "Business Valuation Calculator — How Much Is My Business Worth?",
+  title: "Business Valuation Calculator — 3 Methods | BusCalcTools",
   description:
-    "Estimate your business value using revenue multiples, EBITDA multiples and DCF analysis. Free business valuation calculator.",
+    "Free business valuation calculator. Revenue multiple, EBITDA multiple, and 5-year DCF side-by-side. Get a defensible range, not just a single number.",
 });
 
 const FAQS = [
@@ -27,11 +32,20 @@ export default function BusinessValuationPage() {
     <CalculatorShell
       h1="Business Valuation Calculator — Estimate Your Business Worth"
       intro="Three standard valuation methods side-by-side — revenue multiple, EBITDA multiple, and a 5-year discounted cash flow with terminal value."
+      breadcrumbs={calcBreadcrumb(SLUG)}
     >
       <WebAppSchema
-        slug="business-valuation-calculator"
+        slug={SLUG}
         name="Business Valuation Calculator"
         description="Free business valuation calculator using revenue multiple, EBITDA multiple, and DCF methods."
+        featureList={META.featureList}
+        applicationSubCategory={META.applicationSubCategory}
+      />
+      <HowToSchema
+        slug={SLUG}
+        name={META.howToName}
+        description={META.howToDescription}
+        steps={META.howToSteps}
       />
       <BusinessValuationCalculator />
 

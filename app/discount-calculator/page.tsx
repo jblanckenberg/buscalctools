@@ -5,13 +5,18 @@ import FaqList from "@/components/shared/FaqList";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import WebAppSchema from "@/components/shared/WebAppSchema";
+import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
+import { calcBreadcrumb, calcMeta } from "@/lib/calc-meta";
+
+const SLUG = "discount-calculator";
+const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "discount-calculator",
-  title: "Discount Calculator — Calculate Sale Price & Percentage Off",
+  title: "Discount Calculator — Sale Price & % Off | BusCalcTools",
   description:
-    "Calculate discounted price, savings amount and percentage off instantly. Includes bulk discount table. Free for businesses and shoppers.",
+    "Free discount calculator. Sale price, savings amount, and effective % off — forward or reverse mode. Bulk savings table for volume pricing decisions.",
 });
 
 const FAQS = [
@@ -27,11 +32,20 @@ export default function DiscountPage() {
     <CalculatorShell
       h1="Discount & Sale Price Calculator — Instant Percentage Off"
       intro="Discounted price, savings, and effective percentage off. Works both directions and includes a bulk-savings table for volume pricing."
+      breadcrumbs={calcBreadcrumb(SLUG)}
     >
       <WebAppSchema
-        slug="discount-calculator"
+        slug={SLUG}
         name="Discount & Sale Price Calculator"
         description="Free discount calculator — sale price, savings, percentage off, and bulk savings table."
+        featureList={META.featureList}
+        applicationSubCategory={META.applicationSubCategory}
+      />
+      <HowToSchema
+        slug={SLUG}
+        name={META.howToName}
+        description={META.howToDescription}
+        steps={META.howToSteps}
       />
       <DiscountCalculator />
 

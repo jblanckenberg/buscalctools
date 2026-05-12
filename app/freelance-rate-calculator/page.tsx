@@ -5,13 +5,18 @@ import FaqList from "@/components/shared/FaqList";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import WebAppSchema from "@/components/shared/WebAppSchema";
+import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
+import { calcBreadcrumb, calcMeta } from "@/lib/calc-meta";
+
+const SLUG = "freelance-rate-calculator";
+const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "freelance-rate-calculator",
-  title: "Freelance Rate Calculator — What Should I Charge Per Hour?",
+  title: "Freelance Rate Calculator — Hourly + Day Rate | BusCalcTools",
   description:
-    "Calculate your minimum and recommended freelance hourly rate from income goals, expenses and billable hours. Free tool for freelancers.",
+    "Free freelance rate calculator. Get minimum, recommended, and day-rate equivalents from your income goal and billable hours. Region-aware tax buffer reminders.",
 });
 
 const FAQS = [
@@ -27,11 +32,20 @@ export default function FreelanceRatePage() {
     <CalculatorShell
       h1="Freelance Hourly Rate Calculator — Find Your Minimum Rate"
       intro="Calculate the hourly rate you need to charge from your income goal, billable hours, overhead and profit buffer."
+      breadcrumbs={calcBreadcrumb(SLUG)}
     >
       <WebAppSchema
-        slug="freelance-rate-calculator"
+        slug={SLUG}
         name="Freelance Hourly Rate Calculator"
         description="Free freelance hourly rate calculator — find your minimum and recommended rate from income goal and overhead."
+        featureList={META.featureList}
+        applicationSubCategory={META.applicationSubCategory}
+      />
+      <HowToSchema
+        slug={SLUG}
+        name={META.howToName}
+        description={META.howToDescription}
+        steps={META.howToSteps}
       />
       <FreelanceRateCalculator />
 

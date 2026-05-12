@@ -5,13 +5,18 @@ import FaqList from "@/components/shared/FaqList";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import WebAppSchema from "@/components/shared/WebAppSchema";
+import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
+import { calcBreadcrumb, calcMeta } from "@/lib/calc-meta";
+
+const SLUG = "net-profit-calculator";
+const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "net-profit-calculator",
-  title: "Net Profit Calculator — Calculate True Business Net Profit",
+  title: "Net Profit Calculator — Full Revenue-to-Net Waterfall | BusCalcTools",
   description:
-    "Calculate net profit after COGS, operating expenses, interest and tax. Shows full waterfall breakdown. Free for USA, UK and South Africa.",
+    "Free net profit calculator. Walk revenue down through COGS, OpEx, interest, and tax with a visual waterfall. Region-aware corporate tax for USA, UK, SA.",
 });
 
 const FAQS = [
@@ -27,11 +32,20 @@ export default function NetProfitPage() {
     <CalculatorShell
       h1="Net Profit Calculator — Full Profit Waterfall from Revenue to Net"
       intro="See exactly how revenue becomes bottom-line profit after COGS, operating expenses, interest, and tax."
+      breadcrumbs={calcBreadcrumb(SLUG)}
     >
       <WebAppSchema
-        slug="net-profit-calculator"
+        slug={SLUG}
         name="Net Profit Calculator"
         description="Free net profit calculator with full revenue-to-net-profit waterfall — COGS, OpEx, interest, tax."
+        featureList={META.featureList}
+        applicationSubCategory={META.applicationSubCategory}
+      />
+      <HowToSchema
+        slug={SLUG}
+        name={META.howToName}
+        description={META.howToDescription}
+        steps={META.howToSteps}
       />
       <NetProfitCalculator />
 

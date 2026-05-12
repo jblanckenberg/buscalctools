@@ -5,13 +5,18 @@ import FaqList from "@/components/shared/FaqList";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import WebAppSchema from "@/components/shared/WebAppSchema";
+import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
+import { calcBreadcrumb, calcMeta } from "@/lib/calc-meta";
+
+const SLUG = "business-loan-calculator";
+const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "business-loan-calculator",
-  title: "Business Loan Calculator — Monthly Repayments & Total Cost",
+  title: "Business Loan Calculator — Repayment + Amortisation | BusCalcTools",
   description:
-    "Calculate business loan monthly repayments, total interest and full amortisation table. Works for USA, UK and South Africa interest rates.",
+    "Free business loan calculator. Monthly payment, total interest, and full amortisation schedule. Region-aware APR pre-fills for USA, UK, and South Africa.",
 });
 
 const FAQS = [
@@ -27,11 +32,20 @@ export default function BusinessLoanPage() {
     <CalculatorShell
       h1="Business Loan Repayment Calculator — Instant Amortisation Table"
       intro="Monthly payment, total interest, and a full amortisation schedule for any business loan. Interest rate pre-fills by region."
+      breadcrumbs={calcBreadcrumb(SLUG)}
     >
       <WebAppSchema
-        slug="business-loan-calculator"
+        slug={SLUG}
         name="Business Loan Repayment Calculator"
         description="Free business loan calculator with monthly payment, total interest, and full amortisation schedule."
+        featureList={META.featureList}
+        applicationSubCategory={META.applicationSubCategory}
+      />
+      <HowToSchema
+        slug={SLUG}
+        name={META.howToName}
+        description={META.howToDescription}
+        steps={META.howToSteps}
       />
       <BusinessLoanCalculator />
 

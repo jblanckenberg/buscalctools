@@ -1,7 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { POSTS, PUBLISHED_POSTS } from "@/lib/blog/posts";
-import { SITE_URL } from "@/lib/site";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
+import Breadcrumbs from "@/components/shared/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Blog — Small Business Pricing, Profit & Operations Guides",
@@ -12,9 +13,30 @@ export const metadata: Metadata = {
 
 const draftPosts = POSTS.filter((p) => p.status === "draft");
 
+const collectionLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: `${SITE_NAME} Blog`,
+  url: `${SITE_URL}/blog`,
+  description:
+    "Practical guides on pricing, profit margins, cash flow, valuation, and hiring for small business owners and freelancers.",
+  hasPart: PUBLISHED_POSTS.map((p) => ({
+    "@type": "BlogPosting",
+    headline: p.title,
+    url: `${SITE_URL}/blog/${p.slug}`,
+    description: p.description,
+    datePublished: p.publishedAt,
+  })),
+};
+
 export default function BlogIndex() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionLd) }}
+      />
+      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Blog" }]} />
       <header className="mb-10">
         <h1 className="text-4xl font-bold tracking-tight text-brand-dark sm:text-5xl">
           Blog
