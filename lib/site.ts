@@ -20,3 +20,13 @@ export const ADSENSE_PUB_ID = "ca-pub-5092336325075679";
 // Microsoft Clarity project ID — heatmaps + session recording. Loaded via
 // next/script on every page from the root layout.
 export const CLARITY_PROJECT_ID = "wpt3aszb9h";
+
+// Google Tag (modern unified tag) — issued by Google Tag Manager admin.
+// Loaded as the primary gtag bundle and routes events server-side to any
+// destinations configured under the Google Tag admin (Ads, GA4, etc.).
+export const GOOGLE_TAG_ID = "GT-PJRMN75C";
+
+// Google Analytics 4 measurement ID — also configured directly so GA4
+// pageviews land even if the Google Tag routing isn't set up yet. No
+// double-counting; gtag dedupes by destination ID.
+export const GA4_MEASUREMENT_ID = "G-6DDT7KY0YD";

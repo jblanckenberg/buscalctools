@@ -1,0 +1,8 @@
+# Cloudflare Pages _redirects file
+# Format: source destination status
+# Status 200 = internal rewrite (no client-side redirect; URL stays the same)
+
+# Yandex Webmaster verification: serve the .html URL as a 200 so Yandex's
+# verifier doesn't fail on the default Cloudflare Pages .html-stripping
+# 308 redirect.
+/yandex_ab67bbbed12622c3.html /yandex_ab67bbbed12622c3 200
