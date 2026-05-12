@@ -18,7 +18,9 @@ export function calculatorMetadata({
 }: CalculatorMetadataArgs): Metadata {
   const url = `${SITE_URL}/${slug}`;
   return {
-    title,
+    // Use absolute so layout's "%s | BusCalcTools" template doesn't double-append
+    // — calc page titles already include the brand suffix.
+    title: { absolute: title },
     description,
     alternates: { canonical: url },
     openGraph: {

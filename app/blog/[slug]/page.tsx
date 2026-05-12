@@ -24,7 +24,9 @@ export async function generateMetadata({
   if (!post) return {};
   const url = `${SITE_URL}/blog/${slug}`;
   return {
-    title: post.title,
+    // Use absolute so the layout template doesn't push article titles
+    // over 70 chars with "| BusCalcTools" appended.
+    title: { absolute: post.title },
     description: post.description,
     alternates: { canonical: url },
     openGraph: {

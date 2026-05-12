@@ -5,9 +5,13 @@ import { SITE_URL } from "@/lib/site";
 import { PHASE_1, PHASE_2 } from "@/lib/tools";
 
 export const metadata: Metadata = {
-  title: "Free Business Calculators — Profit, ROI, Break-Even | BusCalcTools",
+  // Absolute prevents the layout template "%s | BusCalcTools" from
+  // double-appending the brand suffix that's already in the title.
+  title: {
+    absolute: "Free Business Calculators — Profit, ROI, Break-Even | BusCalcTools",
+  },
   description:
-    "18 free business calculators for profit margin, break-even, ROI, pricing, invoicing, freelance rate, and more. Instant results, no sign-up. USA, UK, South Africa.",
+    "18 free business calculators for profit, pricing, break-even, ROI, loans & cash flow. Instant results, no sign-up. USA, UK, South Africa.",
   alternates: { canonical: SITE_URL },
 };
 
