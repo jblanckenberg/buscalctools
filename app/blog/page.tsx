@@ -5,7 +5,7 @@ import { SITE_NAME, SITE_URL } from "@/lib/site";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Blog — Small Business Pricing, Profit & Operations Guides",
+  title: "Blog — Pricing, Profit & Operations Guides",
   description:
     "Practical guides on pricing, profit margins, cash flow, valuation, and hiring for small business owners and freelancers. Free, no sign-up.",
   alternates: { canonical: `${SITE_URL}/blog` },
