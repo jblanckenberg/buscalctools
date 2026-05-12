@@ -15,7 +15,7 @@ const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "business-loan-calculator",
-  title: "Business Loan Calculator — Repayment + Amortisation | BusCalcTools",
+  title: "Business Loan Calculator — Repayment & APR | BusCalcTools",
   description:
     "Free business loan calculator. Monthly payment, total interest, and full amortisation schedule. Region-aware APR pre-fills for USA, UK, and South Africa.",
 });

@@ -15,7 +15,7 @@ const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "roi-calculator",
-  title: "ROI Calculator — Annualised Return on Investment | BusCalcTools",
+  title: "ROI Calculator — Annualised Return | BusCalcTools",
   description:
     "Free ROI calculator. Get total and annualised return on any business investment — marketing, equipment, training — in seconds. Compare projects fairly.",
 });

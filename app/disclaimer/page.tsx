@@ -7,7 +7,8 @@ const DISCLAIMER_URL = `${SITE_URL}/disclaimer`;
 
 export const metadata: Metadata = {
   title: "Disclaimer",
-  description: "Important information about using BusCalcTools results.",
+  description:
+    "BusCalcTools calculators are educational tools, not financial, tax, or legal advice. Tax rates and benchmarks are sourced from primary government data and reviewed annually.",
   alternates: { canonical: DISCLAIMER_URL, languages: hreflang(DISCLAIMER_URL) },
 };
 

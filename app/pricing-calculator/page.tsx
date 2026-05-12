@@ -15,7 +15,7 @@ const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "pricing-calculator",
-  title: "Pricing Calculator — Selling Price from Cost & Margin | BusCalcTools",
+  title: "Pricing Calculator — Cost to Selling Price | BusCalcTools",
   description:
     "Free pricing calculator. Set optimal selling price from cost and target margin or markup, with auto VAT/sales tax for USA, UK, and South Africa.",
 });

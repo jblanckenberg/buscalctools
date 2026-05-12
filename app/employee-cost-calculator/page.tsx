@@ -15,7 +15,7 @@ const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "employee-cost-calculator",
-  title: "Employee Cost Calculator — True Cost of Hiring | BusCalcTools",
+  title: "Employee Cost Calculator — True Hiring Cost | BusCalcTools",
   description:
     "Free employee cost calculator. Salary + employer tax + benefits + equipment + overhead → all-in annual and hourly cost. Pre-filled rates for USA, UK, SA.",
 });

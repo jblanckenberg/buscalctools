@@ -15,7 +15,7 @@ const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "ecommerce-profit-calculator",
-  title: "Ecommerce Profit Calculator — Amazon, Etsy, eBay | BusCalcTools",
+  title: "Ecommerce Profit Calculator — Amazon, Etsy | BusCalcTools",
   description:
     "Free ecommerce profit calculator. True profit per unit after platform fees, shipping, ads, and VAT. Presets for Amazon FBA, Etsy, eBay, Shopify.",
 });

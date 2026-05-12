@@ -15,7 +15,7 @@ const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "net-profit-calculator",
-  title: "Net Profit Calculator — Full Revenue-to-Net Waterfall | BusCalcTools",
+  title: "Net Profit Calculator — Full Waterfall | BusCalcTools",
   description:
     "Free net profit calculator. Walk revenue down through COGS, OpEx, interest, and tax with a visual waterfall. Region-aware corporate tax for USA, UK, SA.",
 });

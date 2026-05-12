@@ -8,7 +8,7 @@ const TERMS_URL = `${SITE_URL}/terms`;
 export const metadata: Metadata = {
   title: "Terms of Use",
   description:
-    "Terms of use for BusCalcTools — what you may and may not do with the calculators and content on this site.",
+    "Terms of use for BusCalcTools — permitted use, content rights, source policy, limitation of liability, and contact details. Calculators are educational tools, not financial advice.",
   alternates: { canonical: TERMS_URL, languages: hreflang(TERMS_URL) },
 };
 

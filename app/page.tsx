@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   // Absolute prevents the layout template "%s | BusCalcTools" from
   // double-appending the brand suffix that's already in the title.
   title: {
-    absolute: "Free Business Calculators — Profit, ROI, Break-Even | BusCalcTools",
+    absolute: "Free Business Calculators — Profit, Pricing & ROI | BusCalcTools",
   },
   description:
     "18 free business calculators for profit, pricing, break-even, ROI, loans & cash flow. Instant results, no sign-up. USA, UK, South Africa.",
