@@ -4,6 +4,7 @@ import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
+import MethodologyBox from "@/components/shared/MethodologyBox";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -77,6 +78,8 @@ Example: Fixed $10,000 | Variable $5,000 | 500 units
       <FaqList items={FAQS} />
 
       <RelatedTools slugs={["break-even-calculator", "pricing-calculator"]} />
+
+      <MethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>

@@ -4,6 +4,7 @@ import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
+import MethodologyBox from "@/components/shared/MethodologyBox";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -63,6 +64,8 @@ Example CAGR: Revenue grew from $100,000 to $250,000 over 4 years
       <FaqList items={FAQS} />
 
       <RelatedTools slugs={["net-profit-calculator", "business-valuation-calculator", "cash-flow-calculator"]} />
+
+      <MethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>

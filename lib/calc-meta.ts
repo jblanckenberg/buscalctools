@@ -13,6 +13,12 @@ export const CATEGORY_SLUG: Record<CalcCategory, string> = {
   "Funding & Valuation": "funding-and-valuation",
 };
 
+export type SourceLink = {
+  label: string;
+  url: string;
+  region?: "USA" | "UK" | "SA";
+};
+
 export type CalcMeta = {
   slug: string;
   category: CalcCategory;
@@ -21,7 +27,42 @@ export type CalcMeta = {
   howToName: string;
   howToDescription: string;
   howToSteps: HowToStep[];
+  sources?: SourceLink[];
+  methodologyNote?: string;
 };
+
+export const LAST_VERIFIED = "May 2026";
+
+// Re-usable source link bundles
+const CORPORATE_TAX_SOURCES: SourceLink[] = [
+  { label: "IRS — Form 1120 (US corporate tax 21%)", url: "https://www.irs.gov/forms-pubs/about-form-1120", region: "USA" },
+  { label: "GOV.UK — UK Corporation Tax rates (25% / 19% small profits)", url: "https://www.gov.uk/corporation-tax-rates", region: "UK" },
+  { label: "SARS — Corporate Income Tax (27% standard)", url: "https://www.sars.gov.za/types-of-tax/corporate-income-tax/", region: "SA" },
+];
+
+const VAT_SALES_TAX_SOURCES: SourceLink[] = [
+  { label: "IRS — Sales and Use Tax (US varies by state)", url: "https://www.irs.gov/businesses/small-businesses-self-employed/sales-and-use-tax", region: "USA" },
+  { label: "GOV.UK — VAT rates (UK standard 20%)", url: "https://www.gov.uk/vat-rates", region: "UK" },
+  { label: "SARS — Value-Added Tax (SA standard 15%)", url: "https://www.sars.gov.za/types-of-tax/value-added-tax/", region: "SA" },
+];
+
+const SELF_EMPLOYMENT_TAX_SOURCES: SourceLink[] = [
+  { label: "IRS — Self-Employment Tax (US 15.3%)", url: "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes", region: "USA" },
+  { label: "GOV.UK — Self-Assessment & Class 2/4 NI (UK)", url: "https://www.gov.uk/self-employed-records", region: "UK" },
+  { label: "SARS — Provisional Tax (SA)", url: "https://www.sars.gov.za/types-of-tax/provisional-tax/", region: "SA" },
+];
+
+const EMPLOYER_TAX_SOURCES: SourceLink[] = [
+  { label: "IRS — Employment Taxes (FICA, FUTA — US ~11% total)", url: "https://www.irs.gov/businesses/small-businesses-self-employed/understanding-employment-taxes", region: "USA" },
+  { label: "GOV.UK — Employer National Insurance (13.8%)", url: "https://www.gov.uk/national-insurance-rates-letters", region: "UK" },
+  { label: "SARS — UIF + SDL (SA ~2% total)", url: "https://www.sars.gov.za/types-of-tax/unemployment-insurance-fund-uif/", region: "SA" },
+];
+
+const LOAN_RATE_SOURCES: SourceLink[] = [
+  { label: "US SBA — 7(a) Loan rate ranges", url: "https://www.sba.gov/funding-programs/loans/7a-loans", region: "USA" },
+  { label: "Bank of England — Bank Rate (UK base rate)", url: "https://www.bankofengland.co.uk/monetary-policy/the-interest-rate-bank-rate", region: "UK" },
+  { label: "South African Reserve Bank — repo + prime", url: "https://www.resbank.co.za/en/home/what-we-do/monetary-policy", region: "SA" },
+];
 
 export const CALC_META: Record<string, CalcMeta> = {
   "profit-margin-calculator": {
@@ -43,6 +84,9 @@ export const CALC_META: Record<string, CalcMeta> = {
       { name: "Add operating expenses (optional)", text: "Add rent, salaries, marketing, and overhead to unlock the operating margin result." },
       { name: "Read your margin tier", text: "Gross, operating, and net margin display with color-coded interpretation — green is healthy, amber is caution, red needs action." },
     ],
+    methodologyNote:
+      "Tax rate defaults reflect each region's headline corporate tax rate. Override the rate if your effective rate differs (e.g. UK small profits rate, US state tax additions).",
+    sources: CORPORATE_TAX_SOURCES,
   },
 
   "markup-calculator": {
@@ -63,6 +107,8 @@ export const CALC_META: Record<string, CalcMeta> = {
       { name: "Add markup % (forward) or selling price (reverse)", text: "In forward mode, enter the markup percentage. In reverse mode, enter your selling price." },
       { name: "Read the selling price and implied margin", text: "The calculator shows the selling price, the profit per unit, and the equivalent margin so you can sanity-check pricing." },
     ],
+    methodologyNote:
+      "Formula is region-agnostic and unchanged from standard pricing convention: Selling Price = Cost × (1 + Markup / 100). Currency symbol switches by region only.",
   },
 
   "break-even-calculator": {
@@ -84,6 +130,8 @@ export const CALC_META: Record<string, CalcMeta> = {
       { name: "Optionally add a target profit", text: "Enter a profit goal to see units needed to clear costs plus the target profit." },
       { name: "Read break-even units and chart", text: "The chart shows the revenue and total-cost lines crossing at break-even. Round units up — you don't break even at 399 if the result is 400." },
     ],
+    methodologyNote:
+      "Standard break-even formula (Fixed Costs / Contribution Margin per Unit). Region-agnostic — only the currency symbol changes.",
   },
 
   "roi-calculator": {
@@ -104,6 +152,8 @@ export const CALC_META: Record<string, CalcMeta> = {
       { name: "Optionally enter the period in months", text: "Add the investment period to see annualised ROI alongside total ROI." },
       { name: "Read ROI, net profit, and annualised rate", text: "The calculator shows ROI as a percentage, net profit in cash, and the annualised rate for comparison against other investments." },
     ],
+    methodologyNote:
+      "Simple ROI does not account for the time value of money. For investments held over multiple years, use the annualised ROI for fair comparison.",
   },
 
   "pricing-calculator": {
@@ -125,6 +175,9 @@ export const CALC_META: Record<string, CalcMeta> = {
       { name: "Set the VAT or sales tax (optional)", text: "Pre-filled by region — UK 20%, SA 15%, US 0% by default. Override if your situation differs." },
       { name: "Read both ex-tax and inc-tax prices", text: "The calculator shows the recommended price before and after tax, plus profit per unit." },
     ],
+    methodologyNote:
+      "VAT/sales tax defaults pre-fill at 20% (UK), 15% (SA), and 0% (US — sales tax varies by state). Verify your specific state's rate for US business.",
+    sources: VAT_SALES_TAX_SOURCES,
   },
 
   "invoice-calculator": {
@@ -145,6 +198,9 @@ export const CALC_META: Record<string, CalcMeta> = {
       { name: "Optionally add a discount", text: "A percentage discount applied to the subtotal before tax is calculated." },
       { name: "Read subtotal, tax, and invoice total", text: "Copy the result block to paste into your invoice template." },
     ],
+    methodologyNote:
+      "Tax pre-fills at headline rates (UK VAT 20%, SA VAT 15%, US 0%). UK businesses must register for VAT above £90,000 turnover; SA threshold is R1M. Verify your registration status before issuing VAT invoices.",
+    sources: VAT_SALES_TAX_SOURCES,
   },
 
   "freelance-rate-calculator": {
@@ -166,6 +222,9 @@ export const CALC_META: Record<string, CalcMeta> = {
       { name: "Set your desired profit margin", text: "10–20% above the floor is typical. This is your buffer for slow months." },
       { name: "Read minimum and recommended rates", text: "Quote at or above the recommended rate. Treat the minimum as the floor, not the target." },
     ],
+    methodologyNote:
+      "Tax-buffer guidance reflects each region's typical self-employment tax burden. US 25–30% (SE tax + federal + state), UK 20–30% (income tax + Class 2/4 NI), SA 25–35% (provisional tax). Verify against your individual situation.",
+    sources: SELF_EMPLOYMENT_TAX_SOURCES,
   },
 
   "cash-flow-calculator": {
@@ -186,6 +245,8 @@ export const CALC_META: Record<string, CalcMeta> = {
       { name: "Fill in each month's expenses", text: "Estimated total cash outflows — salaries, rent, software, supplier payments." },
       { name: "Read net cash flow and running balance", text: "Each month shows net flow (green positive, red negative) and the running balance. The chart highlights any month where cash goes negative." },
     ],
+    methodologyNote:
+      "Standard cash-flow projection: running balance = opening cash + cumulative (income − expenses). Inputs are estimates; actual cash flow depends on timing of customer payments and supplier terms.",
   },
 
   "net-profit-calculator": {
@@ -207,6 +268,9 @@ export const CALC_META: Record<string, CalcMeta> = {
       { name: "Confirm the tax rate", text: "Pre-filled by region. Override if you have a different effective rate." },
       { name: "Read the full waterfall", text: "Gross profit → operating profit (EBIT) → EBT → net profit, with net margin as a percentage." },
     ],
+    methodologyNote:
+      "Tax rate pre-fills at headline corporate rates (US 21%, UK 25%, SA 27%). Override for: US state tax additions, UK small profits rate (19% under £50k), SA turnover tax (small business alternative).",
+    sources: CORPORATE_TAX_SOURCES,
   },
 
   "ecommerce-profit-calculator": {
@@ -228,6 +292,9 @@ export const CALC_META: Record<string, CalcMeta> = {
       { name: "Set the VAT rate (optional, UK/SA)", text: "VAT is removed from the gross price for VAT-registered sellers in UK and SA." },
       { name: "Read net profit and net margin per unit", text: "The result shows what actually reaches your bank after every deduction." },
     ],
+    methodologyNote:
+      "Platform fee defaults: Amazon FBA 15%, Etsy 6.5%, eBay 13%, Shopify 2.9%. Headline rates only — your actual fees may include category-specific premiums or volume discounts. Check your platform's seller dashboard for the exact split.",
+    sources: VAT_SALES_TAX_SOURCES,
   },
 
   "cost-per-unit-calculator": {
@@ -248,6 +315,8 @@ export const CALC_META: Record<string, CalcMeta> = {
       { name: "Enter number of units produced", text: "Total units made or bought in the period." },
       { name: "Read CPU and the scaling table", text: "Fixed CPU, variable CPU, and total CPU display together. The table shows what your unit cost would be at 50%, 100%, 150%, and 200% of current volume." },
     ],
+    methodologyNote:
+      "Standard unit-cost formula: total CPU = (fixed + variable costs) / units produced. Scaling table assumes fixed costs stay constant and variable costs scale linearly with volume (no bulk discounts modelled).",
   },
 
   "business-loan-calculator": {
@@ -269,6 +338,9 @@ export const CALC_META: Record<string, CalcMeta> = {
       { name: "Read monthly payment and total cost", text: "The calculator shows the fixed monthly payment, total interest paid, and total cost over the full term." },
       { name: "Expand the amortisation schedule", text: "Click to view the month-by-month breakdown of principal vs interest in each payment." },
     ],
+    methodologyNote:
+      "Pre-fill rates are mid-range SME rates for each region: US SBA 7(a) ~7.5%, UK SME ~8.5%, SA prime + margin ~14.5%. Actual rates vary by lender, term, credit, and collateral. APR includes fees; lenders quoting headline rates may be missing fee components.",
+    sources: LOAN_RATE_SOURCES,
   },
 
   "payback-period-calculator": {
@@ -289,6 +361,8 @@ export const CALC_META: Record<string, CalcMeta> = {
       { name: "Optionally add a discount rate", text: "Typically your cost of capital (8–12%). Enables the discounted payback calculation." },
       { name: "Read simple and discounted payback", text: "Simple payback shows years to recoup at face value. Discounted payback weights future cash flows lower to reflect time value of money." },
     ],
+    methodologyNote:
+      "Simple payback ignores cash flows after recovery (so a 3-year-payback investment producing for 20 years is treated the same as one producing for 3). Pair with ROI for total-return view.",
   },
 
   "burn-rate-calculator": {
@@ -309,6 +383,8 @@ export const CALC_META: Record<string, CalcMeta> = {
       { name: "Enter monthly expenses", text: "Total monthly cash outflows — salaries, rent, software, suppliers." },
       { name: "Read burn rate and runway", text: "Gross burn (total expenses), net burn (expenses minus revenue), and runway in months. The cash exhaustion date estimates when funds run out at current trajectory." },
     ],
+    methodologyNote:
+      "Runway = cash / net burn. Assumes current-month income and expense levels continue. In practice, expenses creep, hires happen, and revenue is non-linear. Update inputs monthly for accurate tracking.",
   },
 
   "business-valuation-calculator": {
@@ -329,6 +405,8 @@ export const CALC_META: Record<string, CalcMeta> = {
       { name: "Set discount rate and growth rate for DCF", text: "Discount rate is typically 15–25% for SMEs; growth rate is your expected annual revenue growth." },
       { name: "Read the valuation range", text: "Three methods produce three values. Use the range and midpoint as your asking-price anchor — buyers expect to negotiate within a range." },
     ],
+    methodologyNote:
+      "DCF uses 5-year explicit projection + Gordon growth terminal value. The terminal value typically accounts for 60–80% of total DCF — small changes to growth or discount rate produce large swings. Use the range across methods, not the DCF alone.",
   },
 
   "revenue-growth-calculator": {
@@ -349,6 +427,8 @@ export const CALC_META: Record<string, CalcMeta> = {
       { name: "Optionally fill the CAGR section", text: "Starting revenue and number of years for a multi-year compound rate." },
       { name: "Read growth rate and CAGR", text: "Period-over-period growth and the smoothed CAGR display together. Use CAGR to compare against investor benchmarks." },
     ],
+    methodologyNote:
+      "CAGR formula assumes geometric compounding from start value to end value over N years. Doesn't reflect intra-period volatility — a business that grew 100% one year and -50% the next can have a benign CAGR.",
   },
 
   "employee-cost-calculator": {
@@ -369,6 +449,9 @@ export const CALC_META: Record<string, CalcMeta> = {
       { name: "Add benefits, equipment, training, office costs", text: "Health insurance, pension, laptop, software, training budget, and desk/utility allocation." },
       { name: "Read total cost and hourly rates", text: "Total annual cost (typically 125–145% of salary), cost as % of salary, and hourly cost at 2,080 hours vs ~1,700 productive hours." },
     ],
+    methodologyNote:
+      "Employer tax pre-fills at each region's typical SME burden. US: FICA 7.65% + FUTA 0.6% + SUTA ~2.7% ≈ 11%. UK: Employer NIC 13.8% above secondary threshold. SA: UIF 1% + SDL 1% (SDL exempt under R500k payroll). Confirm against your actual payroll software.",
+    sources: EMPLOYER_TAX_SOURCES,
   },
 
   "discount-calculator": {
@@ -390,6 +473,8 @@ export const CALC_META: Record<string, CalcMeta> = {
       { name: "Optionally enter quantity", text: "Adds a bulk-savings table for typical order sizes." },
       { name: "Read sale price, savings, and bulk totals", text: "The calculator shows the discounted price, savings per unit, and total savings at typical quantities." },
     ],
+    methodologyNote:
+      "Simple discount math. Bulk savings table assumes constant per-unit discount across quantities — doesn't model tiered or wholesale discount structures.",
   },
 };
 

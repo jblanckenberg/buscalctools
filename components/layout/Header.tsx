@@ -8,15 +8,19 @@ export default function Header() {
           BusCalc
           <span className="text-brand-primary">Tools</span>
         </Link>
-        <nav className="flex items-center gap-4 text-sm">
+        <nav className="flex items-center gap-3 text-sm">
           <Link href="/" className="rounded-md px-2 py-1 hover:bg-white/10">
-            All Calculators
+            Calculators
+          </Link>
+          <Link href="/blog" className="hidden rounded-md px-2 py-1 hover:bg-white/10 sm:inline-block">
+            Blog
           </Link>
           <Link
-            href="/profit-margin-calculator"
-            className="hidden rounded-md bg-brand-primary px-3 py-1.5 text-sm font-medium text-white hover:bg-blue-600 sm:inline-block"
+            href="/search"
+            aria-label="Search"
+            className="rounded-md px-2 py-1 text-white hover:bg-white/10"
           >
-            Most Popular →
+            🔍
           </Link>
         </nav>
       </div>

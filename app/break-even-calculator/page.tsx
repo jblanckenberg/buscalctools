@@ -4,6 +4,7 @@ import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
+import MethodologyBox from "@/components/shared/MethodologyBox";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -97,6 +98,8 @@ Example: Fixed = $5,000 | Variable = $10 | Selling Price = $25
       </section>
 
       <RelatedTools slugs={["roi-calculator", "cash-flow-calculator", "cost-per-unit-calculator"]} />
+
+      <MethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>

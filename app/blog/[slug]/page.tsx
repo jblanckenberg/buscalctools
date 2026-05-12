@@ -6,7 +6,9 @@ import { ARTICLE_BODIES } from "@/components/blog/articles";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
+import AuthorCard from "@/components/shared/AuthorCard";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { AUTHOR, AUTHOR_URL } from "@/lib/author";
 
 export async function generateStaticParams() {
   return PUBLISHED_POSTS.map((p) => ({ slug: p.slug }));
@@ -59,7 +61,14 @@ export default async function ArticlePage({
     headline: post.title,
     description: post.description,
     datePublished: post.publishedAt,
-    author: { "@type": "Organization", name: SITE_NAME },
+    dateModified: post.publishedAt,
+    author: {
+      "@type": "Person",
+      name: AUTHOR.name,
+      url: AUTHOR_URL,
+      jobTitle: AUTHOR.jobTitle,
+      ...(AUTHOR.sameAs.length > 0 ? { sameAs: AUTHOR.sameAs } : {}),
+    },
     publisher: {
       "@type": "Organization",
       name: SITE_NAME,
@@ -95,7 +104,16 @@ export default async function ArticlePage({
         </h1>
         {post.publishedAt && (
           <p className="mt-2 text-sm text-gray-500">
-            Published {new Date(post.publishedAt).toLocaleDateString("en", { year: "numeric", month: "long", day: "numeric" })}
+            By{" "}
+            <Link href="/about" className="text-brand-primary hover:underline">
+              {AUTHOR.name}
+            </Link>{" "}
+            &middot; Published{" "}
+            {new Date(post.publishedAt).toLocaleDateString("en", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
           </p>
         )}
       </header>
@@ -103,6 +121,8 @@ export default async function ArticlePage({
       <div className="prose-content space-y-1 text-base leading-relaxed text-gray-800">
         <Body />
       </div>
+
+      <AuthorCard />
 
       <RelatedTools slugs={post.related} title="Calculators referenced in this article" />
 

@@ -4,6 +4,7 @@ import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
+import MethodologyBox from "@/components/shared/MethodologyBox";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -91,6 +92,8 @@ Example: Cost = $40 | Markup = 50%
       </section>
 
       <RelatedTools slugs={["profit-margin-calculator", "pricing-calculator"]} />
+
+      <MethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>

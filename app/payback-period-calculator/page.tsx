@@ -4,6 +4,7 @@ import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
+import MethodologyBox from "@/components/shared/MethodologyBox";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -73,6 +74,8 @@ Count years until sum of discounted cash flows >= Initial Investment`}
       <FaqList items={FAQS} />
 
       <RelatedTools slugs={["roi-calculator", "break-even-calculator", "business-valuation-calculator"]} />
+
+      <MethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>

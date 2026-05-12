@@ -51,6 +51,9 @@ export default function Footer() {
                 <Link href="/blog" className="text-gray-700 hover:text-brand-primary">All articles</Link>
               </li>
               <li>
+                <Link href="/about" className="text-gray-700 hover:text-brand-primary">About</Link>
+              </li>
+              <li>
                 <Link href="/privacy" className="text-gray-700 hover:text-brand-primary">Privacy</Link>
               </li>
               <li>
