@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import HomeSchema from "@/components/shared/HomeSchema";
 import { SITE_URL } from "@/lib/site";
+import { hreflang } from "@/lib/seo";
 import { PHASE_1, PHASE_2 } from "@/lib/tools";
 
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   },
   description:
     "18 free business calculators for profit, pricing, break-even, ROI, loans & cash flow. Instant results, no sign-up. USA, UK, South Africa.",
-  alternates: { canonical: SITE_URL },
+  alternates: { canonical: SITE_URL, languages: hreflang(SITE_URL) },
 };
 
 export default function HomePage() {

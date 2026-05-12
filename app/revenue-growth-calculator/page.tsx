@@ -34,6 +34,7 @@ export default function RevenueGrowthPage() {
       h1="Revenue Growth Rate Calculator — MoM, YoY and CAGR"
       intro="Period-over-period growth (monthly or annual) plus multi-year CAGR to compare against benchmarks and investors' expectations."
       breadcrumbs={calcBreadcrumb(SLUG)}
+      slug={SLUG}
     >
       <WebAppSchema
         slug={SLUG}

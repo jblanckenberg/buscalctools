@@ -34,6 +34,7 @@ export default function BusinessLoanPage() {
       h1="Business Loan Repayment Calculator — Instant Amortisation Table"
       intro="Monthly payment, total interest, and a full amortisation schedule for any business loan. Interest rate pre-fills by region."
       breadcrumbs={calcBreadcrumb(SLUG)}
+      slug={SLUG}
     >
       <WebAppSchema
         slug={SLUG}

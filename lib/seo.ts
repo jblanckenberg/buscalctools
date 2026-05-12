@@ -9,6 +9,19 @@ type CalculatorMetadataArgs = {
   ogDescription?: string;
 };
 
+// hreflang map. We serve a single URL per page that's region-aware via an
+// in-page toggle (US/UK/SA). Pointing all three locales + x-default at the
+// same URL is the Google-recommended soft signal for multi-region content
+// served from a single URL.
+export function hreflang(url: string): Record<string, string> {
+  return {
+    "en-US": url,
+    "en-GB": url,
+    "en-ZA": url,
+    "x-default": url,
+  };
+}
+
 export function calculatorMetadata({
   slug,
   title,
@@ -22,7 +35,7 @@ export function calculatorMetadata({
     // — calc page titles already include the brand suffix.
     title: { absolute: title },
     description,
-    alternates: { canonical: url },
+    alternates: { canonical: url, languages: hreflang(url) },
     openGraph: {
       title: ogTitle ?? title,
       description: ogDescription ?? description,

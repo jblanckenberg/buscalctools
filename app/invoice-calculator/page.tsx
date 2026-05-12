@@ -34,6 +34,7 @@ export default function InvoicePage() {
       h1="Invoice Calculator — Build Invoice Totals with Tax in Seconds"
       intro="Build an invoice from up to 5 line items. Adds VAT, GST or sales tax automatically based on your region. One-click copy of the result."
       breadcrumbs={calcBreadcrumb(SLUG)}
+      slug={SLUG}
     >
       <WebAppSchema
         slug={SLUG}

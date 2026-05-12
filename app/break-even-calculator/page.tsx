@@ -34,6 +34,7 @@ export default function BreakEvenPage() {
       h1="Break-Even Calculator — Find Your Break-Even Point Instantly"
       intro="Find the number of units and total revenue you need to cover all costs — the point where you stop losing money and start making profit."
       breadcrumbs={calcBreadcrumb(SLUG)}
+      slug={SLUG}
     >
       <WebAppSchema
         slug={SLUG}

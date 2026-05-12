@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { SITE_URL } from "@/lib/site";
+import { hreflang } from "@/lib/seo";
+
+const DISCLAIMER_URL = `${SITE_URL}/disclaimer`;
 
 export const metadata: Metadata = {
   title: "Disclaimer",
   description: "Important information about using BusCalcTools results.",
-  alternates: { canonical: `${SITE_URL}/disclaimer` },
+  alternates: { canonical: DISCLAIMER_URL, languages: hreflang(DISCLAIMER_URL) },
 };
 
 export default function DisclaimerPage() {

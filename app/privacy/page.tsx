@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { SITE_URL } from "@/lib/site";
+import { hreflang } from "@/lib/seo";
+
+const PRIVACY_URL = `${SITE_URL}/privacy`;
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "How BusCalcTools handles data, cookies, and analytics.",
-  alternates: { canonical: `${SITE_URL}/privacy` },
+  alternates: { canonical: PRIVACY_URL, languages: hreflang(PRIVACY_URL) },
 };
 
 export default function PrivacyPage() {

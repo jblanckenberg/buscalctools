@@ -34,6 +34,7 @@ export default function EcommercePage() {
       h1="Ecommerce Profit Calculator — Find Your True Profit Per Sale"
       intro="True per-unit profit after platform fees, shipping, ad spend, and tax. Presets for Amazon FBA, Etsy, eBay and Shopify."
       breadcrumbs={calcBreadcrumb(SLUG)}
+      slug={SLUG}
     >
       <WebAppSchema
         slug={SLUG}

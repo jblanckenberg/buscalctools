@@ -34,6 +34,7 @@ export default function BurnRatePage() {
       h1="Burn Rate & Runway Calculator — Months of Cash Remaining"
       intro="Gross burn, net burn, and runway in months — the three numbers every founder needs to know at all times."
       breadcrumbs={calcBreadcrumb(SLUG)}
+      slug={SLUG}
     >
       <WebAppSchema
         slug={SLUG}

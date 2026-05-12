@@ -34,6 +34,7 @@ export default function EmployeeCostPage() {
       h1="Employee Cost Calculator — Total Cost Beyond the Salary"
       intro="The true annual and hourly cost of an employee — including employer taxes, benefits, equipment, training, and office overhead — for USA, UK, or South Africa."
       breadcrumbs={calcBreadcrumb(SLUG)}
+      slug={SLUG}
     >
       <WebAppSchema
         slug={SLUG}

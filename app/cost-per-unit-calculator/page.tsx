@@ -34,6 +34,7 @@ export default function CostPerUnitPage() {
       h1="Cost Per Unit Calculator — Know Your True Production Cost"
       intro="Split total costs into fixed and variable components, divide by units produced, and see how cost per unit changes with volume."
       breadcrumbs={calcBreadcrumb(SLUG)}
+      slug={SLUG}
     >
       <WebAppSchema
         slug={SLUG}

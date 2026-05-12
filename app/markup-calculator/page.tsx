@@ -34,6 +34,7 @@ export default function MarkupPage() {
       h1="Markup Calculator — Instant Cost-to-Price Conversion"
       intro="Convert a cost price into a selling price at any markup percentage — or work backwards from a selling price to find the implied markup."
       breadcrumbs={calcBreadcrumb(SLUG)}
+      slug={SLUG}
     >
       <WebAppSchema
         slug={SLUG}

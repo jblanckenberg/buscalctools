@@ -34,6 +34,7 @@ export default function PricingPage() {
       h1="Pricing Calculator — Find the Right Selling Price Instantly"
       intro="Set the optimal selling price from cost and target margin (or markup). Adds VAT or sales tax automatically by region."
       breadcrumbs={calcBreadcrumb(SLUG)}
+      slug={SLUG}
     >
       <WebAppSchema
         slug={SLUG}

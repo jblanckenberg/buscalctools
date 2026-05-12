@@ -34,6 +34,7 @@ export default function CashFlowPage() {
       h1="Cash Flow Calculator — 12-Month Projection with Visual Chart"
       intro="Project monthly cash in and out across the next 12 months. Spots negative-balance months in advance so you can plan financing or delay spend."
       breadcrumbs={calcBreadcrumb(SLUG)}
+      slug={SLUG}
     >
       <WebAppSchema
         slug={SLUG}

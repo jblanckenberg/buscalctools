@@ -12,6 +12,7 @@ export type Topic = {
   calcSlugs: string[];
   postSlugs: string[];
   siblings: { slug: string; name: string }[]; // links to other topic hubs
+  faqs: { q: string; a: string }[]; // FAQPage schema + rendered list
 };
 
 export const TOPICS: Topic[] = [
@@ -53,6 +54,24 @@ export const TOPICS: Topic[] = [
       { slug: "freelance-and-hiring", name: "Freelance & Hiring" },
       { slug: "funding-and-valuation", name: "Funding & Valuation" },
     ],
+    faqs: [
+      {
+        q: "Which calculator should I use first?",
+        a: "Pick the one matching the decision you're making right now. Pricing a new product → Pricing Calculator. Checking whether your current margin is healthy → Profit Margin Calculator. Selling on Amazon, Etsy, or eBay → Ecommerce Profit Calculator. Setting a sale price → Discount Calculator.",
+      },
+      {
+        q: "What's the difference between profit margin and markup?",
+        a: "Markup is a percentage of cost; margin is a percentage of selling price. A 50% markup on a $40 cost gives a $60 selling price — but the margin on that sale is only 33%. Same dollar profit, two different percentage numbers.",
+      },
+      {
+        q: "What's a healthy profit margin?",
+        a: "Net margin benchmarks vary by industry: 2–5% for retail, 5–10% for manufacturing, 15–25% for consulting, 20–30% for SaaS. A net margin above 10% is generally considered healthy for most small businesses; below 5% is vulnerable.",
+      },
+      {
+        q: "How do region toggles work on these calculators?",
+        a: "Each calculator has a USA / UK / SA toggle that switches the currency symbol and pre-fills the region-appropriate tax rate. Your selection is remembered in your browser for next time — nothing is sent to us.",
+      },
+    ],
   },
 
   {
@@ -89,6 +108,24 @@ export const TOPICS: Topic[] = [
       { slug: "freelance-and-hiring", name: "Freelance & Hiring" },
       { slug: "funding-and-valuation", name: "Funding & Valuation" },
     ],
+    faqs: [
+      {
+        q: "How do I calculate my break-even point?",
+        a: "Divide your fixed costs by the contribution margin per unit (selling price minus variable cost). $5,000 fixed costs ÷ ($25 − $10) = 334 units to break even. Always round units up.",
+      },
+      {
+        q: "What's the difference between break-even and cash flow?",
+        a: "Break-even tells you the minimum sales volume to cover costs. Cash flow tells you when cash actually arrives. A profitable business on paper can still run out of cash if customers pay late. Use break-even for pricing decisions and cash flow for operational planning.",
+      },
+      {
+        q: "How much runway should a startup have?",
+        a: "Investors typically want to see 18+ months of runway. Below 12 months, start fundraising — the process takes 3–6 months. Below 6 months is critical and weakens your negotiating position significantly.",
+      },
+      {
+        q: "What goes in fixed vs. variable costs?",
+        a: "Fixed costs stay the same regardless of how many units you sell — rent, insurance, salaries, software. Variable costs scale per unit — raw materials, packaging, sales commission, platform fees. The split is critical for accurate break-even and cost-per-unit analysis.",
+      },
+    ],
   },
 
   {
@@ -120,6 +157,24 @@ export const TOPICS: Topic[] = [
       { slug: "profit-and-pricing", name: "Profit & Pricing" },
       { slug: "break-even-and-cash-flow", name: "Break-Even & Cash Flow" },
       { slug: "funding-and-valuation", name: "Funding & Valuation" },
+    ],
+    faqs: [
+      {
+        q: "How much should I charge as a freelancer?",
+        a: "Divide your target annual income plus overhead by your realistic billable hours: (Income + Overhead) ÷ Billable Hours. £60,000 income plus £6,000 overhead at 25 hrs/wk for 46 weeks = £57/hr minimum. Add a 10–20% buffer for slow months and a 20–35% buffer for self-employment tax.",
+      },
+      {
+        q: "What does an employee really cost beyond salary?",
+        a: "Typically 125–145% of the gross salary. A £45,000 hire usually costs around £58,000 once you add employer NIC (13.8%), pension (3–5%), benefits, equipment, training, and office overhead. US employer payroll tax is ~11%; SA is ~2%.",
+      },
+      {
+        q: "When does hiring beat contracting on cost?",
+        a: "For continuous, 5-day-a-week roles for 2+ years, employees usually win on total cost. For specialist, project-based, or uncertain workloads under 18 months, contractors are typically cheaper despite the higher day rate. Rule of thumb: contractor day rate × 130 ≈ employee salary equivalent.",
+      },
+      {
+        q: "Do I need to register for VAT as a freelancer?",
+        a: "In the UK, registration is compulsory above £90,000 annual turnover (2024 threshold). In South Africa, the threshold is R1 million. In the US, sales tax rules are state-by-state and apply differently to digital services and physical goods.",
+      },
     ],
   },
 
@@ -156,6 +211,24 @@ export const TOPICS: Topic[] = [
       { slug: "profit-and-pricing", name: "Profit & Pricing" },
       { slug: "break-even-and-cash-flow", name: "Break-Even & Cash Flow" },
       { slug: "freelance-and-hiring", name: "Freelance & Hiring" },
+    ],
+    faqs: [
+      {
+        q: "How do I calculate ROI?",
+        a: "ROI = ((Net Return − Investment) ÷ Investment) × 100. A $10,000 investment that earns back $13,500 has a 35% ROI. For investments held over different durations, use annualised ROI: ((1 + ROI ÷ 100) ^ (12 ÷ months)) − 1) × 100.",
+      },
+      {
+        q: "What's a good payback period?",
+        a: "Most businesses target 2–3 years for equipment and 1–2 years for marketing investments. Anything over 5 years requires careful consideration of opportunity cost and the asset's useful life. Pair payback period with ROI — payback measures speed, ROI measures total return.",
+      },
+      {
+        q: "How do I value my small business?",
+        a: "Most small businesses sell at 3–7× EBITDA. SaaS commands 3–8× revenue. Service businesses at 2–4× EBITDA. The Business Valuation Calculator runs all three methods (revenue multiple, EBITDA multiple, DCF) side-by-side and gives you a defensible range, not a single number.",
+      },
+      {
+        q: "What's a healthy revenue growth rate?",
+        a: "Early-stage businesses (< $1M) should target 50%+ YoY growth. Established small businesses (>$1M) target 10–20%. Mature businesses target 5–10%. SaaS companies often follow T2D3: triple, triple, double, double, double over 5 years from $1M ARR.",
+      },
     ],
   },
 ];

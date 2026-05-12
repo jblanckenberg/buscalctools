@@ -34,6 +34,7 @@ export default function DiscountPage() {
       h1="Discount & Sale Price Calculator — Instant Percentage Off"
       intro="Discounted price, savings, and effective percentage off. Works both directions and includes a bulk-savings table for volume pricing."
       breadcrumbs={calcBreadcrumb(SLUG)}
+      slug={SLUG}
     >
       <WebAppSchema
         slug={SLUG}

@@ -50,6 +50,7 @@ export default function ProfitMarginPage() {
       h1="Profit Margin Calculator — Instant, Free Results"
       intro="Calculate gross, operating, and net profit margin from your revenue and cost figures. Switches automatically between USA, UK, and South Africa tax rates."
       breadcrumbs={calcBreadcrumb(SLUG)}
+      slug={SLUG}
     >
       <WebAppSchema
         slug={SLUG}

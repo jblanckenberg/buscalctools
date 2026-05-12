@@ -34,6 +34,7 @@ export default function RoiPage() {
       h1="ROI Calculator — Calculate Return on Investment Instantly"
       intro="Measure return on any business spend — marketing, equipment, training. Add a time period to get an annualised rate so you can compare investments of different lengths."
       breadcrumbs={calcBreadcrumb(SLUG)}
+      slug={SLUG}
     >
       <WebAppSchema
         slug={SLUG}

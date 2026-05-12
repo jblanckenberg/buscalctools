@@ -6,8 +6,14 @@ export type BlogPost = {
   category: "profit" | "pricing" | "operations" | "growth" | "people" | "investments";
   status: "published" | "draft";
   publishedAt?: string;
+  lastModified?: string;
   related: string[];
 };
+
+// Site-wide last-modified date — bump this when articles are reviewed/refreshed
+// rather than touching individual entries. Article schema uses this for
+// dateModified, which Google rewards for freshness.
+export const POSTS_LAST_REVIEWED = "2026-05-12";
 
 export const POSTS: BlogPost[] = [
   { slug: "profit-margin-vs-markup-difference", title: "Profit Margin vs Markup: The Pricing Mistake That Loses Money", description: "Profit margin and markup are not the same number — confusing them is one of the most common pricing mistakes in small business. Here's the difference, with examples.", keyword: "profit margin vs markup", category: "pricing", status: "published", publishedAt: "2026-05-11", related: ["profit-margin-calculator", "markup-calculator", "pricing-calculator"] },

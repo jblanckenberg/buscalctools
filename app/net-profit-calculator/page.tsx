@@ -34,6 +34,7 @@ export default function NetProfitPage() {
       h1="Net Profit Calculator — Full Profit Waterfall from Revenue to Net"
       intro="See exactly how revenue becomes bottom-line profit after COGS, operating expenses, interest, and tax."
       breadcrumbs={calcBreadcrumb(SLUG)}
+      slug={SLUG}
     >
       <WebAppSchema
         slug={SLUG}

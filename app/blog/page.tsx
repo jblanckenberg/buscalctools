@@ -2,13 +2,16 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { POSTS, PUBLISHED_POSTS } from "@/lib/blog/posts";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { hreflang } from "@/lib/seo";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
+
+const BLOG_URL = `${SITE_URL}/blog`;
 
 export const metadata: Metadata = {
   title: "Blog — Pricing, Profit & Operations Guides",
   description:
     "Practical guides on pricing, profit margins, cash flow, valuation, and hiring for small business owners and freelancers. Free, no sign-up.",
-  alternates: { canonical: `${SITE_URL}/blog` },
+  alternates: { canonical: BLOG_URL, languages: hreflang(BLOG_URL) },
 };
 
 const draftPosts = POSTS.filter((p) => p.status === "draft");

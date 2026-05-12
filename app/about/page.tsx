@@ -3,13 +3,16 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { AUTHOR, authorPersonLd } from "@/lib/author";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { hreflang } from "@/lib/seo";
 import { TOPICS } from "@/lib/topics";
+
+const ABOUT_URL = `${SITE_URL}/about`;
 
 export const metadata: Metadata = {
   title: "About — Who Builds BusCalcTools",
   description:
     "James Blanckenberg builds BusCalcTools — free profit, pricing, and growth calculators for small business owners across the US, UK, and South Africa.",
-  alternates: { canonical: `${SITE_URL}/about` },
+  alternates: { canonical: ABOUT_URL, languages: hreflang(ABOUT_URL) },
 };
 
 export default function AboutPage() {

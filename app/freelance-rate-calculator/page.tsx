@@ -34,6 +34,7 @@ export default function FreelanceRatePage() {
       h1="Freelance Hourly Rate Calculator — Find Your Minimum Rate"
       intro="Calculate the hourly rate you need to charge from your income goal, billable hours, overhead and profit buffer."
       breadcrumbs={calcBreadcrumb(SLUG)}
+      slug={SLUG}
     >
       <WebAppSchema
         slug={SLUG}

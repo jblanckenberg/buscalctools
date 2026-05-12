@@ -1,0 +1,92 @@
+# BusCalcTools
+
+> 18 free business calculators and 25 long-form guides for small business owners and freelancers across the US, UK, and South Africa. Region-aware (currency, tax rates) and no sign-up required.
+
+## About
+
+- [About BusCalcTools](https://buscalctools.com/about): Who builds the site, editorial policy, methodology, and contact.
+- [Disclaimer](https://buscalctools.com/disclaimer): Not financial advice. Educational tools only.
+- [Privacy Policy](https://buscalctools.com/privacy): Calculations run in browser; no personal data transmitted.
+
+## Topic hubs
+
+- [Profit & Pricing](https://buscalctools.com/topics/profit-and-pricing): Calculators and guides for profit margin, markup, pricing, net profit, and ecommerce profitability.
+- [Break-Even & Cash Flow](https://buscalctools.com/topics/break-even-and-cash-flow): Break-even, cost-per-unit, cash flow, burn rate, invoicing.
+- [Freelance & Hiring](https://buscalctools.com/topics/freelance-and-hiring): Freelance rate, true employee cost, hire-vs-contractor.
+- [Funding & Valuation](https://buscalctools.com/topics/funding-and-valuation): ROI, business loans, payback period, business valuation, revenue growth.
+
+## Calculators — Profit & Pricing
+
+- [Profit Margin Calculator](https://buscalctools.com/profit-margin-calculator): Gross, operating, and net margin. Region-aware corporate tax (US 21%, UK 25%, SA 27%).
+- [Markup Calculator](https://buscalctools.com/markup-calculator): Convert cost to selling price at any markup, with reverse mode. Shows equivalent margin.
+- [Pricing Calculator](https://buscalctools.com/pricing-calculator): Set selling price from cost + target margin or markup. Auto VAT/sales tax by region.
+- [Net Profit Calculator](https://buscalctools.com/net-profit-calculator): Full revenue-to-net-profit waterfall (COGS → OpEx → interest → tax).
+- [Ecommerce Profit Calculator](https://buscalctools.com/ecommerce-profit-calculator): Profit per unit after Amazon FBA, Etsy, eBay, Shopify fees + ads + VAT.
+- [Discount Calculator](https://buscalctools.com/discount-calculator): Sale price, savings, percentage off, bulk savings table.
+
+## Calculators — Break-Even & Cash Flow
+
+- [Break-Even Calculator](https://buscalctools.com/break-even-calculator): Units and revenue needed to cover all costs, with chart and target-profit mode.
+- [Cost Per Unit Calculator](https://buscalctools.com/cost-per-unit-calculator): Fixed + variable CPU with volume scaling table.
+- [Cash Flow Calculator](https://buscalctools.com/cash-flow-calculator): 12-month projection with running balance chart.
+- [Burn Rate Calculator](https://buscalctools.com/burn-rate-calculator): Gross burn, net burn, runway months, cash exhaustion date.
+- [Invoice Calculator](https://buscalctools.com/invoice-calculator): Build totals with VAT, GST, or sales tax. Up to 5 line items.
+
+## Calculators — Freelance & Hiring
+
+- [Freelance Rate Calculator](https://buscalctools.com/freelance-rate-calculator): Sustainable hourly + day rate from income goal and overhead.
+- [Employee Cost Calculator](https://buscalctools.com/employee-cost-calculator): True cost of a hire (salary + employer tax + benefits + equipment + office).
+
+## Calculators — Funding & Valuation
+
+- [ROI Calculator](https://buscalctools.com/roi-calculator): Total and annualised ROI for any business investment.
+- [Business Loan Calculator](https://buscalctools.com/business-loan-calculator): Monthly payment + amortisation schedule. Region-aware APR pre-fill.
+- [Payback Period Calculator](https://buscalctools.com/payback-period-calculator): Simple + discounted payback period.
+- [Business Valuation Calculator](https://buscalctools.com/business-valuation-calculator): Revenue multiple, EBITDA multiple, 5-year DCF side-by-side.
+- [Revenue Growth Calculator](https://buscalctools.com/revenue-growth-calculator): MoM, YoY, and CAGR.
+
+## Guides — Profit
+
+- [What Is a Good Profit Margin for a Small Business](https://buscalctools.com/blog/what-is-a-good-profit-margin)
+- [Profit Margin vs Markup: The Pricing Mistake That Loses Money](https://buscalctools.com/blog/profit-margin-vs-markup-difference)
+- [Gross Profit vs Net Profit: What's the Difference?](https://buscalctools.com/blog/gross-profit-vs-net-profit)
+- [EBITDA vs Net Profit: Which Number Actually Matters?](https://buscalctools.com/blog/ebitda-vs-net-profit)
+
+## Guides — Pricing
+
+- [Cost-Plus Pricing Explained](https://buscalctools.com/blog/cost-plus-pricing-explained)
+- [Value-Based Pricing vs Cost-Plus](https://buscalctools.com/blog/value-based-pricing-vs-cost-plus)
+- [Discount Pricing Strategy](https://buscalctools.com/blog/discount-pricing-strategy)
+
+## Guides — Operations & cash flow
+
+- [How to Calculate Your Break-Even Point](https://buscalctools.com/blog/how-to-calculate-break-even-point)
+- [5 Break-Even Analysis Examples Across Industries](https://buscalctools.com/blog/break-even-analysis-examples)
+- [7 Ways to Reduce Cost Per Unit](https://buscalctools.com/blog/how-to-reduce-cost-per-unit)
+- [Cash Flow Management for Small Business](https://buscalctools.com/blog/cash-flow-management-small-business)
+- [Amazon FBA Fees Explained](https://buscalctools.com/blog/amazon-fba-fees-explained)
+- [Etsy Seller Fees Explained](https://buscalctools.com/blog/etsy-seller-fees-explained)
+- [UK Invoice Requirements](https://buscalctools.com/blog/uk-invoice-requirements)
+
+## Guides — Freelance & hiring
+
+- [How Much Should I Charge as a Freelancer?](https://buscalctools.com/blog/how-much-to-charge-as-freelancer)
+- [UK Freelance Rates by Industry (2026)](https://buscalctools.com/blog/freelance-rates-by-industry-uk)
+- [The True Cost of an Employee](https://buscalctools.com/blog/true-cost-of-an-employee)
+- [Employee vs Contractor: Which Costs Less?](https://buscalctools.com/blog/employee-vs-contractor-cost-comparison)
+
+## Guides — Funding & growth
+
+- [How to Calculate Marketing ROI](https://buscalctools.com/blog/how-to-calculate-roi-for-marketing)
+- [How Business Loans Work](https://buscalctools.com/blog/how-business-loans-work)
+- [SBA Loan vs Conventional Business Loan](https://buscalctools.com/blog/sba-loan-vs-conventional-loan)
+- [Payback Period vs ROI](https://buscalctools.com/blog/payback-period-vs-roi)
+- [Startup Runway and Burn Rate](https://buscalctools.com/blog/startup-runway-burn-rate-guide)
+- [How to Value a Business to Sell](https://buscalctools.com/blog/how-to-value-a-business-to-sell)
+- [Revenue Growth Benchmarks](https://buscalctools.com/blog/revenue-growth-benchmarks)
+
+## Methodology
+
+- All tax rate defaults are sourced from primary government data (IRS, GOV.UK/HMRC, SARS) and reviewed annually. Each calculator page lists its sources with last-verified dates.
+- Calculations run entirely in the browser; no personal data is transmitted.
+- Articles are originally authored by James Blanckenberg and fact-checked against primary sources.

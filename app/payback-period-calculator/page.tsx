@@ -34,6 +34,7 @@ export default function PaybackPeriodPage() {
       h1="Payback Period Calculator — Recoup Your Investment Timeframe"
       intro="How many years until an investment pays for itself. Optional discount rate for the more rigorous discounted-payback view that accounts for the time value of money."
       breadcrumbs={calcBreadcrumb(SLUG)}
+      slug={SLUG}
     >
       <WebAppSchema
         slug={SLUG}

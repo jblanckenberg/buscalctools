@@ -34,6 +34,7 @@ export default function BusinessValuationPage() {
       h1="Business Valuation Calculator — Estimate Your Business Worth"
       intro="Three standard valuation methods side-by-side — revenue multiple, EBITDA multiple, and a 5-year discounted cash flow with terminal value."
       breadcrumbs={calcBreadcrumb(SLUG)}
+      slug={SLUG}
     >
       <WebAppSchema
         slug={SLUG}

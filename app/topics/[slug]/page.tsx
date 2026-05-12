@@ -3,8 +3,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import ItemListSchema from "@/components/shared/ItemListSchema";
+import FaqList from "@/components/shared/FaqList";
 import Disclaimer from "@/components/shared/Disclaimer";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { hreflang } from "@/lib/seo";
 import {
   TOPICS,
   topicBySlug,
@@ -28,7 +30,7 @@ export async function generateMetadata({
   return {
     title: topic.title,
     description: topic.description,
-    alternates: { canonical: url },
+    alternates: { canonical: url, languages: hreflang(url) },
     openGraph: {
       title: topic.title,
       description: topic.description,
@@ -129,6 +131,8 @@ export default async function TopicPage({
           ))}
         </ul>
       </section>
+
+      <FaqList items={topic.faqs} title={`${topic.name} — frequently asked questions`} />
 
       <section className="mt-14 rounded-xl bg-brand-light p-6">
         <h2 className="text-sm font-semibold uppercase tracking-wider text-brand-dark">

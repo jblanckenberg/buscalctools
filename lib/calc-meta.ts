@@ -29,6 +29,9 @@ export type CalcMeta = {
   howToSteps: HowToStep[];
   sources?: SourceLink[];
   methodologyNote?: string;
+  // 40-60 word direct answer to the implicit question for the page.
+  // Targets featured snippets and voice search via the `.lead` selector.
+  featuredAnswer: string;
 };
 
 export const LAST_VERIFIED = "May 2026";
@@ -87,6 +90,8 @@ export const CALC_META: Record<string, CalcMeta> = {
     methodologyNote:
       "Tax rate defaults reflect each region's headline corporate tax rate. Override the rate if your effective rate differs (e.g. UK small profits rate, US state tax additions).",
     sources: CORPORATE_TAX_SOURCES,
+    featuredAnswer:
+      "Profit margin is profit as a percentage of revenue: ((Revenue − Costs) ÷ Revenue) × 100. Gross margin uses cost of goods sold only; net margin subtracts all costs and tax. A healthy net margin is 10–20% for most small businesses, though benchmarks vary by industry.",
   },
 
   "markup-calculator": {
@@ -109,6 +114,8 @@ export const CALC_META: Record<string, CalcMeta> = {
     ],
     methodologyNote:
       "Formula is region-agnostic and unchanged from standard pricing convention: Selling Price = Cost × (1 + Markup / 100). Currency symbol switches by region only.",
+    featuredAnswer:
+      "Markup is the percentage added to cost to set selling price: Selling Price = Cost × (1 + Markup ÷ 100). A 50% markup on a $40 cost gives a $60 selling price. Markup is always a higher percentage than the equivalent profit margin on the same sale.",
   },
 
   "break-even-calculator": {
@@ -132,6 +139,8 @@ export const CALC_META: Record<string, CalcMeta> = {
     ],
     methodologyNote:
       "Standard break-even formula (Fixed Costs / Contribution Margin per Unit). Region-agnostic — only the currency symbol changes.",
+    featuredAnswer:
+      "Break-even is the number of units you must sell to cover all costs: Break-Even Units = Fixed Costs ÷ (Selling Price − Variable Cost). At $5,000 fixed costs, $10 variable cost per unit, and a $25 selling price, you break even at 334 units (333.3 rounded up).",
   },
 
   "roi-calculator": {
@@ -154,6 +163,8 @@ export const CALC_META: Record<string, CalcMeta> = {
     ],
     methodologyNote:
       "Simple ROI does not account for the time value of money. For investments held over multiple years, use the annualised ROI for fair comparison.",
+    featuredAnswer:
+      "ROI (return on investment) is profit as a percentage of cost: ROI = ((Net Return − Investment) ÷ Investment) × 100. Investing $10,000 and earning back $13,500 is a 35% ROI. Annualised ROI normalises across different holding periods for fair comparison between investments.",
   },
 
   "pricing-calculator": {
@@ -178,6 +189,8 @@ export const CALC_META: Record<string, CalcMeta> = {
     methodologyNote:
       "VAT/sales tax defaults pre-fill at 20% (UK), 15% (SA), and 0% (US — sales tax varies by state). Verify your specific state's rate for US business.",
     sources: VAT_SALES_TAX_SOURCES,
+    featuredAnswer:
+      "To calculate selling price from cost and target margin: Selling Price = Cost ÷ (1 − Margin ÷ 100). For a $20 cost at 40% target margin, the selling price is $33.33. Add VAT/sales tax on top where applicable (20% UK, 15% SA, varies by US state).",
   },
 
   "invoice-calculator": {
@@ -201,6 +214,8 @@ export const CALC_META: Record<string, CalcMeta> = {
     methodologyNote:
       "Tax pre-fills at headline rates (UK VAT 20%, SA VAT 15%, US 0%). UK businesses must register for VAT above £90,000 turnover; SA threshold is R1M. Verify your registration status before issuing VAT invoices.",
     sources: VAT_SALES_TAX_SOURCES,
+    featuredAnswer:
+      "An invoice total is the subtotal of line items, minus any discount, plus tax: Total = (Subtotal − Discount) × (1 + Tax ÷ 100). On £500 with 10% discount and 20% UK VAT: discounted subtotal £450, VAT £90, total £540. Each line item is quantity × unit rate.",
   },
 
   "freelance-rate-calculator": {
@@ -225,6 +240,8 @@ export const CALC_META: Record<string, CalcMeta> = {
     methodologyNote:
       "Tax-buffer guidance reflects each region's typical self-employment tax burden. US 25–30% (SE tax + federal + state), UK 20–30% (income tax + Class 2/4 NI), SA 25–35% (provisional tax). Verify against your individual situation.",
     sources: SELF_EMPLOYMENT_TAX_SOURCES,
+    featuredAnswer:
+      "Your minimum freelance hourly rate is (Annual Income + Overhead) ÷ Annual Billable Hours. Targeting £60,000 with £6,000 overhead and 25 billable hours/week (46 weeks) = £66,000 ÷ 1,150 = £57.39/hour. Add a 10–20% profit margin to set your recommended rate. Add a tax buffer of 20–35% to your income target.",
   },
 
   "cash-flow-calculator": {
@@ -247,6 +264,8 @@ export const CALC_META: Record<string, CalcMeta> = {
     ],
     methodologyNote:
       "Standard cash-flow projection: running balance = opening cash + cumulative (income − expenses). Inputs are estimates; actual cash flow depends on timing of customer payments and supplier terms.",
+    featuredAnswer:
+      "Cash flow is monthly income minus monthly expenses, tracked as a running balance from opening cash. A 12-month projection plots that running balance month by month and flags any month it goes negative. Most cash crises are visible 3–6 months in advance if you project regularly.",
   },
 
   "net-profit-calculator": {
@@ -271,6 +290,8 @@ export const CALC_META: Record<string, CalcMeta> = {
     methodologyNote:
       "Tax rate pre-fills at headline corporate rates (US 21%, UK 25%, SA 27%). Override for: US state tax additions, UK small profits rate (19% under £50k), SA turnover tax (small business alternative).",
     sources: CORPORATE_TAX_SOURCES,
+    featuredAnswer:
+      "Net profit is revenue minus all costs: Revenue − COGS − Operating Expenses − Interest − Tax = Net Profit. The full waterfall produces gross profit, operating profit (EBIT), earnings before tax (EBT), and finally net profit. Net margin = Net Profit ÷ Revenue × 100; 10–20% is healthy for most small businesses.",
   },
 
   "ecommerce-profit-calculator": {
@@ -295,6 +316,8 @@ export const CALC_META: Record<string, CalcMeta> = {
     methodologyNote:
       "Platform fee defaults: Amazon FBA 15%, Etsy 6.5%, eBay 13%, Shopify 2.9%. Headline rates only — your actual fees may include category-specific premiums or volume discounts. Check your platform's seller dashboard for the exact split.",
     sources: VAT_SALES_TAX_SOURCES,
+    featuredAnswer:
+      "Ecommerce profit per unit = Selling Price − Product Cost − Platform Fee − Shipping − Ad Spend − VAT. On a $29.99 Amazon FBA sale with $8 product cost, 15% platform fee, $3.50 shipping, and $2 ads, you net about $12. Most sellers underestimate platform fees and ad spend.",
   },
 
   "cost-per-unit-calculator": {
@@ -317,6 +340,8 @@ export const CALC_META: Record<string, CalcMeta> = {
     ],
     methodologyNote:
       "Standard unit-cost formula: total CPU = (fixed + variable costs) / units produced. Scaling table assumes fixed costs stay constant and variable costs scale linearly with volume (no bulk discounts modelled).",
+    featuredAnswer:
+      "Cost per unit = (Total Fixed Costs + Total Variable Costs) ÷ Number of Units. With $10,000 fixed costs, $5,000 variable costs, and 500 units, total cost per unit is $30 ($20 fixed CPU + $10 variable CPU). Fixed CPU drops as volume rises — the economies-of-scale effect.",
   },
 
   "business-loan-calculator": {
@@ -341,6 +366,8 @@ export const CALC_META: Record<string, CalcMeta> = {
     methodologyNote:
       "Pre-fill rates are mid-range SME rates for each region: US SBA 7(a) ~7.5%, UK SME ~8.5%, SA prime + margin ~14.5%. Actual rates vary by lender, term, credit, and collateral. APR includes fees; lenders quoting headline rates may be missing fee components.",
     sources: LOAN_RATE_SOURCES,
+    featuredAnswer:
+      "Monthly business loan payment uses the standard amortisation formula: P × [r(1+r)^n] / [(1+r)^n − 1], where P is principal, r is the monthly rate (APR ÷ 12 ÷ 100), and n is total months. A $50,000 loan at 8% APR over 60 months has a $1,013.82 monthly payment.",
   },
 
   "payback-period-calculator": {
@@ -363,6 +390,8 @@ export const CALC_META: Record<string, CalcMeta> = {
     ],
     methodologyNote:
       "Simple payback ignores cash flows after recovery (so a 3-year-payback investment producing for 20 years is treated the same as one producing for 3). Pair with ROI for total-return view.",
+    featuredAnswer:
+      "Payback period is years until an investment recoups its initial cost: Investment ÷ Annual Cash Inflow. A $50,000 investment generating $18,000 per year has a payback period of 2.78 years. Discounted payback applies a discount rate to future cash flows to reflect the time value of money.",
   },
 
   "burn-rate-calculator": {
@@ -385,6 +414,8 @@ export const CALC_META: Record<string, CalcMeta> = {
     ],
     methodologyNote:
       "Runway = cash / net burn. Assumes current-month income and expense levels continue. In practice, expenses creep, hires happen, and revenue is non-linear. Update inputs monthly for accurate tracking.",
+    featuredAnswer:
+      "Burn rate is monthly cash consumption: Gross Burn = total monthly expenses; Net Burn = expenses minus revenue. Runway in months = Cash Balance ÷ Net Burn. A startup with $500,000 cash and a $50,000 net burn has 10 months of runway. Below 9 months is critical — start fundraising at 12.",
   },
 
   "business-valuation-calculator": {
@@ -407,6 +438,8 @@ export const CALC_META: Record<string, CalcMeta> = {
     ],
     methodologyNote:
       "DCF uses 5-year explicit projection + Gordon growth terminal value. The terminal value typically accounts for 60–80% of total DCF — small changes to growth or discount rate produce large swings. Use the range across methods, not the DCF alone.",
+    featuredAnswer:
+      "Most small businesses are valued using three methods: revenue × industry multiple, EBITDA × industry multiple, and discounted cash flow (DCF). Typical SME EBITDA multiples are 3–7×; SaaS revenue multiples 3–8×; service businesses 2–4× EBITDA. The midpoint of the three methods anchors realistic asking prices.",
   },
 
   "revenue-growth-calculator": {
@@ -429,6 +462,8 @@ export const CALC_META: Record<string, CalcMeta> = {
     ],
     methodologyNote:
       "CAGR formula assumes geometric compounding from start value to end value over N years. Doesn't reflect intra-period volatility — a business that grew 100% one year and -50% the next can have a benign CAGR.",
+    featuredAnswer:
+      "Revenue growth rate is ((Current − Previous) ÷ Previous) × 100. From $180,000 to $250,000 is 38.9% growth. CAGR (Compound Annual Growth Rate) smooths multi-year volatility: ((End ÷ Start) ^ (1 ÷ Years)) − 1. Healthy growth for established small businesses is 10–20% annually.",
   },
 
   "employee-cost-calculator": {
@@ -452,6 +487,8 @@ export const CALC_META: Record<string, CalcMeta> = {
     methodologyNote:
       "Employer tax pre-fills at each region's typical SME burden. US: FICA 7.65% + FUTA 0.6% + SUTA ~2.7% ≈ 11%. UK: Employer NIC 13.8% above secondary threshold. SA: UIF 1% + SDL 1% (SDL exempt under R500k payroll). Confirm against your actual payroll software.",
     sources: EMPLOYER_TAX_SOURCES,
+    featuredAnswer:
+      "The true cost of an employee is 125–145% of their salary. Add employer payroll taxes (US ~11%, UK 13.8%, SA ~2%), benefits, pension contributions, equipment, training, and office overhead on top. A £45,000 UK salary typically costs the employer around £58,000 fully loaded.",
   },
 
   "discount-calculator": {
@@ -475,6 +512,8 @@ export const CALC_META: Record<string, CalcMeta> = {
     ],
     methodologyNote:
       "Simple discount math. Bulk savings table assumes constant per-unit discount across quantities — doesn't model tiered or wholesale discount structures.",
+    featuredAnswer:
+      "Discounted price = Original Price × (1 − Discount Percentage ÷ 100). A 25% discount on a $100 item gives a $75 sale price and $25 saving. Reverse: Discount % = ((Original − Sale Price) ÷ Original) × 100. Most retail discounts run 10–40%; bigger discounts can erode brand value.",
   },
 };
 

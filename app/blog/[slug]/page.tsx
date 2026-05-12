@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { PUBLISHED_POSTS, postBySlug } from "@/lib/blog/posts";
+import { POSTS_LAST_REVIEWED, PUBLISHED_POSTS, postBySlug } from "@/lib/blog/posts";
 import { ARTICLE_BODIES } from "@/components/blog/articles";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import AuthorCard from "@/components/shared/AuthorCard";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { hreflang } from "@/lib/seo";
 import { AUTHOR, AUTHOR_URL } from "@/lib/author";
 
 export async function generateStaticParams() {
@@ -28,7 +29,7 @@ export async function generateMetadata({
     // over 70 chars with "| BusCalcTools" appended.
     title: { absolute: post.title },
     description: post.description,
-    alternates: { canonical: url },
+    alternates: { canonical: url, languages: hreflang(url) },
     openGraph: {
       title: post.title,
       description: post.description,
@@ -63,7 +64,7 @@ export default async function ArticlePage({
     headline: post.title,
     description: post.description,
     datePublished: post.publishedAt,
-    dateModified: post.publishedAt,
+    dateModified: post.lastModified ?? POSTS_LAST_REVIEWED,
     author: {
       "@type": "Person",
       name: AUTHOR.name,
@@ -79,6 +80,10 @@ export default async function ArticlePage({
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `${SITE_URL}/blog/${slug}`,
+    },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".lead"],
     },
   };
 
