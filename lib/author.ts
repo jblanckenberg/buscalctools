@@ -14,9 +14,11 @@ export const AUTHOR = {
     "I previously built FinnCalc — a sister site covering personal-finance calculators — using the same philosophy. Both projects are fully independent: no client work, no investors, no agenda beyond making the maths accessible.",
     "If a calculator on this site has produced a result that contradicts your accountant, your accountant is probably right — the calculators are designed as a fast sanity check, not professional advice. Sources for tax rates and benchmark figures are linked on each calculator page.",
   ],
-  // Add real URLs as accounts are confirmed. Empty array currently — Google's
-  // E-E-A-T scoring uses sameAs strongly, so wire these up.
-  sameAs: [] as string[],
+  // Real identity URLs for Person.sameAs (Google E-E-A-T signal). Add more
+  // platforms (X, GitHub, Crunchbase, etc.) as accounts come online.
+  sameAs: [
+    "https://www.linkedin.com/in/james-blanckenberg-154a1312/",
+  ],
   // Optional: a real headshot file at /public/<filename>.jpg + this URL.
   image: undefined as string | undefined,
 };
