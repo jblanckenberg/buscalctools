@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { Copy, Printer, Check } from "lucide-react";
+import { trackCalcCompleted } from "@/lib/analytics";
 
 type Props = {
   copyText: string;
@@ -10,6 +12,11 @@ type Props = {
 
 export default function CalculatorActions({ copyText, label = "result" }: Props) {
   const [copied, setCopied] = useState(false);
+  const pathname = usePathname();
+  // Strip leading slash + any trailing slash; first segment is the calc slug.
+  // Works for `/profit-margin-calculator` (calc page) and is harmless on any
+  // other path — trackCalcCompleted no-ops when gtag is absent anyway.
+  const slug = (pathname ?? "").replace(/^\/+/, "").split("/")[0] ?? "";
 
   const handleCopy = async () => {
     try {
@@ -19,10 +26,12 @@ export default function CalculatorActions({ copyText, label = "result" }: Props)
     } catch {
       // ignore — older browsers
     }
+    trackCalcCompleted(slug);
   };
 
   const handlePrint = () => {
     if (typeof window !== "undefined") window.print();
+    trackCalcCompleted(slug);
   };
 
   return (

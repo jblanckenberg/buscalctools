@@ -32,6 +32,9 @@ export type CalcMeta = {
   // 40-60 word direct answer to the implicit question for the page.
   // Targets featured snippets and voice search via the `.lead` selector.
   featuredAnswer: string;
+  // ~29-word condensed answer for voice-assistant snippets (Google's
+  // voice-snippet sweet spot). Rendered inside .speakable-answer when set.
+  voiceAnswer?: string;
 };
 
 export const LAST_VERIFIED = "May 2026";
@@ -92,6 +95,8 @@ export const CALC_META: Record<string, CalcMeta> = {
     sources: CORPORATE_TAX_SOURCES,
     featuredAnswer:
       "Profit margin is profit as a percentage of revenue: ((Revenue − Costs) ÷ Revenue) × 100. Gross margin uses cost of goods sold only; net margin subtracts all costs and tax. A healthy net margin is 10–20% for most small businesses, though benchmarks vary by industry.",
+    voiceAnswer:
+      "Profit margin equals profit divided by revenue. Gross margin uses cost of goods sold; net margin subtracts all costs and tax. A healthy small-business net margin is ten percent.",
   },
 
   "markup-calculator": {
@@ -116,6 +121,8 @@ export const CALC_META: Record<string, CalcMeta> = {
       "Formula is region-agnostic and unchanged from standard pricing convention: Selling Price = Cost × (1 + Markup / 100). Currency symbol switches by region only.",
     featuredAnswer:
       "Markup is the percentage added to cost to set selling price: Selling Price = Cost × (1 + Markup ÷ 100). A 50% markup on a $40 cost gives a $60 selling price. Markup is always a higher percentage than the equivalent profit margin on the same sale.",
+    voiceAnswer:
+      "Markup is the percentage added to cost to set selling price. A fifty percent markup on a forty dollar cost gives a sixty dollar price — higher than the margin.",
   },
 
   "break-even-calculator": {
@@ -141,6 +148,8 @@ export const CALC_META: Record<string, CalcMeta> = {
       "Standard break-even formula (Fixed Costs / Contribution Margin per Unit). Region-agnostic — only the currency symbol changes.",
     featuredAnswer:
       "Break-even is the number of units you must sell to cover all costs: Break-Even Units = Fixed Costs ÷ (Selling Price − Variable Cost). At $5,000 fixed costs, $10 variable cost per unit, and a $25 selling price, you break even at 334 units (333.3 rounded up).",
+    voiceAnswer:
+      "Break-even units equal fixed costs divided by contribution margin per unit. Selling price minus variable cost is contribution margin. Five thousand divided by fifteen equals three hundred thirty-four units.",
   },
 
   "roi-calculator": {
@@ -165,6 +174,8 @@ export const CALC_META: Record<string, CalcMeta> = {
       "Simple ROI does not account for the time value of money. For investments held over multiple years, use the annualised ROI for fair comparison.",
     featuredAnswer:
       "ROI (return on investment) is profit as a percentage of cost: ROI = ((Net Return − Investment) ÷ Investment) × 100. Investing $10,000 and earning back $13,500 is a 35% ROI. Annualised ROI normalises across different holding periods for fair comparison between investments.",
+    voiceAnswer:
+      "ROI equals net return minus investment, divided by the investment, times one hundred. Earning thirteen thousand five hundred back on a ten thousand investment is a thirty-five percent ROI.",
   },
 
   "pricing-calculator": {

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PHASE_1, PHASE_2 } from "@/lib/tools";
 import { TOPICS } from "@/lib/topics";
+import CookieSettingsLink from "@/components/shared/CookieSettingsLink";
 
 export default function Footer() {
   return (
@@ -64,6 +65,9 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/cookies" className="text-gray-700 hover:text-brand-primary">Cookies</Link>
+              </li>
+              <li>
+                <CookieSettingsLink />
               </li>
               <li>
                 <Link href="/terms" className="text-gray-700 hover:text-brand-primary">Terms</Link>
