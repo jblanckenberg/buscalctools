@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ConsentBanner from "@/components/shared/ConsentBanner";
 import ConsentGate from "@/components/shared/ConsentGate";
+import PlausibleScript from "@/components/shared/PlausibleScript";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -58,6 +59,7 @@ export default function RootLayout({
         <Header />
         <main className="min-h-screen bg-white">{children}</main>
         <Footer />
+        <PlausibleScript />
         <ConsentBanner />
         <ConsentGate />
       </body>
