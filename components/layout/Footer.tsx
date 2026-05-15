@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="mt-16 border-t border-gray-200 bg-brand-light">
       <div className="mx-auto max-w-6xl px-4 py-10">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-dark">
               Profit &amp; pricing
@@ -79,6 +79,23 @@ export default function Footer() {
                 <Link href="/disclaimer" className="text-gray-700 hover:text-brand-primary">Disclaimer</Link>
               </li>
             </ul>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-dark">
+              Personal finance?
+            </h3>
+            <p className="mt-3 text-sm text-gray-700">
+              Try our sister site{" "}
+              <a
+                href="https://finncalc.com/"
+                rel="noopener"
+                className="font-semibold text-brand-primary hover:underline"
+              >
+                FinCalcHub
+              </a>
+              {" — "} free retirement, mortgage, and take-home pay calculators
+              for the USA, UK, and South Africa.
+            </p>
           </div>
         </div>
         <div className="mt-10 border-t border-gray-300 pt-6 text-xs text-gray-600">
