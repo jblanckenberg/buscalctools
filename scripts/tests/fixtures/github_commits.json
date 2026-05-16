@@ -1,0 +1,5 @@
+[
+  {"sha": "abc1", "commit": {"author": {"date": "2026-08-12T10:00:00Z"}, "message": "feat: x"}},
+  {"sha": "abc2", "commit": {"author": {"date": "2026-08-11T14:22:00Z"}, "message": "fix: y"}},
+  {"sha": "abc3", "commit": {"author": {"date": "2026-08-10T09:15:00Z"}, "message": "chore: z"}}
+]
