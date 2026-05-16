@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
 import { TOOLS } from "@/lib/tools";
 import { PUBLISHED_POSTS } from "@/lib/blog/posts";
+import { PUBLISHED_COMPARISONS } from "@/lib/comparisons";
 import { TOPICS } from "@/lib/topics";
 import { allVariantParams } from "@/lib/variants";
 
@@ -45,6 +46,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: p.publishedAt ? new Date(p.publishedAt) : now,
       changeFrequency: "monthly" as const,
       priority: 0.6,
+    })),
+    {
+      url: `${SITE_URL}/compare`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    },
+    ...PUBLISHED_COMPARISONS.map((c) => ({
+      url: `${SITE_URL}/compare/${c.slug}`,
+      lastModified: new Date(c.updatedDate),
+      changeFrequency: "monthly" as const,
+      priority: 0.65,
     })),
     {
       url: `${SITE_URL}/about`,

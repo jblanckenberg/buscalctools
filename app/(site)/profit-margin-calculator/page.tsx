@@ -119,7 +119,10 @@ Example: Revenue = $50,000 | COGS = $30,000
         </dl>
       </section>
 
-      <RelatedTools slugs={["markup-calculator", "pricing-calculator", "net-profit-calculator"]} />
+      <RelatedTools
+        slugs={["markup-calculator", "pricing-calculator", "net-profit-calculator"]}
+        surfaceComparisonsForCalc="profit-margin-calculator"
+      />
 
       <EmbedCTA slug={SLUG} />
 

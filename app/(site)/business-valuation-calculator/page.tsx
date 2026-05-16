@@ -78,7 +78,10 @@ DCF Valuation:
 
       <FaqList items={FAQS} />
 
-      <RelatedTools slugs={["net-profit-calculator", "roi-calculator", "revenue-growth-calculator"]} />
+      <RelatedTools
+        slugs={["net-profit-calculator", "roi-calculator", "revenue-growth-calculator"]}
+        surfaceComparisonsForCalc="business-valuation-calculator"
+      />
 
       <MethodologyBox slug={SLUG} />
 

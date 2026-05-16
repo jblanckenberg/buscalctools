@@ -99,7 +99,10 @@ Example: Fixed = $5,000 | Variable = $10 | Selling Price = $25
         </dl>
       </section>
 
-      <RelatedTools slugs={["roi-calculator", "cash-flow-calculator", "cost-per-unit-calculator"]} />
+      <RelatedTools
+        slugs={["roi-calculator", "cash-flow-calculator", "cost-per-unit-calculator"]}
+        surfaceComparisonsForCalc="break-even-calculator"
+      />
 
       <EmbedCTA slug={SLUG} />
 
