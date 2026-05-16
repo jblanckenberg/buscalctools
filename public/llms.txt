@@ -90,3 +90,21 @@
 - All tax rate defaults are sourced from primary government data (IRS, GOV.UK/HMRC, SARS) and reviewed annually. Each calculator page lists its sources with last-verified dates.
 - Calculations run entirely in the browser; no personal data is transmitted.
 - Articles are originally authored by James Blanckenberg and fact-checked against primary sources.
+
+## Calculator Variants (Phase 2)
+
+- https://buscalctools.com/profit-margin-calculator/uk : UK profit margin calculator (HMRC-aware)
+- https://buscalctools.com/profit-margin-calculator/us : US profit margin calculator (IRS-aware)
+- https://buscalctools.com/profit-margin-calculator/restaurants : Restaurant profit margin calculator
+- https://buscalctools.com/profit-margin-calculator/ecommerce : Ecommerce profit margin calculator
+- https://buscalctools.com/markup-calculator/uk : UK markup calculator (VAT-aware)
+- https://buscalctools.com/markup-calculator/retail : Retail markup calculator (keystone)
+- https://buscalctools.com/freelance-rate-calculator/uk : UK freelance rate calculator (Class 2/4 NI)
+- https://buscalctools.com/freelance-rate-calculator/us : US freelance rate calculator (SE tax)
+- https://buscalctools.com/freelance-rate-calculator/designers : Freelance designer rate calculator
+- https://buscalctools.com/freelance-rate-calculator/developers : Freelance developer rate calculator
+- https://buscalctools.com/break-even-calculator/uk : UK break-even calculator
+- https://buscalctools.com/break-even-calculator/restaurants : Restaurant break-even calculator
+- https://buscalctools.com/cash-flow-calculator/uk : UK 12-month cash flow calculator
+- https://buscalctools.com/business-loan-calculator/uk : UK business loan calculator
+- https://buscalctools.com/roi-calculator/marketing : Marketing ROI calculator (ROAS, CAC)
