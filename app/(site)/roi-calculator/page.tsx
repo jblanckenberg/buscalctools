@@ -5,6 +5,7 @@ import FaqList from "@/components/shared/FaqList";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import MethodologyBox from "@/components/shared/MethodologyBox";
+import EmbedCTA from "@/components/shared/EmbedCTA";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -77,6 +78,8 @@ Example: Investment = $10,000 | Net Return = $13,500 | Period = 18 months
       <FaqList items={FAQS} />
 
       <RelatedTools slugs={["break-even-calculator", "business-valuation-calculator", "payback-period-calculator"]} />
+
+      <EmbedCTA slug={SLUG} />
 
       <MethodologyBox slug={SLUG} />
 
