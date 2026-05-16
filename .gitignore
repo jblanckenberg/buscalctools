@@ -34,3 +34,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# kpi etl (Phase 6)
+scripts/kpi_config.json
+scripts/.gsc_service_account.json
+scripts/kpi/__pycache__/
+scripts/tests/__pycache__/

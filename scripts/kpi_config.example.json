@@ -1,0 +1,38 @@
+{
+  "plausible": {
+    "api_key": "<PLAUSIBLE_API_KEY>",
+    "base_url": "https://plausible.io/api/v1",
+    "sites": [
+      {"domain": "buscalctools.com", "label": "BusCalcTools"},
+      {"domain": "finncalc.com", "label": "FinCalcHub"}
+    ]
+  },
+  "gsc": {
+    "service_account_json": "scripts/.gsc_service_account.json",
+    "sites": [
+      {"site_url": "sc-domain:buscalctools.com", "label": "BusCalcTools"},
+      {"site_url": "sc-domain:finncalc.com", "label": "FinCalcHub"}
+    ],
+    "top_keyword_position_threshold": 10
+  },
+  "github": {
+    "personal_access_token": "",
+    "repos": [
+      {"slug": "jamesblanckenberg/BizProfitCalc", "label": "BusCalcTools"},
+      {"slug": "jamesblanckenberg/Finance_Calculator_Hub", "label": "FinCalcHub"}
+    ]
+  },
+  "notion": {
+    "integration_token": "<NOTION_INTEGRATION_TOKEN>",
+    "page_id": "<NOTION_PAGE_ID_32_CHAR_HEX>",
+    "api_version": "2022-06-28"
+  },
+  "newsletter": {
+    "source": "manual",
+    "current_subscribers": 0
+  },
+  "dashboard": {
+    "output_html": "out/dashboard.html",
+    "snapshot_dir": "docs/kpi"
+  }
+}
