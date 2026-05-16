@@ -1,0 +1,11 @@
+{
+  "results": [
+    {"source": "Direct / None", "visitors": 4200},
+    {"source": "google.com", "visitors": 3100},
+    {"source": "duckduckgo.com", "visitors": 410},
+    {"source": "reddit.com", "visitors": 280},
+    {"source": "pinterest.com", "visitors": 195},
+    {"source": "twitter.com", "visitors": 132},
+    {"source": "linkedin.com", "visitors": 88}
+  ]
+}
