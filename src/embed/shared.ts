@@ -6,7 +6,9 @@
  * inside the iframe — anchors inside iframes don't pass PageRank. This is
  * the SEO mechanic of the embed widget.
  */
-const EMBED_ORIGIN_PLACEHOLDER = "__EMBED_ORIGIN__";
+// __EMBED_ORIGIN__ is replaced at build time by scripts/build-embeds.mjs via
+// esbuild's `define` with the runtime origin (e.g. "https://buscalctools.com").
+declare const __EMBED_ORIGIN__: string;
 
 type BootOpts = {
   slug: string;
@@ -31,7 +33,7 @@ export function boot(opts: BootOpts): void {
   if (container.dataset.bctMounted === "1") return;
   container.dataset.bctMounted = "1";
 
-  const origin = EMBED_ORIGIN_PLACEHOLDER; // replaced by build script
+  const origin = __EMBED_ORIGIN__; // replaced by build script
 
   const iframe = document.createElement("iframe");
   iframe.src = `${origin}/embed/${opts.slug}/`;

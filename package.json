@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/build-embeds.mjs && next build",
+    "build:embeds": "node scripts/build-embeds.mjs",
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run",
