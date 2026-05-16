@@ -1,0 +1,8 @@
+{
+  "rows": [
+    {"keys": ["https://buscalctools.com/"], "clicks": 412, "impressions": 9200, "ctr": 0.0448, "position": 14.2},
+    {"keys": ["https://buscalctools.com/profit-margin-calculator"], "clicks": 380, "impressions": 5100, "ctr": 0.0745, "position": 8.1},
+    {"keys": ["https://buscalctools.com/break-even-calculator"], "clicks": 220, "impressions": 4400, "ctr": 0.05, "position": 12.4}
+  ],
+  "responseAggregationType": "byPage"
+}
