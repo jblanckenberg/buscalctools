@@ -1,16 +1,6 @@
 import type { Variant, VariantMatrix } from "@/lib/variants.types";
 
 /**
- * Returns an OPERATOR_TO_FILL marker for an operator-written intro.
- * Variant pages render this string verbatim until an operator replaces it
- * with 300-500 words of unique commentary. Tests assert every intro starts
- * with `[OPERATOR_TO_FILL:` so the build never ships a stub by accident.
- */
-function todo(topic: string): string {
-  return `[OPERATOR_TO_FILL: ${topic}]`;
-}
-
-/**
  * Variant matrix — 15 entries across 7 parent calculators.
  * Each entry adds geo/scenario/audience nuance on top of the parent calc.
  * Title body is kept ≤70 chars before the ` | BusCalcTools` brand suffix
@@ -241,7 +231,7 @@ For limited-company contractors, the math changes: 19% / 25% Corporation Tax on 
 
 Plug a target net income into the calculator and it back-solves to the hourly rate, accounting for HMRC tax bands and assumed utilisation. For most UK freelancers targeting a £50k post-tax lifestyle, the answer lands between £75 and £100/hour billed.
 
-For underlying rules, HMRC's self-employment guidance on gov.uk and the National Insurance contributions and credits pages are the official sources.`,
+For underlying rules, consult HMRC's self-employment guidance on gov.uk and the National Insurance contributions and credits pages — both refreshed each tax year as bands and thresholds change.`,
       hreflangCountry: "en-GB",
     },
     us: {

@@ -36,10 +36,18 @@ describe("variant matrix", () => {
     expect(params).toHaveLength(15);
   });
 
-  it("every intro is currently an OPERATOR_TO_FILL marker", () => {
+  it("no intro is still an OPERATOR_TO_FILL stub", () => {
     const flat = Object.values(VARIANTS).flatMap((m) => Object.values(m));
     for (const v of flat) {
-      expect(v.intro).toMatch(/^\[OPERATOR_TO_FILL:/);
+      expect(v.intro, `${v.slug} intro must not be a stub`).not.toMatch(/^\[OPERATOR_TO_FILL:/);
+    }
+  });
+
+  it("every intro is at least 300 words", () => {
+    const flat = Object.values(VARIANTS).flatMap((m) => Object.values(m));
+    for (const v of flat) {
+      const wordCount = v.intro.split(/\s+/).filter(Boolean).length;
+      expect(wordCount, `${v.slug} intro is ${wordCount} words; minimum is 300`).toBeGreaterThanOrEqual(300);
     }
   });
 });
