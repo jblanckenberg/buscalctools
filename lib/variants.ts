@@ -17,11 +17,11 @@ export const VARIANTS: VariantMatrix = {
       description:
         "Calculate UK gross, operating, and net profit margins with HMRC corporation tax built in. Free, browser-based, sterling-ready for small businesses.",
       voiceAnswer: undefined,
-      intro: `A UK profit margin calculator returns gross, operating, and net margins after VAT (20%), Corporation Tax (25% main / 19% small profits, with marginal relief between £50k-£250k), and employer NI (13.8% above £9,100). Enter VAT-exclusive revenue. HMRC's CT600 guidance and VAT Notice 700 are the authoritative references.
+      intro: `A UK profit margin calculator returns gross, operating, and net margins after VAT (20%), Corporation Tax (25% main / 19% small profits, with marginal relief between £50k-£250k), and employer NI (15% above £5,000). Enter VAT-exclusive revenue. HMRC's CT600 guidance and VAT Notice 700 are the authoritative references.
 
 Margin and markup get confused constantly in UK SME finance — a 50% markup is only a 33.3% margin, and that 16.7 percentage-point gap is the difference between a healthy business and one quietly losing money on every unit sold. This calculator separates the three margin layers (gross, operating, net) using your VAT-exclusive revenue figure — the HMRC standard for accounts filed with Companies House — so you're not inflating the top line by 20% of VAT you collect on HMRC's behalf.
 
-Costs go into two buckets. Cost of goods sold (COGS) is everything that scales with the unit sold: supplier invoices, import duty since the EU-UK Trade and Cooperation Agreement changes, freight, payment processing (Stripe, GoCardless, Worldpay), and packaging. Operating overheads are rent, payroll including 13.8% employer National Insurance above the £9,100 secondary threshold, software, professional fees, and marketing.
+Costs go into two buckets. Cost of goods sold (COGS) is everything that scales with the unit sold: supplier invoices, import duty since the EU-UK Trade and Cooperation Agreement changes, freight, payment processing (Stripe, GoCardless, Worldpay), and packaging. Operating overheads are rent, payroll including 15% employer National Insurance above the £5,000 secondary threshold, software, professional fees, and marketing.
 
 Realistic UK net-margin benchmarks (HMRC sector ratios + FAME small-company data):
 - Professional services: 12-25%
@@ -50,9 +50,9 @@ US profit margin math has two complications absent in most other markets: the fe
 
 For C-corps, the federal rate is a flat 21% post-TCJA. State rates range from 0% (Nevada, Texas, Washington — Texas has a separate franchise tax) to 11.5% (New Jersey), so the blended rate depends on nexus. The calculator lets you set an effective combined rate so net margin output reflects what actually hits retained earnings.
 
-For pass-through entities (S-corp, LLC, partnership, sole prop), the entity pays no federal income tax — profit flows to the personal 1040 and is taxed at marginal rates from 10% to 37%, plus 15.3% self-employment tax on the first $168,600 of SE income (2024 Social Security wage base) and 2.9% Medicare above (with an additional 0.9% above $200k). Net margin for pass-throughs is conventionally calculated pre-personal-tax.
+For pass-through entities (S-corp, LLC, partnership, sole prop), the entity pays no federal income tax — profit flows to the personal 1040 and is taxed at marginal rates from 10% to 37%, plus 15.3% self-employment tax on the first $184,500 of SE income (2026 Social Security wage base) and 2.9% Medicare above (with an additional 0.9% above $200k). Net margin for pass-throughs is conventionally calculated pre-personal-tax.
 
-COGS under US GAAP includes direct materials, direct labor, and manufacturing overhead. Section 263A (UNICAP) rules force resellers and manufacturers with average receipts above $29M (2024 threshold) to capitalize more indirect costs into inventory.
+COGS under US GAAP includes direct materials, direct labor, and manufacturing overhead. Section 263A (UNICAP) rules force resellers and manufacturers with average receipts above $32M (2026 threshold) to capitalize more indirect costs into inventory.
 
 Net-margin benchmarks (IRS Statistics of Income and NYU Stern industry tables):
 - Software / SaaS: 15-25%
@@ -216,10 +216,10 @@ UK freelance rate-setting is where most new contractors get it wrong, because th
 - Basic rate: 20% on £12,571 – £50,270
 - Higher rate: 40% on £50,271 – £125,140
 - Additional rate: 45% above £125,140
-- Class 2 NI: £3.45/week, effectively voluntary post-2024
+- Class 2 NI: £3.65/week, voluntary for most self-employed since April 2024
 - Class 4 NI: 6% on profits £12,570-£50,270; 2% above
 
-For limited-company contractors, the math changes: 19% / 25% Corporation Tax on company profits (with marginal relief between £50k-£250k), then dividend tax of 8.75% / 33.75% / 39.35% when you draw. Inside IR35, you're back to PAYE-like deductions.
+For limited-company contractors, the math changes: 19% / 25% Corporation Tax on company profits (with marginal relief between £50k-£250k), then dividend tax of 10.75% / 35.75% / 39.35% when you draw. Inside IR35, you're back to PAYE-like deductions.
 
 **The non-tax deductions every freelancer underestimates:**
 - **Billable hours**: a full-time freelancer typically bills 1,000-1,400 hours per year, not 1,820. Selling, admin, training, and downtime eat the rest
@@ -243,19 +243,19 @@ For underlying rules, consult HMRC's self-employment guidance on gov.uk and the 
       description:
         "Calculate US freelance hourly rate with IRS self-employment tax (15.3%) buffer. Sustainable pricing for independent contractors and 1099 workers.",
       voiceAnswer: undefined,
-      intro: `US freelance rates must cover federal income tax (10-37%), state income tax (0-13.3%), and self-employment tax of 15.3% on the first $168,600 (2024 Social Security wage base) plus 2.9% Medicare above. A $100,000 take-home typically requires $130-150/hour at 1,200 billable hours. IRS Publication 334 is authoritative.
+      intro: `US freelance rates must cover federal income tax (10-37%), state income tax (0-13.3%), and self-employment tax of 15.3% on the first $184,500 (2026 Social Security wage base) plus 2.9% Medicare above. A $100,000 take-home typically requires $130-150/hour at 1,200 billable hours. IRS Publication 334 is authoritative.
 
-The single biggest US-specific surprise for new freelancers is self-employment tax. As a W-2 employee, your employer paid half of FICA (7.65%) on your behalf and you barely noticed. As a 1099 freelancer or sole proprietor, you pay both halves — 15.3% on net SE income up to the Social Security wage base ($168,600 in 2024), then 2.9% (+0.9% Additional Medicare) above. That's before federal and state income tax.
+The single biggest US-specific surprise for new freelancers is self-employment tax. As a W-2 employee, your employer paid half of FICA (7.65%) on your behalf and you barely noticed. As a 1099 freelancer or sole proprietor, you pay both halves — 15.3% on net SE income up to the Social Security wage base ($184,500 in 2026), then 2.9% (+0.9% Additional Medicare) above. That's before federal and state income tax.
 
 **The IRS stack for a typical 1099 freelancer:**
-- **Self-employment tax**: 15.3% on first $168,600 of net SE income, 2.9% above (plus 0.9% Additional Medicare over $200k single / $250k MFJ)
+- **Self-employment tax**: 15.3% on first $184,500 of net SE income, 2.9% above (plus 0.9% Additional Medicare over $200k single / $250k MFJ)
 - **Federal income tax**: marginal rates 10% / 12% / 22% / 24% / 32% / 35% / 37% — applied to AGI after the 50% deduction for SE tax paid and any QBI deduction (up to 20% for qualified pass-through income, subject to phase-outs and SSTB rules)
 - **State income tax**: 0% (TX, FL, NV, WA, TN, NH, SD, WY, AK) up to 13.3% (CA top bracket)
 - **Estimated tax payments**: quarterly to IRS (Form 1040-ES) and most states, due 15 April / 15 June / 15 September / 15 January
 
 Beyond tax, US freelancers pay for things employees get for free:
 - **Health insurance**: $400-1,500/month off-exchange depending on age, state, coverage
-- **Self-funded retirement**: SEP-IRA (up to 25% of net SE income capped at $69k in 2024) or Solo 401(k) (combined up to $69k, $76,500 if 50+)
+- **Self-funded retirement**: SEP-IRA (up to 25% of net SE income capped at $72,000 in 2026) or Solo 401(k) (combined up to $72,000, $80,000 if 50+, up to $83,250 with the age 60-63 super-catch-up)
 - **Disability / life insurance**
 - **Business deductions** (home office, mileage, software, professional development)
 
@@ -342,12 +342,12 @@ It also outputs day-rate and weekly equivalent for enterprise procurement teams,
       description:
         "Calculate break-even units and revenue for a UK business in pounds sterling, with HMRC-aware fixed cost guidance and contribution margin output.",
       voiceAnswer: undefined,
-      intro: `Break-even is the sales volume where total revenue equals total costs. For UK businesses: break-even units = fixed costs ÷ (price − variable cost). Fixed costs must include rent, salaries, employer NI (13.8% above £9,100), and software. HMRC's Employer Helpbook on gov.uk is authoritative for the NI inputs.
+      intro: `Break-even is the sales volume where total revenue equals total costs. For UK businesses: break-even units = fixed costs ÷ (price − variable cost). Fixed costs must include rent, salaries, employer NI (15% above £5,000), and software. HMRC's Employer Helpbook on gov.uk is authoritative for the NI inputs.
 
 Break-even is the most-asked-for piece of management accounting in UK SMEs, because it's the one number that tells you whether your business model is geometrically capable of profit — or whether you're running a slow-motion loss-maker that needs structural change before more sales can save it.
 
 **The UK break-even calculation has three inputs:**
-- **Fixed costs (monthly)**: rent, salaries including employer's National Insurance (13.8% above the £9,100/year secondary threshold per employee), workplace pension contributions (3% employer minimum), software, professional fees, business rates (with small business rate relief if applicable), insurance
+- **Fixed costs (monthly)**: rent, salaries including employer's National Insurance (15% above the £5,000/year secondary threshold per employee), workplace pension contributions (3% employer minimum), software, professional fees, business rates (with small business rate relief if applicable), insurance
 - **Variable cost per unit**: COGS plus any per-unit variable cost (commission, payment processing, fulfilment)
 - **Price per unit (ex-VAT)**: selling price net of the 20% VAT collected for HMRC
 
@@ -358,7 +358,7 @@ Three observations from running this for hundreds of UK SMEs:
 
 1. **Most owners overestimate variable costs and underestimate fixed costs.** Workshop tools, recurring software, and admin time that "doesn't really count" all show up in year-end accounts as fixed cost. Be brutal in the fixed-cost bucket.
 
-2. **Employer NI is a hidden margin-killer.** Every £100 of payroll above the £9,100 secondary threshold costs an extra £13.80 — over a year on a £30k employee, that's £2,884 of employer NI nobody mentions on the salary line.
+2. **Employer NI is a hidden margin-killer.** Every £100 of payroll above the £5,000 secondary threshold costs an extra £15 — over a year on a £30k employee, that's £3,750 of employer NI nobody mentions on the salary line.
 
 3. **Break-even isn't the goal — break-even plus 20-30% is.** A business that exactly hits break-even has no buffer for a slow month, no funds for growth, and no cushion for unexpected costs. Use the calculator's target-profit toggle to find the sales level that funds the business you actually want.
 
@@ -466,8 +466,8 @@ This calculator handles the four loan structures UK SMEs actually use:
 - Amortisation formula: M = P × [r(1+r)^n] ÷ [(1+r)^n − 1]
 
 **2. Government-backed loans (RLS, GGS)**
-- Up to £2M (£1M for most SMEs), 6-year term
-- 70-80% government guarantee, but the borrower remains personally liable for the full debt
+- Up to £2M per business group (£1M cap for Northern Ireland Protocol borrowers), 6-year term
+- 70% government guarantee, but the borrower remains personally liable for the full debt
 - Pricing typically 6-9% APR
 
 **3. Invoice finance (factoring / discounting)**
