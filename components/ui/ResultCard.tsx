@@ -45,6 +45,10 @@ export default function ResultCard({
   const t = tierClasses[tier];
   return (
     <div
+      role="region"
+      aria-live="polite"
+      aria-atomic="true"
+      aria-label="Calculator result"
       className={clsx(
         "rounded-xl border p-4 sm:p-5",
         t.wrap,
