@@ -43,6 +43,10 @@ export type CalcMeta = {
 
 export const LAST_VERIFIED = "May 2026";
 
+// Baseline ISO date used as dateModified fallback for any calc page whose
+// slug is not yet in CALC_META. Bump when the next global review happens.
+export const CALC_META_BASELINE_DATE = "2026-05-17";
+
 // Re-usable source link bundles
 const CORPORATE_TAX_SOURCES: SourceLink[] = [
   { label: "IRS — Form 1120 (US corporate tax 21%)", url: "https://www.irs.gov/forms-pubs/about-form-1120", region: "USA" },
@@ -565,7 +569,13 @@ export function calcBreadcrumb(slug: string) {
 }
 
 export function formatReviewDate(iso: string): string {
-  const d = new Date(iso);
-  if (Number.isNaN(d.getTime())) return iso;
-  return d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  const [year, month, day] = iso.split("-").map(Number);
+  if (!year || !month || !day) return iso;
+  const d = new Date(Date.UTC(year, month - 1, day));
+  return d.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  });
 }

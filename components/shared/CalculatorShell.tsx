@@ -31,8 +31,11 @@ export default function CalculatorShell({
           {h1}
         </h1>
         {meta?.lastReviewed ? (
-          <p className="mt-2 text-xs text-gray-500">
-            Last reviewed: <time dateTime={meta.lastReviewed}>{formatReviewDate(meta.lastReviewed)}</time>
+          <p className="mt-2 text-sm text-gray-500">
+            Last reviewed:{" "}
+            <time dateTime={meta.lastReviewed} className="font-medium text-gray-700">
+              {formatReviewDate(meta.lastReviewed)}
+            </time>
           </p>
         ) : null}
         <p className="mt-2 max-w-2xl text-base text-gray-600">{intro}</p>
