@@ -51,3 +51,19 @@ export function authorPersonLdStandalone() {
     ...authorPersonLd(),
   };
 }
+
+export const REVIEWER_NAME = "James Blanckenberg";
+export const REVIEWER_TITLE = "Founder & Editor";
+
+// TODO(james): recruit a credentialed reviewer (CFP / CPA / CA(SA)).
+// Until then reviewer = author and the visible label uses "Editorial review by"
+// rather than "Reviewed by an accredited adviser". Update REVIEWER_NAME/TITLE
+// when recruited.
+export function reviewerPersonLd() {
+  return {
+    "@type": "Person",
+    name: REVIEWER_NAME,
+    jobTitle: REVIEWER_TITLE,
+    url: `${SITE_URL}/about`,
+  };
+}
