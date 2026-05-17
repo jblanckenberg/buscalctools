@@ -1,6 +1,8 @@
 import AuthorCard from "@/components/shared/AuthorCard";
 import Breadcrumbs, { type Crumb } from "@/components/shared/Breadcrumbs";
 import FeaturedAnswer from "@/components/shared/FeaturedAnswer";
+import HowToSteps from "@/components/shared/HowToSteps";
+import { calcMeta } from "@/lib/calc-meta";
 
 type Props = {
   h1: string;
@@ -19,6 +21,8 @@ export default function CalculatorShell({
   slug,
   children,
 }: Props) {
+  const meta = slug ? calcMeta(slug) : undefined;
+  const hasHowTo = !!meta?.howToSteps && meta.howToSteps.length > 0;
   return (
     <article className="mx-auto max-w-4xl px-4 py-8 sm:py-12">
       {breadcrumbs && breadcrumbs.length > 0 && <Breadcrumbs items={breadcrumbs} />}
@@ -30,6 +34,9 @@ export default function CalculatorShell({
       </header>
       {slug && <FeaturedAnswer slug={slug} />}
       {children}
+      {hasHowTo && meta && (
+        <HowToSteps steps={meta.howToSteps} name={meta.howToName} />
+      )}
       <AuthorCard variant="full" />
     </article>
   );
