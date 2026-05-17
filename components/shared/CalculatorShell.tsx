@@ -1,3 +1,4 @@
+import AuthorCard from "@/components/shared/AuthorCard";
 import Breadcrumbs, { type Crumb } from "@/components/shared/Breadcrumbs";
 import FeaturedAnswer from "@/components/shared/FeaturedAnswer";
 
@@ -29,6 +30,7 @@ export default function CalculatorShell({
       </header>
       {slug && <FeaturedAnswer slug={slug} />}
       {children}
+      <AuthorCard />
     </article>
   );
 }

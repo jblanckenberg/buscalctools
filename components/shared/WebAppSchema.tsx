@@ -1,3 +1,4 @@
+import { authorPersonLd } from "@/lib/author";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 type Props = {
@@ -36,6 +37,8 @@ export default function WebAppSchema({
       name: SITE_NAME,
       url: SITE_URL,
     },
+    author: authorPersonLd(),
+    dateModified: "2026-05-17",
     ...(featureList && featureList.length > 0 ? { featureList } : {}),
   };
   return (
