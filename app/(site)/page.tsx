@@ -4,6 +4,7 @@ import HomeSchema from "@/components/shared/HomeSchema";
 import { SITE_URL } from "@/lib/site";
 import { hreflang } from "@/lib/seo";
 import { PHASE_1, PHASE_2 } from "@/lib/tools";
+import { TOPICS } from "@/lib/topics";
 
 export const metadata: Metadata = {
   // Absolute prevents the layout template "%s | BusCalcTools" from
@@ -28,6 +29,25 @@ export default function HomePage() {
           18 free, instant tools for small business owners and freelancers.
           No sign-up. No ads above the calculator. Just results.
         </p>
+      </section>
+
+      <section className="mb-12 rounded-2xl border border-gray-200 bg-brand-light/40 p-6">
+        <h2 className="text-lg font-semibold text-brand-dark">Browse by topic</h2>
+        <p className="mt-1 text-sm text-gray-600">
+          Pick the category that matches your decision.
+        </p>
+        <ul className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
+          {TOPICS.map((t) => (
+            <li key={t.slug}>
+              <Link
+                href={`/topics/${t.slug}`}
+                className="block rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-brand-dark hover:border-brand-primary hover:text-brand-primary"
+              >
+                {t.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section>
