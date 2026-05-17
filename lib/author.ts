@@ -52,8 +52,8 @@ export function authorPersonLdStandalone() {
   };
 }
 
-export const REVIEWER_NAME = "James Blanckenberg";
-export const REVIEWER_TITLE = "Founder & Editor";
+export const REVIEWER_NAME = AUTHOR.name;  // placeholder: same person until credentialed reviewer recruited
+export const REVIEWER_TITLE = "Founder & Editor";  // intentionally differs from AUTHOR.jobTitle
 
 // TODO(james): recruit a credentialed reviewer (CFP / CPA / CA(SA)).
 // Until then reviewer = author and the visible label uses "Editorial review by"
@@ -65,5 +65,6 @@ export function reviewerPersonLd() {
     name: REVIEWER_NAME,
     jobTitle: REVIEWER_TITLE,
     url: `${SITE_URL}/about`,
+    sameAs: AUTHOR.sameAs,
   };
 }
