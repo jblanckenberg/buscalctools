@@ -2,7 +2,7 @@ import AuthorCard from "@/components/shared/AuthorCard";
 import Breadcrumbs, { type Crumb } from "@/components/shared/Breadcrumbs";
 import FeaturedAnswer from "@/components/shared/FeaturedAnswer";
 import HowToSteps from "@/components/shared/HowToSteps";
-import { calcMeta } from "@/lib/calc-meta";
+import { calcMeta, formatReviewDate } from "@/lib/calc-meta";
 
 type Props = {
   h1: string;
@@ -30,6 +30,11 @@ export default function CalculatorShell({
         <h1 className="text-3xl font-bold tracking-tight text-brand-dark sm:text-4xl">
           {h1}
         </h1>
+        {meta?.lastReviewed ? (
+          <p className="mt-2 text-xs text-gray-500">
+            Last reviewed: <time dateTime={meta.lastReviewed}>{formatReviewDate(meta.lastReviewed)}</time>
+          </p>
+        ) : null}
         <p className="mt-2 max-w-2xl text-base text-gray-600">{intro}</p>
       </header>
       {slug && <FeaturedAnswer slug={slug} />}

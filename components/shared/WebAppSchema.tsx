@@ -1,4 +1,5 @@
 import { authorPersonLd, reviewerPersonLd } from "@/lib/author";
+import { calcMeta } from "@/lib/calc-meta";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 type Props = {
@@ -16,6 +17,7 @@ export default function WebAppSchema({
   featureList,
   applicationSubCategory = "Calculator",
 }: Props) {
+  const dateModified = calcMeta(slug)?.lastReviewed ?? "2026-05-17";
   const ld = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -39,7 +41,7 @@ export default function WebAppSchema({
     },
     author: authorPersonLd(),
     reviewedBy: reviewerPersonLd(),
-    dateModified: "2026-05-17",
+    dateModified,
     ...(featureList && featureList.length > 0 ? { featureList } : {}),
   };
   return (

@@ -35,6 +35,10 @@ export type CalcMeta = {
   // ~29-word condensed answer for voice-assistant snippets (Google's
   // voice-snippet sweet spot). Rendered inside .speakable-answer when set.
   voiceAnswer?: string;
+  // ISO date (YYYY-MM-DD) of the most recent review of this calc's
+  // logic, copy, and sources. Drives the visible "Last reviewed" stamp
+  // and the JSON-LD dateModified field. Update per-calc as content is revised.
+  lastReviewed: string;
 };
 
 export const LAST_VERIFIED = "May 2026";
@@ -73,6 +77,7 @@ const LOAN_RATE_SOURCES: SourceLink[] = [
 export const CALC_META: Record<string, CalcMeta> = {
   "profit-margin-calculator": {
     slug: "profit-margin-calculator",
+    lastReviewed: "2026-05-17",
     category: "Profit & Pricing",
     applicationSubCategory: "Profit Margin Calculator",
     featureList: [
@@ -101,6 +106,7 @@ export const CALC_META: Record<string, CalcMeta> = {
 
   "markup-calculator": {
     slug: "markup-calculator",
+    lastReviewed: "2026-05-17",
     category: "Profit & Pricing",
     applicationSubCategory: "Markup Calculator",
     featureList: [
@@ -127,6 +133,7 @@ export const CALC_META: Record<string, CalcMeta> = {
 
   "break-even-calculator": {
     slug: "break-even-calculator",
+    lastReviewed: "2026-05-17",
     category: "Break-Even & Cash Flow",
     applicationSubCategory: "Break-Even Calculator",
     featureList: [
@@ -154,6 +161,7 @@ export const CALC_META: Record<string, CalcMeta> = {
 
   "roi-calculator": {
     slug: "roi-calculator",
+    lastReviewed: "2026-05-17",
     category: "Funding & Valuation",
     applicationSubCategory: "ROI Calculator",
     featureList: [
@@ -180,6 +188,7 @@ export const CALC_META: Record<string, CalcMeta> = {
 
   "pricing-calculator": {
     slug: "pricing-calculator",
+    lastReviewed: "2026-05-17",
     category: "Profit & Pricing",
     applicationSubCategory: "Pricing Calculator",
     featureList: [
@@ -206,6 +215,7 @@ export const CALC_META: Record<string, CalcMeta> = {
 
   "invoice-calculator": {
     slug: "invoice-calculator",
+    lastReviewed: "2026-05-17",
     category: "Freelance & Hiring",
     applicationSubCategory: "Invoice Calculator",
     featureList: [
@@ -231,6 +241,7 @@ export const CALC_META: Record<string, CalcMeta> = {
 
   "freelance-rate-calculator": {
     slug: "freelance-rate-calculator",
+    lastReviewed: "2026-05-17",
     category: "Freelance & Hiring",
     applicationSubCategory: "Freelance Rate Calculator",
     featureList: [
@@ -257,6 +268,7 @@ export const CALC_META: Record<string, CalcMeta> = {
 
   "cash-flow-calculator": {
     slug: "cash-flow-calculator",
+    lastReviewed: "2026-05-17",
     category: "Break-Even & Cash Flow",
     applicationSubCategory: "Cash Flow Calculator",
     featureList: [
@@ -281,6 +293,7 @@ export const CALC_META: Record<string, CalcMeta> = {
 
   "net-profit-calculator": {
     slug: "net-profit-calculator",
+    lastReviewed: "2026-05-17",
     category: "Profit & Pricing",
     applicationSubCategory: "Net Profit Calculator",
     featureList: [
@@ -307,6 +320,7 @@ export const CALC_META: Record<string, CalcMeta> = {
 
   "ecommerce-profit-calculator": {
     slug: "ecommerce-profit-calculator",
+    lastReviewed: "2026-05-17",
     category: "Profit & Pricing",
     applicationSubCategory: "Ecommerce Profit Calculator",
     featureList: [
@@ -333,6 +347,7 @@ export const CALC_META: Record<string, CalcMeta> = {
 
   "cost-per-unit-calculator": {
     slug: "cost-per-unit-calculator",
+    lastReviewed: "2026-05-17",
     category: "Break-Even & Cash Flow",
     applicationSubCategory: "Cost Per Unit Calculator",
     featureList: [
@@ -357,6 +372,7 @@ export const CALC_META: Record<string, CalcMeta> = {
 
   "business-loan-calculator": {
     slug: "business-loan-calculator",
+    lastReviewed: "2026-05-17",
     category: "Funding & Valuation",
     applicationSubCategory: "Business Loan Calculator",
     featureList: [
@@ -383,6 +399,7 @@ export const CALC_META: Record<string, CalcMeta> = {
 
   "payback-period-calculator": {
     slug: "payback-period-calculator",
+    lastReviewed: "2026-05-17",
     category: "Funding & Valuation",
     applicationSubCategory: "Payback Period Calculator",
     featureList: [
@@ -407,6 +424,7 @@ export const CALC_META: Record<string, CalcMeta> = {
 
   "burn-rate-calculator": {
     slug: "burn-rate-calculator",
+    lastReviewed: "2026-05-17",
     category: "Funding & Valuation",
     applicationSubCategory: "Burn Rate & Runway Calculator",
     featureList: [
@@ -431,6 +449,7 @@ export const CALC_META: Record<string, CalcMeta> = {
 
   "business-valuation-calculator": {
     slug: "business-valuation-calculator",
+    lastReviewed: "2026-05-17",
     category: "Funding & Valuation",
     applicationSubCategory: "Business Valuation Calculator",
     featureList: [
@@ -455,6 +474,7 @@ export const CALC_META: Record<string, CalcMeta> = {
 
   "revenue-growth-calculator": {
     slug: "revenue-growth-calculator",
+    lastReviewed: "2026-05-17",
     category: "Funding & Valuation",
     applicationSubCategory: "Revenue Growth Calculator",
     featureList: [
@@ -479,6 +499,7 @@ export const CALC_META: Record<string, CalcMeta> = {
 
   "employee-cost-calculator": {
     slug: "employee-cost-calculator",
+    lastReviewed: "2026-05-17",
     category: "Freelance & Hiring",
     applicationSubCategory: "Employee Cost Calculator",
     featureList: [
@@ -504,6 +525,7 @@ export const CALC_META: Record<string, CalcMeta> = {
 
   "discount-calculator": {
     slug: "discount-calculator",
+    lastReviewed: "2026-05-17",
     category: "Profit & Pricing",
     applicationSubCategory: "Discount Calculator",
     featureList: [
@@ -540,4 +562,10 @@ export function calcBreadcrumb(slug: string) {
     { label: meta.category, href: `/topics/${CATEGORY_SLUG[meta.category]}` },
     { label: meta.applicationSubCategory },
   ];
+}
+
+export function formatReviewDate(iso: string): string {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return iso;
+  return d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
 }
