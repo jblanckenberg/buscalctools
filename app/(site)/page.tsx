@@ -31,7 +31,7 @@ export default function HomePage() {
         </p>
       </section>
 
-      <section className="mb-12 rounded-2xl border border-gray-200 bg-brand-light/40 p-6">
+      <section className="mb-10 rounded-2xl border border-gray-200 bg-brand-light/40 p-6">
         <h2 className="text-lg font-semibold text-brand-dark">Browse by topic</h2>
         <p className="mt-1 text-sm text-gray-600">
           Pick the category that matches your decision.
@@ -41,7 +41,7 @@ export default function HomePage() {
             <li key={t.slug}>
               <Link
                 href={`/topics/${t.slug}`}
-                className="block rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-brand-dark hover:border-brand-primary hover:text-brand-primary"
+                className="block rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-brand-dark transition-colors hover:border-brand-primary hover:text-brand-primary"
               >
                 {t.name}
               </Link>
@@ -73,7 +73,7 @@ export default function HomePage() {
       </section>
 
       <section className="mt-16 rounded-xl bg-brand-light p-6">
-        <h2 className="text-lg font-semibold text-brand-dark">Why are these free?</h2>
+        <h2 className="text-base font-semibold text-brand-dark">Why are these free?</h2>
         <p className="mt-2 text-sm text-gray-700">
           These tools are free forever. We earn a small amount from display
           advertising — it costs you nothing.
