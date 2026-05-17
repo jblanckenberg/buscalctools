@@ -8,8 +8,8 @@ export default function HowToSteps({ steps, name }: Props) {
       <h2 className="text-lg font-semibold text-brand-dark">{name}</h2>
       <ol className="mt-3 space-y-3 text-sm leading-relaxed text-gray-700">
         {steps.map((s, i) => (
-          <li key={`${i}-${s.name}`} className="flex gap-3">
-            <span className="flex h-6 w-6 flex-none items-center justify-center rounded-full bg-brand-primary/10 text-xs font-semibold text-brand-primary">
+          <li key={s.name} id={`step-${i + 1}`} className="flex gap-3">
+            <span aria-hidden="true" className="flex h-6 w-6 flex-none items-center justify-center rounded-full bg-brand-primary/10 text-xs font-semibold text-brand-primary">
               {i + 1}
             </span>
             <div>
