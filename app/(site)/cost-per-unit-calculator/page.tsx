@@ -17,7 +17,7 @@ export const metadata = calculatorMetadata({
   slug: "cost-per-unit-calculator",
   title: "Cost Per Unit Calculator — Total CPU | BusCalcTools",
   description:
-    "Free cost per unit calculator. Split fixed and variable cost, get total CPU, and see economies of scale across volume tiers. Manufacturers + product sellers.",
+    "Free cost per unit calculator. Split fixed and variable cost, get total CPU, and see how unit cost drops at higher production volumes.",
 });
 
 const FAQS = [
