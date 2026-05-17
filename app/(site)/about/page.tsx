@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
-import { AUTHOR, authorPersonLd } from "@/lib/author";
+import { AUTHOR, authorPersonLdStandalone } from "@/lib/author";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import { hreflang } from "@/lib/seo";
 import { TOPICS } from "@/lib/topics";
@@ -20,7 +20,7 @@ export default function AboutPage() {
     <div className="mx-auto max-w-3xl px-4 py-12">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(authorPersonLd()) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(authorPersonLdStandalone()) }}
       />
 
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "About" }]} />

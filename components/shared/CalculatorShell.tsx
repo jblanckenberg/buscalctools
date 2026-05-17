@@ -30,7 +30,7 @@ export default function CalculatorShell({
       </header>
       {slug && <FeaturedAnswer slug={slug} />}
       {children}
-      <AuthorCard />
+      <AuthorCard variant="full" />
     </article>
   );
 }

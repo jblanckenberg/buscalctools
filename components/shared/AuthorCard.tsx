@@ -1,7 +1,13 @@
 import Link from "next/link";
 import { AUTHOR } from "@/lib/author";
 
-export default function AuthorCard() {
+export default function AuthorCard({
+  variant = "full",
+}: { variant?: "compact" | "full" } = {}) {
+  // `variant` is currently unused — P1.2 will branch on it to render a
+  // reviewer block when variant === "full". Defined now to avoid a second
+  // edit to call sites.
+  void variant;
   return (
     <section className="mt-12 rounded-xl border border-gray-200 bg-brand-light/40 p-5">
       <div className="flex items-start gap-4">
