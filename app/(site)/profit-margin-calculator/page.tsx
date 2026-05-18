@@ -107,6 +107,31 @@ export default function ProfitMarginPage() {
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Common mistakes</h2>
+        <ul className="mt-3 space-y-3 text-sm leading-relaxed text-gray-700">
+          <li>
+            <strong className="text-brand-dark">Confusing margin with markup</strong> — margin is profit as a percentage of selling price; markup is profit as a percentage of cost. A 50% markup on a $40 cost gives a $60 selling price, but that is only a 33.3% margin. Owners who treat the two as interchangeable typically over-discount and under-earn.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Using gross margin for owner-draw decisions</strong> — gross margin only deducts COGS, so it looks healthy even when rent, payroll, and software are eating the rest. For "how much can I take out of the business?" the right number is net margin, after operating expenses and tax. A 45% gross margin can quietly hide a 4% net margin.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Forgetting payroll taxes and contractor fees</strong> — operating expenses must include employer-side payroll taxes (roughly 7.65% in the US, 15.05% employer NI in the UK), workers' comp, and any contractor or platform fees. Leaving them out can overstate operating margin by 3–5 percentage points.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this calculator when you already have a selling price (or actual revenue) and want to check whether existing margins are healthy or have eroded. It is the right tool for diagnosing why monthly profit is lower than expected and for comparing margins across products in your line-up.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you are <em>setting</em> a brand-new price from cost, the Pricing Calculator is more direct. If you want to walk every line of the income statement from revenue down to net profit, use the Net Profit Calculator instead.
+        </p>
+      </section>
+
       <FormulaBox>
         <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed">
 {`Gross Profit Margin (%) = ((Revenue − COGS) / Revenue) × 100

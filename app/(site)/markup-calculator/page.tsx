@@ -68,6 +68,31 @@ export default function MarkupPage() {
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Common mistakes</h2>
+        <ul className="mt-3 space-y-3 text-sm leading-relaxed text-gray-700">
+          <li>
+            <strong className="text-brand-dark">Treating markup as margin</strong> — a 50% markup is not a 50% margin. The same transaction has a markup higher than its margin (50% markup = 33.3% margin; 100% markup = 50% margin). Pricing off the markup number while reporting profit on the margin number is the single most expensive small-business pricing error.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Ignoring overhead in the cost figure</strong> — markup is applied to "cost", but most sellers only plug in the supplier invoice. The true cost per unit also includes inbound freight, packaging, returns allowance, and an allocated share of overhead. A 40% markup on a $50 invoice can become a 10% markup on the all-in $73 unit.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Using the same markup on every SKU</strong> — slow-moving items, fragile items with high return rates, and items with low search volume need a higher markup than fast turning bestsellers. A blanket "we mark up 60% on everything" leaves money on the table on hero products and underprices long-tail risk.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this when you have a confirmed cost and want to set a selling price by adding a percentage on top, or when you have a competitor's price and want to see what markup it implies on your cost base. It is the cleanest tool for fast cost-to-price decisions on a single SKU.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you would rather work backwards from a target profit margin (e.g. "I need 40% margin on this product"), the Pricing Calculator is the better starting point. To audit existing prices for actual margin earned, use the Profit Margin Calculator.
+        </p>
+      </section>
+
       <FormulaBox>
         <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed">
 {`Selling Price = Cost × (1 + Markup / 100)

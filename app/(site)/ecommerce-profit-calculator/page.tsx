@@ -67,6 +67,31 @@ export default function EcommercePage() {
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Common mistakes</h2>
+        <ul className="mt-3 space-y-3 text-sm leading-relaxed text-gray-700">
+          <li>
+            <strong className="text-brand-dark">Treating VAT as revenue</strong> — UK and SA sellers show prices inclusive of VAT, so the gross deposit from a marketplace looks larger than the actual sale. VAT goes to HMRC or SARS, not into your bank balance. Strip it out before subtracting fees, or per-unit profit will be overstated by 13–17%.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Ignoring returns and refunds</strong> — apparel and electronics can see return rates of 15–30%, and a returned item forfeits the platform fee, the shipping out, and usually the ad spend that won the sale. Profitability calculated on shipped units overstates true take-home; build a return allowance into shipping or ACOS to model the real economics.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Spending on ads without tracking per-unit ACOS</strong> — total monthly ad spend tells you nothing about whether each sale is profitable. Track advertising cost per sold unit (ACOS). A $30 product with a $9 ad cost (30% ACOS) and a 40% gross margin only nets $3 after fees and shipping — paid traffic at that level is unsustainable.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this for every new SKU on Amazon FBA, Etsy, eBay, or Shopify before you list it, and re-run quarterly as platform fees and ad costs drift up. It is built specifically for marketplace sellers who pay variable platform fees, shipping, and ad costs that do not appear on a standard income statement.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you are not a marketplace seller and want a simple gross/net margin view, the Profit Margin Calculator is faster. If you are setting the selling price from scratch with a target margin in mind, start with the Pricing Calculator and then audit the result here.
+        </p>
+      </section>
+
       <FormulaBox>
         <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed">
 {`Net Profit = Selling Price − Product Cost − Platform Fee − Shipping − Ad Spend − VAT

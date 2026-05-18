@@ -68,6 +68,31 @@ export default function PricingPage() {
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Common mistakes</h2>
+        <ul className="mt-3 space-y-3 text-sm leading-relaxed text-gray-700">
+          <li>
+            <strong className="text-brand-dark">Anchoring to a competitor's price</strong> — copying a competitor's shelf price tells you nothing about whether they are profitable. They may be running at a loss to win market share, may have lower cost inputs, or may be inflating volume on the way to a sale. Always price from cost plus target margin first, then check competitor pricing as a sanity test.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Forgetting tax displays differ by region</strong> — UK and SA consumer prices must be VAT-inclusive; US prices typically exclude sales tax until checkout. A $100 net target price is shown as $100 in the US but should display at $120 in the UK and $115 in SA. Mixing the two creates margin shortfalls when you reconcile against the bank deposit.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Setting prices without testing psychological breakpoints</strong> — the calculator may suggest $73.14, but customers respond very differently to $69, $75, and $79. Always round the calculator output up to the next psychological price point ($69, $79, $99) — the small premium absorbs future cost rises and signals deliberateness rather than algorithmic pricing.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this when you are launching a new product, repricing an existing one, or moving from cost-plus to margin-based pricing. It is built to answer "what should I charge to earn X% margin on this cost?" in one step, with VAT/sales tax already baked in for the region you operate from.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you only want to add a fixed percentage on top of cost (without thinking in margin), the Markup Calculator is simpler. If you are pricing your time on a project, use the Freelance Rate Calculator to find the hourly rate first, then price the engagement here.
+        </p>
+      </section>
+
       <FormulaBox>
         <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed">
 {`Selling Price (from margin) = Cost / (1 − Desired Margin / 100)

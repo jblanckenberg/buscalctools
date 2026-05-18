@@ -67,6 +67,31 @@ export default function NetProfitPage() {
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Common mistakes</h2>
+        <ul className="mt-3 space-y-3 text-sm leading-relaxed text-gray-700">
+          <li>
+            <strong className="text-brand-dark">Leaving the owner's salary out of OpEx</strong> — sole owners who draw dividends or distributions often skip a salary line entirely, which inflates net profit by their entire labour cost. Always include a market-rate salary for the founder in operating expenses; otherwise the business looks more profitable than it is and every comparison to peers is distorted.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Confusing net profit with cash in the bank</strong> — net profit is an accounting result that recognises revenue when invoiced (not when paid) and includes non-cash items like depreciation. A profitable business can run out of cash, and a loss-making one can be cash-rich. Pair this calculator with the Cash Flow Calculator before making spending decisions.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Applying tax to a loss</strong> — when EBT is negative there is no tax payable in any of the three regions, and the loss can usually be carried forward against future profits. Owners sometimes still book a "tax provision" out of habit, which double-counts the loss. This calculator correctly applies tax only on positive earnings before tax.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this when you want a full income-statement walk from revenue to bottom line, including interest and tax. It is the right tool at year-end, when modelling the impact of a new debt facility, or when explaining to a co-owner where the profit actually ends up.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you only need the percentage margins (gross, operating, net) without the dollar waterfall, the Profit Margin Calculator is faster. To assess whether a specific investment generates an acceptable return on capital, use the ROI Calculator instead.
+        </p>
+      </section>
+
       <FormulaBox>
         <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed">
 {`Gross Profit         = Revenue − COGS
