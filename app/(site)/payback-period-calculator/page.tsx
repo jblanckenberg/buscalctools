@@ -89,6 +89,41 @@ Count years until sum of discounted cash flows >= Initial Investment`}
         </pre>
       </FormulaBox>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Worked example</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          A UK commercial printing business buys a new digital printer for
+          £45,000. The new machine reduces outsourced print jobs and
+          enables higher-margin same-day work; the owner projects
+          incremental gross profit of £18,000 per year over the
+          machine&apos;s useful life of seven years. Simple payback period
+          = £45,000 ÷ £18,000 = 2.5 years.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Discounted payback period applies a discount rate to each
+          year&apos;s cash inflow to reflect the time value of money. At a
+          10% discount rate, year-1 cash flow of £18,000 is worth £16,364
+          in today&apos;s pounds; year 2 is worth £14,876; year 3 worth
+          £13,524. Cumulative discounted cash flow after three years is
+          £44,764 — still £236 short of the £45,000 investment. The
+          discounted payback lands at roughly 3.0 years, six months
+          longer than the simple figure.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          UK small-business owners typically use a 3-year payback as
+          the cut-off for capital investments — anything that pays back
+          faster usually clears the bar. This printer comfortably
+          qualifies. But payback alone misses the most important
+          number: the post-payback "tail". After the machine pays
+          itself off, the remaining 4.5 years of useful life generate
+          roughly £81,000 of additional gross profit — the actual
+          economic return on the investment is the tail, not the
+          recovery period. Pair payback with ROI for a complete
+          picture: payback measures speed of capital recovery, ROI
+          measures total return.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
 
       <RelatedTools slugs={["roi-calculator", "break-even-calculator", "business-valuation-calculator"]} />

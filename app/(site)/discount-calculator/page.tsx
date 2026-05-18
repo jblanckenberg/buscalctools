@@ -89,6 +89,37 @@ Reverse: Discount % = ((Original − Discounted) / Original) × 100`}
         </pre>
       </FormulaBox>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Worked example</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          A South African fashion boutique stocks a jacket at R1,200 retail
+          and considers a 30% flash sale. The discounted price is R1,200 ×
+          (1 − 0.30) = R840, a saving of R360 per unit. At normal full
+          price the boutique was selling roughly 20 units per month; the
+          owner expects discounting to roughly double that to 40 units.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          The trap is to compare top-line revenue: 20 × R1,200 = R24,000
+          full price versus 40 × R840 = R33,600 at the sale price — a 40%
+          revenue lift that looks unambiguously good. The boutique&apos;s
+          variable cost per jacket is R600. Contribution at full price is
+          20 × (R1,200 − R600) = R12,000. Contribution on sale is 40 ×
+          (R840 − R600) = R9,600. The boutique earns R2,400 less in gross
+          profit despite doubling units sold.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          The break-even unit volume that recovers the original R12,000 of
+          contribution at the R240 sale-price contribution per unit is 50
+          units — a 2.5× increase, not 2×. Discount promotions are worth
+          running only when the volume uplift exceeds break-even AND the
+          uplift is genuinely incremental (not cannibalising future
+          full-price sales). The retail industry rule of thumb is that
+          30%-off promotions need volume to roughly 2.3× to break even on
+          gross profit, and only one in three promotions actually clear
+          that bar.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
 
       <RelatedTools slugs={["markup-calculator", "pricing-calculator", "profit-margin-calculator"]} />

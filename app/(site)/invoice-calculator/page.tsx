@@ -88,6 +88,39 @@ Invoice Total = Subtotal − Discount Amount + Tax Amount`}
         </pre>
       </FormulaBox>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Worked example</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          A UK consultant invoices a client for 18 hours of work at £85
+          per hour. The line total is 18 × £85 = £1,530 (the net amount,
+          before VAT). The consultant is VAT-registered because annual
+          turnover exceeds the UK&apos;s £90,000 threshold, so 20% VAT
+          applies to the invoice: £1,530 × 0.20 = £306. The invoice
+          total payable by the client is £1,530 + £306 = £1,836.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          The consultant must remit the £306 to HMRC at the next VAT
+          return; this is not earned income — it is collected on behalf
+          of HMRC. The client&apos;s position depends on whether they
+          can reclaim input VAT. A VAT-registered business client
+          reclaims the £306 on their own return, so the effective
+          cost to them is still £1,530. A consumer client, a non-VAT-
+          registered sole trader, or a charity cannot reclaim — the
+          £306 is genuine cost.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          The regional differences matter: South Africa uses 15% VAT
+          and a R1 million annual-turnover registration threshold, so
+          the same R1,530 invoice would attract R229.50 of VAT and
+          total R1,759.50. The United States has no federal VAT;
+          sales tax rules are set state-by-state, generally do not
+          apply to services purchased by another business, and rates
+          range from 0% (Oregon, Delaware) to over 10% in some
+          metropolitan areas. This calculator switches automatically
+          when the region toggle changes.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
 
       <RelatedTools slugs={["freelance-rate-calculator", "net-profit-calculator"]} />

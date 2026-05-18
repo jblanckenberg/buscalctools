@@ -96,6 +96,38 @@ Example: Fixed = $5,000 | Variable = $10 | Selling Price = $25
         </pre>
       </FormulaBox>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Worked example</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          A UK independent café opens with £8,000 of fixed monthly costs:
+          £3,200 rent, £3,800 for two part-time baristas including employer
+          NI, £600 utilities, and £400 for software and accounting.
+          Average order value is £6.50 (a coffee plus a pastry). Variable
+          cost per order is £2.20 — beans, milk, the pastry from a local
+          bakery, paper cup, and the card-processing fee.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Contribution margin per order is £6.50 − £2.20 = £4.30. Break-even
+          orders per month = £8,000 ÷ £4.30 = 1,861 orders, or roughly 62
+          orders per day across a 30-day month. At 70 orders per day the
+          café generates 70 × 30 × £4.30 = £9,030 of monthly contribution,
+          leaving £1,030 of operating profit after fixed costs. At 50 orders
+          per day the contribution drops to £6,450 and the café loses
+          £1,550 per month.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Notice how non-linear the swing is: a 30% decline in volume (70
+          → 50 orders/day) doesn&apos;t produce a 30% lower profit — it
+          flips a £1,030 profit into a £1,550 loss, a £2,580 swing.
+          Hospitality businesses with high fixed costs and thin contribution
+          margins live or die on volume above break-even. The two levers
+          to widen contribution are raising average order value (a £1
+          upsell on every order adds £900/month at 30 orders/day) or
+          shaving variable cost per unit by 20–30 pence through supplier
+          negotiation.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
 
       <section className="mt-12">

@@ -93,6 +93,44 @@ DCF Valuation:
         </pre>
       </FormulaBox>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Worked example</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          A US plumbing-services business is preparing to sell. Twelve-
+          month revenue is $1,400,000. EBITDA — earnings before
+          interest, tax, depreciation, and amortisation — is $320,000
+          (a 23% EBITDA margin, healthy for skilled-trades services).
+          Seller&apos;s Discretionary Earnings (SDE) — EBITDA plus the
+          owner&apos;s salary and personal expenses run through the
+          business — is $260,000. Three-year average revenue growth is
+          8% annually.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Three valuation methods produce three different numbers.
+          Revenue multiple at 0.6× (typical for trades services) =
+          $840,000. EBITDA multiple at 4.2× (the midpoint of the 3–5×
+          range typical for $300k-EBITDA service businesses) =
+          $1,344,000. SDE multiple at 3.0× (typical for owner-operator
+          businesses) = $780,000. The defensible asking range is
+          roughly $850k to $1.35M, with the centre of gravity around
+          $1.05M.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          The negotiation usually pits seller-anchored SDE against
+          buyer-anchored EBITDA. Sellers prefer SDE because the
+          owner-salary add-back is real (a new owner won&apos;t draw
+          the same salary) — but buyers know they need to install
+          professional management, which costs roughly the same. The
+          EBITDA multiple is the more honest number for a buyer who
+          will not be operating the business hands-on. A reasonable
+          deal closes near 4.0× EBITDA = $1.28M with seller financing
+          on 20–30% of the price, contingent on a 12-month earn-out
+          tied to maintaining 8% growth. Independent SBA-backed
+          appraisals are normally required by lenders financing the
+          acquisition.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
 
       <RelatedTools

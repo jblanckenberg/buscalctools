@@ -87,6 +87,42 @@ Running Balance (Month N) = Opening Balance + Sum of Net Cash Flows (Month 1 to 
         </pre>
       </FormulaBox>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Worked example</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          A UK ecommerce business invoices £45,000 of revenue per month
+          consistently. Customers pay on Net 30 terms, so the cash from
+          January&apos;s £45,000 of invoices arrives in February. The
+          supplier — a UK manufacturer — invoices £18,000 of stock per
+          month on Net 0 (payment-on-delivery). Other variable costs
+          (payment processing, shipping, packaging) total £6,000 per
+          month, also paid in-month.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Project the first 60 days from a zero cash balance. January
+          cash out: £18,000 supplier + £6,000 other = £24,000. January
+          cash in: zero — invoices issued, not yet collected. End-of-
+          January cash balance: −£24,000. February cash out: £24,000
+          again. February cash in: £45,000 from January&apos;s invoices.
+          End-of-February cash: −£3,000. By end of March, with another
+          £45,000 arriving against £24,000 of cost, the balance reaches
+          +£18,000.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          The business is profitable on paper (£21,000 of monthly gross
+          contribution) but operationally bankrupt in week one without
+          working-capital coverage of at least £24,000. This is the most
+          common cause of small-business failure: profitability is not
+          liquidity. The two highest-leverage fixes are shortening
+          receivables (offer a 2% discount for prepayment, or move to
+          Net 14) and lengthening payables (negotiate Net 30 with the
+          supplier, even at a slightly higher unit price). A 30-day shift
+          in the cash-conversion cycle frees £45,000 of working capital
+          — usually more than the business&apos;s actual profit for the
+          quarter.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
 
       <RelatedTools slugs={["break-even-calculator", "burn-rate-calculator"]} />

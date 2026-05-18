@@ -95,6 +95,40 @@ Example: $50,000 loan | 8% APR | 60 months
         </pre>
       </FormulaBox>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Worked example</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          A US small business takes a $200,000 SBA 7(a) loan to fund a
+          new location build-out. The rate is 11.5% APR (prime + 3.0%
+          for an SBA 7(a) over $50,000 at the time of writing) on a
+          10-year fully-amortising term. The monthly payment formula
+          gives £P × r × (1+r)^n / ((1+r)^n − 1) where r is the monthly
+          rate (0.00958) and n is 120 months. That works out to a
+          monthly payment of approximately $2,814.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Total paid over 120 months = $2,814 × 120 = $337,680. Of that,
+          $200,000 is principal repayment and $137,680 is interest. The
+          interest paid is 69% of the original loan amount — a sobering
+          number, but spread across a decade and against the
+          alternative of a conventional bank loan that the business
+          probably could not qualify for at this stage.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Compare to a conventional bank loan on the same principal and
+          term at 9.5% APR (assume the business had three years of
+          strong financials, two years of profitability, and 20%+ equity
+          in collateral — the bar for non-SBA approval): monthly
+          payment $2,587, total cost $310,440, total interest $110,440.
+          The SBA loan costs an extra $27,240 over the term. That
+          premium is buying easier qualification, longer amortisation
+          options up to 25 years for real-estate loans, a smaller down
+          payment, and willingness to lend in the first place. For most
+          businesses under three years old or without collateral, the
+          $27k premium is the cost of accessing capital at all.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
 
       <RelatedTools slugs={["cash-flow-calculator", "roi-calculator"]} />

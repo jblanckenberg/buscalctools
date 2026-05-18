@@ -90,6 +90,37 @@ Net Profit Margin    = Net Profit / Revenue × 100`}
         </pre>
       </FormulaBox>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Worked example</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          A US bootstrapped SaaS closes the year at $1.2M annual recurring
+          revenue. Direct cost of revenue (hosting, third-party APIs,
+          customer support salaries) comes to $180,000. Operating expenses
+          (engineering and product salaries, marketing, office, software,
+          accountancy) total $720,000. The business took a $400,000 term
+          loan in year two and pays $40,000 of annual interest on it.
+          Federal corporate tax sits at 21%.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Walking the waterfall: gross profit is $1.2M − $180k = $1.02M, an
+          85% gross margin (typical for a software business). Operating
+          profit is $1.02M − $720k = $300,000, a 25% operating margin.
+          Pre-tax profit after the $40k of interest is $260,000. Federal
+          tax on that is $54,600. Net profit lands at $205,400 — a 17.1%
+          net margin.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          A 17% net margin is solid for a bootstrapped SaaS; VC-backed
+          companies usually run lower (they re-invest gross profit into
+          growth) while mature private-equity-style SaaS targets 25–35%.
+          The biggest lever in this waterfall is operating expenses: a 10%
+          OpEx reduction ($72k saved) flows almost entirely through to net
+          profit and pushes net margin to roughly 22%. Cost discipline at
+          the OpEx layer is usually a bigger profit lever than top-line
+          revenue growth.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
 
       <RelatedTools slugs={["profit-margin-calculator", "roi-calculator"]} />
