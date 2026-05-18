@@ -61,6 +61,9 @@ export default function Footer() {
                 <Link href="/editorial-policy" className="text-gray-700 hover:text-brand-primary">Editorial Policy</Link>
               </li>
               <li>
+                <Link href="/methodology" className="text-gray-700 hover:text-brand-primary">Methodology</Link>
+              </li>
+              <li>
                 <Link href="/corrections-policy" className="text-gray-700 hover:text-brand-primary">Corrections Policy</Link>
               </li>
               <li>
