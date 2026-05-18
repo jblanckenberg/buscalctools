@@ -21,19 +21,6 @@ export const metadata = calculatorMetadata({
     "Free break-even calculator. Find break-even units, revenue, and contribution margin with a visual chart and target-profit mode. Built for small business owners.",
 });
 
-const FAQS = [
-  { q: "What is the break-even point?", a: "The break-even point is the level of sales at which your total revenue exactly equals your total costs — you are making neither a profit nor a loss. Any sales above the break-even point generate profit. Any sales below it result in a loss." },
-  { q: "How do I calculate break-even point in units?", a: "Break-even units = Fixed Costs / (Selling Price per unit − Variable Cost per unit). The denominator is called the contribution margin — the profit each unit contributes toward covering your fixed costs." },
-  { q: "What are fixed costs vs variable costs?", a: "Fixed costs stay the same regardless of how many units you sell — rent, insurance, salaries. Variable costs change with each unit produced or sold — raw materials, packaging, sales commission. The distinction is critical for accurate break-even analysis." },
-  { q: "How do I lower my break-even point?", a: "You can lower your break-even point by: (1) increasing your selling price, (2) reducing variable costs per unit, or (3) reducing fixed overhead costs. Increasing price is usually the fastest lever, but must be balanced against demand elasticity." },
-  { q: "What is the break-even formula?", a: "Break-Even Units = Fixed Costs ÷ Contribution Margin, where Contribution Margin = Selling Price − Variable Cost Per Unit. In revenue terms: Break-Even Revenue = Break-Even Units × Selling Price." },
-  { q: "Does VAT or sales tax affect the break-even calculation?", a: "Use net-of-tax prices throughout. VAT in the UK (20%) and South Africa (15%) is collected on behalf of HMRC or SARS — it is not your revenue. Plug the pre-VAT selling price into the calculator. In the US, sales tax is added at checkout and excluded from your revenue automatically. Mixing gross and net figures is the single most common break-even error." },
-  { q: "What is the most common break-even mistake?", a: "Misclassifying semi-variable costs as fixed. Items like utilities, sales commissions, and part-time labour change with volume but not on a perfect per-unit basis. Treating them as pure fixed costs understates your true contribution margin and inflates the break-even point. Split semi-variable costs into a fixed base plus a per-unit component before entering them." },
-  { q: "What if my variable cost is higher than my selling price?", a: "Contribution margin is negative — every unit sold loses money, so there is no break-even point at any volume. The calculator will return an error or infinity. You have two options: raise the selling price until it exceeds variable cost, or cut variable costs (renegotiate suppliers, simplify the product). Until contribution margin is positive, selling more makes the loss worse, not better." },
-  { q: "How is break-even different from payback period?", a: "Break-even answers \"how many units per period must I sell to cover ongoing costs?\" Payback period answers \"how long until a one-off investment pays itself back?\" Break-even is about operations; payback is about capital decisions. A new product launch needs both — the unit volume to be viable and the months until the launch investment is recovered." },
-  { q: "I know my break-even — what should I do next?", a: "Three actions. Compare break-even units to current monthly sales: if you are below, you are losing money every month and the gap quantifies the urgency. Use target-profit mode to find the volume needed for a specific profit goal. And model the impact of a 10% price rise or a 10% cost cut on break-even — the smaller number usually points to the higher-leverage lever to pull first." },
-];
-
 export default function BreakEvenPage() {
   return (
     <CalculatorShell
@@ -109,7 +96,7 @@ Example: Fixed = $5,000 | Variable = $10 | Selling Price = $25
         </pre>
       </FormulaBox>
 
-      <FaqList items={FAQS} />
+      <FaqList items={META.faqs} />
 
       <section className="mt-12">
         <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>

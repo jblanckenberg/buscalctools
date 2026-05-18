@@ -20,19 +20,6 @@ export const metadata = calculatorMetadata({
     "Free pricing calculator. Set optimal selling price from cost and target margin or markup, with auto VAT/sales tax for USA, UK, and South Africa.",
 });
 
-const FAQS = [
-  { q: "How do I calculate the selling price from cost and margin?", a: "Selling Price = Cost ÷ (1 − Desired Margin). This formula is used when you know your cost and the profit margin percentage you want to achieve. Example: cost $50, target margin 40% → Selling Price = $50 ÷ 0.60 = $83.33." },
-  { q: "What is cost-plus pricing?", a: "Cost-plus pricing means setting your price by adding a fixed markup to your cost. It is the simplest pricing method: know your cost, add your desired profit, and that is your price. The risk is that it ignores what the market will actually pay." },
-  { q: "How do I price a service (not a product)?", a: "For services, \"cost\" includes your time at a target hourly rate plus any direct expenses. Use the Freelance Rate Calculator to determine your minimum hourly rate, then use this tool to set project prices that achieve your target margin." },
-  { q: "Should I include VAT/sales tax in my advertised price?", a: "In the UK, consumer-facing prices must be displayed inclusive of VAT. In the USA, sales tax is typically added at checkout and not included in advertised prices. In South Africa, prices are generally displayed inclusive of VAT. This calculator handles all three conventions." },
-  { q: "How does pricing affect profit margin?", a: "A small price increase has a disproportionately large effect on margin. If your cost is $50 and you sell at $70 (30% margin), a $5 price increase to $75 raises your margin to 33.3% — a 10% improvement in profitability from a 7% price increase." },
-  { q: "How does VAT registration in the UK or SA change my pricing?", a: "Once you cross the VAT threshold (£90,000 turnover in the UK, R1 million in South Africa) you must add VAT to every invoice. If your customers are consumers, this effectively cuts your margin by 17–20% unless you raise prices. B2B customers usually reclaim VAT, so the impact is neutral. Plan the transition before you cross the threshold, not after." },
-  { q: "What is the most common pricing mistake?", a: "Pricing based on what feels reasonable rather than on cost plus target margin. Owners often anchor to a competitor's price without knowing whether the competitor is profitable, or set a round number ($99) that looks tidy but does not cover allocated overhead. Run every price through the calculator first; treat market and psychological pricing as adjustments, not the starting point." },
-  { q: "What if my target margin is 100% or more?", a: "A 100% margin is mathematically impossible — you would need to sell something for an infinite price (the formula divides by zero). The maximum sensible target is around 90%. If you genuinely want a very high margin, switch to markup-based pricing instead, where 1000% markup is well-defined and equals a 90.9% margin. The calculator caps margin entries at 99% for this reason." },
-  { q: "I have my recommended price — should I just publish it?", a: "Sanity-check it against three things first. One: competitor prices within your category — if you are 30%+ above or below the band, you need a story for why. Two: psychological price points ($49 vs $50, £99 vs £100). Three: round-up to absorb future cost rises. If the calculator says $73.14, publishing at $79 gives you headroom and looks deliberate rather than algorithmic." },
-  { q: "How is pricing different from quoting?", a: "Pricing sets a standard selling price for a repeatable product or service, designed to hit a target margin across many sales. Quoting is custom — it builds a one-off price for a specific client and scope, often including line items the standard price does not cover (travel, rush work, exclusivity). Use this calculator for pricing; quoting needs an itemised estimate template instead." },
-];
-
 export default function PricingPage() {
   return (
     <CalculatorShell
@@ -104,7 +91,7 @@ Example (margin mode): Cost = $20 | Target Margin = 40%
         </pre>
       </FormulaBox>
 
-      <FaqList items={FAQS} />
+      <FaqList items={META.faqs} />
 
       <RelatedTools slugs={["profit-margin-calculator", "markup-calculator"]} />
 

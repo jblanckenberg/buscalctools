@@ -20,19 +20,6 @@ export const metadata = calculatorMetadata({
     "Free invoice calculator. Build invoice totals from up to 5 line items with automatic VAT, GST, or sales tax. Region-aware for freelancers and small businesses.",
 });
 
-const FAQS = [
-  { q: "How do I calculate an invoice total with VAT?", a: "Invoice Total with VAT = Subtotal × (1 + VAT Rate / 100). If your subtotal is £500 and VAT is 20%, your invoice total is £500 × 1.20 = £600. The VAT amount itself is £100." },
-  { q: "How do I add a discount to an invoice?", a: "Apply the discount to the subtotal before calculating tax. Discounted Subtotal = Subtotal × (1 − Discount%/100). Then calculate tax on the discounted subtotal. Example: £1,000 subtotal, 10% discount = £900 discounted subtotal, then add 20% VAT = £1,080 total." },
-  { q: "What is the difference between VAT and sales tax?", a: "VAT (UK/SA) is charged at each stage of the supply chain — businesses collect and remit it to the government. US Sales Tax is only charged at the final point of sale to the consumer. Both are consumption taxes but work differently for business billing." },
-  { q: "Do I need to charge VAT on my invoices?", a: "In the UK, you must register for and charge VAT only if your taxable turnover exceeds £90,000 per year (the threshold raised from £85,000 on 1 April 2024 and remains in force). In South Africa, the threshold is R1 million. In the USA, sales tax rules vary by state and product type." },
-  { q: "What should an invoice include?", a: "A valid invoice includes: your business name and address, client name and address, unique invoice number, invoice date, payment due date, itemised list of goods/services, applicable tax, total amount due, and payment instructions. For VAT invoices (UK/SA), include your VAT registration number." },
-  { q: "How is invoicing different in the US, UK, and SA?", a: "US invoices typically have no tax unless the seller has nexus in a sales-tax state, in which case it's added per-state. UK invoices must show VAT (20%) once you're registered, broken out separately, with your VAT number visible. South African invoices show VAT (15%) the same way, plus your VAT vendor number. Invoice numbering must be sequential in the UK and SA — random numbering can cause problems in a VAT audit." },
-  { q: "What is the most common invoicing mistake?", a: "Applying tax before subtracting the discount, instead of after. If a $1,000 invoice has a 10% discount and 20% VAT, the correct calculation is ($1,000 − $100) × 1.20 = $1,080. Applying VAT first gives $1,200 minus $100 = $1,100 — a $20 overcharge to the client and a VAT remittance mismatch. This calculator does it in the correct order; verify your own invoicing software does the same." },
-  { q: "What if my client is in a different country — do I still charge VAT?", a: "In the UK, B2B services to a VAT-registered business in another country are usually zero-rated (no VAT charged, but the invoice must show the client's VAT number and a reverse-charge note). B2C services across borders follow different rules per country. South African export rules are similar but require proof of export. When in doubt, charge zero VAT and note \"reverse charge applies\" — confirm with an accountant." },
-  { q: "What if my quantity or rate is zero on a line item?", a: "The line total becomes zero and is excluded from the subtotal, which is mathematically correct but probably not what you meant. Either delete the line entirely (cleaner) or replace with the intended value. A zero line on the printed invoice can confuse clients into asking why it's there — most invoicing best practice is to keep the invoice tight to billable items only." },
-  { q: "I have my invoice total — what should I do before sending?", a: "Five-second checklist. One: invoice number is sequential and unique. Two: payment due date is explicit (not just \"net-30\" — write the actual date). Three: payment instructions include bank details or a link. Four: tax breakdown matches the calculator output. Five: keep a copy in your records (legally required for 6 years in the UK, 5 in SA, 7 in most US states). Send via email with PDF attached — chasing late payment is much easier with a clear audit trail." },
-];
-
 export default function InvoicePage() {
   return (
     <CalculatorShell
@@ -101,7 +88,7 @@ Invoice Total = Subtotal − Discount Amount + Tax Amount`}
         </pre>
       </FormulaBox>
 
-      <FaqList items={FAQS} />
+      <FaqList items={META.faqs} />
 
       <RelatedTools slugs={["freelance-rate-calculator", "net-profit-calculator"]} />
 
