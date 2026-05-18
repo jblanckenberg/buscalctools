@@ -1,3 +1,4 @@
+import AdSlot from "@/components/shared/AdSlot";
 import AuthorCard from "@/components/shared/AuthorCard";
 import Breadcrumbs, { type Crumb } from "@/components/shared/Breadcrumbs";
 import FeaturedAnswer from "@/components/shared/FeaturedAnswer";
@@ -24,6 +25,11 @@ export default function CalculatorShell({
 }: Props) {
   const meta = slug ? calcMeta(slug) : undefined;
   const hasHowTo = !!meta?.howToSteps && meta.howToSteps.length > 0;
+  // Manual AdSense slot IDs — env-driven so we render nothing if not configured.
+  // CLS is defended by reserving minHeight on each AdSlot wrapper. See P1.7.
+  const topSlot = process.env.NEXT_PUBLIC_ADSENSE_SLOT_TOP;
+  const resultsSlot = process.env.NEXT_PUBLIC_ADSENSE_SLOT_RESULTS;
+  const eduSlot = process.env.NEXT_PUBLIC_ADSENSE_SLOT_EDU;
   return (
     <article className="mx-auto max-w-4xl px-4 py-8 sm:py-12">
       {breadcrumbs && breadcrumbs.length > 0 && <Breadcrumbs items={breadcrumbs} />}
@@ -42,13 +48,37 @@ export default function CalculatorShell({
         <p className="mt-2 max-w-2xl text-base text-gray-600">{intro}</p>
       </header>
       {slug && <FeaturedAnswer slug={slug} />}
+      {topSlot ? (
+        <AdSlot
+          slot={topSlot}
+          format="horizontal"
+          minHeight={90}
+          className="my-4"
+        />
+      ) : null}
       {children}
+      {resultsSlot ? (
+        <AdSlot
+          slot={resultsSlot}
+          format="rectangle"
+          minHeight={250}
+          className="my-6"
+        />
+      ) : null}
       {meta?.scenarios && meta.scenarios.length > 0 && (
         <Scenarios items={meta.scenarios} />
       )}
       {hasHowTo && meta && (
         <HowToSteps steps={meta.howToSteps} name={meta.howToName} />
       )}
+      {eduSlot ? (
+        <AdSlot
+          slot={eduSlot}
+          format="rectangle"
+          minHeight={250}
+          className="my-6"
+        />
+      ) : null}
       <AuthorCard variant="full" />
     </article>
   );
