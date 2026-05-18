@@ -38,5 +38,10 @@ next-env.d.ts
 # kpi etl (Phase 6)
 scripts/kpi_config.json
 scripts/.gsc_service_account.json
-scripts/kpi/__pycache__/
-scripts/tests/__pycache__/
+
+# python bytecode caches (anywhere)
+__pycache__/
+*.pyc
+
+# local-only scratch image in scripts/
+scripts/img.png
