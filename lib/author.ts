@@ -23,13 +23,20 @@ export const AUTHOR = {
   image: undefined as string | undefined,
 };
 
+// Friendly "about the site" page that introduces the author. Kept as the
+// non-canonical entry point for human readers; the canonical Person URL
+// (Person.url in JSON-LD, AuthorCard link target) is AUTHOR_PROFILE_URL below.
 export const AUTHOR_URL = `${SITE_URL}/about`;
+
+// Canonical Person profile URL. Used as Person.url in JSON-LD so search
+// engines treat /authors/<slug>/ as the authoritative page for the author.
+export const AUTHOR_PROFILE_URL = `${SITE_URL}/authors/${AUTHOR.slug}`;
 
 export function authorPersonLd() {
   return {
     "@type": "Person",
     name: AUTHOR.name,
-    url: AUTHOR_URL,
+    url: AUTHOR_PROFILE_URL,
     jobTitle: AUTHOR.jobTitle,
     description: AUTHOR.shortBio,
     worksFor: {
@@ -64,7 +71,7 @@ export function reviewerPersonLd() {
     "@type": "Person",
     name: REVIEWER_NAME,
     jobTitle: REVIEWER_TITLE,
-    url: `${SITE_URL}/about`,
+    url: AUTHOR_PROFILE_URL,
     sameAs: AUTHOR.sameAs,
   };
 }

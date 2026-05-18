@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { AUTHOR, REVIEWER_NAME, REVIEWER_TITLE } from "@/lib/author";
+import { AUTHOR, AUTHOR_PROFILE_URL, REVIEWER_NAME, REVIEWER_TITLE } from "@/lib/author";
+
+const PROFILE_HREF = AUTHOR_PROFILE_URL.replace(/^https?:\/\/[^/]+/, "");
 
 export default function AuthorCard({
   variant = "full",
@@ -18,7 +20,7 @@ export default function AuthorCard({
             Written by
           </p>
           <Link
-            href="/about"
+            href={PROFILE_HREF}
             className="text-base font-semibold text-brand-dark hover:text-brand-primary"
           >
             {AUTHOR.name}
@@ -35,7 +37,7 @@ export default function AuthorCard({
             </p>
           ) : null}
           <Link
-            href="/about"
+            href={PROFILE_HREF}
             className="mt-2 inline-block text-sm font-medium text-brand-primary hover:underline"
           >
             More about James →
