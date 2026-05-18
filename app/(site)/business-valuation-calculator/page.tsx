@@ -69,6 +69,31 @@ export default function BusinessValuationPage() {
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Common mistakes</h2>
+        <ul className="mt-3 space-y-3 text-sm leading-relaxed text-gray-700">
+          <li>
+            <strong className="text-brand-dark">Anchoring to a single number</strong> — owners often quote one valuation figure as if it were the price. A buyer will run the same three methods and produce their own range. The realistic deal happens inside the overlap of the two ranges. Always present a range and treat the midpoint as a starting point for negotiation, not a fact.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Confusing sunk effort with value</strong> — a buyer is purchasing future cash flow they will inherit, not the years of work that built the business. Time, founder sacrifice, and personal capital invested do not appear in any valuation formula. Strip emotional attachment to the cost basis before negotiating; otherwise asking prices drift 30–50% above any defensible number.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Using inflated EBITDA</strong> — "owner-adjusted" or "addback" EBITDA often pads the number with personal expenses run through the business, one-off legal fees, or above-market owner salary normalised back to zero. Most buyers reverse aggressive addbacks during due diligence and renegotiate the price downward. Use a conservative EBITDA and let the buyer find the upside themselves.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this when preparing for a sale, evaluating an acquisition, raising equity capital, or setting a defensible internal valuation for share buybacks, ESOP grants, or estate planning. The three-method range is also a useful annual scorecard even when no transaction is planned.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you are evaluating a single investment within the business rather than the whole entity, the ROI Calculator or Payback Period Calculator is more focused. To project the revenue trajectory that feeds the valuation, the Revenue Growth Calculator is the right starting point.
+        </p>
+      </section>
+
       <FormulaBox>
         <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed">
 {`Revenue Valuation = Annual Revenue × Revenue Multiple

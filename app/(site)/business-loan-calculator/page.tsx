@@ -67,6 +67,31 @@ export default function BusinessLoanPage() {
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Common mistakes</h2>
+        <ul className="mt-3 space-y-3 text-sm leading-relaxed text-gray-700">
+          <li>
+            <strong className="text-brand-dark">Comparing on monthly payment alone</strong> — a longer term gives a smaller monthly payment but a much larger total interest bill. A $50,000 loan at 8% costs $10,829 in interest over 5 years versus $18,526 over 10 years — same monthly comfort, $7,697 more out of pocket. Always compare total cost, not just the monthly line.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Quoting the headline rate, ignoring fees</strong> — origination fees, processing fees, and prepayment penalties can add 1–3% to the effective cost of borrowing. APR captures these; the headline interest rate does not. A 7% loan with a 3% origination fee can be more expensive than an 8% loan with no fees.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Borrowing the maximum approved</strong> — the lender's approval ceiling is set by what you can theoretically repay, not what you actually need. Borrowing $200,000 when $80,000 funds the project just adds $10,000/year of interest expense and ties up future borrowing capacity for no benefit. Match the loan to the project, not to the cap.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this when you have a loan amount and APR in hand and want to model monthly payments, total interest, and the principal/interest split over the life of the loan. It is the right tool for SBA, term loan, or commercial loan comparisons and for checking what a refinance would actually save.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you are deciding <em>how much</em> to borrow against future cash flow, pair this with the Cash Flow Calculator to confirm the monthly payment fits. To evaluate whether a debt-funded investment actually pays off, run the same numbers through the ROI Calculator.
+        </p>
+      </section>
+
       <FormulaBox>
         <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed">
 {`Monthly Payment = P × [r(1+r)^n] / [(1+r)^n − 1]

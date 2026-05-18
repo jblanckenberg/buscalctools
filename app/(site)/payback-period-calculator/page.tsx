@@ -68,6 +68,31 @@ export default function PaybackPeriodPage() {
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Common mistakes</h2>
+        <ul className="mt-3 space-y-3 text-sm leading-relaxed text-gray-700">
+          <li>
+            <strong className="text-brand-dark">Using over-optimistic cash flows</strong> — a spreadsheet showing 4-year payback on equipment promising $25,000/year savings looks great until the kit underperforms by 30% and the real payback is 5.7 years. Always model a base case, a worst case (cash flows 25% lower), and a best case. If the worst case exceeds 5 years, the investment is fragile.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Ignoring what happens after payback</strong> — payback period treats a 3-year payback investment that earns for 20 years the same as one that earns for 3. Two projects with identical payback can have wildly different total returns. Pair payback with ROI or NPV to see the post-recovery value.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Skipping the discount rate</strong> — simple payback assumes a dollar in year 5 is worth the same as a dollar today. It isn't, especially at higher inflation or in higher-rate markets like SA. For investments over 3 years, always use discounted payback (10–12% US, 9–11% UK, 13–18% SA) rather than the simple version.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this when you need to know how quickly a one-off investment recovers itself — equipment, a website rebuild, a marketing push with a measurable revenue lift, a property fit-out. Shorter payback = lower risk. This is the right tool when liquidity and risk matter more than total return.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you care about the total return rather than the speed, the ROI Calculator is more relevant. To model the monthly cash impact of the investment alongside the rest of the business, use the Cash Flow Calculator.
+        </p>
+      </section>
+
       <FormulaBox>
         <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed">
 {`Simple Payback Period = Initial Investment / Annual Net Cash Inflow

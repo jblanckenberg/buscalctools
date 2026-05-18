@@ -56,6 +56,44 @@ export default function RevenueGrowthPage() {
       />
       <RevenueGrowthCalculator />
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">How it works</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Period-over-period mode compares any two revenue figures and
+          returns the percentage change — use it for month-over-month or
+          year-over-year tracking. CAGR mode takes a starting revenue, an
+          ending revenue, and the number of years between them, then
+          returns the constant annual growth rate that links the two —
+          smoothing out lumpy individual years. CAGR is the right metric
+          for multi-year trend reporting and investor benchmarks.
+        </p>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Common mistakes</h2>
+        <ul className="mt-3 space-y-3 text-sm leading-relaxed text-gray-700">
+          <li>
+            <strong className="text-brand-dark">Comparing high-base to low-base months</strong> — a retailer that did $100K in December and $80K in January shows -20% MoM growth that is actually normal seasonality, not decline. For seasonal businesses, always use year-over-year or a rolling 3-month average rather than raw month-on-month.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Quoting CAGR over too short a window</strong> — CAGR over a single year is just the growth rate; CAGR over two years smooths very little. The metric is most useful over 3–5 years. Three-month CAGR figures (sometimes annualised by investors hunting for a hot narrative) overstate the underlying trend and crumble in due diligence.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Growing revenue without checking margin</strong> — a 40% revenue jump that came from heavy discounting or a loss-leading product launch can actually shrink profit. Track revenue growth alongside gross margin so the topline number reflects healthy expansion rather than market-share buying.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this for monthly performance reviews (MoM/YoY), annual planning, investor updates, and multi-year strategic reporting (CAGR). It is the right tool for benchmarking the top line against inflation, market growth, or your own prior periods.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you want to assess whether revenue growth is translating into bottom-line growth, pair this with the Net Profit Calculator. To turn a growth rate into a valuation impact, run the projection through the Business Valuation Calculator.
+        </p>
+      </section>
+
       <FormulaBox>
         <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed">
 {`Growth Rate (%) = ((Current Revenue − Previous Revenue) / Previous Revenue) × 100
