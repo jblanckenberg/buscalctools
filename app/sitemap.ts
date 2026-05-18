@@ -90,6 +90,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
     {
+      url: `${SITE_URL}/methodology`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    ...TOOLS.map((t) => ({
+      url: `${SITE_URL}/methodology/${t.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.55,
+    })),
+    {
       url: `${SITE_URL}/contact`,
       lastModified: now,
       changeFrequency: "yearly",

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { calcMeta, LAST_VERIFIED } from "@/lib/calc-meta";
 
 type Props = {
@@ -18,6 +19,14 @@ export default function MethodologyBox({ slug }: Props) {
           Rates last verified: {LAST_VERIFIED}
         </span>
       </div>
+      <p className="mt-3 text-sm">
+        <Link
+          href={`/methodology/${slug}`}
+          className="font-medium text-brand-primary hover:underline"
+        >
+          Read the full methodology →
+        </Link>
+      </p>
 
       {meta.methodologyNote && (
         <p className="mt-3 text-sm leading-relaxed text-gray-700">
