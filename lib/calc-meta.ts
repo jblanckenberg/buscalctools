@@ -1,4 +1,5 @@
 import type { HowToStep } from "@/components/shared/HowToSchema";
+import type { Scenario } from "@/components/shared/Scenarios";
 
 export type CalcCategory =
   | "Profit & Pricing"
@@ -39,6 +40,10 @@ export type CalcMeta = {
   // logic, copy, and sources. Drives the visible "Last reviewed" stamp
   // and the JSON-LD dateModified field. Update per-calc as content is revised.
   lastReviewed: string;
+  // Pre-filled query-string scenarios rendered as chips below the calculator.
+  // Each href must use the URL param schema the matching calculator component
+  // reads on mount (see lib/calc-params.ts and each *Calculator.tsx).
+  scenarios?: Scenario[];
 };
 
 export const LAST_VERIFIED = "May 2026";
@@ -82,6 +87,20 @@ export const CALC_META: Record<string, CalcMeta> = {
   "profit-margin-calculator": {
     slug: "profit-margin-calculator",
     lastReviewed: "2026-05-17",
+    scenarios: [
+      {
+        label: "Retail store: $250k revenue / $150k COGS",
+        href: "/profit-margin-calculator?revenue=250000&cogs=150000&opex=60000",
+      },
+      {
+        label: "SaaS: $1.2M revenue / $200k COGS",
+        href: "/profit-margin-calculator?revenue=1200000&cogs=200000&opex=400000",
+      },
+      {
+        label: "Agency: $500k revenue / $50k COGS",
+        href: "/profit-margin-calculator?revenue=500000&cogs=50000&opex=200000",
+      },
+    ],
     category: "Profit & Pricing",
     applicationSubCategory: "Profit Margin Calculator",
     featureList: [

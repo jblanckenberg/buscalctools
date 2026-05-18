@@ -2,6 +2,7 @@ import AuthorCard from "@/components/shared/AuthorCard";
 import Breadcrumbs, { type Crumb } from "@/components/shared/Breadcrumbs";
 import FeaturedAnswer from "@/components/shared/FeaturedAnswer";
 import HowToSteps from "@/components/shared/HowToSteps";
+import Scenarios from "@/components/shared/Scenarios";
 import { calcMeta, formatReviewDate } from "@/lib/calc-meta";
 
 type Props = {
@@ -42,6 +43,9 @@ export default function CalculatorShell({
       </header>
       {slug && <FeaturedAnswer slug={slug} />}
       {children}
+      {meta?.scenarios && meta.scenarios.length > 0 && (
+        <Scenarios items={meta.scenarios} />
+      )}
       {hasHowTo && meta && (
         <HowToSteps steps={meta.howToSteps} name={meta.howToName} />
       )}
