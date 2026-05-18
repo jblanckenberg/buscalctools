@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import InputField from "@/components/ui/InputField";
 import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
@@ -16,16 +17,30 @@ const PRESETS: Record<string, number> = {
 };
 
 export default function EcommerceProfitCalculator() {
+  return (
+    <Suspense fallback={null}>
+      <Inner />
+    </Suspense>
+  );
+}
+
+function Inner() {
+  const sp = useSearchParams();
   const [region, setRegion] = useRegion();
   const cfg = REGIONS[region];
 
-  const [productCost, setProductCost] = useState("8");
-  const [sellingPrice, setSellingPrice] = useState("29.99");
-  const [platform, setPlatform] = useState<keyof typeof PRESETS>("Amazon FBA");
-  const [feePct, setFeePct] = useState("15");
-  const [shipping, setShipping] = useState("3.5");
-  const [adSpend, setAdSpend] = useState("2");
-  const [vatPct, setVatPct] = useState(String(cfg.consumptionTaxRate));
+  const platformParam = sp.get("platform") as keyof typeof PRESETS | null;
+  const initialPlatform: keyof typeof PRESETS =
+    platformParam && platformParam in PRESETS ? platformParam : "Amazon FBA";
+  const initialFee = sp.get("fee") ?? String(PRESETS[initialPlatform]);
+
+  const [productCost, setProductCost] = useState(sp.get("cost") ?? "8");
+  const [sellingPrice, setSellingPrice] = useState(sp.get("price") ?? "29.99");
+  const [platform, setPlatform] = useState<keyof typeof PRESETS>(initialPlatform);
+  const [feePct, setFeePct] = useState(initialFee);
+  const [shipping, setShipping] = useState(sp.get("shipping") ?? "3.5");
+  const [adSpend, setAdSpend] = useState(sp.get("ads") ?? "2");
+  const [vatPct, setVatPct] = useState(sp.get("vat") ?? String(cfg.consumptionTaxRate));
 
   useEffect(() => {
     setVatPct(String(REGIONS[region].consumptionTaxRate));

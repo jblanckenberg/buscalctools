@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import InputField from "@/components/ui/InputField";
 import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
@@ -8,14 +9,24 @@ import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency, formatPercent } from "@/lib/regions";
 
 export default function RevenueGrowthCalculator() {
+  return (
+    <Suspense fallback={null}>
+      <Inner />
+    </Suspense>
+  );
+}
+
+function Inner() {
+  const sp = useSearchParams();
   const [region, setRegion] = useRegion();
   const cfg = REGIONS[region];
 
-  const [periodType, setPeriodType] = useState<"month" | "year">("year");
-  const [current, setCurrent] = useState("250000");
-  const [previous, setPrevious] = useState("180000");
-  const [starting, setStarting] = useState("100000");
-  const [years, setYears] = useState("4");
+  const initialMode = sp.get("mode") === "month" ? "month" : "year";
+  const [periodType, setPeriodType] = useState<"month" | "year">(initialMode);
+  const [current, setCurrent] = useState(sp.get("current") ?? "250000");
+  const [previous, setPrevious] = useState(sp.get("previous") ?? "180000");
+  const [starting, setStarting] = useState(sp.get("start") ?? "100000");
+  const [years, setYears] = useState(sp.get("years") ?? "4");
 
   const cur = parseFloat(current) || 0;
   const prev = parseFloat(previous) || 0;

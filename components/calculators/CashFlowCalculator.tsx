@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import dynamic from "next/dynamic";
 import InputField from "@/components/ui/InputField";
 import ResultCard from "@/components/ui/ResultCard";
@@ -24,15 +25,27 @@ const MONTHS = Array.from({ length: 12 }, (_, i) =>
 );
 
 export default function CashFlowCalculator() {
+  return (
+    <Suspense fallback={null}>
+      <Inner />
+    </Suspense>
+  );
+}
+
+function Inner() {
+  const sp = useSearchParams();
   const [region, setRegion] = useRegion();
   const cfg = REGIONS[region];
 
-  const [opening, setOpening] = useState("10000");
+  const incomeSeed = sp.get("income") ?? "12000";
+  const expensesSeed = sp.get("expenses") ?? "9500";
+
+  const [opening, setOpening] = useState(sp.get("opening") ?? "10000");
   const [income, setIncome] = useState<string[]>(() =>
-    Array.from({ length: 12 }, () => "12000")
+    Array.from({ length: 12 }, () => incomeSeed)
   );
   const [expenses, setExpenses] = useState<string[]>(() =>
-    Array.from({ length: 12 }, () => "9500")
+    Array.from({ length: 12 }, () => expensesSeed)
   );
 
   const updateMonth = (

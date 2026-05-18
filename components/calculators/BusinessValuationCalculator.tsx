@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import InputField from "@/components/ui/InputField";
 import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
@@ -8,16 +9,25 @@ import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency } from "@/lib/regions";
 
 export default function BusinessValuationCalculator() {
+  return (
+    <Suspense fallback={null}>
+      <Inner />
+    </Suspense>
+  );
+}
+
+function Inner() {
+  const sp = useSearchParams();
   const [region, setRegion] = useRegion();
   const cfg = REGIONS[region];
 
-  const [revenue, setRevenue] = useState("750000");
-  const [ebitda, setEbitda] = useState("150000");
-  const [revenueMultiple, setRevenueMultiple] = useState("1.5");
-  const [ebitdaMultiple, setEbitdaMultiple] = useState("5");
-  const [fcf, setFcf] = useState("120000");
-  const [discountRate, setDiscountRate] = useState("20");
-  const [growthRate, setGrowthRate] = useState("10");
+  const [revenue, setRevenue] = useState(sp.get("revenue") ?? "750000");
+  const [ebitda, setEbitda] = useState(sp.get("ebitda") ?? "150000");
+  const [revenueMultiple, setRevenueMultiple] = useState(sp.get("rev_multiple") ?? "1.5");
+  const [ebitdaMultiple, setEbitdaMultiple] = useState(sp.get("ebitda_multiple") ?? "5");
+  const [fcf, setFcf] = useState(sp.get("fcf") ?? "120000");
+  const [discountRate, setDiscountRate] = useState(sp.get("discount") ?? "20");
+  const [growthRate, setGrowthRate] = useState(sp.get("growth") ?? "10");
 
   const rev = parseFloat(revenue) || 0;
   const eb = parseFloat(ebitda) || 0;

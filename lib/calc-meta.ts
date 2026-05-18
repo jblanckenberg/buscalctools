@@ -130,6 +130,20 @@ export const CALC_META: Record<string, CalcMeta> = {
   "markup-calculator": {
     slug: "markup-calculator",
     lastReviewed: "2026-05-17",
+    scenarios: [
+      {
+        label: "Retail: $40 cost at 50% markup",
+        href: "/markup-calculator?mode=forward&cost=40&markup=50",
+      },
+      {
+        label: "Wholesale: $12 cost at 100% markup",
+        href: "/markup-calculator?mode=forward&cost=12&markup=100",
+      },
+      {
+        label: "Reverse: $79 price from $25 cost",
+        href: "/markup-calculator?mode=reverse&cost=25&price=79",
+      },
+    ],
     category: "Profit & Pricing",
     applicationSubCategory: "Markup Calculator",
     featureList: [
@@ -157,6 +171,20 @@ export const CALC_META: Record<string, CalcMeta> = {
   "break-even-calculator": {
     slug: "break-even-calculator",
     lastReviewed: "2026-05-17",
+    scenarios: [
+      {
+        label: "Coffee shop: $5k fixed / $3 var / $7 price",
+        href: "/break-even-calculator?fixed=5000&variable=3&price=7",
+      },
+      {
+        label: "SaaS startup: $30k fixed / $5 var / $49 price",
+        href: "/break-even-calculator?fixed=30000&variable=5&price=49",
+      },
+      {
+        label: "Manufacturer with $20k profit target",
+        href: "/break-even-calculator?fixed=15000&variable=12&price=40&target=20000",
+      },
+    ],
     category: "Break-Even & Cash Flow",
     applicationSubCategory: "Break-Even Calculator",
     featureList: [
@@ -185,6 +213,20 @@ export const CALC_META: Record<string, CalcMeta> = {
   "roi-calculator": {
     slug: "roi-calculator",
     lastReviewed: "2026-05-17",
+    scenarios: [
+      {
+        label: "Marketing: $5k spend → $12k return over 6 mo",
+        href: "/roi-calculator?investment=5000&return=12000&months=6",
+      },
+      {
+        label: "Equipment: $25k → $40k over 24 mo",
+        href: "/roi-calculator?investment=25000&return=40000&months=24",
+      },
+      {
+        label: "Training: $2k → $3k over 12 mo",
+        href: "/roi-calculator?investment=2000&return=3000&months=12",
+      },
+    ],
     category: "Funding & Valuation",
     applicationSubCategory: "ROI Calculator",
     featureList: [
@@ -212,6 +254,20 @@ export const CALC_META: Record<string, CalcMeta> = {
   "pricing-calculator": {
     slug: "pricing-calculator",
     lastReviewed: "2026-05-17",
+    scenarios: [
+      {
+        label: "Service: $50 cost at 40% margin",
+        href: "/pricing-calculator?mode=margin&cost=50&margin=40",
+      },
+      {
+        label: "Retail: $15 cost at 60% markup + 20% VAT",
+        href: "/pricing-calculator?mode=markup&cost=15&markup=60&tax=20",
+      },
+      {
+        label: "Premium: $80 cost at 55% margin",
+        href: "/pricing-calculator?mode=margin&cost=80&margin=55",
+      },
+    ],
     category: "Profit & Pricing",
     applicationSubCategory: "Pricing Calculator",
     featureList: [
@@ -239,6 +295,20 @@ export const CALC_META: Record<string, CalcMeta> = {
   "invoice-calculator": {
     slug: "invoice-calculator",
     lastReviewed: "2026-05-17",
+    scenarios: [
+      {
+        label: "Consultant: 10 hrs at $120, 20% VAT",
+        href: "/invoice-calculator?desc=Consulting+hours&qty=10&rate=120&tax=20",
+      },
+      {
+        label: "Designer: 1 project at $2,500, 10% discount",
+        href: "/invoice-calculator?desc=Design+project&qty=1&rate=2500&tax=20&discount=10",
+      },
+      {
+        label: "US contractor: 40 hrs at $85, no sales tax",
+        href: "/invoice-calculator?desc=Contract+work&qty=40&rate=85&tax=0",
+      },
+    ],
     category: "Freelance & Hiring",
     applicationSubCategory: "Invoice Calculator",
     featureList: [
@@ -265,6 +335,20 @@ export const CALC_META: Record<string, CalcMeta> = {
   "freelance-rate-calculator": {
     slug: "freelance-rate-calculator",
     lastReviewed: "2026-05-17",
+    scenarios: [
+      {
+        label: "Designer: $60k target, 25 hrs/wk, $6k overhead",
+        href: "/freelance-rate-calculator?income=60000&hours=25&overhead=6000&weeks_off=6&margin=15",
+      },
+      {
+        label: "Developer: $120k target, 30 hrs/wk, $10k overhead",
+        href: "/freelance-rate-calculator?income=120000&hours=30&overhead=10000&weeks_off=5&margin=20",
+      },
+      {
+        label: "Copywriter: $45k target, 20 hrs/wk, $3k overhead",
+        href: "/freelance-rate-calculator?income=45000&hours=20&overhead=3000&weeks_off=8&margin=10",
+      },
+    ],
     category: "Freelance & Hiring",
     applicationSubCategory: "Freelance Rate Calculator",
     featureList: [
@@ -292,6 +376,20 @@ export const CALC_META: Record<string, CalcMeta> = {
   "cash-flow-calculator": {
     slug: "cash-flow-calculator",
     lastReviewed: "2026-05-17",
+    scenarios: [
+      {
+        label: "Steady SMB: $10k opening, $12k in / $9.5k out",
+        href: "/cash-flow-calculator?opening=10000&income=12000&expenses=9500",
+      },
+      {
+        label: "Lean startup: $50k opening, $5k in / $15k out",
+        href: "/cash-flow-calculator?opening=50000&income=5000&expenses=15000",
+      },
+      {
+        label: "Scaling agency: $25k opening, $40k in / $32k out",
+        href: "/cash-flow-calculator?opening=25000&income=40000&expenses=32000",
+      },
+    ],
     category: "Break-Even & Cash Flow",
     applicationSubCategory: "Cash Flow Calculator",
     featureList: [
@@ -317,6 +415,20 @@ export const CALC_META: Record<string, CalcMeta> = {
   "net-profit-calculator": {
     slug: "net-profit-calculator",
     lastReviewed: "2026-05-17",
+    scenarios: [
+      {
+        label: "SMB: $500k revenue / $250k COGS / $150k OpEx",
+        href: "/net-profit-calculator?revenue=500000&cogs=250000&opex=150000&interest=8000",
+      },
+      {
+        label: "High-margin SaaS: $1M revenue / $150k COGS",
+        href: "/net-profit-calculator?revenue=1000000&cogs=150000&opex=500000&interest=0",
+      },
+      {
+        label: "Thin-margin retail: $800k revenue / $560k COGS",
+        href: "/net-profit-calculator?revenue=800000&cogs=560000&opex=180000&interest=12000",
+      },
+    ],
     category: "Profit & Pricing",
     applicationSubCategory: "Net Profit Calculator",
     featureList: [
@@ -344,6 +456,20 @@ export const CALC_META: Record<string, CalcMeta> = {
   "ecommerce-profit-calculator": {
     slug: "ecommerce-profit-calculator",
     lastReviewed: "2026-05-17",
+    scenarios: [
+      {
+        label: "Amazon FBA: $29.99 sale / $8 cost",
+        href: "/ecommerce-profit-calculator?platform=Amazon+FBA&fee=15&price=29.99&cost=8&shipping=3.5&ads=2",
+      },
+      {
+        label: "Etsy: $45 sale / $12 cost / $3 shipping",
+        href: "/ecommerce-profit-calculator?platform=Etsy&fee=6.5&price=45&cost=12&shipping=3&ads=1",
+      },
+      {
+        label: "Shopify DTC: $89 sale / $20 cost / $15 ads",
+        href: "/ecommerce-profit-calculator?platform=Shopify&fee=2.9&price=89&cost=20&shipping=5&ads=15",
+      },
+    ],
     category: "Profit & Pricing",
     applicationSubCategory: "Ecommerce Profit Calculator",
     featureList: [
@@ -371,6 +497,20 @@ export const CALC_META: Record<string, CalcMeta> = {
   "cost-per-unit-calculator": {
     slug: "cost-per-unit-calculator",
     lastReviewed: "2026-05-17",
+    scenarios: [
+      {
+        label: "Small batch: $10k fixed / $5k variable / 500 units",
+        href: "/cost-per-unit-calculator?fixed=10000&variable=5000&units=500",
+      },
+      {
+        label: "Scale-up: $50k fixed / $25k variable / 5,000 units",
+        href: "/cost-per-unit-calculator?fixed=50000&variable=25000&units=5000",
+      },
+      {
+        label: "High-volume: $200k fixed / $150k variable / 50,000 units",
+        href: "/cost-per-unit-calculator?fixed=200000&variable=150000&units=50000",
+      },
+    ],
     category: "Break-Even & Cash Flow",
     applicationSubCategory: "Cost Per Unit Calculator",
     featureList: [
@@ -396,6 +536,20 @@ export const CALC_META: Record<string, CalcMeta> = {
   "business-loan-calculator": {
     slug: "business-loan-calculator",
     lastReviewed: "2026-05-17",
+    scenarios: [
+      {
+        label: "SBA 7(a): $50k at 7.5% over 5 years",
+        href: "/business-loan-calculator?amount=50000&rate=7.5&term=5&unit=years",
+      },
+      {
+        label: "Equipment: $25k at 9% over 36 months",
+        href: "/business-loan-calculator?amount=25000&rate=9&term=36&unit=months",
+      },
+      {
+        label: "Expansion: $250k at 8.5% over 10 years",
+        href: "/business-loan-calculator?amount=250000&rate=8.5&term=10&unit=years",
+      },
+    ],
     category: "Funding & Valuation",
     applicationSubCategory: "Business Loan Calculator",
     featureList: [
@@ -423,6 +577,20 @@ export const CALC_META: Record<string, CalcMeta> = {
   "payback-period-calculator": {
     slug: "payback-period-calculator",
     lastReviewed: "2026-05-17",
+    scenarios: [
+      {
+        label: "Equipment: $50k / $18k per year",
+        href: "/payback-period-calculator?investment=50000&inflow=18000",
+      },
+      {
+        label: "Software platform: $20k / $9k per year, 10% discount",
+        href: "/payback-period-calculator?investment=20000&inflow=9000&discount=10",
+      },
+      {
+        label: "Office buildout: $120k / $30k per year, 12% discount",
+        href: "/payback-period-calculator?investment=120000&inflow=30000&discount=12",
+      },
+    ],
     category: "Funding & Valuation",
     applicationSubCategory: "Payback Period Calculator",
     featureList: [
@@ -448,6 +616,20 @@ export const CALC_META: Record<string, CalcMeta> = {
   "burn-rate-calculator": {
     slug: "burn-rate-calculator",
     lastReviewed: "2026-05-17",
+    scenarios: [
+      {
+        label: "Pre-revenue: $500k cash / $0 in / $50k out",
+        href: "/burn-rate-calculator?cash=500000&revenue=0&expenses=50000",
+      },
+      {
+        label: "Early stage: $1M cash / $20k in / $80k out",
+        href: "/burn-rate-calculator?cash=1000000&revenue=20000&expenses=80000",
+      },
+      {
+        label: "Approaching profit: $300k / $60k in / $70k out",
+        href: "/burn-rate-calculator?cash=300000&revenue=60000&expenses=70000",
+      },
+    ],
     category: "Funding & Valuation",
     applicationSubCategory: "Burn Rate & Runway Calculator",
     featureList: [
@@ -473,6 +655,20 @@ export const CALC_META: Record<string, CalcMeta> = {
   "business-valuation-calculator": {
     slug: "business-valuation-calculator",
     lastReviewed: "2026-05-17",
+    scenarios: [
+      {
+        label: "Service business: $750k rev / $150k EBITDA",
+        href: "/business-valuation-calculator?revenue=750000&ebitda=150000&fcf=120000&rev_multiple=1.5&ebitda_multiple=5&discount=20&growth=10",
+      },
+      {
+        label: "SaaS: $2M rev / $400k EBITDA / 6× revenue",
+        href: "/business-valuation-calculator?revenue=2000000&ebitda=400000&fcf=350000&rev_multiple=6&ebitda_multiple=12&discount=18&growth=20",
+      },
+      {
+        label: "Mature retail: $1.5M rev / $200k EBITDA / 0.8× revenue",
+        href: "/business-valuation-calculator?revenue=1500000&ebitda=200000&fcf=150000&rev_multiple=0.8&ebitda_multiple=4&discount=22&growth=5",
+      },
+    ],
     category: "Funding & Valuation",
     applicationSubCategory: "Business Valuation Calculator",
     featureList: [
@@ -498,6 +694,20 @@ export const CALC_META: Record<string, CalcMeta> = {
   "revenue-growth-calculator": {
     slug: "revenue-growth-calculator",
     lastReviewed: "2026-05-17",
+    scenarios: [
+      {
+        label: "YoY: $180k → $250k (with CAGR over 4 yrs)",
+        href: "/revenue-growth-calculator?mode=year&current=250000&previous=180000&start=100000&years=4",
+      },
+      {
+        label: "MoM: $42k → $48k (steady growth)",
+        href: "/revenue-growth-calculator?mode=month&current=48000&previous=42000&start=30000&years=2",
+      },
+      {
+        label: "Declining: $500k → $420k (warning sign)",
+        href: "/revenue-growth-calculator?mode=year&current=420000&previous=500000&start=380000&years=3",
+      },
+    ],
     category: "Funding & Valuation",
     applicationSubCategory: "Revenue Growth Calculator",
     featureList: [
@@ -523,6 +733,20 @@ export const CALC_META: Record<string, CalcMeta> = {
   "employee-cost-calculator": {
     slug: "employee-cost-calculator",
     lastReviewed: "2026-05-17",
+    scenarios: [
+      {
+        label: "Junior hire: $45k salary, modest benefits",
+        href: "/employee-cost-calculator?salary=45000&benefits=3000&equipment=2000&training=1000&office=2500",
+      },
+      {
+        label: "Mid-level developer: $90k salary, full stack of perks",
+        href: "/employee-cost-calculator?salary=90000&benefits=9000&equipment=4000&training=2500&office=4000",
+      },
+      {
+        label: "Senior leader: $150k salary, exec-tier benefits",
+        href: "/employee-cost-calculator?salary=150000&benefits=18000&equipment=5000&training=4000&office=6000",
+      },
+    ],
     category: "Freelance & Hiring",
     applicationSubCategory: "Employee Cost Calculator",
     featureList: [
@@ -549,6 +773,20 @@ export const CALC_META: Record<string, CalcMeta> = {
   "discount-calculator": {
     slug: "discount-calculator",
     lastReviewed: "2026-05-17",
+    scenarios: [
+      {
+        label: "Black Friday: 25% off $100, 10 units",
+        href: "/discount-calculator?mode=forward&original=100&discount=25&qty=10",
+      },
+      {
+        label: "Clearance: 50% off $200, 5 units",
+        href: "/discount-calculator?mode=forward&original=200&discount=50&qty=5",
+      },
+      {
+        label: "Reverse check: $79 sale from $99 list",
+        href: "/discount-calculator?mode=reverse&original=99&price=79&qty=1",
+      },
+    ],
     category: "Profit & Pricing",
     applicationSubCategory: "Discount Calculator",
     featureList: [

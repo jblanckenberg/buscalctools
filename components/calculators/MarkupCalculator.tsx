@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import InputField from "@/components/ui/InputField";
 import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
@@ -8,13 +9,23 @@ import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency, formatPercent } from "@/lib/regions";
 
 export default function MarkupCalculator() {
+  return (
+    <Suspense fallback={null}>
+      <Inner />
+    </Suspense>
+  );
+}
+
+function Inner() {
+  const sp = useSearchParams();
   const [region, setRegion] = useRegion();
   const cfg = REGIONS[region];
 
-  const [mode, setMode] = useState<"forward" | "reverse">("forward");
-  const [cost, setCost] = useState("40");
-  const [markupPct, setMarkupPct] = useState("50");
-  const [sellingPrice, setSellingPrice] = useState("60");
+  const initialMode = sp.get("mode") === "reverse" ? "reverse" : "forward";
+  const [mode, setMode] = useState<"forward" | "reverse">(initialMode);
+  const [cost, setCost] = useState(sp.get("cost") ?? "40");
+  const [markupPct, setMarkupPct] = useState(sp.get("markup") ?? "50");
+  const [sellingPrice, setSellingPrice] = useState(sp.get("price") ?? "60");
 
   const costN = parseFloat(cost) || 0;
   const markupN = parseFloat(markupPct) || 0;

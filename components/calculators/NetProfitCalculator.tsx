@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import InputField from "@/components/ui/InputField";
 import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
@@ -8,14 +9,23 @@ import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency, formatPercent } from "@/lib/regions";
 
 export default function NetProfitCalculator() {
+  return (
+    <Suspense fallback={null}>
+      <Inner />
+    </Suspense>
+  );
+}
+
+function Inner() {
+  const sp = useSearchParams();
   const [region, setRegion] = useRegion();
   const cfg = REGIONS[region];
 
-  const [revenue, setRevenue] = useState("500000");
-  const [cogs, setCogs] = useState("250000");
-  const [opEx, setOpEx] = useState("150000");
-  const [interest, setInterest] = useState("8000");
-  const [taxRate, setTaxRate] = useState(String(cfg.corporateTaxRate));
+  const [revenue, setRevenue] = useState(sp.get("revenue") ?? "500000");
+  const [cogs, setCogs] = useState(sp.get("cogs") ?? "250000");
+  const [opEx, setOpEx] = useState(sp.get("opex") ?? "150000");
+  const [interest, setInterest] = useState(sp.get("interest") ?? "8000");
+  const [taxRate, setTaxRate] = useState(sp.get("tax") ?? String(cfg.corporateTaxRate));
 
   useEffect(() => {
     setTaxRate(String(REGIONS[region].corporateTaxRate));

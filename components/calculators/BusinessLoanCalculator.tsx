@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import InputField from "@/components/ui/InputField";
 import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
@@ -8,13 +9,24 @@ import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency, formatNumber } from "@/lib/regions";
 
 export default function BusinessLoanCalculator() {
+  return (
+    <Suspense fallback={null}>
+      <Inner />
+    </Suspense>
+  );
+}
+
+function Inner() {
+  const sp = useSearchParams();
   const [region, setRegion] = useRegion();
   const cfg = REGIONS[region];
 
-  const [amount, setAmount] = useState("50000");
-  const [rate, setRate] = useState(String(cfg.typicalLoanRate));
-  const [termUnit, setTermUnit] = useState<"months" | "years">("years");
-  const [term, setTerm] = useState("5");
+  const initialUnit = sp.get("unit") === "months" ? "months" : "years";
+
+  const [amount, setAmount] = useState(sp.get("amount") ?? "50000");
+  const [rate, setRate] = useState(sp.get("rate") ?? String(cfg.typicalLoanRate));
+  const [termUnit, setTermUnit] = useState<"months" | "years">(initialUnit);
+  const [term, setTerm] = useState(sp.get("term") ?? "5");
   const [showTable, setShowTable] = useState(false);
 
   useEffect(() => {

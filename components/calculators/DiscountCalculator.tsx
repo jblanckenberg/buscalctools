@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import InputField from "@/components/ui/InputField";
 import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
@@ -8,14 +9,24 @@ import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency, formatPercent } from "@/lib/regions";
 
 export default function DiscountCalculator() {
+  return (
+    <Suspense fallback={null}>
+      <Inner />
+    </Suspense>
+  );
+}
+
+function Inner() {
+  const sp = useSearchParams();
   const [region, setRegion] = useRegion();
   const cfg = REGIONS[region];
 
-  const [mode, setMode] = useState<"forward" | "reverse">("forward");
-  const [original, setOriginal] = useState("100");
-  const [discountPct, setDiscountPct] = useState("25");
-  const [discountedPrice, setDiscountedPrice] = useState("75");
-  const [quantity, setQuantity] = useState("10");
+  const initialMode = sp.get("mode") === "reverse" ? "reverse" : "forward";
+  const [mode, setMode] = useState<"forward" | "reverse">(initialMode);
+  const [original, setOriginal] = useState(sp.get("original") ?? "100");
+  const [discountPct, setDiscountPct] = useState(sp.get("discount") ?? "25");
+  const [discountedPrice, setDiscountedPrice] = useState(sp.get("price") ?? "75");
+  const [quantity, setQuantity] = useState(sp.get("qty") ?? "10");
 
   const orig = parseFloat(original) || 0;
   const dPct = parseFloat(discountPct) || 0;

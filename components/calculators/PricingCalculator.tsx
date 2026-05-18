@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import InputField from "@/components/ui/InputField";
 import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
@@ -8,14 +9,24 @@ import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency, formatPercent } from "@/lib/regions";
 
 export default function PricingCalculator() {
+  return (
+    <Suspense fallback={null}>
+      <Inner />
+    </Suspense>
+  );
+}
+
+function Inner() {
+  const sp = useSearchParams();
   const [region, setRegion] = useRegion();
   const cfg = REGIONS[region];
 
-  const [mode, setMode] = useState<"margin" | "markup">("margin");
-  const [cost, setCost] = useState("20");
-  const [marginPct, setMarginPct] = useState("40");
-  const [markupPct, setMarkupPct] = useState("50");
-  const [taxPct, setTaxPct] = useState(String(cfg.consumptionTaxRate));
+  const initialMode = sp.get("mode") === "markup" ? "markup" : "margin";
+  const [mode, setMode] = useState<"margin" | "markup">(initialMode);
+  const [cost, setCost] = useState(sp.get("cost") ?? "20");
+  const [marginPct, setMarginPct] = useState(sp.get("margin") ?? "40");
+  const [markupPct, setMarkupPct] = useState(sp.get("markup") ?? "50");
+  const [taxPct, setTaxPct] = useState(sp.get("tax") ?? String(cfg.consumptionTaxRate));
 
   useEffect(() => {
     setTaxPct(String(REGIONS[region].consumptionTaxRate));

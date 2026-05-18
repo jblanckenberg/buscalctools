@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import InputField from "@/components/ui/InputField";
 import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
@@ -8,12 +9,21 @@ import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency, formatNumber } from "@/lib/regions";
 
 export default function BurnRateCalculator() {
+  return (
+    <Suspense fallback={null}>
+      <Inner />
+    </Suspense>
+  );
+}
+
+function Inner() {
+  const sp = useSearchParams();
   const [region, setRegion] = useRegion();
   const cfg = REGIONS[region];
 
-  const [cash, setCash] = useState("500000");
-  const [revenue, setRevenue] = useState("20000");
-  const [expenses, setExpenses] = useState("70000");
+  const [cash, setCash] = useState(sp.get("cash") ?? "500000");
+  const [revenue, setRevenue] = useState(sp.get("revenue") ?? "20000");
+  const [expenses, setExpenses] = useState(sp.get("expenses") ?? "70000");
 
   const cashN = parseFloat(cash) || 0;
   const rev = parseFloat(revenue) || 0;

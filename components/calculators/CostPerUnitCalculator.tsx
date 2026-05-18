@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import InputField from "@/components/ui/InputField";
 import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
@@ -8,12 +9,21 @@ import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency, formatNumber } from "@/lib/regions";
 
 export default function CostPerUnitCalculator() {
+  return (
+    <Suspense fallback={null}>
+      <Inner />
+    </Suspense>
+  );
+}
+
+function Inner() {
+  const sp = useSearchParams();
   const [region, setRegion] = useRegion();
   const cfg = REGIONS[region];
 
-  const [fixedCosts, setFixedCosts] = useState("10000");
-  const [variableCosts, setVariableCosts] = useState("5000");
-  const [units, setUnits] = useState("500");
+  const [fixedCosts, setFixedCosts] = useState(sp.get("fixed") ?? "10000");
+  const [variableCosts, setVariableCosts] = useState(sp.get("variable") ?? "5000");
+  const [units, setUnits] = useState(sp.get("units") ?? "500");
 
   const fc = parseFloat(fixedCosts) || 0;
   const vc = parseFloat(variableCosts) || 0;
