@@ -47,6 +47,14 @@ const CALCULATOR_COMPONENT: Record<string, React.ComponentType> = {
     () => import("@/components/calculators/BusinessLoanCalculator"),
   ),
   "roi-calculator": dynamic(() => import("@/components/calculators/RoiCalculator")),
+  "pricing-calculator": dynamic(() => import("@/components/calculators/PricingCalculator")),
+  "employee-cost-calculator": dynamic(
+    () => import("@/components/calculators/EmployeeCostCalculator"),
+  ),
+  "invoice-calculator": dynamic(() => import("@/components/calculators/InvoiceCalculator")),
+  "ecommerce-profit-calculator": dynamic(
+    () => import("@/components/calculators/EcommerceProfitCalculator"),
+  ),
 };
 
 export default async function VariantPage({ params }: { params: Promise<Params> }) {
