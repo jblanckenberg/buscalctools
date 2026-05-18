@@ -48,10 +48,6 @@ async function main() {
           __EMBED_ORIGIN__: JSON.stringify(ORIGIN),
         },
         legalComments: "none",
-        // Tiny header for cache-busting during dev.
-        banner: {
-          js: `/* BC embed ${slug} — built ${new Date().toISOString()} */`,
-        },
       }),
     ),
   );
