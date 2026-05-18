@@ -69,6 +69,31 @@ export default function BreakEvenPage() {
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Common mistakes</h2>
+        <ul className="mt-3 space-y-3 text-sm leading-relaxed text-gray-700">
+          <li>
+            <strong className="text-brand-dark">Misclassifying costs</strong> — rent does not scale per unit (it is fixed), but part-time labour and sales commissions usually do scale (they are variable). Putting a "semi-variable" cost like utilities into the wrong bucket can shift the break-even point by 20% or more. Split anything ambiguous into a fixed base plus a per-unit slice.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Rounding break-even units down</strong> — if the calculator returns 399.4 units, the answer is 400, not 399. You do not break even at 399; you are still losing money on the last fraction of a unit. Always round break-even volume up.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Discounting below contribution margin</strong> — a "10% off" promotion on a product with a 35% gross margin still earns 25% per sale, but a 40% discount earns negative contribution on every unit. The more you sell, the more you lose. Always check the post-discount contribution margin before launching a promotion.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this when you have fixed and variable costs in hand and want to know the unit volume or revenue level required to cover them — typical when launching a new product, opening a new location, or pricing a service that has setup costs.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you are trying to recover a one-off investment (equipment, a fit-out, software), the Payback Period Calculator is the better tool. To check the per-unit cost floor that sets your minimum price, use the Cost Per Unit Calculator instead.
+        </p>
+      </section>
+
       <FormulaBox>
         <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed">
 {`Break-Even Units = Fixed Costs / (Selling Price − Variable Cost Per Unit)

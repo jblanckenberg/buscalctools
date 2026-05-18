@@ -68,6 +68,31 @@ export default function CostPerUnitPage() {
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Common mistakes</h2>
+        <ul className="mt-3 space-y-3 text-sm leading-relaxed text-gray-700">
+          <li>
+            <strong className="text-brand-dark">Skipping owner labour in fixed costs</strong> — a working owner who pays themselves through profit (rather than a salary) often leaves their own time out of total cost. The cost-per-unit number is then understated, sometimes by 30–50%, and every margin downstream is wrong. Always plug in a market-rate salary for the founder before dividing by units.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Using planned volume, not actual</strong> — fixed cost per unit drops with volume only if you actually produce and sell that volume. Calculating CPU based on "100 units this month" when you sold 60 understates true cost by 67%. Use actual or realistic forecast volume, not the capacity number.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Forgetting freight, duties, and wastage</strong> — variable cost is more than the supplier invoice. Inbound freight, import duties, packaging, quality-control rejects, and damage in transit all add to the true variable cost per unit. A 5% wastage rate on a $40 input quietly adds $2 per good unit shipped.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this when production volume is decided and you want to know the per-unit floor your selling price must clear. It is the right tool when planning a manufacturing run, costing a new SKU, or modelling the cost benefit of larger batch sizes.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you are trying to figure out the volume you need to hit to cover costs at a given price, use the Break-Even Calculator. Once you have the per-unit cost, the Pricing Calculator turns it into a selling price that hits your target margin.
+        </p>
+      </section>
+
       <FormulaBox>
         <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed">
 {`Fixed Cost Per Unit    = Total Fixed Costs / Number of Units

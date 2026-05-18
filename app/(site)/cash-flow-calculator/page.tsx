@@ -68,6 +68,31 @@ export default function CashFlowPage() {
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Common mistakes</h2>
+        <ul className="mt-3 space-y-3 text-sm leading-relaxed text-gray-700">
+          <li>
+            <strong className="text-brand-dark">Booking income in the invoice month</strong> — an invoice raised on 30 January with net-30 terms is cash in late February or early March, not January. Owners habitually enter revenue when sold rather than when paid, which makes the projection look 30–60 days better than reality. Always model income in the month cash actually arrives, with a 15–20% late-payment buffer.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Modelling tax payments only annually</strong> — UK VAT is quarterly, US federal estimated taxes are quarterly, SA VAT is bi-monthly or monthly. Each of these creates a large lumpy outflow that wrecks the month it lands in if planned as a year-end item. Add the actual due-date months explicitly.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Treating credit-line drawdowns as income</strong> — drawing $20,000 from an overdraft or line of credit is borrowing, not revenue. It increases cash today and must be repaid (with interest) later. Track financing inflows and outflows on a separate line so the operating cash flow signal stays clean.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this when you need a 12-month view of cash in and out — typical for budgeting, identifying which month will hit a cash crunch, or sizing a credit facility before you actually need it. The chart makes seasonal businesses easier to plan because the lean months become visible at a glance.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you are a startup focused on a single "how many months of runway?" number, the Burn Rate Calculator is more direct. For accounting profit (rather than bank balance), the Net Profit Calculator walks the income statement instead.
+        </p>
+      </section>
+
       <FormulaBox>
         <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed">
 {`Monthly Net Cash Flow = Monthly Income − Monthly Expenses

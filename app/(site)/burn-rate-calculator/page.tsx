@@ -67,6 +67,31 @@ export default function BurnRatePage() {
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Common mistakes</h2>
+        <ul className="mt-3 space-y-3 text-sm leading-relaxed text-gray-700">
+          <li>
+            <strong className="text-brand-dark">Using a single-month snapshot</strong> — January burn looks huge if you paid an annual SaaS bill that month. February looks great because the bill is gone. Neither number is real. Always use a 3-month rolling average and pull annual or one-off items into a separate line so the underlying trend is visible.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Starting fundraising too late</strong> — fundraising takes 3–6 months in healthy markets and 9+ months in tight ones. Beginning conversations with under 6 months of runway forces accepting bad terms or bridge financing. The action threshold is 12 months of runway, not 6.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Cutting growth before cutting waste</strong> — when runway is short, founders often slash marketing and sales first because they are the easiest line items to zero out. That kills future revenue and shortens runway further. Cut overlapping tools, premium office space, and underperforming hires before touching the growth engine.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this for the single founder/investor health metric — months of runway given current cash and net monthly burn. It is the right tool for board updates, investor decks, and any conversation that needs one number rather than a full forecast.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          For a month-by-month forecast with seasonal lumps and tax dates, use the Cash Flow Calculator instead. To pressure-test what happens when revenue ramps fast enough to make burn negative, pair this with the Break-Even Calculator.
+        </p>
+      </section>
+
       <FormulaBox>
         <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed">
 {`Gross Burn Rate = Total Monthly Expenses
