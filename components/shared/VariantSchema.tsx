@@ -1,3 +1,5 @@
+import { authorPersonLd, reviewerPersonLd } from "@/lib/author";
+import { calcMeta, CALC_META_BASELINE_DATE } from "@/lib/calc-meta";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 type Props = {
@@ -19,6 +21,7 @@ export default function VariantSchema({
 }: Props) {
   const parentUrl = `${SITE_URL}/${calcSlug}`;
   const variantUrl = `${parentUrl}/${variantSlug}`;
+  const dateModified = calcMeta(calcSlug)?.lastReviewed ?? CALC_META_BASELINE_DATE;
   const ld = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
@@ -44,6 +47,9 @@ export default function VariantSchema({
       name: SITE_NAME,
       url: SITE_URL,
     },
+    author: authorPersonLd(),
+    reviewedBy: reviewerPersonLd(),
+    dateModified,
     ...(featureList && featureList.length > 0 ? { featureList } : {}),
   };
   return (
