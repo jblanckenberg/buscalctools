@@ -92,6 +92,37 @@ Example: $29.99 sale | $8 cost | 15% fee | $3.50 shipping | $2 ads
         </pre>
       </FormulaBox>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Worked example</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          A US Amazon FBA seller lists a kitchen product at $29.99. Landed
+          product cost (including freight from the supplier and inbound
+          shipping to an Amazon warehouse) is $8.00. Amazon&apos;s FBA
+          fulfilment fee for the size tier is $4.50. The 15% referral fee
+          comes to $4.50. Sponsored-product PPC averaged out across recent
+          sales runs at $3.00 per unit sold (a 10% ACoS). A reserve for
+          returns and damages adds $1.50, and the variable shipping back to
+          customers in edge cases averages $0.80.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Adding all costs: $8.00 + $4.50 + $4.50 + $3.00 + $1.50 + $0.80 =
+          $22.30. True per-unit profit is $29.99 − $22.30 = $7.69 — a 25.6%
+          net margin. The seller&apos;s naive maths (price minus product
+          cost) suggested $21.99 of profit per unit and 73% margin. The
+          $14.30 of platform-and-fulfilment costs is the gap most Amazon
+          sellers miss until they run a complete profit calculation.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          The two biggest levers are PPC and return rates. Cutting PPC from
+          $3.00 to $2.00 per sale (an 8% ACoS instead of 10%) lifts net
+          profit to $8.69 — a 13% per-unit profit increase from a single
+          metric. Reducing the return reserve from $1.50 to $0.50 by fixing
+          a product-defect cluster does the same. Both levers are usually
+          within the seller&apos;s control; the FBA fee and referral fee
+          are not.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
 
       <RelatedTools slugs={["profit-margin-calculator", "markup-calculator"]} />

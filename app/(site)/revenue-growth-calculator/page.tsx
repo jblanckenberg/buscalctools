@@ -92,6 +92,41 @@ Example CAGR: Revenue grew from $100,000 to $250,000 over 4 years
         </pre>
       </FormulaBox>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Worked example</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          A UK independent management consultancy closes 2024 on
+          £680,000 of revenue. In 2025 the firm wins two larger
+          retained clients and closes the year at £864,000.
+          Year-on-year growth rate = (£864,000 − £680,000) ÷ £680,000
+          × 100 = 27.1%. That is the simple growth rate that appears in
+          most year-end summaries.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Across multiple years, CAGR (compound annual growth rate)
+          smooths the picture. If the same firm grew from £480,000 in
+          2022 to £864,000 in 2025 (three full years), CAGR =
+          (£864,000 ÷ £480,000)^(1/3) − 1 = 21.7%. CAGR is the geometric
+          mean — it accounts for the fact that each year&apos;s growth
+          compounds on a larger base. CAGR is always lower than the
+          arithmetic average of annual growth rates when growth is
+          uneven, which is almost always.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Industry context dramatically changes how to read these
+          numbers. 27% YoY is strong for an established UK
+          consultancy (10–20% is benchmark, 20%+ is exceptional). The
+          same 27% growth at an early-stage SaaS startup would be
+          alarmingly slow — venture-backed SaaS in the under-$5M ARR
+          band is expected to grow 100%+ YoY (the T2D3 model: triple,
+          triple, double, double, double over five years). A mature
+          retail business growing 27% is probably riding a one-off
+          event (a viral product, a competitor closing). Always
+          compare growth rates within the same industry, revenue band,
+          and stage of business maturity.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
 
       <RelatedTools slugs={["net-profit-calculator", "business-valuation-calculator", "cash-flow-calculator"]} />

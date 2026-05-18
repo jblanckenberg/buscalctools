@@ -91,6 +91,36 @@ Example (margin mode): Cost = $20 | Target Margin = 40%
         </pre>
       </FormulaBox>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Worked example</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          A Cape Town management consultant prices a six-month strategy
+          engagement. Internal cost basis: 200 billable hours at R600 per
+          hour of loaded internal cost (senior time plus a junior analyst),
+          for a total of R120,000. Target gross margin is 40% — the
+          consultant&apos;s historical average and what overhead, business
+          development, and downtime need to absorb.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Selling price from margin = cost ÷ (1 − margin) = R120,000 ÷ 0.60
+          = R200,000. Gross profit at that price is R80,000, the buffer the
+          firm needs for the months between engagements. If the same
+          consultant had set price by adding "40% on cost" instead — a
+          classic markup-versus-margin error — the price would have been
+          R168,000 and gross profit only R48,000, a 40% loss of buffer on
+          the identical brief.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          What if the target margin moves to 50%? Selling price climbs to
+          R240,000 (R120,000 ÷ 0.50) with R120,000 of gross profit — a 50%
+          increase in selling price relative to 40% margin, and 50% more
+          buffer. The lever to test is whether the client market will bear
+          the higher number. Consulting margins of 35–55% are typical
+          internationally; below 30% rarely covers the cost of carrying a
+          lumpy pipeline.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
 
       <RelatedTools slugs={["profit-margin-calculator", "markup-calculator"]} />

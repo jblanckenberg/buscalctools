@@ -93,6 +93,40 @@ Example: Fixed $10,000 | Variable $5,000 | 500 units
         </pre>
       </FormulaBox>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Worked example</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          A UK furniture maker produces solid-oak dining chairs in a
+          workshop outside Bristol. Monthly fixed costs total £18,000:
+          £4,500 workshop lease, £11,200 for two craftsmen including
+          employer NI, £900 insurance and utilities, £400 for design
+          software and bookkeeping, and £1,000 for machinery depreciation.
+          Variable cost per chair is £85: £52 of timber and joinery
+          fittings, £20 of finish and fasteners, and £13 of consumables.
+          The current production run is 60 chairs per month.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Total monthly cost = £18,000 + (60 × £85) = £23,100. Cost per
+          unit = £23,100 ÷ 60 = £385. The fixed-cost component is £300 of
+          that £385; variable cost is £85. If the maker increases output
+          to 100 chairs per month (same workshop, same craftsmen, longer
+          hours), total cost becomes £18,000 + £8,500 = £26,500 and cost
+          per unit drops to £265 — a 31% reduction. Dropping to 40 chairs
+          a month pushes cost per unit up to £535.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          This is the operating leverage that defines small-scale
+          manufacturing: at 60 units the maker needs roughly £540 a chair
+          to earn a 40% gross margin; at 100 units the same margin only
+          needs £440. Pricing based on variable cost alone is the most
+          common manufacturing mistake — an £85 chair priced at "40%
+          markup" (£119) sells at a £266 loss against the full £385
+          cost-per-unit. Always price against the loaded cost-per-unit at
+          a realistic production volume, not the variable cost in
+          isolation.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
 
       <RelatedTools slugs={["break-even-calculator", "pricing-calculator"]} />

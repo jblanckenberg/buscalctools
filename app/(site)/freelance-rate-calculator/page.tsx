@@ -93,6 +93,42 @@ Example: Income $60,000 | Overhead $6,000 | 25hr/wk | 6 weeks off
         </pre>
       </FormulaBox>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Worked example</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          A US freelance product designer wants $90,000 of take-home
+          income. As a sole proprietor she pays self-employment tax of
+          15.3% plus federal and state income tax — a combined effective
+          rate of roughly 28% on net business income for her bracket. To
+          take home $90,000 she needs $90,000 ÷ (1 − 0.28) ≈ $125,000 of
+          gross business income before tax. Add $7,000 of annual
+          overhead (software, hardware refresh, professional liability
+          insurance, accountant fees) and her revenue target becomes
+          $132,000.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Realistic billable hours: 25 client hours per week × 46
+          working weeks per year = 1,150 hours. (The other 15 weekly
+          hours go to admin, business development, and unpaid revisions;
+          the remaining 6 weeks per year are vacation and sick days.)
+          Minimum hourly rate = $132,000 ÷ 1,150 = $115 per hour. Add a
+          10% slow-month buffer for periods between projects and the
+          target rate becomes $127 per hour.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Most US designers undercharge by 20–40% because they benchmark
+          against the "average freelance rate" they see on job boards.
+          Those rates are pre-tax, pre-overhead, and assume 40 billable
+          hours a week — which essentially nobody actually achieves in
+          freelance work. The right anchor is reverse-engineered from
+          desired take-home income, not from competitor pricing. UK
+          freelancers face a similar dynamic with Income Tax + Class 2/4
+          National Insurance combining to roughly 30–35% for incomes
+          above £50,270; South African freelancers face PAYE-equivalent
+          provisional tax in the 26–36% range depending on band.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
 
       <RelatedTools slugs={["invoice-calculator", "profit-margin-calculator"]} />

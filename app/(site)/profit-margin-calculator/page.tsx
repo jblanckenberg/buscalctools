@@ -101,6 +101,37 @@ Example: Revenue = $50,000 | COGS = $30,000
         </pre>
       </FormulaBox>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Worked example</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          A specialty coffee roaster trading in the UK closes the year with
+          £420,000 of revenue. Cost of goods sold — green beans, packaging,
+          freight, and the wages directly tied to roasting — comes to £210,000.
+          Operating expenses — café rent, two baristas, accounting software,
+          insurance, marketing — total £140,000. Corporation tax is the small
+          profits rate of 19% (taxable profit sits below £50,000).
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          The waterfall runs as follows: gross profit is £420,000 − £210,000 =
+          £210,000, which divided by revenue gives a 50% gross margin —
+          healthy for specialty coffee, where 45–55% is typical. Operating
+          profit is £210,000 − £140,000 = £70,000, a 16.7% operating margin.
+          Corporation tax at 19% on £70,000 is £13,300, leaving £56,700 of net
+          profit and a 13.5% net margin.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          A 13.5% net margin is comfortably above the 10% small-business floor
+          and signals the business is funding owner draws, future stock buys,
+          and a small reserve from the same year's trading. If gross margin
+          had instead dropped to 40% — perhaps because a coffee-bean
+          supplier raised prices and the roaster absorbed the cost — gross
+          profit would have fallen to £168,000, operating profit to £28,000,
+          and net margin to roughly 5.4%. That single supplier decision is
+          the difference between a healthy and a marginal year, and it is the
+          kind of erosion this calculator surfaces in seconds.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
 
       <section className="mt-12">

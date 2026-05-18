@@ -92,6 +92,42 @@ Productive Hour Cost = Total Annual Cost / ~1,700`}
         </pre>
       </FormulaBox>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Worked example</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          A US small business is hiring a mid-level engineer at a $75,000
+          gross salary. Employer-side payroll taxes total roughly $6,100:
+          $5,738 of FICA (Social Security + Medicare at 7.65%), $42 of
+          federal unemployment (FUTA), and an average $300 of state
+          unemployment insurance (varies by state and experience rating).
+          Employer-funded health insurance: $9,000 per year (the
+          employee covers $3,000 of the premium themselves). 401(k)
+          match at 4% of salary: $3,000. Equipment one-time: $2,500.
+          Annual office and software cost allocated to the role: $3,500.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Total all-in annual cost: $75,000 + $6,100 + $9,000 + $3,000 +
+          $2,500 + $3,500 = $99,100. That&apos;s 132% of the gross salary
+          — meaning every $75k offer the business makes commits roughly
+          $99k of cash per year. True hourly cost across 2,080 work
+          hours = $47.65. Productive-hour cost (accounting for ~17% of
+          working hours lost to meetings, training, and breaks) is
+          closer to $58 per hour.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Regional differences: UK employers typically run 113–128% of
+          gross salary (lower employer National Insurance, mandatory
+          auto-enrolment pension at 3% minimum, often lower private
+          health spend). South Africa runs 105–115% (no employer NI
+          equivalent, low statutory UIF at 1%, optional medical aid).
+          The most expensive line in the US calculation is health
+          insurance — at $9,000 it&apos;s often larger than payroll
+          taxes. The cheapest jurisdiction to employ in is South Africa
+          when comparing on employer overhead alone, but US comp + UK
+          comp typically offer higher gross salaries to compensate.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
 
       <RelatedTools slugs={["freelance-rate-calculator", "break-even-calculator", "net-profit-calculator"]} />

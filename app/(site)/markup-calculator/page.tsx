@@ -93,6 +93,33 @@ Example: Cost = $40 | Markup = 50%
         </pre>
       </FormulaBox>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Worked example</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          A US gift-shop owner sources handmade candles at $12 wholesale and
+          wants to apply a 60% markup. 60% of $12 is $7.20, so the shelf
+          price is $19.20. One candle sold generates $7.20 of gross profit
+          and a 37.5% gross margin — and that 37.5% number is where most
+          owners trip over the markup-versus-margin trap.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Suppose the same owner had instead aimed for a 60% margin on the
+          identical $12 cost. The maths is cost ÷ (1 − 0.60) = $12 ÷ 0.40 =
+          $30 shelf price, generating $18 of gross profit per unit. The
+          mistranslation between "60% markup" and "60% margin" is a 2.5×
+          difference in gross profit per sale on the same product.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Industry context: 50–100% markup is typical for gift and homewares
+          retail; restaurants typically run 200–300% markup on food (a 25–33%
+          food-cost percentage); SaaS often runs 4–10× markup because the
+          variable cost per customer is so low. The right markup is whatever
+          covers operating expenses, leaves an industry-competitive margin,
+          and survives reasonable customer-side discounting without going
+          underwater.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
 
       <section className="mt-12">
