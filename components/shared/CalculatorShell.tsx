@@ -32,6 +32,14 @@ export default function CalculatorShell({
   const eduSlot = process.env.NEXT_PUBLIC_ADSENSE_SLOT_EDU;
   return (
     <article className="mx-auto max-w-4xl px-4 py-8 sm:py-12">
+      {topSlot ? (
+        <AdSlot
+          slot={topSlot}
+          format="horizontal"
+          minHeight={90}
+          className="my-4"
+        />
+      ) : null}
       {breadcrumbs && breadcrumbs.length > 0 && <Breadcrumbs items={breadcrumbs} />}
       <header className="mb-6">
         <h1 className="text-3xl font-bold tracking-tight text-brand-dark sm:text-4xl">
@@ -48,14 +56,6 @@ export default function CalculatorShell({
         <p className="mt-2 max-w-2xl text-base text-gray-600">{intro}</p>
       </header>
       {slug && <FeaturedAnswer slug={slug} />}
-      {topSlot ? (
-        <AdSlot
-          slot={topSlot}
-          format="horizontal"
-          minHeight={90}
-          className="my-4"
-        />
-      ) : null}
       {children}
       {resultsSlot ? (
         <AdSlot
