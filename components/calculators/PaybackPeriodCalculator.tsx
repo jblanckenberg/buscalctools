@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import InputField from "@/components/ui/InputField";
 import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
@@ -8,12 +9,21 @@ import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency, formatNumber } from "@/lib/regions";
 
 export default function PaybackPeriodCalculator() {
+  return (
+    <Suspense fallback={null}>
+      <Inner />
+    </Suspense>
+  );
+}
+
+function Inner() {
+  const sp = useSearchParams();
   const [region, setRegion] = useRegion();
   const cfg = REGIONS[region];
 
-  const [investment, setInvestment] = useState("50000");
-  const [annualInflow, setAnnualInflow] = useState("18000");
-  const [discountRate, setDiscountRate] = useState("");
+  const [investment, setInvestment] = useState(sp.get("investment") ?? "50000");
+  const [annualInflow, setAnnualInflow] = useState(sp.get("inflow") ?? "18000");
+  const [discountRate, setDiscountRate] = useState(sp.get("discount") ?? "");
 
   const inv = parseFloat(investment) || 0;
   const cf = parseFloat(annualInflow) || 0;

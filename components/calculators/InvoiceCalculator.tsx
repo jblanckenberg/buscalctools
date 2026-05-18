@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { Trash2, Plus } from "lucide-react";
 import InputField, { TextField } from "@/components/ui/InputField";
 import ResultCard from "@/components/ui/ResultCard";
@@ -13,15 +14,30 @@ type Line = { desc: string; qty: string; rate: string };
 const blankLine: Line = { desc: "", qty: "1", rate: "" };
 
 export default function InvoiceCalculator() {
+  return (
+    <Suspense fallback={null}>
+      <Inner />
+    </Suspense>
+  );
+}
+
+function Inner() {
+  const sp = useSearchParams();
   const [region, setRegion] = useRegion();
   const cfg = REGIONS[region];
 
+  // Seed first-line qty / rate from URL when present so scenarios can build
+  // a representative invoice without modelling full multi-line state.
+  const firstQty = sp.get("qty") ?? "10";
+  const firstRate = sp.get("rate") ?? "120";
+  const firstDesc = sp.get("desc") ?? "Consulting hours";
+
   const [lines, setLines] = useState<Line[]>([
-    { desc: "Consulting hours", qty: "10", rate: "120" },
+    { desc: firstDesc, qty: firstQty, rate: firstRate },
     { ...blankLine },
   ]);
-  const [taxPct, setTaxPct] = useState(String(cfg.consumptionTaxRate));
-  const [discountPct, setDiscountPct] = useState("");
+  const [taxPct, setTaxPct] = useState(sp.get("tax") ?? String(cfg.consumptionTaxRate));
+  const [discountPct, setDiscountPct] = useState(sp.get("discount") ?? "");
 
   useEffect(() => {
     setTaxPct(String(REGIONS[region].consumptionTaxRate));

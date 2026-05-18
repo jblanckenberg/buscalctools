@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import InputField from "@/components/ui/InputField";
 import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
@@ -13,13 +14,22 @@ import {
 } from "@/lib/calculations/profit-margin";
 
 export default function ProfitMarginCalculator() {
+  return (
+    <Suspense fallback={null}>
+      <Inner />
+    </Suspense>
+  );
+}
+
+function Inner() {
+  const sp = useSearchParams();
   const [region, setRegion] = useRegion();
   const cfg = REGIONS[region];
 
-  const [revenue, setRevenue] = useState("50000");
-  const [cogs, setCogs] = useState("30000");
-  const [opEx, setOpEx] = useState("");
-  const [taxRate, setTaxRate] = useState(String(cfg.corporateTaxRate));
+  const [revenue, setRevenue] = useState(sp.get("revenue") ?? "50000");
+  const [cogs, setCogs] = useState(sp.get("cogs") ?? "30000");
+  const [opEx, setOpEx] = useState(sp.get("opex") ?? "");
+  const [taxRate, setTaxRate] = useState(sp.get("tax") ?? String(cfg.corporateTaxRate));
 
   // Re-prefill tax rate when region changes (but don't override custom values silently)
   useEffect(() => {

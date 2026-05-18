@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import InputField from "@/components/ui/InputField";
 import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
@@ -9,16 +10,25 @@ import { REGIONS, useRegion, formatCurrency, formatPercent } from "@/lib/regions
 import { EMPLOYER_TAX_BY_REGION } from "@/lib/employee-tax";
 
 export default function EmployeeCostCalculator() {
+  return (
+    <Suspense fallback={null}>
+      <Inner />
+    </Suspense>
+  );
+}
+
+function Inner() {
+  const sp = useSearchParams();
   const [region, setRegion] = useRegion();
   const cfg = REGIONS[region];
   const tax = EMPLOYER_TAX_BY_REGION[region];
 
-  const [salary, setSalary] = useState("60000");
-  const [taxRate, setTaxRate] = useState(String(tax.rate));
-  const [benefits, setBenefits] = useState("6000");
-  const [equipment, setEquipment] = useState("2500");
-  const [training, setTraining] = useState("1500");
-  const [office, setOffice] = useState("3000");
+  const [salary, setSalary] = useState(sp.get("salary") ?? "60000");
+  const [taxRate, setTaxRate] = useState(sp.get("tax") ?? String(tax.rate));
+  const [benefits, setBenefits] = useState(sp.get("benefits") ?? "6000");
+  const [equipment, setEquipment] = useState(sp.get("equipment") ?? "2500");
+  const [training, setTraining] = useState(sp.get("training") ?? "1500");
+  const [office, setOffice] = useState(sp.get("office") ?? "3000");
 
   useEffect(() => {
     setTaxRate(String(EMPLOYER_TAX_BY_REGION[region].rate));

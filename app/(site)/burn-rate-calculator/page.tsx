@@ -20,14 +20,6 @@ export const metadata = calculatorMetadata({
     "Free burn rate and runway calculator. Get gross burn, net burn, runway in months, and your cash-exhaustion date. Built for founders and finance teams.",
 });
 
-const FAQS = [
-  { q: "What is burn rate?", a: "Burn rate is the rate at which a company spends its cash reserves. Gross burn rate is total monthly expenses. Net burn rate is expenses minus revenue — the net cash being consumed each month. A startup with $500,000 in the bank and a $50,000 net burn rate has 10 months of runway." },
-  { q: "What is a startup runway?", a: "Runway is the number of months a company can operate before running out of cash, calculated as: Current Cash / Monthly Net Burn Rate. Investors typically want to see at least 18 months of runway. Below 9 months is a critical situation requiring immediate action." },
-  { q: "What is a healthy burn rate for a startup?", a: "There is no single healthy burn rate — it depends on your stage and funding. What matters is the ratio of burn to progress. A startup burning $100,000/month with rapid revenue growth may be more healthy than one burning $20,000/month with no growth." },
-  { q: "How do I extend my runway?", a: "Runway extension strategies: cut non-essential costs immediately, accelerate revenue collection, offer annual payment discounts to customers, renegotiate vendor contracts, pause hiring, and identify break-even milestones to reduce burn systematically." },
-  { q: "When should a startup raise more funding?", a: "Start fundraising when you have 9–12 months of runway remaining. Fundraising typically takes 3–6 months, so starting at 12 months gives you a buffer. Never start fundraising with less than 6 months of runway — desperation weakens your negotiating position." },
-];
-
 export default function BurnRatePage() {
   return (
     <CalculatorShell
@@ -62,6 +54,31 @@ export default function BurnRatePage() {
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Common mistakes</h2>
+        <ul className="mt-3 space-y-3 text-sm leading-relaxed text-gray-700">
+          <li>
+            <strong className="text-brand-dark">Using a single-month snapshot</strong> — January burn looks huge if you paid an annual SaaS bill that month. February looks great because the bill is gone. Neither number is real. Always use a 3-month rolling average and pull annual or one-off items into a separate line so the underlying trend is visible.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Starting fundraising too late</strong> — fundraising takes 3–6 months in healthy markets and 9+ months in tight ones. Beginning conversations with under 6 months of runway forces accepting bad terms or bridge financing. The action threshold is 12 months of runway, not 6.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Cutting growth before cutting waste</strong> — when runway is short, founders often slash marketing and sales first because they are the easiest line items to zero out. That kills future revenue and shortens runway further. Cut overlapping tools, premium office space, and underperforming hires before touching the growth engine.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this for the single founder/investor health metric — months of runway given current cash and net monthly burn. It is the right tool for board updates, investor decks, and any conversation that needs one number rather than a full forecast.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          For a month-by-month forecast with seasonal lumps and tax dates, use the Cash Flow Calculator instead. To pressure-test what happens when revenue ramps fast enough to make burn negative, pair this with the Break-Even Calculator.
+        </p>
+      </section>
+
       <FormulaBox>
         <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed">
 {`Gross Burn Rate = Total Monthly Expenses
@@ -72,7 +89,7 @@ If Net Burn Rate ≤ 0, runway is infinite (cash-flow positive).`}
         </pre>
       </FormulaBox>
 
-      <FaqList items={FAQS} />
+      <FaqList items={META.faqs} />
 
       <RelatedTools slugs={["cash-flow-calculator", "break-even-calculator", "business-valuation-calculator"]} />
 

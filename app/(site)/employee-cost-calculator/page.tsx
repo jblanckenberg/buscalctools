@@ -20,14 +20,6 @@ export const metadata = calculatorMetadata({
     "Free employee cost calculator. Salary + employer tax + benefits + equipment + overhead → all-in annual and hourly cost. Pre-filled rates for USA, UK, SA.",
 });
 
-const FAQS = [
-  { q: "What is the true cost of an employee?", a: "The true cost of an employee is typically 125–145% of their salary when you include employer payroll taxes, pension/retirement contributions, health insurance, equipment, training, and office overhead. A $60,000 salary employee may cost $75,000–$87,000 in total annual cost." },
-  { q: "What are employer payroll taxes in the USA?", a: "US employers pay: FICA (7.65% — covering 6.2% Social Security and 1.45% Medicare), FUTA federal unemployment tax (0.6% on first $7,000 of wages), and state unemployment tax (SUTA, typically 1.5–5%). Total employer taxes are approximately 10–13% of gross wages." },
-  { q: "What is employer National Insurance in the UK?", a: "From 6 April 2025 (in force for 2025/26 and 2026/27), UK employers pay National Insurance Contributions (NICs) at 15% on employee earnings above the secondary threshold of £5,000 per year — sharply higher than the pre-April-2025 rate of 13.8% above £9,100. Employers must also contribute at least 3% of qualifying earnings into a pension under automatic enrolment." },
-  { q: "Is it cheaper to hire an employee or a contractor?", a: "Contractors typically cost more per hour than employees but have lower total cost because you avoid employer taxes, benefits, pension, equipment, and overhead. For short-term or specialist work, contractors are usually cheaper. For ongoing, full-time roles, employees are typically more cost-effective over 2+ years." },
-  { q: "How do I calculate cost per productive hour for an employee?", a: "Not all working hours are billable or fully productive. Subtract time for holidays (average 25 days UK, 10 days USA), sick leave (~5 days), training, meetings, and admin. A full-time employee yields approximately 1,600–1,800 truly productive hours per year, not 2,080." },
-];
-
 export default function EmployeeCostPage() {
   return (
     <CalculatorShell
@@ -51,6 +43,44 @@ export default function EmployeeCostPage() {
       />
       <EmployeeCostCalculator />
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">How it works</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Enter the gross salary, then layer in employer payroll tax (rate
+          pre-fills by region), employer pension or retirement contributions,
+          health insurance or medical aid, equipment, training, and
+          allocated office overhead. The calculator returns total annual
+          cost, the multiplier vs salary, and a true hourly cost based on
+          ~1,700 productive hours per year (excluding leave, sick days,
+          training, and admin).
+        </p>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Common mistakes</h2>
+        <ul className="mt-3 space-y-3 text-sm leading-relaxed text-gray-700">
+          <li>
+            <strong className="text-brand-dark">Budgeting for salary only</strong> — the real cost is typically 1.25–1.45x the salary once employer taxes, pension, benefits, equipment, and overhead are included. A $60,000 hire often costs $75,000–$87,000. Treating the salary line as the full cost is the most common reason new-hire decisions trigger cash flow problems in months four through nine.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Using 2,080 hours for the hourly rate</strong> — that figure assumes zero leave, zero sick days, zero training, and zero internal meetings. Real productive hours per year sit closer to 1,600–1,800. Cost-per-hour calculated on 2,080 understates the true rate by 15–25%, which matters most when comparing employees to contractors.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Ignoring the UK NICs rate change</strong> — UK employer NICs rose from 13.8% (above £9,100) to 15% (above £5,000) on 6 April 2025. Models built on the old rate understate UK hiring cost by 1–2 percentage points of salary. Always check the calculator region preset reflects the current year.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this before signing an employment offer, when budgeting a new role for the next fiscal year, or when deciding whether to fill a gap with an employee, contractor, or agency. It is also the right starting point for agency or consulting work that needs an internal billing rate.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you are pricing your own freelance time rather than a hire, the Freelance Rate Calculator is more direct. To check what monthly revenue a new hire must generate to be worth it, pair this with the Break-Even Calculator.
+        </p>
+      </section>
+
       <FormulaBox>
         <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed">
 {`Total Employee Cost = Salary + (Salary × Employer Tax Rate / 100)
@@ -62,7 +92,7 @@ Productive Hour Cost = Total Annual Cost / ~1,700`}
         </pre>
       </FormulaBox>
 
-      <FaqList items={FAQS} />
+      <FaqList items={META.faqs} />
 
       <RelatedTools slugs={["freelance-rate-calculator", "break-even-calculator", "net-profit-calculator"]} />
 

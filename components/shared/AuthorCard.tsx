@@ -1,7 +1,9 @@
 import Link from "next/link";
-import { AUTHOR } from "@/lib/author";
+import { AUTHOR, REVIEWER_NAME, REVIEWER_TITLE } from "@/lib/author";
 
-export default function AuthorCard() {
+export default function AuthorCard({
+  variant = "full",
+}: { variant?: "compact" | "full" } = {}) {
   return (
     <section className="mt-12 rounded-xl border border-gray-200 bg-brand-light/40 p-5">
       <div className="flex items-start gap-4">
@@ -25,6 +27,13 @@ export default function AuthorCard() {
           <p className="mt-2 text-sm leading-relaxed text-gray-700">
             {AUTHOR.shortBio}
           </p>
+          {variant === "full" ? (
+            <p className="mt-2 text-xs text-gray-500">
+              Editorial review by:{" "}
+              <strong className="font-medium text-brand-dark">{REVIEWER_NAME}</strong>
+              , {REVIEWER_TITLE}
+            </p>
+          ) : null}
           <Link
             href="/about"
             className="mt-2 inline-block text-sm font-medium text-brand-primary hover:underline"

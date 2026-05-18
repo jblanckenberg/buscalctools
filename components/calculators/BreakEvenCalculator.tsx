@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { Suspense, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import dynamic from "next/dynamic";
 import InputField from "@/components/ui/InputField";
 import ResultCard from "@/components/ui/ResultCard";
@@ -22,13 +23,22 @@ const BreakEvenChart = dynamic(
 );
 
 export default function BreakEvenCalculator() {
+  return (
+    <Suspense fallback={null}>
+      <Inner />
+    </Suspense>
+  );
+}
+
+function Inner() {
+  const params = useSearchParams();
   const [region, setRegion] = useRegion();
   const cfg = REGIONS[region];
 
-  const [fixedCosts, setFixedCosts] = useState("5000");
-  const [variableCost, setVariableCost] = useState("10");
-  const [sellingPrice, setSellingPrice] = useState("25");
-  const [targetProfit, setTargetProfit] = useState("");
+  const [fixedCosts, setFixedCosts] = useState(params.get("fixed") ?? "5000");
+  const [variableCost, setVariableCost] = useState(params.get("variable") ?? "10");
+  const [sellingPrice, setSellingPrice] = useState(params.get("price") ?? "25");
+  const [targetProfit, setTargetProfit] = useState(params.get("target") ?? "");
 
   const fc = parseFloat(fixedCosts) || 0;
   const vc = parseFloat(variableCost) || 0;

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import InputField from "@/components/ui/InputField";
 import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
@@ -8,14 +9,23 @@ import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency, formatNumber } from "@/lib/regions";
 
 export default function FreelanceRateCalculator() {
+  return (
+    <Suspense fallback={null}>
+      <Inner />
+    </Suspense>
+  );
+}
+
+function Inner() {
+  const sp = useSearchParams();
   const [region, setRegion] = useRegion();
   const cfg = REGIONS[region];
 
-  const [income, setIncome] = useState("60000");
-  const [hoursPerWeek, setHoursPerWeek] = useState("25");
-  const [overhead, setOverhead] = useState("6000");
-  const [weeksOff, setWeeksOff] = useState("6");
-  const [marginPct, setMarginPct] = useState("15");
+  const [income, setIncome] = useState(sp.get("income") ?? "60000");
+  const [hoursPerWeek, setHoursPerWeek] = useState(sp.get("hours") ?? "25");
+  const [overhead, setOverhead] = useState(sp.get("overhead") ?? "6000");
+  const [weeksOff, setWeeksOff] = useState(sp.get("weeks_off") ?? "6");
+  const [marginPct, setMarginPct] = useState(sp.get("margin") ?? "15");
 
   const inc = parseFloat(income) || 0;
   const hrs = parseFloat(hoursPerWeek) || 0;

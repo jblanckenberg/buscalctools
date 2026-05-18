@@ -20,14 +20,6 @@ export const metadata = calculatorMetadata({
     "Free freelance rate calculator. Get minimum, recommended, and day-rate equivalents from your income goal and billable hours. Region-aware tax buffer reminders.",
 });
 
-const FAQS = [
-  { q: "How do I calculate my freelance hourly rate?", a: "Your minimum hourly rate = (Target Annual Income + Annual Business Expenses) / Annual Billable Hours. Billable hours are not all your working hours — they are only the hours you can actually invoice clients for. A typical freelancer bills 20–25 hours per week maximum." },
-  { q: "How many hours a week can a freelancer actually bill?", a: "Most experienced freelancers bill 20–25 hours per week. The remaining time goes on admin, marketing, invoicing, meetings that cannot be billed, and professional development. Setting your rate based on 40 billable hours will leave you severely underpaid." },
-  { q: "Should I include taxes in my freelance rate?", a: "Yes. As a freelancer, you pay both the employer and employee portions of self-employment taxes, plus income tax. In the USA, add at least 25–30% to your take-home income target. In the UK, add 20–30%. In South Africa, add 25–35% depending on your income level." },
-  { q: "What is a day rate and how do I calculate it?", a: "A day rate is simply your hourly rate multiplied by 8 (a standard working day). If your recommended hourly rate is $75, your day rate is $600. Day rates are commonly used for contractor work and project-based engagements." },
-  { q: "Am I charging enough as a freelancer?", a: "If you regularly win the first project you quote, you are almost certainly undercharging. Freelancers should win approximately 30–50% of competitive proposals. If you are winning 80%+, your rate is likely below market. Use this calculator as a floor, not a ceiling." },
-];
-
 export default function FreelanceRatePage() {
   return (
     <CalculatorShell
@@ -63,6 +55,31 @@ export default function FreelanceRatePage() {
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Common mistakes</h2>
+        <ul className="mt-3 space-y-3 text-sm leading-relaxed text-gray-700">
+          <li>
+            <strong className="text-brand-dark">Dividing salary by 2,080 hours</strong> — this assumes every working hour is billable, with no holidays, no admin, no marketing, and no tax. The realistic billable ratio is closer to 1,150–1,400 hours per year. A freelancer aiming for the equivalent of a $60,000 salaried role typically needs to charge $65–$80/hr, not the $29/hr the naive division produces.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Forgetting the self-employment tax buffer</strong> — freelancers pay both halves of payroll tax. US self-employment tax adds ~15.3% on top of income tax, UK Class 4 NICs apply, and SA freelancers run provisional tax twice a year. Pricing the rate against take-home target without grossing up for tax leaves a 25–35% shortfall come filing time.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Skipping a profit margin on top</strong> — the calculator's minimum rate covers income and overhead but leaves nothing for the business itself (no reinvestment, no buffer for slow months, no exit value). Always add a profit margin (15–25%) so the freelance business is more than a salary substitute.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this when setting an hourly or day rate from scratch, when reviewing whether your current rate still covers your real costs, or when deciding whether to take a fixed-price project at a given budget. The output is your minimum sustainable rate, not the rate you should aspire to.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Once you have a rate, the Invoice Calculator builds totals with VAT/sales tax for a specific client invoice. If you are weighing freelance vs full-time work, compare the recommended rate to a hire's true cost in the Employee Cost Calculator.
+        </p>
+      </section>
+
       <FormulaBox>
         <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed">
 {`Annual Billable Hours = (52 − Weeks Off) × Billable Hours Per Week
@@ -76,7 +93,7 @@ Example: Income $60,000 | Overhead $6,000 | 25hr/wk | 6 weeks off
         </pre>
       </FormulaBox>
 
-      <FaqList items={FAQS} />
+      <FaqList items={META.faqs} />
 
       <RelatedTools slugs={["invoice-calculator", "profit-margin-calculator"]} />
 

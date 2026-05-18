@@ -27,7 +27,6 @@ export const AUTHOR_URL = `${SITE_URL}/about`;
 
 export function authorPersonLd() {
   return {
-    "@context": "https://schema.org",
     "@type": "Person",
     name: AUTHOR.name,
     url: AUTHOR_URL,
@@ -40,5 +39,32 @@ export function authorPersonLd() {
     },
     ...(AUTHOR.sameAs.length > 0 ? { sameAs: AUTHOR.sameAs } : {}),
     ...(AUTHOR.image ? { image: AUTHOR.image } : {}),
+  };
+}
+
+// Standalone variant for use as a top-level JSON-LD block (e.g. About page).
+// When embedding the Person inside another schema (e.g. as SoftwareApplication.author),
+// use authorPersonLd() instead — nested @context is invalid JSON-LD.
+export function authorPersonLdStandalone() {
+  return {
+    "@context": "https://schema.org",
+    ...authorPersonLd(),
+  };
+}
+
+export const REVIEWER_NAME = AUTHOR.name;  // placeholder: same person until credentialed reviewer recruited
+export const REVIEWER_TITLE = "Founder & Editor";  // intentionally differs from AUTHOR.jobTitle
+
+// TODO(james): recruit a credentialed reviewer (CFP / CPA / CA(SA)).
+// Until then reviewer = author and the visible label uses "Editorial review by"
+// rather than "Reviewed by an accredited adviser". Update REVIEWER_NAME/TITLE
+// when recruited.
+export function reviewerPersonLd() {
+  return {
+    "@type": "Person",
+    name: REVIEWER_NAME,
+    jobTitle: REVIEWER_TITLE,
+    url: `${SITE_URL}/about`,
+    sameAs: AUTHOR.sameAs,
   };
 }

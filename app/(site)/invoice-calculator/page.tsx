@@ -20,14 +20,6 @@ export const metadata = calculatorMetadata({
     "Free invoice calculator. Build invoice totals from up to 5 line items with automatic VAT, GST, or sales tax. Region-aware for freelancers and small businesses.",
 });
 
-const FAQS = [
-  { q: "How do I calculate an invoice total with VAT?", a: "Invoice Total with VAT = Subtotal × (1 + VAT Rate / 100). If your subtotal is £500 and VAT is 20%, your invoice total is £500 × 1.20 = £600. The VAT amount itself is £100." },
-  { q: "How do I add a discount to an invoice?", a: "Apply the discount to the subtotal before calculating tax. Discounted Subtotal = Subtotal × (1 − Discount%/100). Then calculate tax on the discounted subtotal. Example: £1,000 subtotal, 10% discount = £900 discounted subtotal, then add 20% VAT = £1,080 total." },
-  { q: "What is the difference between VAT and sales tax?", a: "VAT (UK/SA) is charged at each stage of the supply chain — businesses collect and remit it to the government. US Sales Tax is only charged at the final point of sale to the consumer. Both are consumption taxes but work differently for business billing." },
-  { q: "Do I need to charge VAT on my invoices?", a: "In the UK, you must register for and charge VAT only if your taxable turnover exceeds £90,000 per year (the threshold raised from £85,000 on 1 April 2024 and remains in force). In South Africa, the threshold is R1 million. In the USA, sales tax rules vary by state and product type." },
-  { q: "What should an invoice include?", a: "A valid invoice includes: your business name and address, client name and address, unique invoice number, invoice date, payment due date, itemised list of goods/services, applicable tax, total amount due, and payment instructions. For VAT invoices (UK/SA), include your VAT registration number." },
-];
-
 export default function InvoicePage() {
   return (
     <CalculatorShell
@@ -62,6 +54,31 @@ export default function InvoicePage() {
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Common mistakes</h2>
+        <ul className="mt-3 space-y-3 text-sm leading-relaxed text-gray-700">
+          <li>
+            <strong className="text-brand-dark">Applying tax before the discount</strong> — the correct order is discount first, then tax on the discounted subtotal. A $1,000 invoice with a 10% discount and 20% VAT should total $1,080 (= $900 × 1.20), not $1,100. Tax-first arithmetic overcharges the client and creates a VAT remittance mismatch with HMRC or SARS.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Non-sequential invoice numbers</strong> — UK and SA VAT rules require strictly sequential invoice numbering for audit purposes. Random or restarted numbering (jumping from INV-042 to INV-100, or restarting at INV-001 each quarter) is a flag in a VAT inspection. Use one continuous series across the business.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Vague payment terms</strong> — "net-30" or "payable on receipt" without an explicit due date leads to late payment. Always print the actual due date on the invoice (e.g. "Due 14 June 2026") and the payment method/details. Invoices with explicit due dates and bank details get paid 7–10 days faster on average.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this for one-off invoices when you do not have an accounting platform open, when you need to quote a total with tax for a client over email, or when verifying that your invoicing software calculated the right number. Region tax pre-fills cover the three most common setups.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          For ongoing client billing, a proper invoicing tool with templates and reminders pays for itself. If you are setting your hourly rate before quoting, run the numbers through the Freelance Rate Calculator first.
+        </p>
+      </section>
+
       <FormulaBox>
         <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed">
 {`Line Total = Quantity × Unit Rate
@@ -71,7 +88,7 @@ Invoice Total = Subtotal − Discount Amount + Tax Amount`}
         </pre>
       </FormulaBox>
 
-      <FaqList items={FAQS} />
+      <FaqList items={META.faqs} />
 
       <RelatedTools slugs={["freelance-rate-calculator", "net-profit-calculator"]} />
 

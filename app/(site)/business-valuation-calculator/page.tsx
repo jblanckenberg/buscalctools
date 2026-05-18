@@ -20,14 +20,6 @@ export const metadata = calculatorMetadata({
     "Free business valuation calculator. Revenue multiple, EBITDA multiple, and 5-year DCF side-by-side. Get a defensible range, not just a single number.",
 });
 
-const FAQS = [
-  { q: "How do I value a small business?", a: "The three most common methods for valuing a small business are: (1) Revenue Multiple — annual revenue × an industry-specific multiple, (2) EBITDA Multiple — earnings before interest/tax × a multiple (most reliable for profitable businesses), and (3) Discounted Cash Flow — present value of projected future cash flows." },
-  { q: "What multiple is used to value a small business?", a: "Multiples vary by industry and profitability. Service businesses typically sell at 2–4× EBITDA. SaaS businesses at 4–10× revenue. Retail at 0.5–1.5× revenue. Manufacturing at 4–6× EBITDA. Businesses with strong recurring revenue and low customer concentration command higher multiples." },
-  { q: "What makes a business more valuable?", a: "Key value drivers: recurring or contracted revenue, high customer retention, documented systems and processes (not owner-dependent), diversified customer base, strong brand, barriers to competition, and consistent year-on-year growth. Businesses that run without the owner command the highest multiples." },
-  { q: "How much can I sell my business for on Flippa?", a: "Online businesses (content sites, SaaS, ecommerce) on Flippa typically sell for 30–42× monthly net profit. A site earning $3,000/month net would sell for $90,000–$126,000. Larger, more established businesses with proven traffic sell at higher multiples." },
-  { q: "What is EBITDA and why is it used for business valuation?", a: "EBITDA (Earnings Before Interest, Tax, Depreciation, and Amortisation) is used because it removes non-cash charges and financing decisions, giving a cleaner picture of operational profitability that buyers can compare across businesses with different capital structures and tax situations." },
-];
-
 export default function BusinessValuationPage() {
   return (
     <CalculatorShell
@@ -64,6 +56,31 @@ export default function BusinessValuationPage() {
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Common mistakes</h2>
+        <ul className="mt-3 space-y-3 text-sm leading-relaxed text-gray-700">
+          <li>
+            <strong className="text-brand-dark">Anchoring to a single number</strong> — owners often quote one valuation figure as if it were the price. A buyer will run the same three methods and produce their own range. The realistic deal happens inside the overlap of the two ranges. Always present a range and treat the midpoint as a starting point for negotiation, not a fact.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Confusing sunk effort with value</strong> — a buyer is purchasing future cash flow they will inherit, not the years of work that built the business. Time, founder sacrifice, and personal capital invested do not appear in any valuation formula. Strip emotional attachment to the cost basis before negotiating; otherwise asking prices drift 30–50% above any defensible number.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Using inflated EBITDA</strong> — "owner-adjusted" or "addback" EBITDA often pads the number with personal expenses run through the business, one-off legal fees, or above-market owner salary normalised back to zero. Most buyers reverse aggressive addbacks during due diligence and renegotiate the price downward. Use a conservative EBITDA and let the buyer find the upside themselves.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this when preparing for a sale, evaluating an acquisition, raising equity capital, or setting a defensible internal valuation for share buybacks, ESOP grants, or estate planning. The three-method range is also a useful annual scorecard even when no transaction is planned.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you are evaluating a single investment within the business rather than the whole entity, the ROI Calculator or Payback Period Calculator is more focused. To project the revenue trajectory that feeds the valuation, the Revenue Growth Calculator is the right starting point.
+        </p>
+      </section>
+
       <FormulaBox>
         <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed">
 {`Revenue Valuation = Annual Revenue × Revenue Multiple
@@ -76,7 +93,7 @@ DCF Valuation:
         </pre>
       </FormulaBox>
 
-      <FaqList items={FAQS} />
+      <FaqList items={META.faqs} />
 
       <RelatedTools
         slugs={["net-profit-calculator", "roi-calculator", "revenue-growth-calculator"]}

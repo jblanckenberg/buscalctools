@@ -50,6 +50,14 @@ export default function ResultCard({
         t.wrap,
         primary && "sm:p-6"
       )}
+      {...(primary
+        ? {
+            role: "region",
+            "aria-live": "polite",
+            "aria-atomic": "true",
+            "aria-label": `Calculator result: ${label}`,
+          }
+        : {})}
     >
       <div className="flex items-start justify-between gap-3">
         <p className="text-xs font-semibold uppercase tracking-wider text-gray-600">

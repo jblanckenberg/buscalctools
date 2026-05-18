@@ -1,5 +1,6 @@
 "use client";
 
+import { useId } from "react";
 import { clsx } from "clsx";
 
 type Props = {
@@ -29,7 +30,9 @@ export default function InputField({
   max,
   id,
 }: Props) {
-  const inputId = id ?? `f-${label.replace(/\W+/g, "-").toLowerCase()}`;
+  const autoId = useId();
+  const inputId = id ?? autoId;
+  const helperId = helper ? `${inputId}-helper` : undefined;
 
   return (
     <div className="w-full">
@@ -60,6 +63,7 @@ export default function InputField({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder ?? "0"}
+          aria-describedby={helperId}
           className="min-h-[44px] w-full flex-1 bg-transparent px-3 text-base text-brand-dark placeholder:text-gray-400 focus:outline-none"
         />
         {suffix && (
@@ -69,7 +73,7 @@ export default function InputField({
         )}
       </div>
       {helper && (
-        <p className="mt-1 text-xs text-gray-500">{helper}</p>
+        <p id={helperId} className="mt-1 text-xs text-gray-500">{helper}</p>
       )}
     </div>
   );
@@ -90,7 +94,9 @@ export function TextField({
   helper?: string;
   id?: string;
 }) {
-  const inputId = id ?? `f-${label.replace(/\W+/g, "-").toLowerCase()}`;
+  const autoId = useId();
+  const inputId = id ?? autoId;
+  const helperId = helper ? `${inputId}-helper` : undefined;
   return (
     <div className="w-full">
       <label htmlFor={inputId} className="mb-1 block text-sm font-medium text-brand-dark">
@@ -102,9 +108,10 @@ export function TextField({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
+        aria-describedby={helperId}
         className="min-h-[44px] w-full rounded-lg border border-gray-300 bg-white px-3 text-base text-brand-dark placeholder:text-gray-400 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
       />
-      {helper && <p className="mt-1 text-xs text-gray-500">{helper}</p>}
+      {helper && <p id={helperId} className="mt-1 text-xs text-gray-500">{helper}</p>}
     </div>
   );
 }

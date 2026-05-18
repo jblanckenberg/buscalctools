@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import InputField from "@/components/ui/InputField";
 import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
@@ -8,12 +9,21 @@ import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency, formatPercent } from "@/lib/regions";
 
 export default function RoiCalculator() {
+  return (
+    <Suspense fallback={null}>
+      <Inner />
+    </Suspense>
+  );
+}
+
+function Inner() {
+  const sp = useSearchParams();
   const [region, setRegion] = useRegion();
   const cfg = REGIONS[region];
 
-  const [investment, setInvestment] = useState("10000");
-  const [netReturn, setNetReturn] = useState("13500");
-  const [periodMonths, setPeriodMonths] = useState("18");
+  const [investment, setInvestment] = useState(sp.get("investment") ?? "10000");
+  const [netReturn, setNetReturn] = useState(sp.get("return") ?? "13500");
+  const [periodMonths, setPeriodMonths] = useState(sp.get("months") ?? "18");
 
   const inv = parseFloat(investment) || 0;
   const ret = parseFloat(netReturn) || 0;

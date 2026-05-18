@@ -21,14 +21,6 @@ export const metadata = calculatorMetadata({
     "Free 12-month cash flow calculator. Project monthly income and expenses, flag negative-balance months, and view a running balance chart in your browser.",
 });
 
-const FAQS = [
-  { q: "What is cash flow in business?", a: "Cash flow is the movement of money in and out of your business. Positive cash flow means more cash is coming in than going out. Negative cash flow means you are spending more than you are earning — and will run out of cash if not corrected." },
-  { q: "What is the difference between cash flow and profit?", a: "A business can be profitable on paper but have negative cash flow if customers pay late. Profit is revenue minus costs on an accounting basis. Cash flow is the actual cash you have available. Many businesses fail not from lack of profit but from poor cash flow timing." },
-  { q: "How do I improve business cash flow?", a: "Key strategies include: invoice immediately upon delivery, offer early payment discounts, negotiate longer payment terms with suppliers, maintain a cash reserve of 2–3 months of expenses, and delay non-essential expenditure to months with stronger income." },
-  { q: "What is a cash flow projection?", a: "A cash flow projection is a month-by-month forecast of the cash you expect to receive and spend. It shows you in advance which months you may face a cash shortfall — allowing you to arrange financing, delay expenditure, or accelerate collections before the problem hits." },
-  { q: "How much cash reserve should a small business keep?", a: "Most financial advisors recommend 3–6 months of operating expenses as a cash reserve. Seasonal businesses may need more. This calculator will show your lowest cash balance month — ensure your reserve covers at least that shortfall with a comfortable buffer." },
-];
-
 export default function CashFlowPage() {
   return (
     <CalculatorShell
@@ -63,6 +55,31 @@ export default function CashFlowPage() {
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Common mistakes</h2>
+        <ul className="mt-3 space-y-3 text-sm leading-relaxed text-gray-700">
+          <li>
+            <strong className="text-brand-dark">Booking income in the invoice month</strong> — an invoice raised on 30 January with net-30 terms is cash in late February or early March, not January. Owners habitually enter revenue when sold rather than when paid, which makes the projection look 30–60 days better than reality. Always model income in the month cash actually arrives, with a 15–20% late-payment buffer.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Modelling tax payments only annually</strong> — UK VAT is quarterly, US federal estimated taxes are quarterly, SA VAT is bi-monthly or monthly. Each of these creates a large lumpy outflow that wrecks the month it lands in if planned as a year-end item. Add the actual due-date months explicitly.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Treating credit-line drawdowns as income</strong> — drawing $20,000 from an overdraft or line of credit is borrowing, not revenue. It increases cash today and must be repaid (with interest) later. Track financing inflows and outflows on a separate line so the operating cash flow signal stays clean.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this when you need a 12-month view of cash in and out — typical for budgeting, identifying which month will hit a cash crunch, or sizing a credit facility before you actually need it. The chart makes seasonal businesses easier to plan because the lean months become visible at a glance.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you are a startup focused on a single "how many months of runway?" number, the Burn Rate Calculator is more direct. For accounting profit (rather than bank balance), the Net Profit Calculator walks the income statement instead.
+        </p>
+      </section>
+
       <FormulaBox>
         <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed">
 {`Monthly Net Cash Flow = Monthly Income − Monthly Expenses
@@ -70,7 +87,7 @@ Running Balance (Month N) = Opening Balance + Sum of Net Cash Flows (Month 1 to 
         </pre>
       </FormulaBox>
 
-      <FaqList items={FAQS} />
+      <FaqList items={META.faqs} />
 
       <RelatedTools slugs={["break-even-calculator", "burn-rate-calculator"]} />
 

@@ -20,14 +20,6 @@ export const metadata = calculatorMetadata({
     "Free business loan calculator. Monthly payment, total interest, and full amortisation schedule. Region-aware APR pre-fills for USA, UK, and South Africa.",
 });
 
-const FAQS = [
-  { q: "How do I calculate business loan repayments?", a: "Monthly Payment = P × [r(1+r)^n] / [(1+r)^n − 1], where P is the loan amount, r is the monthly interest rate (annual rate ÷ 12 ÷ 100), and n is the total number of monthly payments. This calculator does this automatically — just enter the loan amount, rate, and term." },
-  { q: "What is an amortisation table?", a: "An amortisation table shows the breakdown of every loan payment into principal (reducing the loan balance) and interest (the cost of borrowing). In early payments, most of your payment is interest. Over time, the proportion shifts toward principal. This table shows exactly how your loan balance reduces each month." },
-  { q: "What interest rate should I use for a business loan?", a: "In the USA, SBA 7(a) loans range from 6.5–9.5% (2024). Conventional unsecured business loans: 8–25% depending on creditworthiness. In the UK, 7–15% for SME unsecured loans. In South Africa, prime rate is approximately 11.75%, with loans typically at prime + 2–5%." },
-  { q: "Is it better to take a shorter or longer loan term?", a: "A shorter term means higher monthly payments but less total interest paid. A longer term means lower monthly payments but significantly more total interest. Use this calculator to compare: a $50,000 loan at 8% costs $10,829 in interest over 5 years vs $18,526 over 10 years." },
-  { q: "What is APR and how does it affect my loan cost?", a: "APR (Annual Percentage Rate) is the true annual cost of borrowing including fees, not just the stated interest rate. Always ask lenders for the APR, not just the interest rate. A loan with a lower interest rate but high fees can have a higher APR than a loan with a slightly higher stated rate but lower fees." },
-];
-
 export default function BusinessLoanPage() {
   return (
     <CalculatorShell
@@ -62,6 +54,31 @@ export default function BusinessLoanPage() {
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Common mistakes</h2>
+        <ul className="mt-3 space-y-3 text-sm leading-relaxed text-gray-700">
+          <li>
+            <strong className="text-brand-dark">Comparing on monthly payment alone</strong> — a longer term gives a smaller monthly payment but a much larger total interest bill. A $50,000 loan at 8% costs $10,829 in interest over 5 years versus $18,526 over 10 years — same monthly comfort, $7,697 more out of pocket. Always compare total cost, not just the monthly line.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Quoting the headline rate, ignoring fees</strong> — origination fees, processing fees, and prepayment penalties can add 1–3% to the effective cost of borrowing. APR captures these; the headline interest rate does not. A 7% loan with a 3% origination fee can be more expensive than an 8% loan with no fees.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Borrowing the maximum approved</strong> — the lender's approval ceiling is set by what you can theoretically repay, not what you actually need. Borrowing $200,000 when $80,000 funds the project just adds $10,000/year of interest expense and ties up future borrowing capacity for no benefit. Match the loan to the project, not to the cap.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this when you have a loan amount and APR in hand and want to model monthly payments, total interest, and the principal/interest split over the life of the loan. It is the right tool for SBA, term loan, or commercial loan comparisons and for checking what a refinance would actually save.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you are deciding <em>how much</em> to borrow against future cash flow, pair this with the Cash Flow Calculator to confirm the monthly payment fits. To evaluate whether a debt-funded investment actually pays off, run the same numbers through the ROI Calculator.
+        </p>
+      </section>
+
       <FormulaBox>
         <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed">
 {`Monthly Payment = P × [r(1+r)^n] / [(1+r)^n − 1]
@@ -78,7 +95,7 @@ Example: $50,000 loan | 8% APR | 60 months
         </pre>
       </FormulaBox>
 
-      <FaqList items={FAQS} />
+      <FaqList items={META.faqs} />
 
       <RelatedTools slugs={["cash-flow-calculator", "roi-calculator"]} />
 

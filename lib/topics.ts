@@ -133,7 +133,7 @@ export const TOPICS: Topic[] = [
     name: "Freelance & Hiring",
     title: "Freelance Rate & Employee Cost Calculators",
     description:
-      "Free calculators and guides for freelance rates, true employee cost, invoicing, and the hire-vs-contract decision — for UK, US, and South Africa.",
+      "Free calculators and guides for freelance rates, true employee cost, invoicing, and the hire-vs-contract decision for UK, US, and SA.",
     h1: "Freelance & Hiring Calculators",
     intro:
       "Three calculators and four guides on the people side of business — what to charge as a freelancer, what an employee actually costs after taxes and overhead, and how to decide between hiring versus contracting.",

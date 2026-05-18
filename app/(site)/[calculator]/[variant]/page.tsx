@@ -4,6 +4,7 @@ import CalculatorShell from "@/components/shared/CalculatorShell";
 import VariantIntro, { isOperatorStub } from "@/components/shared/VariantIntro";
 import VariantSchema from "@/components/shared/VariantSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
+import FaqList from "@/components/shared/FaqList";
 import FormulaBox from "@/components/shared/FormulaBox";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
@@ -47,6 +48,14 @@ const CALCULATOR_COMPONENT: Record<string, React.ComponentType> = {
     () => import("@/components/calculators/BusinessLoanCalculator"),
   ),
   "roi-calculator": dynamic(() => import("@/components/calculators/RoiCalculator")),
+  "pricing-calculator": dynamic(() => import("@/components/calculators/PricingCalculator")),
+  "employee-cost-calculator": dynamic(
+    () => import("@/components/calculators/EmployeeCostCalculator"),
+  ),
+  "invoice-calculator": dynamic(() => import("@/components/calculators/InvoiceCalculator")),
+  "ecommerce-profit-calculator": dynamic(
+    () => import("@/components/calculators/EcommerceProfitCalculator"),
+  ),
 };
 
 export default async function VariantPage({ params }: { params: Promise<Params> }) {
@@ -91,6 +100,7 @@ export default async function VariantPage({ params }: { params: Promise<Params> 
           {`See parent calculator at /${calculator} for the full formula reference.`}
         </pre>
       </FormulaBox>
+      <FaqList items={meta.faqs} />
       <RelatedTools slugs={[calculator]} />
       <MethodologyBox slug={calculator} />
       <Disclaimer />

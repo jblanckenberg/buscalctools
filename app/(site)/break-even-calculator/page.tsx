@@ -21,14 +21,6 @@ export const metadata = calculatorMetadata({
     "Free break-even calculator. Find break-even units, revenue, and contribution margin with a visual chart and target-profit mode. Built for small business owners.",
 });
 
-const FAQS = [
-  { q: "What is the break-even point?", a: "The break-even point is the level of sales at which your total revenue exactly equals your total costs — you are making neither a profit nor a loss. Any sales above the break-even point generate profit. Any sales below it result in a loss." },
-  { q: "How do I calculate break-even point in units?", a: "Break-even units = Fixed Costs / (Selling Price per unit − Variable Cost per unit). The denominator is called the contribution margin — the profit each unit contributes toward covering your fixed costs." },
-  { q: "What are fixed costs vs variable costs?", a: "Fixed costs stay the same regardless of how many units you sell — rent, insurance, salaries. Variable costs change with each unit produced or sold — raw materials, packaging, sales commission. The distinction is critical for accurate break-even analysis." },
-  { q: "How do I lower my break-even point?", a: "You can lower your break-even point by: (1) increasing your selling price, (2) reducing variable costs per unit, or (3) reducing fixed overhead costs. Increasing price is usually the fastest lever, but must be balanced against demand elasticity." },
-  { q: "What is the break-even formula?", a: "Break-Even Units = Fixed Costs ÷ Contribution Margin, where Contribution Margin = Selling Price − Variable Cost Per Unit. In revenue terms: Break-Even Revenue = Break-Even Units × Selling Price." },
-];
-
 export default function BreakEvenPage() {
   return (
     <CalculatorShell
@@ -64,6 +56,31 @@ export default function BreakEvenPage() {
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">Common mistakes</h2>
+        <ul className="mt-3 space-y-3 text-sm leading-relaxed text-gray-700">
+          <li>
+            <strong className="text-brand-dark">Misclassifying costs</strong> — rent does not scale per unit (it is fixed), but part-time labour and sales commissions usually do scale (they are variable). Putting a "semi-variable" cost like utilities into the wrong bucket can shift the break-even point by 20% or more. Split anything ambiguous into a fixed base plus a per-unit slice.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Rounding break-even units down</strong> — if the calculator returns 399.4 units, the answer is 400, not 399. You do not break even at 399; you are still losing money on the last fraction of a unit. Always round break-even volume up.
+          </li>
+          <li>
+            <strong className="text-brand-dark">Discounting below contribution margin</strong> — a "10% off" promotion on a product with a 35% gross margin still earns 25% per sale, but a 40% discount earns negative contribution on every unit. The more you sell, the more you lose. Always check the post-discount contribution margin before launching a promotion.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this when you have fixed and variable costs in hand and want to know the unit volume or revenue level required to cover them — typical when launching a new product, opening a new location, or pricing a service that has setup costs.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you are trying to recover a one-off investment (equipment, a fit-out, software), the Payback Period Calculator is the better tool. To check the per-unit cost floor that sets your minimum price, use the Cost Per Unit Calculator instead.
+        </p>
+      </section>
+
       <FormulaBox>
         <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed">
 {`Break-Even Units = Fixed Costs / (Selling Price − Variable Cost Per Unit)
@@ -79,7 +96,7 @@ Example: Fixed = $5,000 | Variable = $10 | Selling Price = $25
         </pre>
       </FormulaBox>
 
-      <FaqList items={FAQS} />
+      <FaqList items={META.faqs} />
 
       <section className="mt-12">
         <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
