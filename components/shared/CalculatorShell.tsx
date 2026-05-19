@@ -3,6 +3,7 @@ import AuthorCard from "@/components/shared/AuthorCard";
 import Breadcrumbs, { type Crumb } from "@/components/shared/Breadcrumbs";
 import FeaturedAnswer from "@/components/shared/FeaturedAnswer";
 import HowToSteps from "@/components/shared/HowToSteps";
+import PinterestSaveButton from "@/components/shared/PinterestSaveButton";
 import Scenarios from "@/components/shared/Scenarios";
 import { calcMeta, formatReviewDate } from "@/lib/calc-meta";
 
@@ -79,6 +80,7 @@ export default function CalculatorShell({
           className="my-6"
         />
       ) : null}
+      {slug && <PinterestSaveButton slug={slug} />}
       <AuthorCard variant="full" />
     </article>
   );
