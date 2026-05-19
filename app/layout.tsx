@@ -15,17 +15,6 @@ export const metadata: Metadata = {
   applicationName: SITE_NAME,
   authors: [{ name: SITE_NAME }],
   generator: "Next.js",
-  keywords: [
-    "business calculator",
-    "profit margin calculator",
-    "break-even calculator",
-    "ROI calculator",
-    "pricing calculator",
-    "markup calculator",
-    "invoice calculator",
-    "freelance rate calculator",
-    "cash flow calculator",
-  ],
   openGraph: {
     type: "website",
     siteName: SITE_NAME,
