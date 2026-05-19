@@ -66,6 +66,12 @@
   Content-Type: image/png
   Cache-Control: public, max-age=31536000, immutable
 
+# Per-calc Pinterest pin images (1000x1500) generated via ImageResponse.
+# Route path has no extension; explicitly set Content-Type so crawlers parse it.
+/pinterest-pin/*
+  Content-Type: image/png
+  Cache-Control: public, max-age=31536000, immutable
+
 # ---------- Phase 3 embed widget — cross-origin iframe + bundle ----------
 # The /embed/* iframe HTML must be embeddable on any host site. Override the
 # global X-Frame-Options: SAMEORIGIN with a permissive frame-ancestors policy.
