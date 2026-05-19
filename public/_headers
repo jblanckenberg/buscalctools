@@ -2,12 +2,19 @@
 # Security + cache policy. Cloudflare reads this file natively at deploy time.
 
 # ---------- Global security headers (every response) ----------
+# Baseline CSP — defence-in-depth allowlist for the third-party scripts the
+# site actually loads (AdSense, GA4 / GoogleTag, Microsoft Clarity, Plausible,
+# Cookiebot once wired) plus the Beehiiv form action used by NewsletterCapture.
+# 'unsafe-inline' is required for Next.js hydration + inline gtag/Clarity
+# bootstrap; 'unsafe-eval' is required by AdSense. Both are standard for a
+# static export shipping consent-gated ads.
 /*
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
   Strict-Transport-Security: max-age=15768000; includeSubDomains
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://*.google.com https://www.googletagmanager.com https://*.google-analytics.com https://*.clarity.ms https://plausible.io https://*.cookiebot.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://*.google-analytics.com https://www.googletagmanager.com https://*.clarity.ms https://plausible.io https://pagead2.googlesyndication.com https://*.cookiebot.com; frame-src 'self' https://googleads.g.doubleclick.net https://*.google.com https://*.doubleclick.net https://*.cookiebot.com; object-src 'none'; base-uri 'self'; form-action 'self' https://app.beehiiv.com; frame-ancestors 'self'; upgrade-insecure-requests
 
 # ---------- Long-cache immutable static assets ----------
 /*.css
