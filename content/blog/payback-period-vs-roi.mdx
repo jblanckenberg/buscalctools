@@ -1,0 +1,124 @@
+<Lead>
+Two ways to evaluate a business investment, two different
+questions answered. ROI tells you total return. Payback period
+tells you how fast you get your money back. Use the wrong one
+and you'll fund the wrong projects.
+</Lead>
+
+## The one-line definitions
+
+- **ROI** = total profit ÷ investment, as a percentage. Measures total return.
+- **Payback period** = years until cumulative cash flows recover the investment. Measures speed.
+
+## A worked comparison
+
+You have $100,000 and two projects to choose between:
+
+<div className="mt-4 overflow-x-auto rounded-xl border border-gray-200">
+  <table className="w-full text-sm">
+    <thead className="bg-brand-light">
+      <tr className="text-left">
+        <th className="px-4 py-2">Year</th>
+        <th className="px-4 py-2">Project A cash flow</th>
+        <th className="px-4 py-2">Project B cash flow</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">1</td><td className="px-4 py-2 font-mono">$50,000</td><td className="px-4 py-2 font-mono">$15,000</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">2</td><td className="px-4 py-2 font-mono">$50,000</td><td className="px-4 py-2 font-mono">$15,000</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">3</td><td className="px-4 py-2 font-mono">$10,000</td><td className="px-4 py-2 font-mono">$25,000</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">4</td><td className="px-4 py-2 font-mono">$0</td><td className="px-4 py-2 font-mono">$50,000</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">5</td><td className="px-4 py-2 font-mono">$0</td><td className="px-4 py-2 font-mono">$100,000</td></tr>
+      <tr className="border-t border-gray-200 bg-brand-light"><td className="px-4 py-2 font-semibold">Total</td><td className="px-4 py-2 font-mono font-semibold">$110,000</td><td className="px-4 py-2 font-mono font-semibold">$205,000</td></tr>
+    </tbody>
+  </table>
+</div>
+
+By ROI: A = 10% total ($10k / $100k); B = 105% total. **B wins.**
+
+By payback: A pays back in 2 years; B pays back in 4 years.
+**A wins.**
+
+Both metrics are right. They're answering different
+questions.
+
+## When to use payback period
+
+- **Liquidity risk.** If you might need the cash back in 18 months, fast payback matters more than eventual total return.
+- **Uncertain future.** The further out cash flows are, the less reliable they are. Payback rewards near-term certainty.
+- **Multiple parallel investments.** A short-payback project frees capital to fund the next one.
+- **Equipment with short useful life.** If the asset will be obsolete in 5 years, payback ≤3 years is essential.
+
+## When to use ROI
+
+- **Comparing investments of similar duration.** ROI is most useful when the time horizons match.
+- **Long-life assets.** For 10-year+ investments, total return matters more than first-year payback.
+- **Marketing campaign evaluation.** Total revenue per spend dollar is the natural metric.
+- **Boardroom and investor reporting.** ROI is the universally-understood number.
+
+## The limitations of each
+
+### Payback ignores everything after recovery
+
+Project A pays back in 2 years and stops. Project B pays back
+in 4 years and keeps producing for years 5–10. Payback alone
+favours Project A. Always pair payback with a measure of total
+return.
+
+### ROI ignores time value of money
+
+A 50% return earned in 1 year is wildly better than 50% earned
+over 10 years. Naive ROI treats them as equivalent. Use
+**annualised ROI** for fair comparison across
+durations.
+
+### Both ignore risk
+
+A 30% ROI from a Treasury bond (effectively risk-free) is not
+comparable to a 30% ROI from a speculative startup. Neither
+metric adjusts for risk. Use discount rates (DCF) or hurdle
+rates for risk-adjusted comparison.
+
+## The combined approach
+
+Smart capital allocators look at both, plus a third:
+
+1. **Payback period** must be acceptable given liquidity needs (e.g., \<3 years).
+2. **Annualised ROI** must exceed the company's cost of capital plus a risk premium (e.g., \>15%).
+3. **NPV / DCF** must be positive at the chosen discount rate.
+
+Only investments that clear all three hurdles get funded.
+
+## Quick reference
+
+<div className="mt-4 overflow-x-auto rounded-xl border border-gray-200">
+  <table className="w-full text-sm">
+    <thead className="bg-brand-light">
+      <tr className="text-left">
+        <th className="px-4 py-2">Decision</th>
+        <th className="px-4 py-2">Primary metric</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">Equipment purchase</td><td className="px-4 py-2">Payback &lt; asset life</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">Marketing campaign</td><td className="px-4 py-2">ROI (annualised)</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">Real estate / long-term</td><td className="px-4 py-2">DCF + IRR</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">Working capital project</td><td className="px-4 py-2">Payback &lt; 12 months</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">Product launch</td><td className="px-4 py-2">Payback + LTV ROI</td></tr>
+    </tbody>
+  </table>
+</div>
+
+## Calculate both
+
+The [Payback Period Calculator](/payback-period-calculator)
+gives simple and discounted payback in years; the [ROI Calculator](/roi-calculator)
+gives total and annualised ROI. Run both on every significant
+investment decision before approving it.
+
+## Bottom line
+
+- Payback measures speed; ROI measures total return.
+- Use payback for liquidity-sensitive or short-life investments.
+- Use ROI for total-return comparisons; annualise when durations differ.
+- Best practice: require minimum payback AND minimum ROI before funding any project.
