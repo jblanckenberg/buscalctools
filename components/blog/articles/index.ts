@@ -1,6 +1,9 @@
 import type { ComponentType } from "react";
 
-import ProfitMarginVsMarkup from "./profit-margin-vs-markup-difference";
+// MDX articles compile to React components via @next/mdx (see next.config.js
+// and mdx-components.tsx). New posts SHOULD be authored as .mdx; the legacy
+// hand-coded TSX articles remain below until individually migrated.
+import ProfitMarginVsMarkup from "@/content/blog/profit-margin-vs-markup-difference.mdx";
 import WhatIsAGoodProfitMargin from "./what-is-a-good-profit-margin";
 import GrossProfitVsNetProfit from "./gross-profit-vs-net-profit";
 import EbitdaVsNetProfit from "./ebitda-vs-net-profit";
