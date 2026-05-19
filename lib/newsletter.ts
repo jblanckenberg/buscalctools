@@ -1,5 +1,7 @@
-// Beehiiv form action URL — configured at build time. Falls back to a no-op
-// placeholder when unset so /out can still build in CI without the env.
+// Beehiiv form action URL for the BusCalcTools publication. The env override
+// is for local testing or staging a different publication; the fallback is the
+// real production URL so Cloudflare's build picks it up without per-environment
+// configuration (.env.local is gitignored and not present at deploy time).
 export const BEEHIIV_FORM_URL =
   process.env.NEXT_PUBLIC_BEEHIIV_FORM_URL ??
-  "https://example.beehiiv.com/subscribe";
+  "https://james-newsletter-993ef9.beehiiv.com/subscribe";
