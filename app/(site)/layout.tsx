@@ -1,10 +1,11 @@
+import Script from "next/script";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import AdSlot from "@/components/shared/AdSlot";
-import ConsentBanner from "@/components/shared/ConsentBanner";
 import ConsentGate from "@/components/shared/ConsentGate";
 import PlausibleScript from "@/components/shared/PlausibleScript";
 import NewsletterCapture from "@/components/shared/NewsletterCapture";
+import { COOKIEBOT_CBID } from "@/lib/site";
 
 export default function SiteLayout({
   children,
@@ -15,6 +16,18 @@ export default function SiteLayout({
   const footerSlot = process.env.NEXT_PUBLIC_ADSENSE_SLOT_FOOTER;
   return (
     <>
+      {/* Cookiebot CMP loader — IAB TCF v2.3 certified. data-blockingmode=auto
+          asks Cookiebot to detect known third-party scripts (AdSense, GA,
+          Clarity) and gate them on consent. ConsentGate below also gates the
+          same scripts explicitly so we have belt-and-braces protection if
+          auto-detection misses one. */}
+      <Script
+        id="Cookiebot"
+        src="https://consent.cookiebot.com/uc.js"
+        data-cbid={COOKIEBOT_CBID}
+        data-blockingmode="auto"
+        strategy="beforeInteractive"
+      />
       <Header />
       <main className="min-h-screen bg-white" data-pagefind-body>{children}</main>
       {footerSlot ? (
@@ -29,7 +42,6 @@ export default function SiteLayout({
       <NewsletterCapture />
       <Footer />
       <PlausibleScript />
-      <ConsentBanner />
       <ConsentGate />
     </>
   );

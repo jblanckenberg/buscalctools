@@ -8,39 +8,67 @@ import {
   GA4_MEASUREMENT_ID,
   GOOGLE_TAG_ID,
 } from "@/lib/site";
-import { getStoredConsent, type ConsentState } from "./ConsentBanner";
 
-// Renders the AdSense, Clarity, GA4, and Google Tag scripts only after the
-// visitor has granted the matching consent category. Required for GDPR/UK PECR
-// compliance: under PECR a non-essential cookie may not be set before the user
-// has actively opted in, and AdSense/Clarity/GA4 are all non-essential here.
+// Cookiebot exposes window.Cookiebot.consent with these four flags after the
+// CookiebotOnConsentReady event fires. See https://www.cookiebot.com/en/developer/
+type CookiebotConsent = {
+  necessary: boolean;
+  preferences: boolean;
+  statistics: boolean;
+  marketing: boolean;
+};
+
+declare global {
+  interface Window {
+    Cookiebot?: {
+      consent: CookiebotConsent;
+      renew?: () => void;
+    };
+  }
+}
+
+// Renders AdSense, Clarity, GA4, and Google Tag scripts only after Cookiebot
+// reports that the visitor has granted consent for the matching category.
+// Required for GDPR/UK PECR compliance: under PECR a non-essential cookie may
+// not be set before the user has actively opted in.
+//
+// We listen for Cookiebot's own CookiebotOnConsentReady event instead of
+// rolling our own state — the Cookiebot UI handles "Accept", "Reject", and
+// "Customise" interactions on its own banner.
+//
+// data-blockingmode="auto" on the Cookiebot loader provides defence-in-depth:
+// even if a script slipped through this gate, Cookiebot's DOM observer would
+// still rewrite its `type` attribute to `text/plain` until consent is granted.
 export default function ConsentGate() {
-  const [consent, setConsent] = useState<ConsentState | null>(null);
-  const [hydrated, setHydrated] = useState(false);
+  const [consent, setConsent] = useState<CookiebotConsent | null>(null);
 
   useEffect(() => {
-    setConsent(getStoredConsent());
-    setHydrated(true);
-    function onChange(e: Event) {
-      const detail = (e as CustomEvent<ConsentState>).detail;
-      setConsent(detail);
+    function readConsent() {
+      if (typeof window === "undefined") return;
+      const cb = window.Cookiebot;
+      if (cb?.consent) setConsent({ ...cb.consent });
     }
-    window.addEventListener(
-      "bizcalc:consent-changed",
-      onChange as EventListener,
-    );
-    return () =>
-      window.removeEventListener(
-        "bizcalc:consent-changed",
-        onChange as EventListener,
-      );
+
+    readConsent();
+    window.addEventListener("CookiebotOnConsentReady", readConsent);
+    window.addEventListener("CookiebotOnAccept", readConsent);
+    window.addEventListener("CookiebotOnDecline", readConsent);
+
+    return () => {
+      window.removeEventListener("CookiebotOnConsentReady", readConsent);
+      window.removeEventListener("CookiebotOnAccept", readConsent);
+      window.removeEventListener("CookiebotOnDecline", readConsent);
+    };
   }, []);
 
-  if (!hydrated || !consent) return null;
+  if (!consent) return null;
+
+  const ads = consent.marketing;
+  const analytics = consent.statistics;
 
   return (
     <>
-      {consent.ads && (
+      {ads && (
         <Script
           id="adsense-script"
           async
@@ -49,7 +77,7 @@ export default function ConsentGate() {
           crossOrigin="anonymous"
         />
       )}
-      {consent.analytics && (
+      {analytics && (
         <>
           <Script id="clarity-script" strategy="afterInteractive">
             {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "${CLARITY_PROJECT_ID}");`}
