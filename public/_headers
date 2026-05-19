@@ -72,6 +72,12 @@
   Content-Type: image/png
   Cache-Control: public, max-age=31536000, immutable
 
+# Pagefind static search assets (UI bundle + index fragments).
+# Index files (.pf_meta, .pf_index, .pf_fragment) need explicit cache rules
+# since they have no extension match in the global /*.<ext> rules above.
+/pagefind/*
+  Cache-Control: public, max-age=31536000, immutable
+
 # ---------- Phase 3 embed widget — cross-origin iframe + bundle ----------
 # The /embed/* iframe HTML must be embeddable on any host site. Override the
 # global X-Frame-Options: SAMEORIGIN with a permissive frame-ancestors policy.
