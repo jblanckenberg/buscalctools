@@ -36,17 +36,20 @@ function Inner() {
     setTaxRate(String(REGIONS[region].corporateTaxRate));
   }, [region]);
 
-  const rev = parseFloat(revenue) || 0;
-  const cost = parseFloat(cogs) || 0;
-  const op = opEx === "" ? undefined : parseFloat(opEx) || 0;
-  const tax = taxRate === "" ? undefined : parseFloat(taxRate) || 0;
-
+  // calcProfitMargin accepts strings directly and runs the math in decimal.js
+  // — no more parseFloat at the call site. Empty strings are treated as
+  // "field omitted" so optional inputs (opEx, taxRate) collapse correctly.
   const result = calcProfitMargin({
-    revenue: rev,
-    cogs: cost,
-    opEx: op,
-    taxRatePct: tax,
+    revenue,
+    cogs,
+    opEx: opEx === "" ? undefined : opEx,
+    taxRatePct: taxRate === "" ? undefined : taxRate,
   });
+
+  // Numeric copy of revenue + cogs for the formatCurrency boundary in the
+  // copy-to-clipboard text and chart hints. formatCurrency works in number.
+  const revNum = parseFloat(revenue) || 0;
+  const costNum = parseFloat(cogs) || 0;
 
   const grossTier = marginTier(result.grossMarginPct);
   const opTier =
@@ -60,8 +63,8 @@ function Inner() {
 
   const copyText = [
     `Profit Margin — ${cfg.label}`,
-    `Revenue: ${formatCurrency(rev, region)}`,
-    `COGS: ${formatCurrency(cost, region)}`,
+    `Revenue: ${formatCurrency(revNum, region)}`,
+    `COGS: ${formatCurrency(costNum, region)}`,
     `Gross Profit: ${formatCurrency(result.grossProfit, region)}`,
     `Gross Margin: ${formatPercent(result.grossMarginPct)}`,
     result.operatingMarginPct !== null
