@@ -7,6 +7,7 @@ import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
 import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency, formatNumber } from "@/lib/regions";
+import { D, toN } from "@/lib/money";
 
 export default function BurnRateCalculator() {
   return (
@@ -25,18 +26,24 @@ function Inner() {
   const [revenue, setRevenue] = useState(sp.get("revenue") ?? "20000");
   const [expenses, setExpenses] = useState(sp.get("expenses") ?? "70000");
 
-  const cashN = parseFloat(cash) || 0;
-  const rev = parseFloat(revenue) || 0;
-  const exp = parseFloat(expenses) || 0;
+  const cashD = D(cash);
+  const revD = D(revenue);
+  const expD = D(expenses);
 
-  const grossBurn = exp;
-  const netBurn = exp - rev;
-  const isProfitable = netBurn <= 0;
+  const grossBurnD = expD;
+  const netBurnD = expD.minus(revD);
+  const isProfitable = netBurnD.lte(0);
   const runwayMonths = isProfitable
     ? Infinity
-    : netBurn > 0
-      ? cashN / netBurn
+    : netBurnD.gt(0)
+      ? toN(cashD.div(netBurnD))
       : 0;
+
+  const cashN = toN(cashD);
+  const rev = toN(revD);
+  const exp = toN(expD);
+  const grossBurn = toN(grossBurnD);
+  const netBurn = toN(netBurnD);
 
   const exhaustionDate = isProfitable
     ? null

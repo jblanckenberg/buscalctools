@@ -7,6 +7,7 @@ import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
 import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency } from "@/lib/regions";
+import { D, Decimal, toN } from "@/lib/money";
 
 export default function BusinessValuationCalculator() {
   return (
@@ -29,35 +30,54 @@ function Inner() {
   const [discountRate, setDiscountRate] = useState(sp.get("discount") ?? "20");
   const [growthRate, setGrowthRate] = useState(sp.get("growth") ?? "10");
 
-  const rev = parseFloat(revenue) || 0;
-  const eb = parseFloat(ebitda) || 0;
-  const rm = parseFloat(revenueMultiple) || 0;
-  const em = parseFloat(ebitdaMultiple) || 0;
-  const cashFlow = parseFloat(fcf) || 0;
-  const dr = (parseFloat(discountRate) || 0) / 100;
-  const gr = (parseFloat(growthRate) || 0) / 100;
+  const revD = D(revenue);
+  const ebD = D(ebitda);
+  const rmD = D(revenueMultiple);
+  const emD = D(ebitdaMultiple);
+  const cashFlowD = D(fcf);
+  const drD = D(discountRate).div(100);
+  const grD = D(growthRate).div(100);
 
-  const revenueValuation = rev * rm;
-  const ebitdaValuation = eb * em;
+  const revenueValuationD = revD.mul(rmD);
+  const ebitdaValuationD = ebD.mul(emD);
 
-  // DCF: 5-year projected FCF + terminal value
-  let dcfValuation = 0;
-  if (dr > gr && cashFlow > 0) {
+  // DCF: 5-year projected FCF + terminal value. Decimal.pow handles the
+  // compounding exponentials with no float drift.
+  let dcfValuationD = new Decimal(0);
+  if (drD.gt(grD) && cashFlowD.gt(0)) {
+    const onePlusGr = new Decimal(1).plus(grD);
+    const onePlusDr = new Decimal(1).plus(drD);
     for (let n = 1; n <= 5; n++) {
-      const projected = cashFlow * Math.pow(1 + gr, n);
-      dcfValuation += projected / Math.pow(1 + dr, n);
+      const projected = cashFlowD.mul(onePlusGr.pow(n));
+      dcfValuationD = dcfValuationD.plus(projected.div(onePlusDr.pow(n)));
     }
-    const terminalFcf = cashFlow * Math.pow(1 + gr, 6);
-    const terminalValue = terminalFcf / (dr - gr);
-    dcfValuation += terminalValue / Math.pow(1 + dr, 5);
+    const terminalFcf = cashFlowD.mul(onePlusGr.pow(6));
+    const terminalValue = terminalFcf.div(drD.minus(grD));
+    dcfValuationD = dcfValuationD.plus(terminalValue.div(onePlusDr.pow(5)));
   }
 
-  const valuations = [revenueValuation, ebitdaValuation, dcfValuation].filter(
-    (v) => v > 0
+  const valuationsD = [revenueValuationD, ebitdaValuationD, dcfValuationD].filter(
+    (v) => v.gt(0),
   );
-  const low = valuations.length > 0 ? Math.min(...valuations) : 0;
-  const high = valuations.length > 0 ? Math.max(...valuations) : 0;
-  const mid = valuations.length > 0 ? valuations.reduce((a, b) => a + b, 0) / valuations.length : 0;
+  const lowD = valuationsD.length > 0 ? Decimal.min(...valuationsD) : new Decimal(0);
+  const highD = valuationsD.length > 0 ? Decimal.max(...valuationsD) : new Decimal(0);
+  const midD =
+    valuationsD.length > 0
+      ? valuationsD.reduce((a, b) => a.plus(b), new Decimal(0)).div(valuationsD.length)
+      : new Decimal(0);
+
+  const rev = toN(revD);
+  const eb = toN(ebD);
+  const rm = toN(rmD);
+  const em = toN(emD);
+  const dr = toN(drD);
+  const gr = toN(grD);
+  const revenueValuation = toN(revenueValuationD);
+  const ebitdaValuation = toN(ebitdaValuationD);
+  const dcfValuation = toN(dcfValuationD);
+  const low = toN(lowD);
+  const high = toN(highD);
+  const mid = toN(midD);
 
   const copyText = [
     `Business Valuation — ${cfg.label}`,

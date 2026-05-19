@@ -8,6 +8,7 @@ import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
 import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency } from "@/lib/regions";
+import { D, Decimal, toN } from "@/lib/money";
 
 type Line = { desc: string; qty: string; rate: string };
 
@@ -53,18 +54,23 @@ function Inner() {
   const removeLine = (idx: number) =>
     setLines((prev) => (prev.length <= 1 ? prev : prev.filter((_, i) => i !== idx)));
 
-  const subtotal = lines.reduce((sum, l) => {
-    const q = parseFloat(l.qty) || 0;
-    const r = parseFloat(l.rate) || 0;
-    return sum + q * r;
-  }, 0);
+  const subtotalD = lines.reduce((sum, l) => {
+    return sum.plus(D(l.qty).mul(D(l.rate)));
+  }, new Decimal(0));
 
-  const discountVal = discountPct === "" ? 0 : (parseFloat(discountPct) || 0);
-  const discountAmount = subtotal * (discountVal / 100);
-  const tax = parseFloat(taxPct) || 0;
-  const taxableBase = subtotal - discountAmount;
-  const taxAmount = taxableBase * (tax / 100);
-  const total = taxableBase + taxAmount;
+  const discountValD = discountPct === "" ? new Decimal(0) : D(discountPct);
+  const discountAmountD = subtotalD.mul(discountValD.div(100));
+  const taxD = D(taxPct);
+  const taxableBaseD = subtotalD.minus(discountAmountD);
+  const taxAmountD = taxableBaseD.mul(taxD.div(100));
+  const totalD = taxableBaseD.plus(taxAmountD);
+
+  const subtotal = toN(subtotalD);
+  const discountVal = toN(discountValD);
+  const discountAmount = toN(discountAmountD);
+  const tax = toN(taxD);
+  const taxAmount = toN(taxAmountD);
+  const total = toN(totalD);
 
   const copyText = [
     `Invoice — ${cfg.label}`,

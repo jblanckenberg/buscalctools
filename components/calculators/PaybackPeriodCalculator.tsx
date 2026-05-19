@@ -7,6 +7,7 @@ import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
 import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency, formatNumber } from "@/lib/regions";
+import { D, Decimal, toN } from "@/lib/money";
 
 export default function PaybackPeriodCalculator() {
   return (
@@ -25,29 +26,34 @@ function Inner() {
   const [annualInflow, setAnnualInflow] = useState(sp.get("inflow") ?? "18000");
   const [discountRate, setDiscountRate] = useState(sp.get("discount") ?? "");
 
-  const inv = parseFloat(investment) || 0;
-  const cf = parseFloat(annualInflow) || 0;
-  const dr = discountRate === "" ? null : parseFloat(discountRate) || 0;
+  const invD = D(investment);
+  const cfD = D(annualInflow);
+  const drD = discountRate === "" ? null : D(discountRate);
 
-  const simplePayback = cf > 0 ? inv / cf : Infinity;
+  const simplePayback = cfD.gt(0) ? toN(invD.div(cfD)) : Infinity;
   const simplePaybackDisplay = Number.isFinite(simplePayback)
     ? simplePayback.toFixed(2)
     : "—";
 
   let discountedPayback: number | null = null;
-  if (dr !== null && cf > 0 && inv > 0) {
-    let cumulative = 0;
+  if (drD !== null && cfD.gt(0) && invD.gt(0)) {
+    let cumulativeD = new Decimal(0);
+    const onePlusDr = new Decimal(1).plus(drD.div(100));
     for (let year = 1; year <= 50; year++) {
-      const pv = cf / Math.pow(1 + dr / 100, year);
-      cumulative += pv;
-      if (cumulative >= inv) {
-        const prevCumulative = cumulative - pv;
-        const fraction = (inv - prevCumulative) / pv;
-        discountedPayback = year - 1 + fraction;
+      const pvD = cfD.div(onePlusDr.pow(year));
+      cumulativeD = cumulativeD.plus(pvD);
+      if (cumulativeD.gte(invD)) {
+        const prevCumulative = cumulativeD.minus(pvD);
+        const fractionD = invD.minus(prevCumulative).div(pvD);
+        discountedPayback = year - 1 + toN(fractionD);
         break;
       }
     }
   }
+
+  const inv = toN(invD);
+  const cf = toN(cfD);
+  const dr = drD === null ? null : toN(drD);
 
   const tier =
     simplePayback <= 3 ? "good" : simplePayback <= 5 ? "caution" : "bad";

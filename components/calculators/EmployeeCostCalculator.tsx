@@ -8,6 +8,7 @@ import RegionToggle from "@/components/shared/RegionToggle";
 import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency, formatPercent } from "@/lib/regions";
 import { EMPLOYER_TAX_BY_REGION } from "@/lib/employee-tax";
+import { D, pct, toN } from "@/lib/money";
 
 export default function EmployeeCostCalculator() {
   return (
@@ -34,18 +35,35 @@ function Inner() {
     setTaxRate(String(EMPLOYER_TAX_BY_REGION[region].rate));
   }, [region]);
 
-  const s = parseFloat(salary) || 0;
-  const t = parseFloat(taxRate) || 0;
-  const b = parseFloat(benefits) || 0;
-  const eq = parseFloat(equipment) || 0;
-  const tr = parseFloat(training) || 0;
-  const off = parseFloat(office) || 0;
+  const sD = D(salary);
+  const tD = D(taxRate);
+  const bD = D(benefits);
+  const eqD = D(equipment);
+  const trD = D(training);
+  const offD = D(office);
 
-  const employerTaxAmount = s * (t / 100);
-  const totalCost = s + employerTaxAmount + b + eq + tr + off;
-  const pctOfSalary = s > 0 ? (totalCost / s) * 100 : 0;
-  const hourlyCost = totalCost / 2080; // 52 weeks × 40 hours
-  const productiveHourlyCost = totalCost / 1700; // ~1700 productive hours
+  const employerTaxAmountD = sD.mul(tD.div(100));
+  const totalCostD = sD
+    .plus(employerTaxAmountD)
+    .plus(bD)
+    .plus(eqD)
+    .plus(trD)
+    .plus(offD);
+  const pctOfSalaryD = pct(totalCostD, sD);
+  const hourlyCostD = totalCostD.div(2080); // 52 weeks × 40 hours
+  const productiveHourlyCostD = totalCostD.div(1700); // ~1700 productive hours
+
+  const s = toN(sD);
+  const t = toN(tD);
+  const b = toN(bD);
+  const eq = toN(eqD);
+  const tr = toN(trD);
+  const off = toN(offD);
+  const employerTaxAmount = toN(employerTaxAmountD);
+  const totalCost = toN(totalCostD);
+  const pctOfSalary = toN(pctOfSalaryD);
+  const hourlyCost = toN(hourlyCostD);
+  const productiveHourlyCost = toN(productiveHourlyCostD);
 
   const copyText = [
     `Employee Cost — ${cfg.label}`,

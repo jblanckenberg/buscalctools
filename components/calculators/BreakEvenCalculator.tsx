@@ -8,6 +8,7 @@ import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
 import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency, formatNumber } from "@/lib/regions";
+import { D, toN } from "@/lib/money";
 
 // Lazy-load Recharts chart. ~50KB chunk that only this calc + cash-flow use.
 // SSR off so the chart only mounts client-side after hydration; static export
@@ -40,16 +41,26 @@ function Inner() {
   const [sellingPrice, setSellingPrice] = useState(params.get("price") ?? "25");
   const [targetProfit, setTargetProfit] = useState(params.get("target") ?? "");
 
-  const fc = parseFloat(fixedCosts) || 0;
-  const vc = parseFloat(variableCost) || 0;
-  const sp = parseFloat(sellingPrice) || 0;
-  const tp = targetProfit === "" ? null : parseFloat(targetProfit) || 0;
+  const fcD = D(fixedCosts);
+  const vcD = D(variableCost);
+  const spD = D(sellingPrice);
+  const tpD = targetProfit === "" ? null : D(targetProfit);
 
-  const contribution = sp - vc;
-  const breakEvenUnits = contribution > 0 ? Math.ceil(fc / contribution) : 0;
-  const breakEvenRevenue = breakEvenUnits * sp;
+  const contributionD = spD.minus(vcD);
+  const breakEvenUnits = contributionD.gt(0)
+    ? Math.ceil(toN(fcD.div(contributionD)))
+    : 0;
+  const breakEvenRevenue = toN(spD.mul(breakEvenUnits));
   const targetUnits =
-    tp !== null && contribution > 0 ? Math.ceil((fc + tp) / contribution) : null;
+    tpD !== null && contributionD.gt(0)
+      ? Math.ceil(toN(fcD.plus(tpD).div(contributionD)))
+      : null;
+
+  const fc = toN(fcD);
+  const vc = toN(vcD);
+  const sp = toN(spD);
+  const tp = tpD === null ? null : toN(tpD);
+  const contribution = toN(contributionD);
 
   const chartData = useMemo(() => {
     const maxUnits = Math.max(breakEvenUnits * 2, 10);

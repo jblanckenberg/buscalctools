@@ -7,6 +7,7 @@ import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
 import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency, formatPercent } from "@/lib/regions";
+import { D, Decimal, pct, toN } from "@/lib/money";
 
 export default function RoiCalculator() {
   return (
@@ -25,16 +26,29 @@ function Inner() {
   const [netReturn, setNetReturn] = useState(sp.get("return") ?? "13500");
   const [periodMonths, setPeriodMonths] = useState(sp.get("months") ?? "18");
 
-  const inv = parseFloat(investment) || 0;
-  const ret = parseFloat(netReturn) || 0;
-  const months = parseFloat(periodMonths) || 0;
+  const invD = D(investment);
+  const retD = D(netReturn);
+  const monthsD = D(periodMonths);
 
-  const netProfit = ret - inv;
-  const roiPct = inv > 0 ? (netProfit / inv) * 100 : 0;
-  const annualisedPct =
-    months > 0 && inv > 0
-      ? (Math.pow(1 + roiPct / 100, 12 / months) - 1) * 100
+  const netProfitD = retD.minus(invD);
+  const roiPctD = pct(netProfitD, invD);
+  // (1 + roi/100) ^ (12/months) — 1, in percent. Decimal.pow supports
+  // fractional exponents, so the annualised math runs in decimal too.
+  const annualisedPctD =
+    monthsD.gt(0) && invD.gt(0)
+      ? new Decimal(1)
+          .plus(roiPctD.div(100))
+          .pow(new Decimal(12).div(monthsD))
+          .minus(1)
+          .mul(100)
       : null;
+
+  const inv = toN(invD);
+  const ret = toN(retD);
+  const months = toN(monthsD);
+  const netProfit = toN(netProfitD);
+  const roiPct = toN(roiPctD);
+  const annualisedPct = annualisedPctD === null ? null : toN(annualisedPctD);
 
   const tier = roiPct >= 20 ? "good" : roiPct >= 0 ? "caution" : "bad";
 

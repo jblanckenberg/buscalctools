@@ -8,6 +8,7 @@ import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
 import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency } from "@/lib/regions";
+import { D, Decimal, toN } from "@/lib/money";
 
 // Lazy-load Recharts area chart (only this calc + break-even use it).
 const CashFlowChart = dynamic(
@@ -57,30 +58,34 @@ function Inner() {
     setArr(arr.map((v, i) => (i === idx ? value : v)));
   };
 
-  const openingN = parseFloat(opening) || 0;
-  let running = openingN;
-  let lowestBalance = openingN;
+  const openingD = D(opening);
+  let runningD = openingD;
+  let lowestBalanceD: Decimal = openingD;
   let lowestMonth = 0;
-  let totalAnnual = 0;
+  let totalAnnualD = new Decimal(0);
   const rows = income.map((inc, i) => {
-    const incN = parseFloat(inc) || 0;
-    const expN = parseFloat(expenses[i]) || 0;
-    const net = incN - expN;
-    running += net;
-    totalAnnual += net;
-    if (running < lowestBalance) {
-      lowestBalance = running;
+    const incD = D(inc);
+    const expD = D(expenses[i]);
+    const netD = incD.minus(expD);
+    runningD = runningD.plus(netD);
+    totalAnnualD = totalAnnualD.plus(netD);
+    if (runningD.lt(lowestBalanceD)) {
+      lowestBalanceD = runningD;
       lowestMonth = i + 1;
     }
     return {
       month: MONTHS[i],
       idx: i + 1,
-      income: incN,
-      expenses: expN,
-      net,
-      balance: running,
+      income: toN(incD),
+      expenses: toN(expD),
+      net: toN(netD),
+      balance: toN(runningD),
     };
   });
+  const openingN = toN(openingD);
+  const running = toN(runningD);
+  const lowestBalance = toN(lowestBalanceD);
+  const totalAnnual = toN(totalAnnualD);
 
   const tier = lowestBalance < 0 ? "bad" : totalAnnual > 0 ? "good" : "caution";
 

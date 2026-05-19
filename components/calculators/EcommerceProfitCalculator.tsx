@@ -7,6 +7,7 @@ import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
 import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency, formatPercent } from "@/lib/regions";
+import { D, Decimal, pct, toN } from "@/lib/money";
 
 const PRESETS: Record<string, number> = {
   "Amazon FBA": 15,
@@ -51,19 +52,33 @@ function Inner() {
     if (key !== "Custom") setFeePct(String(PRESETS[key]));
   };
 
-  const cost = parseFloat(productCost) || 0;
-  const price = parseFloat(sellingPrice) || 0;
-  const fee = parseFloat(feePct) || 0;
-  const ship = parseFloat(shipping) || 0;
-  const ads = parseFloat(adSpend) || 0;
-  const vat = parseFloat(vatPct) || 0;
+  const costD = D(productCost);
+  const priceD = D(sellingPrice);
+  const feeD = D(feePct);
+  const shipD = D(shipping);
+  const adsD = D(adSpend);
+  const vatD = D(vatPct);
 
-  const feeAmount = price * (fee / 100);
+  const feeAmountD = priceD.mul(feeD.div(100));
   // For VAT-inclusive sale price, VAT portion = price - price/(1+vat/100)
-  const vatAmount = vat > 0 ? price - price / (1 + vat / 100) : 0;
-  const totalCosts = cost + feeAmount + ship + ads + vatAmount;
-  const netProfit = price - totalCosts;
-  const netMarginPct = price > 0 ? (netProfit / price) * 100 : 0;
+  const vatAmountD = vatD.gt(0)
+    ? priceD.minus(priceD.div(new Decimal(1).plus(vatD.div(100))))
+    : new Decimal(0);
+  const totalCostsD = costD.plus(feeAmountD).plus(shipD).plus(adsD).plus(vatAmountD);
+  const netProfitD = priceD.minus(totalCostsD);
+  const netMarginPctD = pct(netProfitD, priceD);
+
+  const cost = toN(costD);
+  const price = toN(priceD);
+  const fee = toN(feeD);
+  const ship = toN(shipD);
+  const ads = toN(adsD);
+  const vat = toN(vatD);
+  const feeAmount = toN(feeAmountD);
+  const vatAmount = toN(vatAmountD);
+  const totalCosts = toN(totalCostsD);
+  const netProfit = toN(netProfitD);
+  const netMarginPct = toN(netMarginPctD);
 
   const tier = netMarginPct >= 15 ? "good" : netMarginPct >= 5 ? "caution" : "bad";
 
