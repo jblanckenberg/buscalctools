@@ -7,6 +7,7 @@ import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
 import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency, formatPercent } from "@/lib/regions";
+import { D, Decimal, pct, toN } from "@/lib/money";
 
 export default function MarkupCalculator() {
   return (
@@ -27,26 +28,32 @@ function Inner() {
   const [markupPct, setMarkupPct] = useState(sp.get("markup") ?? "50");
   const [sellingPrice, setSellingPrice] = useState(sp.get("price") ?? "60");
 
-  const costN = parseFloat(cost) || 0;
-  const markupN = parseFloat(markupPct) || 0;
-  const sellingN = parseFloat(sellingPrice) || 0;
+  const costD = D(cost);
+  const markupD = D(markupPct);
+  const sellingD = D(sellingPrice);
 
-  let computedSelling = 0;
-  let computedMarkup = 0;
-  let profit = 0;
-  let marginPct = 0;
+  let computedSellingD: Decimal;
+  let computedMarkupD: Decimal;
+  let profitD: Decimal;
+  let marginPctD: Decimal;
 
   if (mode === "forward") {
-    computedSelling = costN * (1 + markupN / 100);
-    computedMarkup = markupN;
-    profit = computedSelling - costN;
-    marginPct = computedSelling > 0 ? (profit / computedSelling) * 100 : 0;
+    computedSellingD = costD.mul(new Decimal(1).plus(markupD.div(100)));
+    computedMarkupD = markupD;
+    profitD = computedSellingD.minus(costD);
+    marginPctD = pct(profitD, computedSellingD);
   } else {
-    computedSelling = sellingN;
-    profit = sellingN - costN;
-    computedMarkup = costN > 0 ? (profit / costN) * 100 : 0;
-    marginPct = sellingN > 0 ? (profit / sellingN) * 100 : 0;
+    computedSellingD = sellingD;
+    profitD = sellingD.minus(costD);
+    computedMarkupD = pct(profitD, costD);
+    marginPctD = pct(profitD, sellingD);
   }
+
+  const costN = toN(costD);
+  const computedSelling = toN(computedSellingD);
+  const computedMarkup = toN(computedMarkupD);
+  const profit = toN(profitD);
+  const marginPct = toN(marginPctD);
 
   const tier = marginPct >= 30 ? "good" : marginPct >= 15 ? "caution" : "bad";
 

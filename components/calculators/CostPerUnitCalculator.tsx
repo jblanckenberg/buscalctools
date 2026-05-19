@@ -7,6 +7,7 @@ import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
 import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency, formatNumber } from "@/lib/regions";
+import { D, toN } from "@/lib/money";
 
 export default function CostPerUnitCalculator() {
   return (
@@ -25,19 +26,28 @@ function Inner() {
   const [variableCosts, setVariableCosts] = useState(sp.get("variable") ?? "5000");
   const [units, setUnits] = useState(sp.get("units") ?? "500");
 
-  const fc = parseFloat(fixedCosts) || 0;
-  const vc = parseFloat(variableCosts) || 0;
-  const u = parseFloat(units) || 0;
+  const fcD = D(fixedCosts);
+  const vcD = D(variableCosts);
+  const uD = D(units);
 
-  const fcPer = u > 0 ? fc / u : 0;
-  const vcPer = u > 0 ? vc / u : 0;
-  const totalPer = fcPer + vcPer;
+  const fcPerD = uD.gt(0) ? fcD.div(uD) : D(0);
+  const vcPerD = uD.gt(0) ? vcD.div(uD) : D(0);
+  const totalPerD = fcPerD.plus(vcPerD);
+
+  const fc = toN(fcD);
+  const vc = toN(vcD);
+  const u = toN(uD);
+  const fcPer = toN(fcPerD);
+  const vcPer = toN(vcPerD);
+  const totalPer = toN(totalPerD);
 
   const scaling = [0.5, 1, 1.5, 2].map((m) => {
-    const scaled = u * m;
+    const scaledD = uD.mul(m);
     return {
-      label: `${Math.round(m * 100)}% (${formatNumber(scaled, 0)} units)`,
-      cpu: scaled > 0 ? (fc + vc * m) / scaled : 0,
+      label: `${Math.round(m * 100)}% (${formatNumber(toN(scaledD), 0)} units)`,
+      cpu: scaledD.gt(0)
+        ? toN(fcD.plus(vcD.mul(m)).div(scaledD))
+        : 0,
     };
   });
 

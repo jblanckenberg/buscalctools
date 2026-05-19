@@ -7,6 +7,7 @@ import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
 import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency, formatNumber } from "@/lib/regions";
+import { D, Decimal, toN } from "@/lib/money";
 
 export default function FreelanceRateCalculator() {
   return (
@@ -27,16 +28,26 @@ function Inner() {
   const [weeksOff, setWeeksOff] = useState(sp.get("weeks_off") ?? "6");
   const [marginPct, setMarginPct] = useState(sp.get("margin") ?? "15");
 
-  const inc = parseFloat(income) || 0;
-  const hrs = parseFloat(hoursPerWeek) || 0;
-  const ovh = parseFloat(overhead) || 0;
-  const wkOff = parseFloat(weeksOff) || 0;
-  const margin = parseFloat(marginPct) || 0;
+  const incD = D(income);
+  const hrsD = D(hoursPerWeek);
+  const ovhD = D(overhead);
+  const wkOffD = D(weeksOff);
+  const marginD = D(marginPct);
 
-  const billableHours = Math.max(0, (52 - wkOff) * hrs);
-  const minRate = billableHours > 0 ? (inc + ovh) / billableHours : 0;
-  const recommendedRate = minRate * (1 + margin / 100);
-  const dayRate = recommendedRate * 8;
+  const billableHoursD = Decimal.max(0, new Decimal(52).minus(wkOffD).mul(hrsD));
+  const minRateD = billableHoursD.gt(0)
+    ? incD.plus(ovhD).div(billableHoursD)
+    : new Decimal(0);
+  const recommendedRateD = minRateD.mul(new Decimal(1).plus(marginD.div(100)));
+  const dayRateD = recommendedRateD.mul(8);
+
+  const inc = toN(incD);
+  const hrs = toN(hrsD);
+  const ovh = toN(ovhD);
+  const billableHours = toN(billableHoursD);
+  const minRate = toN(minRateD);
+  const recommendedRate = toN(recommendedRateD);
+  const dayRate = toN(dayRateD);
 
   const copyText = [
     `Freelance Rate — ${cfg.label}`,

@@ -7,6 +7,7 @@ import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
 import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency, formatPercent } from "@/lib/regions";
+import { D, Decimal, pct, toN } from "@/lib/money";
 
 export default function DiscountCalculator() {
   return (
@@ -28,30 +29,36 @@ function Inner() {
   const [discountedPrice, setDiscountedPrice] = useState(sp.get("price") ?? "75");
   const [quantity, setQuantity] = useState(sp.get("qty") ?? "10");
 
-  const orig = parseFloat(original) || 0;
-  const dPct = parseFloat(discountPct) || 0;
-  const dPrice = parseFloat(discountedPrice) || 0;
-  const qty = parseFloat(quantity) || 0;
+  const origD = D(original);
+  const dPctD = D(discountPct);
+  const dPriceD = D(discountedPrice);
+  const qtyD = D(quantity);
 
-  let computedDiscounted = 0;
-  let computedDiscountPct = 0;
-  let savings = 0;
+  let computedDiscountedD: Decimal;
+  let computedDiscountPctD: Decimal;
+  let savingsD: Decimal;
 
   if (mode === "forward") {
-    computedDiscounted = orig * (1 - dPct / 100);
-    computedDiscountPct = dPct;
-    savings = orig - computedDiscounted;
+    computedDiscountedD = origD.mul(new Decimal(1).minus(dPctD.div(100)));
+    computedDiscountPctD = dPctD;
+    savingsD = origD.minus(computedDiscountedD);
   } else {
-    computedDiscounted = dPrice;
-    savings = orig - dPrice;
-    computedDiscountPct = orig > 0 ? (savings / orig) * 100 : 0;
+    computedDiscountedD = dPriceD;
+    savingsD = origD.minus(dPriceD);
+    computedDiscountPctD = pct(savingsD, origD);
   }
+
+  const orig = toN(origD);
+  const qty = toN(qtyD);
+  const computedDiscounted = toN(computedDiscountedD);
+  const computedDiscountPct = toN(computedDiscountPctD);
+  const savings = toN(savingsD);
 
   const bulkRows = [1, 5, 10, 50, 100].map((q) => ({
     qty: q,
-    totalOriginal: orig * q,
-    totalSavings: savings * q,
-    totalDiscounted: computedDiscounted * q,
+    totalOriginal: toN(origD.mul(q)),
+    totalSavings: toN(savingsD.mul(q)),
+    totalDiscounted: toN(computedDiscountedD.mul(q)),
   }));
 
   const copyText = [

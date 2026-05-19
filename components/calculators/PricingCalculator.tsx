@@ -7,6 +7,7 @@ import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
 import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency, formatPercent } from "@/lib/regions";
+import { D, Decimal, pct, toN } from "@/lib/money";
 
 export default function PricingCalculator() {
   return (
@@ -32,23 +33,32 @@ function Inner() {
     setTaxPct(String(REGIONS[region].consumptionTaxRate));
   }, [region]);
 
-  const costN = parseFloat(cost) || 0;
-  const tax = parseFloat(taxPct) || 0;
+  const costD = D(cost);
+  const taxD = D(taxPct);
 
-  let exTaxPrice = 0;
+  let exTaxPriceD: Decimal;
   if (mode === "margin") {
-    const m = parseFloat(marginPct) || 0;
-    exTaxPrice = m < 100 ? costN / (1 - m / 100) : Infinity;
+    const m = D(marginPct);
+    // Margin must be < 100% or the division blows up; clamp at 0 in that case
+    // to match the legacy Infinity → 0 fallback.
+    exTaxPriceD = m.lt(100) ? costD.div(new Decimal(1).minus(m.div(100))) : new Decimal(0);
   } else {
-    const mk = parseFloat(markupPct) || 0;
-    exTaxPrice = costN * (1 + mk / 100);
+    const mk = D(markupPct);
+    exTaxPriceD = costD.mul(new Decimal(1).plus(mk.div(100)));
   }
-  if (!Number.isFinite(exTaxPrice)) exTaxPrice = 0;
 
-  const incTaxPrice = exTaxPrice * (1 + tax / 100);
-  const profit = exTaxPrice - costN;
-  const equivalentMarkup = costN > 0 ? (profit / costN) * 100 : 0;
-  const equivalentMargin = exTaxPrice > 0 ? (profit / exTaxPrice) * 100 : 0;
+  const incTaxPriceD = exTaxPriceD.mul(new Decimal(1).plus(taxD.div(100)));
+  const profitD = exTaxPriceD.minus(costD);
+  const equivalentMarkupD = pct(profitD, costD);
+  const equivalentMarginD = pct(profitD, exTaxPriceD);
+
+  const costN = toN(costD);
+  const tax = toN(taxD);
+  const exTaxPrice = toN(exTaxPriceD);
+  const incTaxPrice = toN(incTaxPriceD);
+  const profit = toN(profitD);
+  const equivalentMarkup = toN(equivalentMarkupD);
+  const equivalentMargin = toN(equivalentMarginD);
 
   const tier =
     equivalentMargin >= 30 ? "good" : equivalentMargin >= 15 ? "caution" : "bad";

@@ -7,6 +7,7 @@ import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
 import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency, formatPercent } from "@/lib/regions";
+import { D, pct, toN } from "@/lib/money";
 
 export default function RevenueGrowthCalculator() {
   return (
@@ -28,16 +29,25 @@ function Inner() {
   const [starting, setStarting] = useState(sp.get("start") ?? "100000");
   const [years, setYears] = useState(sp.get("years") ?? "4");
 
-  const cur = parseFloat(current) || 0;
-  const prev = parseFloat(previous) || 0;
-  const start = parseFloat(starting) || 0;
-  const yrs = parseFloat(years) || 0;
+  const curD = D(current);
+  const prevD = D(previous);
+  const startD = D(starting);
+  const yrsD = D(years);
 
-  const change = cur - prev;
-  const growthPct = prev > 0 ? (change / prev) * 100 : 0;
+  const changeD = curD.minus(prevD);
+  const growthPctD = pct(changeD, prevD);
 
-  const cagrPct =
-    start > 0 && yrs > 0 ? (Math.pow(cur / start, 1 / yrs) - 1) * 100 : null;
+  const cagrPctD =
+    startD.gt(0) && yrsD.gt(0)
+      ? curD.div(startD).pow(D(1).div(yrsD)).minus(1).mul(100)
+      : null;
+
+  const cur = toN(curD);
+  const prev = toN(prevD);
+  const yrs = toN(yrsD);
+  const change = toN(changeD);
+  const growthPct = toN(growthPctD);
+  const cagrPct = cagrPctD === null ? null : toN(cagrPctD);
 
   const tier = growthPct >= 20 ? "good" : growthPct >= 5 ? "caution" : "bad";
 

@@ -7,6 +7,7 @@ import ResultCard from "@/components/ui/ResultCard";
 import RegionToggle from "@/components/shared/RegionToggle";
 import CalculatorActions from "@/components/shared/CalculatorActions";
 import { REGIONS, useRegion, formatCurrency, formatPercent } from "@/lib/regions";
+import { D, Decimal, pct, toN } from "@/lib/money";
 
 export default function NetProfitCalculator() {
   return (
@@ -31,18 +32,30 @@ function Inner() {
     setTaxRate(String(REGIONS[region].corporateTaxRate));
   }, [region]);
 
-  const rev = parseFloat(revenue) || 0;
-  const cost = parseFloat(cogs) || 0;
-  const op = parseFloat(opEx) || 0;
-  const intExp = parseFloat(interest) || 0;
-  const tax = parseFloat(taxRate) || 0;
+  const revD = D(revenue);
+  const costD = D(cogs);
+  const opD = D(opEx);
+  const intExpD = D(interest);
+  const taxRateD = D(taxRate);
 
-  const grossProfit = rev - cost;
-  const ebit = grossProfit - op;
-  const ebt = ebit - intExp;
-  const taxAmount = ebt > 0 ? ebt * (tax / 100) : 0;
-  const netProfit = ebt - taxAmount;
-  const netMarginPct = rev > 0 ? (netProfit / rev) * 100 : 0;
+  const grossProfitD = revD.minus(costD);
+  const ebitD = grossProfitD.minus(opD);
+  const ebtD = ebitD.minus(intExpD);
+  const taxAmountD = ebtD.gt(0) ? ebtD.mul(taxRateD.div(100)) : new Decimal(0);
+  const netProfitD = ebtD.minus(taxAmountD);
+  const netMarginPctD = pct(netProfitD, revD);
+
+  const rev = toN(revD);
+  const cost = toN(costD);
+  const op = toN(opD);
+  const intExp = toN(intExpD);
+  const tax = toN(taxRateD);
+  const grossProfit = toN(grossProfitD);
+  const ebit = toN(ebitD);
+  const ebt = toN(ebtD);
+  const taxAmount = toN(taxAmountD);
+  const netProfit = toN(netProfitD);
+  const netMarginPct = toN(netMarginPctD);
 
   const tier = netMarginPct >= 10 ? "good" : netMarginPct >= 0 ? "caution" : "bad";
 
