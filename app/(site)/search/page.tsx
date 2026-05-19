@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Suspense } from "react";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
-import SearchClient from "@/components/shared/SearchClient";
+import PagefindSearch from "@/components/shared/PagefindSearch";
 import { SITE_URL } from "@/lib/site";
 import { hreflang } from "@/lib/seo";
 
@@ -43,9 +42,7 @@ export default function SearchPage() {
         </p>
       </header>
 
-      <Suspense fallback={<p className="text-sm text-gray-500">Loading…</p>}>
-        <SearchClient />
-      </Suspense>
+      <PagefindSearch />
 
       <section className="mt-12 rounded-xl border border-gray-200 bg-white p-6">
         <h2 className="text-sm font-semibold uppercase tracking-wider text-gray-500">
@@ -62,11 +59,10 @@ export default function SearchPage() {
           related tools.
         </p>
         <p className="mt-3 text-sm leading-relaxed text-gray-700">
-          Search is client-side — your query runs entirely in your browser and
-          nothing is sent to us. The ranking favours title matches, then
-          description, then keyword. Calculators, guides, and topic hubs are
-          tagged in the result list so you can tell at a glance whether you&apos;ll
-          land on a tool or a read.
+          Search runs entirely in your browser — your query is never sent to a
+          server. The full text of every calculator page, guide, and topic hub
+          is indexed at build time, so a search for a phrase that only appears
+          inside an article body still finds the right page.
         </p>
       </section>
 

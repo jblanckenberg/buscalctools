@@ -16,7 +16,7 @@ export default function SiteLayout({
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-white">{children}</main>
+      <main className="min-h-screen bg-white" data-pagefind-body>{children}</main>
       {footerSlot ? (
         <div className="hidden md:flex justify-center py-4 border-t border-gray-200">
           <AdSlot

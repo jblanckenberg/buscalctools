@@ -16,6 +16,7 @@ export default function EmbedLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <div
+      data-pagefind-ignore
       style={{
         margin: 0,
         padding: "12px",
