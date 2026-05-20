@@ -25,6 +25,9 @@ export const TOOLS: Tool[] = [
   { slug: "revenue-growth-calculator", name: "Revenue Growth Rate Calculator", short: "Revenue Growth", desc: "Calculate growth rate between two periods.", phase: 2 },
   { slug: "employee-cost-calculator", name: "Employee Cost Calculator", short: "Employee Cost", desc: "True cost of hiring after taxes, benefits and overhead.", phase: 2 },
   { slug: "discount-calculator", name: "Discount & Sale Price Calculator", short: "Discount", desc: "Sale price and savings from any discount %.", phase: 2 },
+  { slug: "hourly-to-salary-calculator", name: "Hourly to Salary Calculator", short: "Hourly to Salary", desc: "Convert hourly rate to annual salary with employer loaded cost.", phase: 2 },
+  { slug: "working-capital-calculator", name: "Working Capital Calculator", short: "Working Capital", desc: "Current ratio and bank-readiness from short-term assets and liabilities.", phase: 2 },
+  { slug: "dso-calculator", name: "DSO Calculator", short: "DSO", desc: "Days Sales Outstanding and the cash released by faster collections.", phase: 2 },
 ];
 
 export const PHASE_1 = TOOLS.filter((t) => t.phase === 1);

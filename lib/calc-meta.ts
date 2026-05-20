@@ -1060,6 +1060,166 @@ export const CALC_META: Record<string, CalcMeta> = {
       { q: "How is a discount different from a markdown?", a: "A discount is a temporary price reduction (a sale, a coupon, a flash promotion) — the regular price returns afterwards. A markdown is a permanent reprice, usually applied to clear slow-moving or end-of-season stock. Discounts are a marketing lever; markdowns are an inventory cleanup. Both use the same percentage-off maths, but they signal very different things to customers and affect long-term price perception differently." },
     ],
   },
+
+  "hourly-to-salary-calculator": {
+    slug: "hourly-to-salary-calculator",
+    lastReviewed: "2026-05-20",
+    scenarios: [
+      {
+        label: "Standard: $25/hr full-time",
+        href: "/hourly-to-salary-calculator?mode=hourly&hourly=25&hours=40&weeks=52",
+      },
+      {
+        label: "Reverse: $80k annual to hourly",
+        href: "/hourly-to-salary-calculator?mode=annual&annual=80000&hours=40&weeks=52",
+      },
+      {
+        label: "UK 37.5-hour week",
+        href: "/hourly-to-salary-calculator?mode=hourly&hourly=22&hours=37.5&weeks=52",
+      },
+    ],
+    category: "Freelance & Hiring",
+    applicationSubCategory: "Hourly to Salary Calculator",
+    featureList: [
+      "Bidirectional conversion: hourly ↔ annual salary",
+      "Configurable hours per week and weeks per year",
+      "True loaded cost — salary plus statutory taxes and benefits",
+      "Region-aware loaded-cost defaults for USA, UK, and South Africa",
+    ],
+    howToName: "How to convert hourly rate to annual salary",
+    howToDescription: "Convert any hourly rate into an annual salary equivalent, or work backwards from a salary to find the equivalent hourly rate.",
+    howToSteps: [
+      { name: "Pick a direction", text: "Choose Hourly → Annual or Annual → Hourly using the mode toggle." },
+      { name: "Enter the rate or salary", text: "Type the hourly rate or annual salary you want to convert." },
+      { name: "Set hours per week and weeks per year", text: "Default is 40 × 52 = 2,080 hours/year. Reduce weeks if the role includes unpaid leave." },
+      { name: "Review the loaded-cost figures", text: "The calculator shows the true employer cost after statutory taxes and benefits." },
+    ],
+    sources: EMPLOYER_TAX_SOURCES,
+    methodologyNote:
+      "Loaded-cost defaults are market medians: USA 28% (FICA 7.65% + benefits + workers comp); UK 25% (employer NIC 13.8% + pension 3% + benefits); SA 18% (UIF 1% + SDL 1% + benefits). Adjust the input for your actual benefits package.",
+    featuredAnswer:
+      "To convert an hourly rate to an annual salary, multiply hourly by hours per week by weeks per year. A $25/hr rate at 40 hours per week × 52 weeks = $52,000 annual. The true employer cost is typically 18-28% higher after statutory taxes and benefits.",
+    voiceAnswer:
+      "Multiply the hourly rate by hours per week and weeks per year. Twenty-five dollars per hour at forty hours per week times fifty-two weeks equals fifty-two thousand dollars per year.",
+    faqs: [
+      { q: "How do I convert hourly to annual salary?", a: "Multiply your hourly rate by the number of hours you work per week, then multiply by the number of weeks per year. The standard full-time figure is 40 hours × 52 weeks = 2,080 hours. A $25/hr rate converts to $52,000 annually. Adjust the weeks figure if your role includes unpaid leave." },
+      { q: "How do I convert salary to hourly rate?", a: "Divide your annual salary by total annual hours worked. At 40 hours per week for 52 weeks (2,080 hours), a $80,000 salary equals $38.46/hour. For a more accurate productive hourly rate, divide by billable hours only — typically 1,700-1,800 for an employee with statutory paid leave." },
+      { q: "What is loaded cost or fully loaded labor cost?", a: "Loaded cost is the total expense an employer carries per employee — gross salary plus statutory taxes (FICA in the US, employer NIC in the UK, UIF and SDL in SA), plus benefits like health insurance, pension contributions, paid leave, equipment, and software. Typically 18-30% above the headline salary." },
+      { q: "How many hours are in a working year?", a: "The standard convention is 2,080 hours (40 hours × 52 weeks) in the US and South Africa, and 1,950 hours (37.5 × 52) in the UK. Once paid leave and public holidays are removed, productive working hours drop to about 1,800-1,920 — relevant for accurate cost-per-billable-hour calculations." },
+      { q: "Should a freelancer charge the same as the equivalent salary hourly rate?", a: "No. Freelancers cover their own taxes, paid leave, pension, equipment, training, and downtime between contracts. Most need 50-80% above the equivalent salaried hourly rate just to match an employee&apos;s after-tax outcome. Use the Freelance Rate Calculator for a sustainable freelance price." },
+      { q: "Why are UK loaded costs lower than US loaded costs?", a: "UK statutory employer cost is centred on employer NIC at 13.8% above the secondary threshold, plus auto-enrolment pension at 3%. US employers pay FICA at 7.65% plus federal/state unemployment and workers comp (~3-5%), and typically fund a much larger health-insurance benefit. The US healthcare-burden gap is the main reason US loaded percentages run higher despite lower headline statutory rates." },
+      { q: "How does loaded cost differ in South Africa?", a: "SA statutory employer cost is light — UIF at 1% and SDL at 1% — but most established employers add 10-15% on top in pension, group life, and medical aid subsidies, plus 1-2% for COIDA workers compensation. The 18% default in this calculator is the median for an employee with a typical benefits package." },
+      { q: "What is the difference between 2,080 and 1,920 working hours?", a: "2,080 hours is gross annual hours assuming no leave (40 × 52). 1,920 hours adjusts for four weeks of paid leave. Use 2,080 for converting headline pay; use 1,920 or lower for accurate cost-per-billable-hour analysis. The 160-hour gap is roughly 8% — material when pricing professional services." },
+      { q: "How do I price a contractor against a salaried employee?", a: "Compare the contractor&apos;s invoice rate against the loaded hourly cost of the employee, not the headline rate. A $50/hr employee costs the business roughly $64/hr loaded. A contractor at $60/hr who delivers the same hours is cheaper than the employee on a like-for-like basis — though contractors offer less continuity and require their own tax compliance." },
+      { q: "Why is my real productive hourly rate higher than my headline rate?", a: "Because the headline divides salary by gross hours (2,080), but productive hours are lower once paid leave, training, internal admin, and meetings are removed. A $52,000 employee with 25 days paid leave really earns $52,000 ÷ 1,880 productive hours = $27.66/hr — the right number to use when pricing client deliverables off employee cost." },
+    ],
+  },
+
+  "working-capital-calculator": {
+    slug: "working-capital-calculator",
+    lastReviewed: "2026-05-20",
+    scenarios: [
+      {
+        label: "Healthy: $150k assets / $80k liabilities",
+        href: "/working-capital-calculator?ca=150000&cl=80000",
+      },
+      {
+        label: "Stressed: $90k assets / $80k liabilities",
+        href: "/working-capital-calculator?ca=90000&cl=80000",
+      },
+      {
+        label: "Bank-ready: $250k assets / $100k liabilities",
+        href: "/working-capital-calculator?ca=250000&cl=100000",
+      },
+    ],
+    category: "Break-Even & Cash Flow",
+    applicationSubCategory: "Working Capital Calculator",
+    featureList: [
+      "Calculates working capital (current assets − current liabilities)",
+      "Current ratio with bank-lending threshold flag (1.5x)",
+      "Health banding from stressed through healthy to over-capitalised",
+      "Region-aware currency formatting",
+    ],
+    howToName: "How to calculate working capital and current ratio",
+    howToDescription: "Find your working capital and current ratio from balance-sheet figures, then check whether you clear the standard bank-lending threshold.",
+    howToSteps: [
+      { name: "Add up current assets", text: "Total cash, accounts receivable, inventory, and prepaid expenses — anything convertible to cash within 12 months." },
+      { name: "Add up current liabilities", text: "Accounts payable, short-term debt, accrued expenses, taxes due, and the current portion of long-term loans." },
+      { name: "Read the working capital and current ratio", text: "The calculator subtracts to find working capital and divides to find the ratio." },
+      { name: "Check the bank-readiness flag", text: "A current ratio of 1.5 or higher is the conventional floor for working-capital lending." },
+    ],
+    methodologyNote:
+      "Standard accounting formula. The 1.5 bank-readiness threshold is conventional across US, UK, and SA commercial lending. Stress-testing the ratio with a 50% inventory write-down is recommended before any bank application.",
+    featuredAnswer:
+      "Working capital is current assets minus current liabilities. Current ratio is current assets divided by current liabilities. At $150,000 in current assets and $80,000 in current liabilities, working capital is $70,000 and the current ratio is 1.88x — comfortably above the 1.5 threshold most lenders require.",
+    voiceAnswer:
+      "Working capital equals current assets minus current liabilities. The current ratio is assets divided by liabilities. Most banks require at least one point five.",
+    faqs: [
+      { q: "What is working capital?", a: "Working capital is current assets minus current liabilities — the cash buffer a business has after settling everything due within 12 months. Positive working capital means short-term obligations are fully covered; negative working capital means the business cannot meet near-term commitments from short-term assets." },
+      { q: "What is a good current ratio?", a: "Most commercial lenders treat 1.5 as the floor for unsecured working-capital lending. Below 1.0 is a solvency risk. Above 3.0 may indicate idle cash or slow-moving inventory that could be deployed more productively. The 1.5-2.5 band is typical for healthy small businesses." },
+      { q: "How do I calculate working capital from a balance sheet?", a: "Sum the current assets (cash, accounts receivable, inventory, prepaid expenses) and subtract the current liabilities (accounts payable, short-term debt, accrued expenses, taxes due, current portion of long-term debt). The result is working capital. Divide assets by liabilities for the ratio." },
+      { q: "What counts as a current asset?", a: "Anything expected to convert to cash within 12 months — bank cash, accounts receivable, inventory at realisable value, prepaid expenses, and short-term marketable securities. Long-term receivables and fixed assets like property and equipment are excluded." },
+      { q: "What counts as a current liability?", a: "Obligations due within 12 months — accounts payable to suppliers, short-term debt, accrued payroll and bonuses, taxes due, and the current portion of long-term loans. The current portion of a five-year loan is the most commonly missed item." },
+      { q: "Why do banks discount inventory when assessing working capital?", a: "Because inventory book value often overstates realisable value. Slow-moving stock, seasonal goods past their season, and damaged or obsolete items would not fetch full price in a fire sale. Most banks apply a 40-60% discount to inventory when stress-testing the current ratio. A 1.8x book ratio can fall to 1.2x after this adjustment." },
+      { q: "Is negative working capital always bad?", a: "Not always. Some retail and quick-service business models run on negative working capital deliberately — customers pay at point of sale while suppliers extend 30-60 day terms. Walmart, McDonald&apos;s, and most subscription businesses operate this way. For small businesses without a strong supplier-payment position, negative working capital is usually a problem." },
+      { q: "How does working capital differ from cash flow?", a: "Working capital is a balance-sheet snapshot — assets minus liabilities at a point in time. Cash flow is the movement of cash over a period — the income-statement view. A business can have positive working capital and still run out of cash if collections lag payments. Use both together for a full picture." },
+      { q: "How can I improve my current ratio quickly?", a: "Three fast levers. First, accelerate collections to convert AR into cash (use the DSO Calculator to size the prize). Second, negotiate longer terms with suppliers to push payables out beyond 12 months where possible. Third, clear slow inventory through a targeted promotion. Each one moves the ratio by 0.1-0.3x typically." },
+      { q: "What current ratio do US, UK, and SA banks expect?", a: "All three lending markets converge on roughly 1.5x as the floor for unsecured working-capital lending. SBA 7(a) loans in the US, RBS/NatWest small-business lending in the UK, and FNB/Standard Bank business banking in SA all reference this threshold. Asset-backed lending (equipment finance, invoice factoring) is more lenient because the security shifts the risk profile." },
+    ],
+  },
+
+  "dso-calculator": {
+    slug: "dso-calculator",
+    lastReviewed: "2026-05-20",
+    scenarios: [
+      {
+        label: "Healthy: $80k AR / $1.2M revenue",
+        href: "/dso-calculator?ar=80000&revenue=1200000&days=365",
+      },
+      {
+        label: "Stressed: $200k AR / $1.2M revenue",
+        href: "/dso-calculator?ar=200000&revenue=1200000&days=365",
+      },
+      {
+        label: "Quarterly view: $80k AR / $400k Q-revenue",
+        href: "/dso-calculator?ar=80000&revenue=400000&days=90",
+      },
+    ],
+    category: "Break-Even & Cash Flow",
+    applicationSubCategory: "DSO Calculator",
+    featureList: [
+      "Calculates Days Sales Outstanding from AR and revenue",
+      "Compares against 30-day benchmark with cash-released figure",
+      "Industry-benchmark guidance (services, manufacturing, construction)",
+      "Period flexibility — annual, quarterly, or monthly DSO",
+    ],
+    howToName: "How to calculate Days Sales Outstanding (DSO)",
+    howToDescription: "Calculate the average number of days customers take to pay you, and see the cash you'd unlock by collecting faster.",
+    howToSteps: [
+      { name: "Enter accounts receivable", text: "Total invoices outstanding at the end of your period." },
+      { name: "Enter revenue for the same period", text: "Use net revenue — exclude VAT or sales tax to match the AR basis." },
+      { name: "Set the period length", text: "365 for annual, 90 for quarterly, 30 for monthly." },
+      { name: "Read DSO and cash tied up", text: "The calculator divides AR by revenue and multiplies by days. The benchmark figure shows the cash released by getting to 30-day collections." },
+    ],
+    methodologyNote:
+      "Standard DSO formula. The 30-day benchmark reflects typical B2B Net 30 invoice terms. Industry norms vary — services 30-45 days, manufacturing 45-60 days, construction 60-90 days. Use net revenue (exclusive of VAT/sales tax) to match AR basis on most accounting systems.",
+    featuredAnswer:
+      "DSO is the average number of days between invoicing and getting paid. Calculate it as (Accounts Receivable ÷ Revenue) × Days in Period. At $120,000 AR on $1.2M annual revenue, DSO = 36.5 days. Cutting that to 30 days releases roughly $21,000 in cash from receivables.",
+    voiceAnswer:
+      "Days Sales Outstanding equals accounts receivable divided by revenue, times days in the period. The standard benchmark is thirty days.",
+    faqs: [
+      { q: "What is Days Sales Outstanding?", a: "DSO measures how long it takes on average for customers to pay invoices. It is calculated as (Accounts Receivable / Revenue) × Days in Period. A lower DSO means faster cash conversion. A DSO above industry benchmark means you are effectively financing customers from your own cash." },
+      { q: "What is a good DSO?", a: "For B2B services, 30-45 days is normal. Manufacturing tends to run 45-60 days. Construction often runs 60-90 days. B2C card-based retail runs 1-3 days. Any DSO materially above your industry norm is a working-capital opportunity — either chase collections or tighten terms." },
+      { q: "How do I calculate DSO?", a: "DSO = (Accounts Receivable / Revenue) × Number of Days. For a full year, use total annual revenue and 365 days. For a quarter, use Q-revenue and 90 days. The result is the average days between invoice issue and payment received across the period." },
+      { q: "What is the difference between DSO and AR turnover?", a: "AR Turnover = Revenue / Accounts Receivable. DSO = 365 / AR Turnover. They express the same idea two ways — turnover as a frequency (how many times AR cycles per year) and DSO as a duration (how long each cycle takes). DSO is more intuitive for cash-flow planning." },
+      { q: "How can I reduce DSO?", a: "Three levers in order of impact: (1) automated invoice reminders at day 14, 21, and 28 — typically drops DSO by 5-8 days. (2) prompt-pay discounts of 1-2% for under-15-day settlement — flips the cost-benefit at the customer&apos;s finance team. (3) milestone billing or upfront deposits on longer projects — removes timing risk on a chunk of revenue entirely." },
+      { q: "Does VAT or sales tax affect DSO calculation?", a: "DSO should be calculated on net revenue, the same basis as AR on most accounting systems. UK businesses (20% VAT) and SA businesses (15% VAT) can overstate DSO by 15-20% if they use gross revenue. US sales tax is typically not included in AR or revenue, so the issue is smaller. Match the basis." },
+      { q: "How does DSO affect bank lending decisions?", a: "Banks read rising DSO as a leading indicator of cash pressure. A trend rising 5+ days per quarter usually surfaces in late supplier payments and overdraft usage 60-90 days later. Underwriters compare current DSO against industry benchmarks and against the business&apos;s own historical DSO when sizing working-capital lines." },
+      { q: "What is a bad DSO trend?", a: "Any sustained increase month-on-month, or any single month where DSO jumps more than 20% above the trailing-12-month average. Both indicate either slipping collections discipline or a concentration of slow-paying customers. Stratify AR by ageing band to identify whether it is a portfolio or a single-customer issue." },
+      { q: "Should I factor invoices if DSO is high?", a: "Factoring (selling invoices to a finance company at a discount) is one option, but it costs 2-5% of the invoice face value. Compare against the cost of carrying the AR yourself — overdraft interest, lost investment returns, supplier-discount opportunity cost. Factoring is usually worth it only when DSO is structurally above 60 days and improvement initiatives have plateaued." },
+      { q: "How does DSO interact with working capital?", a: "DSO is one of the three working-capital cycle components — DSO (collections), DIO (inventory), and DPO (payments). The cash conversion cycle is DSO + DIO − DPO. A high DSO without offsetting longer DPO creates working-capital pressure. Look at all three together rather than DSO in isolation." },
+    ],
+  },
 };
 
 export function calcMeta(slug: string): CalcMeta | undefined {
