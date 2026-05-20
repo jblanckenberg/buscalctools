@@ -32,7 +32,7 @@ export const COMPARISONS: Comparison[] = [
     slug: "best-profit-margin-calculators-2026",
     title: "The 7 Best Profit Margin Calculators in 2026 (Free + Paid)",
     description:
-      "Hands-on comparison of the seven profit margin calculators small business owners actually use in 2026 — what each does well, where they fall down, and which to pick.",
+      "Hands-on comparison of the 7 profit margin calculators small-business owners use in 2026 — what each does well, where they fall, and which to pick.",
     publishedDate: "2026-05-16",
     updatedDate: "2026-05-16",
     embedsCalcSlug: "profit-margin-calculator",
@@ -66,9 +66,9 @@ export const COMPARISONS: Comparison[] = [
   },
   {
     slug: "quickbooks-vs-free-profit-margin-calculator",
-    title: "QuickBooks vs a Free Profit Margin Calculator: Which Do You Actually Need?",
+    title: "QuickBooks vs a Free Profit Margin Calculator (2026)",
     description:
-      "QuickBooks tracks your books; a free profit margin calculator answers one question fast. Here's when each one earns its keep — and how to use both without paying twice.",
+      "QuickBooks tracks your books; a free profit margin calculator answers one question fast. When each earns its keep — and how to use both.",
     publishedDate: "2026-05-16",
     updatedDate: "2026-05-16",
     embedsCalcSlug: "profit-margin-calculator",
@@ -99,7 +99,7 @@ export const COMPARISONS: Comparison[] = [
     slug: "best-break-even-calculators-2026",
     title: "The Best Break-Even Calculators of 2026 (Ranked & Reviewed)",
     description:
-      "We ran the same coffee-shop scenario through every major break-even calculator on the web. Here's which ones got the contribution margin right — and which ones quietly skipped it.",
+      "We ran the same coffee-shop scenario through every major break-even calculator. Which ones got contribution margin right — and which skipped it.",
     publishedDate: "2026-05-16",
     updatedDate: "2026-05-16",
     embedsCalcSlug: "break-even-calculator",
@@ -128,9 +128,9 @@ export const COMPARISONS: Comparison[] = [
   },
   {
     slug: "dcf-vs-multiples-small-business-valuation",
-    title: "DCF vs Multiples: Which Small-Business Valuation Method Wins in 2026?",
+    title: "DCF vs Multiples: Small-Business Valuation in 2026",
     description:
-      "Discounted cash flow is rigorous; multiples are practical. Here's which method buyers actually use for sub-$5M businesses — and how to run both side-by-side in five minutes.",
+      "DCF is rigorous; multiples are practical. Which method buyers actually use for sub-$5M businesses — and how to run both side-by-side in 5 minutes.",
     publishedDate: "2026-05-16",
     updatedDate: "2026-05-16",
     embedsCalcSlug: "business-valuation-calculator",
