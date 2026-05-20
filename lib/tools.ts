@@ -28,6 +28,11 @@ export const TOOLS: Tool[] = [
   { slug: "hourly-to-salary-calculator", name: "Hourly to Salary Calculator", short: "Hourly to Salary", desc: "Convert hourly rate to annual salary with employer loaded cost.", phase: 2 },
   { slug: "working-capital-calculator", name: "Working Capital Calculator", short: "Working Capital", desc: "Current ratio and bank-readiness from short-term assets and liabilities.", phase: 2 },
   { slug: "dso-calculator", name: "DSO Calculator", short: "DSO", desc: "Days Sales Outstanding and the cash released by faster collections.", phase: 2 },
+  { slug: "subscription-pricing-calculator", name: "Subscription Pricing Calculator", short: "Subscription Pricing", desc: "Monthly vs annual LTV with break-even discount.", phase: 2 },
+  { slug: "price-elasticity-calculator", name: "Price Elasticity Calculator", short: "Price Elasticity", desc: "Revenue impact at multiple price-hike scenarios.", phase: 2 },
+  { slug: "payroll-tax-calculator", name: "Payroll Tax Calculator", short: "Payroll Tax", desc: "US employer FICA, FUTA, state UI burden by headcount.", phase: 2 },
+  { slug: "section-179-calculator", name: "Section 179 Calculator", short: "Section 179", desc: "Immediate expensing vs MACRS depreciation NPV.", phase: 2 },
+  { slug: "inventory-turnover-calculator", name: "Inventory Turnover Calculator", short: "Inventory Turnover", desc: "Turnover ratio and days in inventory with benchmarks.", phase: 2 },
 ];
 
 export const PHASE_1 = TOOLS.filter((t) => t.phase === 1);
