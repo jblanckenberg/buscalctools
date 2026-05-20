@@ -15,7 +15,7 @@ const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "dso-calculator",
-  title: "DSO Calculator — Days Sales Outstanding & Cash Released | BusCalcTools",
+  title: "DSO Calculator — Days Sales Outstanding | BusCalcTools",
   description:
     "Free Days Sales Outstanding calculator. Find your DSO, compare it to industry benchmarks, and see the cash you'd unlock by collecting faster.",
 });
