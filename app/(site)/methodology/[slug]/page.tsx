@@ -29,7 +29,7 @@ export async function generateMetadata({
 
   const url = `${SITE_URL}/methodology/${slug}`;
   const title = `${tool.name} — Methodology & Sources`;
-  const description = `How the ${tool.name.toLowerCase()} works on ${SITE_NAME}: formula, step-by-step calculation, assumptions, and primary sources for the USA, UK, and South Africa.`;
+  const description = `How the ${tool.name.toLowerCase()} works on ${SITE_NAME}: formula, assumptions, and primary US/UK/SA sources.`;
 
   return {
     title: { absolute: title },

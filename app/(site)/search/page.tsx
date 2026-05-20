@@ -10,7 +10,7 @@ const SEARCH_URL = `${SITE_URL}/search`;
 export const metadata: Metadata = {
   title: "Search BusCalcTools",
   description:
-    "Search 18 free business calculators and 25 guides for profit margin, pricing, break-even, ROI, freelance rate, loans, and valuation. Region-aware for US, UK, SA.",
+    "Search 18 free business calculators and 25 guides — profit margin, pricing, break-even, ROI, freelance rate, loans, and valuation. US, UK, SA.",
   alternates: { canonical: SEARCH_URL, languages: hreflang(SEARCH_URL) },
   robots: { index: true, follow: true },
 };
