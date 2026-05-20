@@ -15,7 +15,7 @@ const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "hourly-to-salary-calculator",
-  title: "Hourly to Salary Calculator — Annual & Loaded Cost | BusCalcTools",
+  title: "Hourly to Salary Calculator — Loaded Cost | BusCalcTools",
   description:
     "Convert hourly rate to annual salary (or back) and see the true loaded cost including employer taxes and benefits — USA, UK, and South Africa.",
 });

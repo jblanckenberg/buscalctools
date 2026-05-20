@@ -15,7 +15,7 @@ const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "working-capital-calculator",
-  title: "Working Capital Calculator — Current Ratio & Bank Readiness | BusCalcTools",
+  title: "Working Capital Calculator — Current Ratio | BusCalcTools",
   description:
     "Free working capital and current ratio calculator. Find out if your business has enough short-term liquidity for bank lending — USA, UK, and SA.",
 });
