@@ -1313,6 +1313,225 @@ export const CALC_META: Record<string, CalcMeta> = {
       { q: "Can I amend prior-year returns to claim the credit?", a: "Yes for the open statute years (generally 3 years from the original filing date). Amendments require Form 6765 plus contemporaneous documentation for the year being amended. Most specialist firms can recover 2-3 years of missed credits this way — significant catch-up cash flow for businesses that missed claiming." },
     ],
   },
+
+  "subscription-pricing-calculator": {
+    slug: "subscription-pricing-calculator",
+    lastReviewed: "2026-05-20",
+    scenarios: [
+      { label: "SaaS: $30 monthly, 17% annual discount, 5% monthly churn", href: "/subscription-pricing-calculator?monthly=30&discount=17&mChurn=5&aChurn=20&margin=80" },
+      { label: "Consumer: $10 monthly, 25% annual discount, higher churn", href: "/subscription-pricing-calculator?monthly=10&discount=25&mChurn=8&aChurn=30&margin=70" },
+      { label: "B2B Enterprise: $200 monthly, 20% discount, low churn", href: "/subscription-pricing-calculator?monthly=200&discount=20&mChurn=2&aChurn=10&margin=85" },
+    ],
+    category: "Profit & Pricing",
+    applicationSubCategory: "Subscription Pricing Calculator",
+    featureList: [
+      "Compares monthly vs annual subscription LTV at any discount",
+      "Models retention boost from annual prepayment commitment",
+      "Calculates break-even discount where annual = monthly LTV",
+      "Gross-margin-based (not revenue-based) LTV",
+    ],
+    howToName: "How to compare monthly vs annual subscription pricing",
+    howToDescription: "Find the right annual-discount level by comparing customer lifetime value on monthly vs annual subscriptions.",
+    howToSteps: [
+      { name: "Enter monthly price and annual discount", text: "Standard is 17% (\"2 months free\") but anywhere from 10-25% is normal." },
+      { name: "Set monthly and annual churn rates", text: "Annual churn is typically 2-3× lower than monthly × 12 due to commitment." },
+      { name: "Set gross margin", text: "Revenue minus variable cost of delivery." },
+      { name: "Read the break-even discount", text: "The discount at which annual LTV exactly equals monthly LTV. Anything below it is a positive trade." },
+    ],
+    methodologyNote:
+      "Simplified LTV formula: ARPU × gross margin × lifespan (in months for monthly, years for annual). Does not model upgrade/downgrade between tiers, win-back of churned customers, or seasonal churn variations. Real cohort analysis using your own data is recommended past $1M ARR.",
+    featuredAnswer:
+      "Compare LTVs: monthly = monthly price × margin × (1 / monthly churn) months; annual = annual price × margin × (1 / annual churn) years. Annual typically wins even at 15-20% discounts because annual subscribers churn materially less. The break-even discount is the rate at which annual LTV exactly equals monthly LTV.",
+    voiceAnswer:
+      "Monthly LTV equals price times margin times one over monthly churn. Annual LTV equals discounted annual price times margin times one over annual churn.",
+    faqs: [
+      { q: "What's the best annual discount for a subscription?", a: "10-25% is the typical range. 17% ('2 months free') is convention but not optimal for every business. The right answer depends on the retention boost annual subscribers deliver — if annual churn is half of monthly × 12, a 20% discount is usually defensible." },
+      { q: "Why do annual subscribers churn less?", a: "Three reasons: (1) self-selection — customers willing to commit to a year are higher-intent. (2) friction — cancelling an annual plan mid-term means losing prepaid value, which biases toward staying. (3) usage — annual subscribers integrate the product more deeply because they've paid for the year and want their money's worth." },
+      { q: "How do I calculate subscription LTV?", a: "Monthly LTV = monthly price × gross margin % × (1 / monthly churn rate) months. Use gross margin, not revenue, because LTV measures contribution to fixed costs and profit. A $30/mo subscription at 80% margin and 5% monthly churn has LTV = $30 × 0.80 × 20 = $480." },
+      { q: "Should I offer monthly billing at all?", a: "Usually yes for trial conversion — many customers won't commit to annual upfront. But your acquisition flow should default to annual with monthly as the toggle option. Most SaaS see 30-50% of new customers pick annual when it's the default versus 10-20% when monthly is the default." },
+      { q: "What's a good monthly churn rate?", a: "B2B SaaS: 1-3%. Mid-market SaaS: 3-5%. Consumer subscription: 5-10%. Anything above 7-8% needs urgent attention — it usually means product-market fit is shaky and you're acquiring customers who don't see lasting value." },
+      { q: "How does annual discount affect cash flow?", a: "Annual prepayment improves cash flow significantly — you receive 12 months of revenue upfront instead of monthly. This is a major reason VC-backed SaaS push annual hard: it reduces working capital requirements and accelerates growth from the same revenue base." },
+      { q: "What's the difference between contraction churn and customer churn?", a: "Customer churn (often called logo churn) measures customers leaving. Contraction churn measures revenue lost from existing customers downgrading. Net revenue retention combines both with expansion (upgrades). The calculator above models customer churn — for full SaaS unit economics, the CAC/LTV calculator pairs nicely." },
+      { q: "Should I let monthly customers switch to annual?", a: "Yes, aggressively. Offering an in-app prompt to switch saves significantly more revenue than equivalent acquisition effort. Most SaaS see 5-15% of monthly customers convert annual within their first 6 months when offered a clear path." },
+      { q: "How does annual discount interact with pricing tiers?", a: "Pricing tier should be the primary segmentation tool; annual discount the secondary lever. Don't let annual discount erode price-tier separation. If monthly Pro is $50 and monthly Enterprise is $200, annual Pro at 20% off ($480/year) shouldn't undercut annual Enterprise at 25% off ($1,800/year)." },
+      { q: "What if my annual churn data is uncertain?", a: "Use the broader SaaS rule: assume annual churn is 50-60% of (monthly churn × 12). So 5% monthly = 36% gross annual extrapolated, but actual annual churn is more like 18-22% due to commitment effect. This is conservative — many products achieve closer to 30-40% annual churn lift." },
+    ],
+  },
+
+  "price-elasticity-calculator": {
+    slug: "price-elasticity-calculator",
+    lastReviewed: "2026-05-20",
+    scenarios: [
+      { label: "Measured: $20 → $22, units 1000 → 900", href: "/price-elasticity-calculator?mode=measured&p1=20&q1=1000&p2=22&q2=900" },
+      { label: "Assumed elasticity -0.5 (necessity)", href: "/price-elasticity-calculator?mode=assumed&elasticity=-0.5&revenue=20000" },
+      { label: "Assumed elasticity -2 (discretionary)", href: "/price-elasticity-calculator?mode=assumed&elasticity=-2&revenue=20000" },
+    ],
+    category: "Profit & Pricing",
+    applicationSubCategory: "Price Elasticity Calculator",
+    featureList: [
+      "Measured mode: compute elasticity from before/after sales data",
+      "Assumed mode: model revenue impact at any elasticity",
+      "Revenue impact at +5%, +10%, +20% price hikes",
+      "Classification (inelastic / unit-elastic / elastic) with interpretation",
+    ],
+    howToName: "How to calculate price elasticity",
+    howToDescription: "Measure elasticity from sales data, or assume a value, then see revenue impact at multiple price-hike scenarios.",
+    howToSteps: [
+      { name: "Pick a mode", text: "Measured if you have before/after data; assumed if you're planning hypothetically." },
+      { name: "Enter the data or assumption", text: "Measured mode needs current + new price and units. Assumed mode needs elasticity coefficient and baseline revenue." },
+      { name: "Read the revenue impact table", text: "Shows what happens to total revenue at +5%, +10%, +20% price hikes." },
+    ],
+    methodologyNote:
+      "Uses the arc (midpoint) elasticity formula for measured mode — more accurate than the point-elasticity formula across larger price changes. Assumes constant elasticity across the price range — real demand curves bend, so don't extrapolate beyond modest hikes (15-20%).",
+    featuredAnswer:
+      "Elasticity = (% change in quantity) ÷ (% change in price). Negative values are normal — higher prices reduce demand. |elasticity| < 1 means inelastic (a price hike grows revenue); |elasticity| > 1 means elastic (a price hike cuts revenue). Most B2B services run -0.5 to -1; discretionary consumer goods -1.5 to -2.5.",
+    voiceAnswer:
+      "Price elasticity is the percentage change in quantity demanded divided by the percentage change in price. Most products are between negative half and negative two.",
+    faqs: [
+      { q: "What is price elasticity?", a: "A measure of how much customer demand changes when price changes. Calculated as (% change in quantity) ÷ (% change in price). Almost always negative because higher prices reduce demand." },
+      { q: "What does -1 elasticity mean?", a: "Unit elastic — quantity drops the same percentage as price rises, leaving revenue unchanged. Values below -1 (e.g. -2) are elastic, where price hikes reduce revenue. Values between 0 and -1 (e.g. -0.5) are inelastic, where price hikes increase revenue." },
+      { q: "How do I measure my product's elasticity?", a: "Run a controlled price test on a subset of customers or a randomised sample over time. Measure unit sales before and after. Apply the midpoint formula to avoid asymmetry between price-up and price-down scenarios. Two months of data per test point is typical; one month is usually too short to filter noise." },
+      { q: "Why is elasticity usually negative?", a: "Higher prices generally reduce demand — the law of demand. Exceptions exist (Veblen goods like luxury watches, where higher prices signal exclusivity and increase demand), but they're rare. For practical purposes, treat positive elasticity as a measurement error rather than a real result." },
+      { q: "Can I have different elasticity at different price points?", a: "Yes. Demand curves typically bend — elasticity at $20 doesn't predict elasticity at $30. The further you push from your test range, the less reliable the elasticity estimate. Run multiple tests at different price points for a more complete picture." },
+      { q: "How does elasticity differ by industry?", a: "Roughly: necessities (insulin, basic groceries) -0.1 to -0.3; most B2B services -0.5 to -1.0; branded consumer goods -1.0 to -1.5; restaurants and discretionary -1.5 to -2.5; commodities and highly substitutable goods -2.0 to -4.0. Your actual elasticity depends on competition, switching costs, and customer segments." },
+      { q: "What's the relationship between elasticity and pricing strategy?", a: "Inelastic demand (|E| < 1) → raise prices, revenue rises. Elastic demand (|E| > 1) → cut prices, revenue rises (if volume responds). Unit elastic → revenue independent of price; focus on cost or competitive positioning instead." },
+      { q: "Should I measure elasticity by segment?", a: "Yes when possible. Enterprise customers are typically less elastic than SMB. Repeat customers less elastic than first-time. Existing channels less elastic than new acquisition. Segment-level elasticity often differs by 50-200% from the overall average." },
+      { q: "What's cross-price elasticity?", a: "How your demand responds to competitor price changes. Cross-elasticity > 0 (substitute) means a competitor price hike grows your demand. Cross-elasticity < 0 (complement) means a competitor price hike reduces your demand. Most pricing decisions need to consider both own-price and cross-price elasticity together." },
+      { q: "How big a price change should I test?", a: "5-10% is usually enough to detect a signal in 4-8 weeks of post-change data. Below 5% the noise often swamps the signal. Above 15% the change is so disruptive that elasticity estimates extrapolate poorly to smaller real-world hikes." },
+    ],
+  },
+
+  "payroll-tax-calculator": {
+    slug: "payroll-tax-calculator",
+    lastReviewed: "2026-05-20",
+    scenarios: [
+      { label: "$500k payroll, 8 employees, moderate state", href: "/payroll-tax-calculator?payroll=500000&employees=8&state=moderate" },
+      { label: "$1M payroll, 12 employees, high-tax state (CA/NY)", href: "/payroll-tax-calculator?payroll=1000000&employees=12&state=high" },
+      { label: "$250k payroll, 4 employees, low-tax state (TX/FL)", href: "/payroll-tax-calculator?payroll=250000&employees=4&state=none" },
+    ],
+    category: "Freelance & Hiring",
+    applicationSubCategory: "Payroll Tax Calculator",
+    featureList: [
+      "FICA, FUTA, state UI, workers comp combined",
+      "2026 Social Security wage base ($184,500)",
+      "3-tier state-rate approximation",
+      "Per-employee burden breakdown",
+    ],
+    howToName: "How to calculate employer payroll tax burden",
+    howToDescription: "Estimate the total employer-side payroll-tax burden for any payroll and headcount in the US.",
+    howToSteps: [
+      { name: "Enter gross annual payroll", text: "Total wages paid to all employees in a year." },
+      { name: "Enter employee count", text: "Used to apply the SS wage-base cap and FUTA per-employee limit." },
+      { name: "Pick state tier", text: "Approximation of state UI + workers comp combined rate." },
+      { name: "Read the total burden", text: "Federal + state combined, plus per-employee average." },
+    ],
+    sources: EMPLOYER_TAX_SOURCES,
+    methodologyNote:
+      "Federal portion is exact (FICA, FUTA). State portion approximated in 3 tiers — real state rates vary by state, industry, and the employer's experience-rating history with the state unemployment agency. Workers compensation varies enormously by industry (office: 0.2-0.5%; construction: 5-15%) — the bands assume mixed white-collar work.",
+    featuredAnswer:
+      "Employer payroll-tax burden runs 9-13% of gross wages in the US. Federal: FICA (Social Security 6.2% up to $184,500, Medicare 1.45% uncapped) + FUTA (0.6% × first $7,000 per employee). State: UI + workers comp ranges from ~1.5% (low-tax states) to ~7% (CA, NY, NJ).",
+    voiceAnswer:
+      "US employer payroll tax runs around eleven percent of gross wages. Federal FICA is seven point six five percent. State adds two to six percent.",
+    faqs: [
+      { q: "What is employer payroll tax?", a: "The portion of payroll tax paid by employers on top of employee wages — FICA (Social Security + Medicare), FUTA (federal unemployment), state UI (unemployment insurance), and workers compensation. Separate from the FICA portion withheld from employee paychecks." },
+      { q: "How much is FICA?", a: "7.65% total — 6.2% for Social Security (capped at $184,500 of wages per employee in 2026) and 1.45% for Medicare (no cap). Employees pay another 7.65% withheld from their paychecks — so the combined FICA on each dollar of wage is 15.3%." },
+      { q: "What is FUTA?", a: "Federal Unemployment Tax Act tax. 6% statutory rate on the first $7,000 of wages per employee per year, but most states qualify for a 5.4% credit, reducing the net rate to 0.6%. So roughly $42/year per employee in most states." },
+      { q: "How is state unemployment tax calculated?", a: "Varies by state and by employer experience rating. New employers typically pay 2-4% on the first $9,000-$50,000 of wages per employee (the state UI wage base varies). After 2-3 years, your rate is reassigned based on actual unemployment claims filed by former employees — well-managed businesses can get to 0.5-1%." },
+      { q: "What is workers compensation?", a: "Insurance covering medical care and lost wages for workplace injuries. Required by law in 49 states (Texas is the exception — voluntary there). Cost varies dramatically by industry: office work $0.20-$0.50 per $100 of wages; construction $5-$15 per $100. Industry classification codes determine the rate." },
+      { q: "Does payroll tax differ by state?", a: "Yes significantly. The federal portion is uniform. State UI + workers comp combined ranges from ~1.5% in low-tax states (FL, TX, NV) to ~6-7% in high-tax states (CA, NY, NJ, MA). California is also unusual for charging SDI and PFL on top of standard payroll taxes." },
+      { q: "Are payroll taxes deductible for the employer?", a: "Yes. All employer-paid payroll taxes (FICA, FUTA, state UI, workers comp) are deductible business expenses on the federal tax return, reducing taxable income. This is one reason employer payroll tax doesn't hit the bottom line at the full 11% — closer to 7-8% after the deduction." },
+      { q: "What happens if I miss a payroll tax deposit?", a: "Penalties start at 2% for 1-5 days late, 5% for 6-15 days, 10% for 16+ days, and 15% if paid only after IRS notice. The IRS Trust Fund Recovery Penalty for employer FICA can be assessed personally against owners and officers — payroll taxes are not dischargeable in bankruptcy." },
+      { q: "Can I reduce employer payroll tax?", a: "Three legitimate strategies. (1) Hire independent contractors instead of employees (where appropriate — misclassification is a major IRS focus). (2) Use an S-corp election to convert some profit to distributions (no FICA on distributions). (3) Add a Section 125 cafeteria plan for benefits — pre-tax benefits reduce wage base subject to FICA." },
+      { q: "Does the SS wage base cap matter?", a: "For most small businesses with average wages under $184,500, no — every dollar is subject to full FICA. For businesses with high-earning employees ($200k+), once an employee crosses the wage base, the 6.2% SS portion stops, but the 1.45% Medicare continues, and an additional 0.9% Medicare kicks in above $200k single / $250k MFJ for the employee side." },
+    ],
+  },
+
+  "section-179-calculator": {
+    slug: "section-179-calculator",
+    lastReviewed: "2026-05-20",
+    scenarios: [
+      { label: "$100k equipment, 24% bracket", href: "/section-179-calculator?cost=100000&tax=24&discount=5" },
+      { label: "$500k equipment, 32% bracket", href: "/section-179-calculator?cost=500000&tax=32&discount=5" },
+      { label: "$1.5M equipment (approaching phase-out)", href: "/section-179-calculator?cost=1500000&tax=24&discount=5" },
+    ],
+    category: "Funding & Valuation",
+    applicationSubCategory: "Section 179 Calculator",
+    featureList: [
+      "Section 179 immediate expensing vs MACRS 5-year depreciation",
+      "2026 $1.22M cap + $3.05M phase-out logic",
+      "NPV comparison at user-supplied discount rate",
+      "Year-by-year MACRS schedule with half-year convention",
+    ],
+    howToName: "How to compare Section 179 to MACRS depreciation",
+    howToDescription: "See whether Section 179 immediate expensing or MACRS 5-year depreciation produces more present-value savings for your equipment purchase.",
+    howToSteps: [
+      { name: "Enter equipment cost", text: "Total purchase price of qualifying business equipment." },
+      { name: "Set your marginal tax rate", text: "Federal + state combined effective rate." },
+      { name: "Set discount rate for NPV", text: "5% is a reasonable default time-value-of-money assumption." },
+      { name: "Read the NPV advantage", text: "Section 179 normally wins by 10-15% of present value, unless you lack year-1 taxable income to absorb the full deduction." },
+    ],
+    methodologyNote:
+      "Compares Section 179 immediate expensing against straight MACRS 5-year half-year-convention depreciation. Doesn't model bonus depreciation interaction (currently phasing down 60%/40%/20%/0% across 2024-2027). Also assumes the business has sufficient taxable income to absorb the Section 179 deduction — excess is carried forward, not refunded.",
+    featuredAnswer:
+      "Section 179 lets US businesses immediately expense up to $1.22M of qualifying equipment in the year of purchase (2026 estimate), versus spreading deductions over 5+ years under MACRS depreciation. Phase-out begins at $3.05M of purchases. Total nominal tax savings are the same; Section 179 wins on NPV by roughly 10-15% at typical discount rates.",
+    voiceAnswer:
+      "Section 179 lets you deduct equipment cost in year one instead of spreading over five years. NPV advantage is usually ten to fifteen percent.",
+    faqs: [
+      { q: "What is Section 179?", a: "A US tax-code provision (IRC §179) allowing businesses to immediately deduct the full cost of qualifying equipment in the year of purchase, rather than depreciating it over the useful life. 2026 cap: $1.22M with phase-out starting at $3.05M of total purchases." },
+      { q: "What equipment qualifies for Section 179?", a: "Tangible personal property used in business — machinery, vehicles, office furniture, computers, software, and even some real-property improvements (roofs, HVAC, security systems on commercial buildings). Real estate land/buildings generally don't qualify. The asset must be acquired for business use AND placed in service in the tax year." },
+      { q: "How is Section 179 different from MACRS depreciation?", a: "Section 179 takes the full deduction in year 1. MACRS spreads the deduction over 3-39 years depending on asset class (5 years for most equipment). Total nominal tax savings are identical (cost × marginal rate); Section 179 has higher present value because the savings arrive sooner." },
+      { q: "What's the phase-out rule?", a: "If your total equipment purchases in the year exceed $3.05M (2026), the Section 179 cap reduces dollar-for-dollar. At $4.27M of purchases, the Section 179 cap is fully phased out and you're left with MACRS. The phase-out is designed to keep Section 179 focused on small and mid-size businesses." },
+      { q: "Can Section 179 create a tax loss?", a: "No. The deduction is limited to the business's taxable income for the year. Any excess Section 179 deduction is carried forward to future years (indefinitely) — but you can't use it to generate a refund." },
+      { q: "How does bonus depreciation interact?", a: "Bonus depreciation (currently 60% for 2024, dropping to 40%/20%/0% over 2025-2027 absent legislative extension) can be combined with Section 179. Most CPAs sequence: Section 179 first (up to limits), bonus depreciation on the remaining basis, then MACRS on whatever remains. The combination often eliminates the entire equipment cost from year-1 taxable income." },
+      { q: "Should I always take Section 179?", a: "Almost always yes when (a) you have sufficient taxable income to absorb the deduction, AND (b) you expect your future marginal tax rate to be lower or unchanged. The exception: if you expect a much higher tax rate in 2-3 years (e.g. business growth), spreading the deduction via MACRS might capture deductions at higher marginal rates." },
+      { q: "Can I use Section 179 for vehicles?", a: "Yes with caveats. SUVs and trucks over 6,000 lbs GVWR qualify for the full $30,500 (2026 estimate) — the so-called 'Hummer loophole'. Lighter vehicles are subject to a separate $20,200/year first-year cap. Specialty vehicles (delivery vans without rear seats, etc.) often qualify without the SUV cap." },
+      { q: "When must I place equipment in service?", a: "By December 31 of the tax year you want to claim the deduction. Buying equipment in December but not actually using it until January means the deduction shifts to the following tax year. For cash-method businesses, the 'placed in service' standard is sometimes more flexible than for accrual-method businesses." },
+      { q: "What if I sell the equipment later?", a: "If you sell within the asset's MACRS useful life, you recapture the depreciation as ordinary income (not capital gains). Section 179 recapture is calculated as the difference between actual depreciation taken and what straight-line depreciation would have been. This is rarely a problem because most equipment depreciates economically faster than the tax schedule." },
+    ],
+  },
+
+  "inventory-turnover-calculator": {
+    slug: "inventory-turnover-calculator",
+    lastReviewed: "2026-05-20",
+    scenarios: [
+      { label: "Specialty retail: $600k COGS, $110k avg inventory", href: "/inventory-turnover-calculator?cogs=600000&begin=120000&end=100000" },
+      { label: "Grocery: $5M COGS, $250k avg inventory (high turn)", href: "/inventory-turnover-calculator?cogs=5000000&begin=260000&end=240000" },
+      { label: "B2B manufacturer: $2M COGS, $400k avg inventory", href: "/inventory-turnover-calculator?cogs=2000000&begin=420000&end=380000" },
+    ],
+    category: "Break-Even & Cash Flow",
+    applicationSubCategory: "Inventory Turnover Calculator",
+    featureList: [
+      "Turnover ratio (COGS / Average Inventory)",
+      "Days in inventory (365 / turnover)",
+      "Industry-benchmark band with interpretation",
+      "Region-aware currency formatting",
+    ],
+    howToName: "How to calculate inventory turnover",
+    howToDescription: "Calculate how many times per year you turn your inventory and how long average stock sits before sale.",
+    howToSteps: [
+      { name: "Enter annual COGS", text: "Cost of goods sold for the year — from your P&amp;L." },
+      { name: "Enter beginning and ending inventory", text: "Inventory values at the start and end of the period — from balance sheets." },
+      { name: "Read the ratio and days", text: "Compare against the industry benchmark shown in the third result card." },
+    ],
+    methodologyNote:
+      "Uses (Beginning + Ending) / 2 for average inventory — the standard formula but inaccurate for highly seasonal businesses. For seasonal operations, average 12 monthly inventory snapshots instead. Industry benchmarks reflect approximate medians and vary by business model within each category (e.g. fast-fashion retail turns 15-25× while traditional apparel retail turns 4-8×).",
+    featuredAnswer:
+      "Inventory turnover = Annual COGS / Average Inventory. Days in inventory = 365 / Turnover. Typical benchmarks: grocery 15-30×, retail 4-12×, manufacturing 5-10×, capital goods 1-3×. Low turnover ties up cash; very high turnover risks stockouts.",
+    voiceAnswer:
+      "Inventory turnover equals cost of goods sold divided by average inventory. Days in inventory equals three sixty-five divided by turnover.",
+    faqs: [
+      { q: "What is inventory turnover?", a: "A measure of how many times per year a business completely cycles through its inventory. Calculated as Annual COGS divided by Average Inventory. Higher turnover usually indicates more efficient inventory management, but can also signal stockout problems." },
+      { q: "What is a good inventory turnover ratio?", a: "Depends entirely on industry. Grocery 15-30 (perishables force fast turns). General retail 4-12. Specialty retail 3-6. Restaurants 30-100 (food spoilage). Auto dealers 8-12. Manufacturing 5-10. Heavy machinery 1-3. Capital goods 0.5-1.5. Compare to your own industry, not absolute thresholds." },
+      { q: "What does days in inventory mean?", a: "The average number of days a unit of inventory sits before being sold. Calculated as 365 / Inventory Turnover Ratio. Higher days = slower-moving inventory = more cash tied up in stock." },
+      { q: "Why does inventory turnover matter?", a: "Three reasons. (1) Cash flow — slow turnover ties up working capital. (2) Holding costs — insurance, warehousing, capital, and obsolescence run 15-25% of inventory value per year. (3) Markdown risk — slow inventory often gets marked down 25-50% to clear, destroying margin." },
+      { q: "How do I improve inventory turnover?", a: "Three levers. (1) Reduce inventory levels via just-in-time ordering, vendor-managed inventory, or smaller minimum order quantities. (2) Liquidate slow movers via clearance, B2B liquidation channels, or bundling with fast movers. (3) Improve demand forecasting to avoid over-buying in the first place. Most retailers can improve turnover 20-30% in 12 months through forecast and ordering discipline." },
+      { q: "Can inventory turnover be too high?", a: "Yes. Very high turnover often indicates frequent stockouts — lost sales because product isn't available when customers want it. A retailer with 20× turnover in a non-perishable category may be losing 10-15% of potential sales to out-of-stock incidents. The optimal turnover balances holding costs against stockout costs." },
+      { q: "Should I use revenue or COGS in the formula?", a: "COGS, not revenue. Some older textbooks use Revenue / Inventory but this overstates turnover by the gross margin percentage. Modern accounting practice and all comparable industry benchmarks use COGS / Inventory. Mixing the two makes cross-company comparisons meaningless." },
+      { q: "What is the inventory days outstanding (DIO)?", a: "Same as 'days in inventory' — 365 / Turnover. Together with DSO (days sales outstanding, on receivables) and DPO (days payable outstanding, on payables), it forms the cash conversion cycle: DSO + DIO − DPO. The lower the cycle, the less working capital your business consumes per dollar of revenue." },
+      { q: "Does inventory turnover vary by season?", a: "Yes substantially in seasonal businesses. Retailers might see turnover of 1-2 in January (post-holiday clearance) and 8-10 in December (peak holiday). Use an annual figure with 12-month average inventory for the headline number, then monitor a 3-month rolling figure to detect trends." },
+      { q: "How does inventory turnover affect business valuation?", a: "Acquirers and lenders use turnover to assess working-capital efficiency. A business with 8× turnover in a category where the median is 5× often commands a higher multiple — it's generating the same revenue with less capital tied up. The difference can be 10-25% of business value at sale." },
+    ],
+  },
 };
 
 export function calcMeta(slug: string): CalcMeta | undefined {
