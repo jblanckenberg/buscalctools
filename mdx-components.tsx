@@ -26,6 +26,73 @@ function Lead(props: ComponentProps<"div">) {
   );
 }
 
+// <Figure> wraps a Pexels (or any) image with attribution caption and
+// width/height attrs to defend CLS. Use `priority` on the hero image so
+// the browser eagerly fetches the largest contentful paint candidate.
+//
+//   <Figure src="/blog/<slug>/hero.jpg" alt="..." priority
+//           credit={{ name: "Photographer", url: "https://..." }} />
+type FigureProps = {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  priority?: boolean;
+  credit?: { name: string; url: string };
+  caption?: string;
+};
+
+function Figure({
+  src,
+  alt,
+  width = 940,
+  height = 650,
+  priority = false,
+  credit,
+  caption,
+}: FigureProps) {
+  return (
+    <figure className="my-8">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        loading={priority ? "eager" : "lazy"}
+        fetchPriority={priority ? "high" : "auto"}
+        decoding="async"
+        className="w-full rounded-lg"
+      />
+      {(caption || credit) && (
+        <figcaption className="mt-2 text-center text-xs text-gray-500">
+          {caption ? <span>{caption} </span> : null}
+          {credit ? (
+            <span>
+              Photo by{" "}
+              <a
+                href={credit.url}
+                rel="noopener nofollow"
+                className="underline hover:text-brand-primary"
+              >
+                {credit.name}
+              </a>{" "}
+              on{" "}
+              <a
+                href="https://www.pexels.com"
+                rel="noopener nofollow"
+                className="underline hover:text-brand-primary"
+              >
+                Pexels
+              </a>
+            </span>
+          ) : null}
+        </figcaption>
+      )}
+    </figure>
+  );
+}
+
 // Renders <a href="…"> as a Next <Link> when the href is a relative path;
 // keeps external links as a plain anchor with the same brand styling.
 function MdxLink({ href = "", children, ...rest }: AProps) {
@@ -50,6 +117,7 @@ export function useMDXComponents(
 ): MDXComponents {
   return {
     Lead,
+    Figure,
     h2: (props) => (
       <h2 className="mt-10 text-2xl font-bold text-brand-dark" {...props} />
     ),
