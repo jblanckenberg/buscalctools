@@ -32,6 +32,13 @@ export const TOOLS: Tool[] = [
   { slug: "s-corp-election-calculator", name: "S-Corp Election Calculator", short: "S-Corp Election", desc: "Compare LLC default tax to S-corp election with reasonable salary and compliance overhead.", phase: 2 },
   { slug: "estimated-tax-calculator", name: "Estimated Tax Calculator", short: "Estimated Tax", desc: "IRS quarterly safe-harbor payments with TY 2026 due dates.", phase: 2 },
   { slug: "cac-ltv-calculator", name: "CAC LTV Calculator", short: "CAC LTV", desc: "Customer acquisition cost vs lifetime value with payback period and health bands.", phase: 2 },
+  { slug: "subscription-pricing-calculator", name: "Subscription Pricing Calculator", short: "Subscription Pricing", desc: "Monthly vs annual LTV with break-even discount.", phase: 2 },
+  { slug: "price-elasticity-calculator", name: "Price Elasticity Calculator", short: "Price Elasticity", desc: "Revenue impact at multiple price-hike scenarios.", phase: 2 },
+  { slug: "payroll-tax-calculator", name: "Payroll Tax Calculator", short: "Payroll Tax", desc: "US employer FICA, FUTA, state UI burden by headcount.", phase: 2 },
+  { slug: "section-179-calculator", name: "Section 179 Calculator", short: "Section 179", desc: "Immediate expensing vs MACRS depreciation NPV.", phase: 2 },
+  { slug: "inventory-turnover-calculator", name: "Inventory Turnover Calculator", short: "Inventory Turnover", desc: "Turnover ratio and days in inventory with benchmarks.", phase: 2 },
+  { slug: "profit-first-allocation-calculator", name: "Profit First Allocation Calculator", short: "Profit First", desc: "Michalowicz Real Revenue allocation across Profit / Owner Pay / Tax / OpEx.", phase: 2 },
+  { slug: "r-and-d-tax-credit-calculator", name: "R&D Tax Credit Calculator", short: "R&D Credit", desc: "US Section 41 ASC method with QSB payroll-tax-offset check.", phase: 2 },
 ];
 
 export const PHASE_1 = TOOLS.filter((t) => t.phase === 1);
