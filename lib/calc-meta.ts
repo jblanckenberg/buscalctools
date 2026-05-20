@@ -1168,6 +1168,227 @@ export const CALC_META: Record<string, CalcMeta> = {
     ],
   },
 
+  "self-employment-tax-calculator": {
+    slug: "self-employment-tax-calculator",
+    lastReviewed: "2026-05-20",
+    scenarios: [
+      {
+        label: "$80k single freelancer, moderate state",
+        href: "/self-employment-tax-calculator?income=80000&filing=single&state=moderate",
+      },
+      {
+        label: "$120k MFJ no state tax (TX/FL)",
+        href: "/self-employment-tax-calculator?income=120000&filing=mfj&state=none",
+      },
+      {
+        label: "$200k single CA (high tax)",
+        href: "/self-employment-tax-calculator?income=200000&filing=single&state=high",
+      },
+    ],
+    category: "Freelance & Hiring",
+    applicationSubCategory: "Self-Employment Tax Calculator",
+    featureList: [
+      "Calculates SE tax (15.3% × 92.35%) with 2026 SS wage base",
+      "Federal income tax via 2026 bracket calculation",
+      "Standard deduction by filing status",
+      "Half-SE-tax deduction handled automatically",
+      "Simplified state-tax tier (none / moderate / high)",
+      "Quarterly estimated payment for IRS Form 1040-ES",
+    ],
+    howToName: "How to calculate self-employment tax",
+    howToDescription: "Estimate the total tax bill for a freelancer or sole proprietor including SE tax, federal, and state.",
+    howToSteps: [
+      { name: "Enter your net SE income", text: "Schedule C net profit — gross business revenue minus deductible business expenses." },
+      { name: "Add other income", text: "W-2 wages, spouse income, investments — affects the federal bracket calculation." },
+      { name: "Pick filing status and state tier", text: "Standard deduction and brackets differ by status. State tier is a simplification of the 50-state matrix." },
+      { name: "Read the total tax and quarterly figure", text: "The quarterly amount is what to send to the IRS each quarter to avoid underpayment penalty." },
+    ],
+    sources: SELF_EMPLOYMENT_TAX_SOURCES,
+    methodologyNote:
+      "2026 IRS brackets and SS wage base used (post-TCJA-indexed estimates — confirm against Rev. Proc. annual update). QBI deduction (Section 199A) not modelled; additional Medicare tax (0.9% above $200k single / $250k MFJ) not modelled. State tier is a simplified 3-band approximation, not state-bracket-accurate.",
+    featuredAnswer:
+      "Self-employment tax is 15.3% applied to 92.35% of net SE earnings — 12.4% Social Security up to $184,500 (2026), plus 2.9% Medicare with no cap. On top, the freelancer pays federal income tax on the AGI (after deducting half the SE tax), plus state tax. Quarterly = total / 4.",
+    voiceAnswer:
+      "Self-employment tax is fifteen point three percent applied to ninety-two point three five percent of net business profit. Plus federal income tax and state tax. Pay quarterly.",
+    faqs: [
+      { q: "How much is self-employment tax?", a: "15.3% applied to 92.35% of net SE earnings (the 92.35% accounts for the employer-equivalent FICA deduction). For 2026, the 12.4% Social Security portion caps at $184,500 of SE base; Medicare's 2.9% continues without cap. Net rate works out to roughly 14.1% of net profit." },
+      { q: "How do I calculate quarterly estimated tax?", a: "Total tax (SE + federal income + state) divided by 4. The IRS expects four equal payments by April 15, June 15, September 15, and January 15 of the following year. If you owe $1,000+ beyond withholding, missing these triggers ~8% annualised underpayment penalty." },
+      { q: "Can I deduct half of self-employment tax?", a: "Yes. Half of the SE tax is deductible above the line — it reduces your AGI for federal income-tax purposes. This calculator includes the deduction automatically. Forgetting it overstates AGI and federal income tax by 5-8% for most freelancers." },
+      { q: "Does self-employment tax replace W-2 payroll tax?", a: "It replaces FICA — the 7.65% × 2 = 15.3% combined payroll tax that W-2 employees and employers pay jointly. Freelancers pay both halves themselves. The 92.35% adjustment in the SE tax formula reflects the half-deduction that brings the effective rate closer to what an employee pays (after considering the employer-side burden)." },
+      { q: "What is QBI and is it included here?", a: "Section 199A allows a 20% deduction on qualified business income for most non-specified-service trades, phased out above $241,950 single / $483,900 MFJ (2026 estimates). This calculator does not model QBI because the phase-out logic and specified-service-business rules are too involved for a v1. Effective rates shown can be 4-7 percentage points high if you qualify." },
+      { q: "Why is my state tax only 3 tiers?", a: "Real state tax is bracket-based across 41 different state systems plus DC. The 3-tier approximation (none / 5% / 9%) is a pragmatic working estimate. Texas, Florida, Nevada, Washington and a few others have no state income tax; California, New York, Oregon, New Jersey, Minnesota are the high-tax outliers. Most states sit in the 4-6% effective band." },
+      { q: "What is the most common SE tax mistake?", a: "Forgetting the half-SE-tax deduction (worth 5-8% lower federal income tax). Second most common: missing the QBI deduction when eligible. Third: failing to bank the quarterly payment when invoices are paid — by Q3 most underprepared freelancers can not fund the back-payment without scrambling." },
+      { q: "Should I set aside a percentage of every invoice?", a: "Yes. The rough rule for moderate-state-tax freelancers: 25-30% of every payment goes to a separate tax-savings account. High-tax-state freelancers (CA, NY) should bank 32-37%. This way, when quarterly due dates arrive, the cash is already there — no scrambling to free up working capital." },
+      { q: "How does an LLC affect SE tax?", a: "A single-member LLC is disregarded for federal tax purposes — net profit flows to Schedule C and is fully subject to SE tax. A multi-member LLC files Form 1065 and partners pay SE tax on their distributive share (with some exceptions for limited partners). Forming an LLC does not reduce SE tax. The S-corp election does — see the S-Corp Election Calculator." },
+      { q: "How does SE tax differ above the Social Security wage base?", a: "The 12.4% Social Security portion stops at $184,500 of SE base (2026 estimate). Above that, only the 2.9% Medicare portion continues. Plus, single filers with combined wages + SE income above $200,000 ($250,000 MFJ) pay an Additional Medicare Tax of 0.9% — not modelled here. High-income SE arithmetic is materially different from mid-income." },
+    ],
+  },
+
+  "s-corp-election-calculator": {
+    slug: "s-corp-election-calculator",
+    lastReviewed: "2026-05-20",
+    scenarios: [
+      {
+        label: "$100k profit, moderate state, 60% salary",
+        href: "/s-corp-election-calculator?profit=100000&salaryPct=60&state=moderate",
+      },
+      {
+        label: "$200k profit, no state tax, 50% salary",
+        href: "/s-corp-election-calculator?profit=200000&salaryPct=50&state=none",
+      },
+      {
+        label: "$50k profit (break-even test)",
+        href: "/s-corp-election-calculator?profit=50000&salaryPct=60&state=moderate",
+      },
+    ],
+    category: "Freelance & Hiring",
+    applicationSubCategory: "S-Corp Election Calculator",
+    featureList: [
+      "Compares LLC default tax to S-corp election tax",
+      "Configurable reasonable salary % (audit-defensible range)",
+      "Includes S-corp compliance overhead (payroll + 1120-S filing)",
+      "Decision flag: elect or stay LLC at this profit level",
+      "2026 SS wage base + simplified state tier",
+    ],
+    howToName: "How to calculate S-corp tax savings vs LLC",
+    howToDescription: "Compare the tax bill on a default LLC to the same net profit run through an S-corp election, including compliance overhead.",
+    howToSteps: [
+      { name: "Enter annual net profit", text: "Projected or trailing-12-month net profit before salary." },
+      { name: "Set reasonable salary percentage", text: "60% is a typical defensible default. Below 40% raises IRS audit risk; above 80% reduces the savings." },
+      { name: "Pick state tier and overhead", text: "State affects taxable income; overhead defaults to $2,500/yr (payroll + 1120-S)." },
+      { name: "Read the savings and decision flag", text: "Positive savings means S-corp is worth electing. Negative means LLC default is cheaper." },
+    ],
+    sources: SELF_EMPLOYMENT_TAX_SOURCES,
+    methodologyNote:
+      "Simplified federal income-tax rate by income band (not bracket-by-bracket). LLC SE tax fully calculated. S-corp model assumes pass-through of W-2 wages and K-1 distributions; doesn't model state-specific S-corp taxes (e.g. California 1.5% franchise tax, NYC GCT, TN F&E). Compliance overhead defaults to $2,500 — adjust for your specific payroll service and accounting fees.",
+    featuredAnswer:
+      "An S-corp election saves SE tax on the distribution portion of profit but adds compliance overhead. Break-even is typically $40-60k of net profit. Above that, S-corp saves 3-8% of profit annually. The reasonable-salary requirement (IRS audit issue) and state corporate taxes (especially CA, NY) can reduce or reverse the savings.",
+    voiceAnswer:
+      "An S-corp election saves self-employment tax on distributions. Break-even is around fifty thousand dollars of net profit, after subtracting two to three thousand dollars of compliance overhead.",
+    faqs: [
+      { q: "When does S-corp election save money?", a: "When SE-tax savings on the distribution portion exceed the S-corp compliance overhead — typically at $40-60k of net profit and above. Below this, the $1,500-5,000/year in extra payroll, 1120-S filing, and state corporate filings cost more than the SE tax saved." },
+      { q: "What is reasonable salary in an S-corp?", a: "The salary the IRS expects you to pay yourself for the work you actually do — based on what an employee in the same role would earn. The BLS Occupational Employment Statistics is the standard defensible reference. Going materially below market rate (e.g. 20-30% of profit when 60% would be normal) is the IRS's favorite S-corp audit issue. The penalty for losing an audit is a payroll-tax adjustment plus 100% penalty." },
+      { q: "How is S-corp different from LLC?", a: "LLC is a state-level legal entity; S-corp is a federal tax election that can be applied to an LLC or a corporation. An LLC by default is taxed as a sole prop (single-member) or partnership (multi-member), with full SE tax on net profit. Electing S-corp treatment via Form 2553 splits profit into salary (subject to FICA payroll tax) and distributions (no FICA — just income tax)." },
+      { q: "How much does S-corp compliance cost per year?", a: "Typically $1,500-$5,000. Payroll service ($500-1,200), 1120-S federal return ($800-2,000), state corporate filing ($100-500), plus extra accounting time for W-2s, K-1s, and payroll-tax filings. High end if you use a CPA for everything; low end if you DIY payroll via Gusto/QuickBooks and only outsource the annual return." },
+      { q: "Can I elect S-corp mid-year?", a: "An S-corp election (Form 2553) is generally effective from the date you file it forward — though you can elect retroactively to the start of the tax year if you file by March 15 of that year. Late elections require IRS relief under Rev. Proc. 2013-30. For a calendar-year business, the practical deadline is March 15, 2026 for tax year 2026 treatment." },
+      { q: "Does an S-corp election affect state taxes?", a: "Yes — and usually negatively. Most states tax S-corps in some form even though they pass through federally. California charges a 1.5% franchise tax on S-corp gross. New York City has a general corporation tax that doesn't recognize S-corp election. Tennessee has separate franchise and excise tax. The state-tax-tier dropdown approximates the income-tax bite but doesn't model these S-corp-specific state taxes." },
+      { q: "What is the 60-40 salary-distribution rule?", a: "It is not an IRS rule — it is an accountant rule of thumb. Setting salary at roughly 60% of profit (and distribution at 40%) is generally considered safely defensible across most professional-service businesses. For lower-skill operations the salary share might justifiably be 70-80%. For very high-margin specialist work it could go to 40-50%. Use BLS data for your role as the real defensible baseline." },
+      { q: "Should I switch back from S-corp to LLC?", a: "Possible but messy. Revoking S-corp election requires a written statement to the IRS plus consent of all shareholders, and you can't re-elect for 5 years. Most businesses that revoke do so because profit dropped permanently below the break-even (overhead now exceeds savings), or because California or NYC state tax killed the federal savings. Don't revoke for a single bad year." },
+      { q: "Does S-corp affect QBI deduction eligibility?", a: "Section 199A allows a 20% deduction on QBI for most pass-throughs. Both LLCs and S-corps qualify, but the calculation differs slightly. S-corp wages also count toward the W-2-wage limit for QBI phase-out, which can preserve eligibility in higher-income specified-service trades. The interaction is complex — a CPA review is essential past $241k/$483k income." },
+      { q: "What if my reasonable salary equals or exceeds profit?", a: "Then the S-corp election doesn't help. The whole point is to convert some profit into distributions that avoid FICA. If reasonable salary swallows all profit (common in personal-services where the owner's labour IS the product, like consulting or freelance design), there's no distribution left and S-corp adds overhead with no offsetting saving." },
+    ],
+  },
+
+  "estimated-tax-calculator": {
+    slug: "estimated-tax-calculator",
+    lastReviewed: "2026-05-20",
+    scenarios: [
+      {
+        label: "Standard case: $20k prior tax, rising income",
+        href: "/estimated-tax-calculator?prior=20000&agi=120000&current=25000&wh=8000",
+      },
+      {
+        label: "High-income (110% rule)",
+        href: "/estimated-tax-calculator?prior=45000&agi=200000&current=50000&wh=15000",
+      },
+      {
+        label: "Income dropping (90% current rule wins)",
+        href: "/estimated-tax-calculator?prior=30000&agi=140000&current=15000&wh=0",
+      },
+    ],
+    category: "Freelance & Hiring",
+    applicationSubCategory: "Estimated Tax Calculator",
+    featureList: [
+      "IRS safe-harbor calculation: 100%/110% prior vs 90% current",
+      "Identifies which rule applies (lower)",
+      "Withholding-to-date offset",
+      "TY 2026 quarterly due dates",
+      "Underpayment-exposure flag",
+    ],
+    howToName: "How to calculate quarterly estimated tax payments",
+    howToDescription: "Find the quarterly payment that keeps you penalty-free under the IRS safe-harbor rules.",
+    howToSteps: [
+      { name: "Enter prior year total tax", text: "From line 24 of last year's Form 1040." },
+      { name: "Enter prior year AGI", text: "Above $150,000 triggers the 110% safe harbor instead of 100%." },
+      { name: "Estimate current year tax", text: "Use the SE Tax Calculator if you're self-employed." },
+      { name: "Add withholding to date", text: "W-2 withholding and any prior estimated payments this year already made." },
+      { name: "Read the quarterly figure", text: "Pay that amount by each due date to avoid the underpayment penalty." },
+    ],
+    methodologyNote:
+      "Implements the IRS safe-harbor rule per Form 1040-ES instructions. State estimated-payment rules vary widely (California, for example, is front-loaded with 30/40/0/30 quarterly splits) and are not modelled. The underpayment penalty rate fluctuates with the federal short-term rate plus 3% — currently around 8% annualised.",
+    featuredAnswer:
+      "The IRS safe-harbor amount is the lesser of: 100% of your prior year tax (110% if prior AGI > $150,000), OR 90% of your current year tax estimate. Pay this in four equal installments by April 15, June 15, September 15, and January 15. Anything less triggers underpayment penalty.",
+    voiceAnswer:
+      "The IRS safe harbor is the lesser of one hundred percent of last year's tax or ninety percent of this year's estimated tax. Pay quarterly in four equal installments.",
+    faqs: [
+      { q: "What is the IRS safe harbor for estimated tax?", a: "The IRS won't charge underpayment penalty if you pay (in withholding plus estimated payments) at least: 100% of last year's total tax (110% if last year's AGI exceeded $150,000), OR 90% of this year's actual tax. Whichever is lower wins. This is your minimum penalty-free threshold — not your actual liability." },
+      { q: "When are quarterly estimated taxes due?", a: "April 15, June 15, September 15, and January 15 of the following year. Note that Q2 is only 2 months after Q1 (not 3) — a quirk of the schedule that catches many first-time payers. If a due date falls on a weekend or holiday, it shifts to the next business day." },
+      { q: "How do I make quarterly estimated payments?", a: "Three options: (1) IRS Direct Pay at irs.gov — free electronic bank withdrawal. (2) EFTPS — same idea, requires advance enrollment. (3) Mail a paper voucher (Form 1040-ES) with a check. Direct Pay is the fastest and most reliable; set up scheduled payments at the start of the year to avoid missing dates." },
+      { q: "What happens if I miss a quarterly payment?", a: "The underpayment penalty is calculated quarter-by-quarter at roughly 8% annualised on the underpaid amount, from the missed date until the date you eventually pay. Even paying the full year by January 15 won't undo penalties accrued on Q1-Q3 underpayments. The penalty is also non-deductible." },
+      { q: "Does withholding count toward the safe harbor?", a: "Yes. Withholding from W-2 wages, pensions, or other payers counts as if paid evenly across the year, regardless of when it actually was withheld. If withholding alone covers the safe harbor amount, no separate estimated payments are needed. This is why couples often deliberately bump W-2 withholding to cover side-business tax without quarterlies." },
+      { q: "What if my income is unpredictable?", a: "Use the prior-year safe harbor (100% / 110%) — it's based on last year's known number, so you don't need to forecast this year. If income drops sharply, switch to the 90% current-year rule. If income is genuinely lumpy (seasonal, project-based), use Form 2210 Schedule AI to annualise — but that's significantly more paperwork than just paying evenly under the prior-year rule." },
+      { q: "Are state estimated taxes the same?", a: "Most states with income tax follow similar quarterly schedules and safe-harbor logic, but the rules vary. California has a famously front-loaded 30%/40%/0%/30% schedule. New York follows the federal schedule. Texas, Florida, Nevada and other no-income-tax states obviously have no state quarterlies. Check your state Department of Revenue for exact dates and percentages." },
+      { q: "Is the safe harbor my real tax bill?", a: "No — the safe harbor is just the penalty-floor. If you owe more than the safe harbor at year-end, you still need to pay the difference by April 15, and the IRS won't penalize you (since you met the safe harbor) but you'll owe the cash. For full-coverage planning, save the larger of the safe-harbor or your true estimated liability." },
+      { q: "What if I overpay quarterly?", a: "The IRS refunds any overpayment with the year-end 1040 — or you can apply it to next year's first quarter. No penalty for overpaying. Some freelancers deliberately overpay slightly to avoid stress and create a forced-savings refund." },
+      { q: "Can the IRS waive the underpayment penalty?", a: "Sometimes. The IRS waives the penalty for first-year self-employment, disability, or reasonable cause (e.g. natural disaster, death in family). You request the waiver via Form 2210 Part II. Routine forgot or didn't have the cash is not reasonable cause." },
+    ],
+  },
+
+  "cac-ltv-calculator": {
+    slug: "cac-ltv-calculator",
+    lastReviewed: "2026-05-20",
+    scenarios: [
+      {
+        label: "Healthy SaaS: $30k spend / 150 customers / $60 ARPU",
+        href: "/cac-ltv-calculator?spend=30000&customers=150&arpu=60&margin=70&lifespan=24",
+      },
+      {
+        label: "High-churn (12mo lifespan)",
+        href: "/cac-ltv-calculator?spend=50000&customers=200&arpu=50&margin=60&lifespan=12",
+      },
+      {
+        label: "Enterprise (long lifespan, low volume)",
+        href: "/cac-ltv-calculator?spend=120000&customers=20&arpu=800&margin=80&lifespan=48",
+      },
+    ],
+    category: "Funding & Valuation",
+    applicationSubCategory: "CAC LTV Calculator",
+    featureList: [
+      "CAC from sales/marketing spend ÷ new customers",
+      "LTV from ARPU × gross margin × lifespan months",
+      "LTV/CAC ratio with David Skok health bands (3× / 5×)",
+      "Payback period in months",
+      "Region-aware currency formatting",
+    ],
+    howToName: "How to calculate CAC and LTV",
+    howToDescription: "Find your customer acquisition cost, lifetime value, and the ratio that determines unit-economics health.",
+    howToSteps: [
+      { name: "Enter sales & marketing spend", text: "All-in: ads, sales salaries, tools, content production for the measurement period." },
+      { name: "Enter new customers acquired", text: "Net new — exclude expansions or re-activations." },
+      { name: "Add average monthly revenue per customer (ARPU)", text: "Recurring revenue, not one-off fees." },
+      { name: "Set gross margin and customer lifespan", text: "Lifespan = 1 / monthly churn rate. SaaS averages 24-36 months." },
+      { name: "Read the ratio and payback period", text: "Aim for LTV/CAC ≥ 3 and payback under 12-18 months." },
+    ],
+    methodologyNote:
+      "LTV calculated as ARPU × gross margin × lifespan (simple linear model). For high-churn cohorts the more accurate formula is ARPU × gross margin / monthly churn rate — converges to the linear form when churn is low. CAC includes labour allocation in the spend input; cohort-based CAC analysis (separating channels and segments) is recommended for businesses past $1M ARR.",
+    featuredAnswer:
+      "CAC is sales and marketing spend divided by new customers acquired. LTV is ARPU × gross margin × customer lifespan in months. LTV divided by CAC gives the unit-economics ratio — SaaS conventional wisdom is 3× minimum, 5× excellent, below 1× burns cash on every customer.",
+    voiceAnswer:
+      "Customer acquisition cost is spend divided by new customers. Lifetime value is monthly revenue times gross margin times lifespan. The ratio should be at least three.",
+    faqs: [
+      { q: "What is a good LTV to CAC ratio?", a: "3× minimum, 5× excellent. Below 3× the acquisition engine is technically positive but doesn't cover overhead, R&D, or runway. Below 1× every new customer destroys value. Above 5× usually indicates either under-investment in growth (capacity to acquire more profitably) or genuinely exceptional product-market fit." },
+      { q: "How do I calculate CAC?", a: "Total sales and marketing spend in a period divided by net-new customers acquired in the same period. Include ad spend, sales-team salaries and commissions, marketing tools, content production, agency fees. Exclude product/engineering (R&D) and customer-success time spent on existing accounts." },
+      { q: "How do I calculate LTV?", a: "ARPU × gross margin % × customer lifespan in months. Lifespan = 1 / monthly churn rate, so 3% monthly churn implies 33-month lifespan. Always use gross margin contribution, not headline revenue — a $100 ARPU customer at 30% margin contributes only $30 per month to fixed costs and profit." },
+      { q: "What is a typical SaaS payback period?", a: "Under 12 months is conservative-investor friendly. 12-18 months is typical for mid-stage SaaS. Above 18 months is hard to fund — the cash gap between customer acquisition and recovery starves the business of working capital and forces dilutive fundraising rounds." },
+      { q: "Why use gross margin instead of revenue?", a: "Because LTV measures contribution to fixed costs and profit, not top-line. A $100 customer at 30% margin and a $30 customer at 100% margin both contribute the same $30/month. Using revenue for LTV inflates the ratio 3-5× in low-margin businesses and produces optimistic numbers that fall apart at the board meeting." },
+      { q: "Should I include sales salaries in CAC?", a: "Yes — for most SaaS businesses, sales labour is 60-80% of true CAC. Founders who only count ad spend chronically understate CAC and overstate ratios. Allocate proportionally: if 70% of the sales team's time goes to net-new acquisition versus expansion, 70% of their fully-loaded cost belongs in CAC." },
+      { q: "How do I estimate customer lifespan if I'm young?", a: "Use monthly churn rate inversely: lifespan = 1 / monthly_churn. 2% monthly churn = 50-month lifespan; 5% = 20 months. Annualised churn needs careful conversion: 10% annual ≠ 0.83% monthly (it's actually 0.87% per month for 10% annual compound). Even 18 months of data gives reasonable monthly-churn estimates for fitting the lifespan." },
+      { q: "Does LTV/CAC differ by industry?", a: "Yes. SaaS targets 3-5×. Marketplaces and e-commerce often run lower (1.5-3× is normal because LTV is harder to define and CAC is high). Subscription consumer apps (Netflix, Spotify) operate at 4-7× in steady state. B2B enterprise with long sales cycles often start at 2× in year-one cohorts and improve to 5×+ by year-three as upsells and renewals compound." },
+      { q: "How can I improve LTV/CAC?", a: "Three levers in order of impact: (1) Reduce churn — 1-2 percentage point monthly improvement can increase LTV 30-50%. Almost always cheaper than acquiring offsetting new customers. (2) Increase ARPU through upsells, premium tiers, or annual prepay discounts. (3) Reduce CAC through organic channels, referrals, or content marketing — but these take time to build." },
+      { q: "What is the most common CAC LTV mistake?", a: "Aggregating across channels and segments. A $20 self-serve customer acquired for $50 has 4× LTV/CAC ratios but is a different business from a $500 enterprise customer acquired for $3,000 at 8× ratio. Average them and you get useless 5× — the picture only sharpens when broken out by channel (paid search, content, outbound), customer tier, and acquisition cohort." },
+    ],
+  },
+
   "dso-calculator": {
     slug: "dso-calculator",
     lastReviewed: "2026-05-20",

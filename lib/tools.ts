@@ -28,6 +28,10 @@ export const TOOLS: Tool[] = [
   { slug: "hourly-to-salary-calculator", name: "Hourly to Salary Calculator", short: "Hourly to Salary", desc: "Convert hourly rate to annual salary with employer loaded cost.", phase: 2 },
   { slug: "working-capital-calculator", name: "Working Capital Calculator", short: "Working Capital", desc: "Current ratio and bank-readiness from short-term assets and liabilities.", phase: 2 },
   { slug: "dso-calculator", name: "DSO Calculator", short: "DSO", desc: "Days Sales Outstanding and the cash released by faster collections.", phase: 2 },
+  { slug: "self-employment-tax-calculator", name: "Self-Employment Tax Calculator", short: "SE Tax", desc: "SE tax plus federal income and state tax for US freelancers (TY 2026).", phase: 2 },
+  { slug: "s-corp-election-calculator", name: "S-Corp Election Calculator", short: "S-Corp Election", desc: "Compare LLC default tax to S-corp election with reasonable salary and compliance overhead.", phase: 2 },
+  { slug: "estimated-tax-calculator", name: "Estimated Tax Calculator", short: "Estimated Tax", desc: "IRS quarterly safe-harbor payments with TY 2026 due dates.", phase: 2 },
+  { slug: "cac-ltv-calculator", name: "CAC LTV Calculator", short: "CAC LTV", desc: "Customer acquisition cost vs lifetime value with payback period and health bands.", phase: 2 },
 ];
 
 export const PHASE_1 = TOOLS.filter((t) => t.phase === 1);
