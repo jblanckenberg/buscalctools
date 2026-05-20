@@ -1220,6 +1220,99 @@ export const CALC_META: Record<string, CalcMeta> = {
       { q: "How does DSO interact with working capital?", a: "DSO is one of the three working-capital cycle components — DSO (collections), DIO (inventory), and DPO (payments). The cash conversion cycle is DSO + DIO − DPO. A high DSO without offsetting longer DPO creates working-capital pressure. Look at all three together rather than DSO in isolation." },
     ],
   },
+
+  "profit-first-allocation-calculator": {
+    slug: "profit-first-allocation-calculator",
+    lastReviewed: "2026-05-20",
+    scenarios: [
+      { label: "Service business, $30k/mo, 15% materials (Tier B)", href: "/profit-first-allocation-calculator?revenue=30000&materials=15" },
+      { label: "Trades, $80k/mo, 35% materials (Tier B)", href: "/profit-first-allocation-calculator?revenue=80000&materials=35" },
+      { label: "$5k/mo solopreneur (Tier A)", href: "/profit-first-allocation-calculator?revenue=5000&materials=5" },
+    ],
+    category: "Break-Even & Cash Flow",
+    applicationSubCategory: "Profit First Allocation Calculator",
+    featureList: [
+      "Auto-detects Real Revenue tier (A through E)",
+      "Applies Michalowicz Target Allocation Percentages",
+      "4-bucket monthly allocation (Profit / Owner's Pay / Tax / OpEx)",
+      "Region-aware currency formatting",
+    ],
+    howToName: "How to calculate Profit First monthly allocations",
+    howToDescription: "Find your revenue tier and the dollar allocation for each Profit First bank account.",
+    howToSteps: [
+      { name: "Enter monthly top-line revenue", text: "Gross revenue before any deductions." },
+      { name: "Enter materials & subcontractors percentage", text: "Pass-through costs that aren't your money to allocate." },
+      { name: "Read the auto-detected tier", text: "The calculator picks Tier A-E from annual Real Revenue." },
+      { name: "Apply allocations to separate bank accounts", text: "The behavioural mechanism depends on physical account separation, not just spreadsheet math." },
+    ],
+    methodologyNote:
+      "Uses the canonical TAPs from Mike Michalowicz's Profit First (revised 2017 edition). Tier definitions are based on annual Real Revenue (monthly × 12), not gross revenue. Most service businesses sit in Tiers A-C; Tiers D-E require operational maturity and team scale. Real Revenue formula subtracts materials and subcontractors only — internal employees count as OpEx, not Real Revenue reduction.",
+    featuredAnswer:
+      "Profit First allocates Real Revenue (revenue minus materials and subcontractors) across 4 buckets each month. Tier B ($250k-$500k annual Real Revenue): Profit 10%, Owner's Pay 35%, Tax 15%, OpEx 40%. Tiers scale with operational maturity — Tier A solos take more Owner's Pay; Tier D-E businesses allocate more to OpEx.",
+    voiceAnswer:
+      "Profit First splits real revenue into four buckets. For most small service businesses, ten percent profit, thirty-five percent owner pay, fifteen percent tax, forty percent operating expenses.",
+    faqs: [
+      { q: "What is Profit First?", a: "Mike Michalowicz's cash-management system that takes profit first instead of last. The standard equation is Sales − Expenses = Profit; Profit First flips it to Sales − Profit = Expenses. Each month, Real Revenue is allocated across separate bank accounts for Profit, Owner's Pay, Tax, and OpEx according to Target Allocation Percentages (TAPs) for the business's revenue tier." },
+      { q: "What is Real Revenue?", a: "Top-line revenue minus the cost of materials and subcontractors that pass straight through to suppliers. For a contractor billing $30,000/mo with $10,000 going to materials, Real Revenue is $20,000 — that's the money the business actually controls and allocates. Internal employee wages don't subtract; they're OpEx, not pass-throughs." },
+      { q: "What are the Profit First Target Allocation Percentages?", a: "TAPs scale by tier. Tier A ($0-$250k annual Real Revenue): Profit 5%, Owner's Pay 50%, Tax 15%, OpEx 30%. Tier B ($250k-$500k): 10/35/15/40. Tier C ($500k-$1M): 15/20/15/50. Tier D ($1M-$5M): 10/10/15/65. Tier E ($5M-$10M): 15/5/15/65." },
+      { q: "Why does Owner's Pay drop as revenue grows?", a: "Because team headcount grows. At Tier A, you ARE the business — 50% of Real Revenue is your pay because you do everything. By Tier D, you've built a team that does most of the operational work, so OpEx legitimately needs the higher share and your Owner's Pay drops to a normal-CEO percentage of revenue rather than founder-still-doing-everything." },
+      { q: "How do I transition to Profit First?", a: "Gradually. Michalowicz recommends starting at your current allocation pattern (whatever it happens to be) and shifting 1-3 percentage points per quarter toward the target. Going from 0% profit to 5% overnight breaks operations. Most businesses take 12-24 months to reach the full target TAPs for their tier." },
+      { q: "Do I need separate bank accounts?", a: "Yes — the system depends on it. The behavioural mechanism is that money in the Profit account never gets accidentally spent on operations because it's not in the operating account. Spreadsheet-only Profit First fails because the discipline depends on physical separation. Most banks let you open multiple checking accounts for free." },
+      { q: "What happens to the Profit account?", a: "Touched quarterly. 50% goes to the owner as a profit distribution (the reward for the quarter). 50% stays in the Profit account as a reserve. The distribution part is the dopamine hit that maintains discipline; the reserve part is the cushion against downturns." },
+      { q: "Does Profit First work for businesses with thin margins?", a: "It exposes thin margins faster but doesn't fix them. If your real-revenue allocation forces OpEx below current actual expenses, that's the system telling you to cut. Some businesses (e.g. low-margin retail or restaurants in expensive cities) need to raise prices or restructure rather than force the allocation — Profit First isn't a fix for fundamental business-model problems." },
+      { q: "What if my tax rate is higher than 15%?", a: "Adjust the Tax TAP upward. The standard 15% assumes a moderate pass-through entity in a moderate-tax state. High-tax-state freelancers (CA, NY) often need 20-25%. C-corps with profitable years may need lower since corporate tax sits at 21% but only applies to retained earnings, not the full Real Revenue." },
+      { q: "Is Profit First a substitute for accounting?", a: "No. It's a cash-management discipline. Your accountant still produces your P&amp;L, balance sheet, and tax returns from your transaction data. Profit First sits on top — it constrains how cash flows through accounts during the year, but doesn't replace bookkeeping or tax compliance." },
+    ],
+  },
+
+  "r-and-d-tax-credit-calculator": {
+    slug: "r-and-d-tax-credit-calculator",
+    lastReviewed: "2026-05-20",
+    scenarios: [
+      { label: "First-time SaaS startup: $200k wages, no prior history", href: "/r-and-d-tax-credit-calculator?wages=200000&supplies=20000&contract=50000&prior=0&receipts=1500000" },
+      { label: "Established with prior 3-yr avg $150k QRE", href: "/r-and-d-tax-credit-calculator?wages=200000&supplies=20000&contract=50000&prior=150000&receipts=1500000" },
+      { label: "Larger firm (no payroll offset)", href: "/r-and-d-tax-credit-calculator?wages=800000&supplies=50000&contract=200000&prior=500000&receipts=8000000" },
+    ],
+    category: "Funding & Valuation",
+    applicationSubCategory: "R&D Tax Credit Calculator",
+    featureList: [
+      "Alternative Simplified Credit (ASC) calculation",
+      "65% factor on contract research per IRC §41(b)(3)",
+      "First-time-claimer (6%) vs standard (14%) method",
+      "Qualified Small Business payroll-tax-offset eligibility",
+    ],
+    howToName: "How to calculate the R&D tax credit (ASC method)",
+    howToDescription: "Estimate the federal R&D tax credit amount and check qualified-small-business payroll-tax-offset eligibility.",
+    howToSteps: [
+      { name: "Enter qualified researcher wages", text: "W-2 wages time-allocated to qualifying activities (not 100% of headcount payroll unless that's accurate)." },
+      { name: "Enter qualified supplies", text: "Consumables only — prototype materials, test fluids. Not capital equipment." },
+      { name: "Enter contract research", text: "Third-party R&D payments — count at 65% per the IRS code." },
+      { name: "Enter prior 3-year average QRE", text: "Zero for first-time claimers; the calculator applies the 6% ASC first-time method instead of 14% standard." },
+      { name: "Check QSB eligibility", text: "Gross receipts below $5M with no receipts more than 5 years ago = eligible for payroll-tax offset (up to $500k/yr)." },
+    ],
+    sources: [
+      { label: "IRS — Form 6765 (R&D credit)", url: "https://www.irs.gov/forms-pubs/about-form-6765", region: "USA" },
+      { label: "IRS — IRC §41 Research Credit overview", url: "https://www.irs.gov/businesses/corporations/research-and-experimentation-credit-i-r-c-41", region: "USA" },
+    ],
+    methodologyNote:
+      "Implements the simplified ASC method only — not the regular method, which uses a 1984-89 base-period calculation almost no one needs. v1 doesn't model the four-part qualifying-activities test (permitted purpose, elimination of uncertainty, process of experimentation, technological in nature) — this calculator assumes the underlying activities qualify and computes the credit amount. Get a specialist R&D-credit firm or experienced CPA to qualify activities and prepare contemporaneous documentation; audit risk is the #1 reason casual credit claims fail.",
+    featuredAnswer:
+      "The Alternative Simplified Credit (ASC) method calculates the R&D credit as 14% × (current QREs − 50% × prior 3-yr avg QREs), or 6% × current QREs for first-time claimers. QREs = qualified wages + qualified supplies + 65% of contract research. Qualified Small Businesses (gross receipts <$5M, no receipts >5 years ago) can offset up to $500,000 of credit against payroll tax — critical for pre-profit startups.",
+    voiceAnswer:
+      "The Alternative Simplified R&D credit is fourteen percent times current research expenditures minus fifty percent of the prior three-year average. First-time claimers get six percent of current expenditures.",
+    faqs: [
+      { q: "What is the R&D tax credit?", a: "A federal tax credit (IRC §41) that rewards businesses for spending on qualified research activities. Most businesses claim it via the Alternative Simplified Credit (ASC) method: 14% × (current QREs − 50% × prior 3-yr avg QREs). First-time claimers use 6% × current QREs. The credit reduces federal income tax for profitable companies and can offset payroll tax for qualified small businesses." },
+      { q: "What qualifies as research for the credit?", a: "IRC §41 four-part test: (1) permitted purpose — new or improved business component (product, process, technique, formula, invention, or software). (2) elimination of technological uncertainty about capability, methodology, or design. (3) process of experimentation — systematic evaluation of alternatives. (4) technological in nature — fundamentally relies on principles of physical or biological sciences, engineering, or computer science. Routine engineering, marketing research, post-implementation work, and most customer-customisation work fail the test." },
+      { q: "What are QREs?", a: "Qualified Research Expenditures. Three components: (1) qualified wages — W-2 wages of employees doing qualifying activities, time-allocated. (2) qualified supplies — consumables used in R&D, not capital equipment. (3) contract research — payments to third parties for R&D, counted at 65% per §41(b)(3)." },
+      { q: "Can pre-profit startups use the R&D credit?", a: "Yes. Qualified Small Businesses (gross receipts &lt; $5M current year, AND no gross receipts more than 5 years before current year) can elect to apply up to $500,000 of R&D credit per year against the 6.2% employer Social Security portion of payroll tax. Real cash relief for pre-profit R&D-heavy startups — and most founders don't know it exists." },
+      { q: "Why 65% on contract research?", a: "The IRS gives less credit when a third party rather than your own employees does the qualifying work. The 65% factor reflects that lower R&D nexus. If you pay a contractor $100k for R&D, only $65k counts toward QREs for the credit." },
+      { q: "Do I need a specialist firm?", a: "Effectively yes. The credit-calculation math is straightforward; qualifying the underlying activities under the four-part test is hard. Audit risk is real — the IRS has aggressively challenged R&D credit claims since 2015. Specialist firms charge 12-25% of the resulting credit but bring documentation discipline and audit defense. Below ~$20k of credit, the fee usually outweighs the benefit." },
+      { q: "What documentation do I need?", a: "Contemporaneous records — created during the R&D, not reconstructed for the tax return. Time-tracking by employee allocating hours to qualified projects. Project descriptions tied to the four-part test. Records of the technical uncertainty being resolved and the experimentation process. Without these, the credit fails on audit." },
+      { q: "What's the IRA expansion of the payroll offset?", a: "The Inflation Reduction Act (2022) doubled the payroll-tax offset cap from $250,000 to $500,000 per year starting in 2023. It also expanded the offset to include the 1.45% Medicare portion in addition to the 6.2% Social Security portion. Substantial uplift for R&D-heavy startups." },
+      { q: "Can software development qualify?", a: "Yes if it satisfies the four-part test. Algorithmic research, novel architecture decisions, performance/scalability research, and research into new computer-science techniques typically qualify. Routine software configuration, UI tweaks, customer-specific customisation, and bug fixing on existing systems typically don't. Internal-use-software (IUS) has stricter rules: must be innovative, must involve significant economic risk, must not be commercially available." },
+      { q: "Can I amend prior-year returns to claim the credit?", a: "Yes for the open statute years (generally 3 years from the original filing date). Amendments require Form 6765 plus contemporaneous documentation for the year being amended. Most specialist firms can recover 2-3 years of missed credits this way — significant catch-up cash flow for businesses that missed claiming." },
+    ],
+  },
 };
 
 export function calcMeta(slug: string): CalcMeta | undefined {
