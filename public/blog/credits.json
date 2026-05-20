@@ -1,0 +1,646 @@
+{
+  "amazon-fba-fees-explained": {
+    "hero": {
+      "query": "amazon delivery box",
+      "file": "/blog/amazon-fba-fees-explained/hero.jpg",
+      "alt": "A person holding a cardboard Amazon Prime package on a snowy urban sidewalk.",
+      "name": "Erik Mclean",
+      "url": "https://www.pexels.com/@introspectivedsgn",
+      "bytes": 75161
+    },
+    "mid": {
+      "query": "warehouse fulfilment",
+      "file": "/blog/amazon-fba-fees-explained/mid.jpg",
+      "alt": "Warehouse interior showing workers handling boxes and organized shelves filled with products.",
+      "name": "Tiger Lily",
+      "url": "https://www.pexels.com/@tiger-lily",
+      "bytes": 115208
+    },
+    "bottom": {
+      "query": "online shopping cart",
+      "file": "/blog/amazon-fba-fees-explained/bottom.jpg",
+      "alt": "Creative depiction of online shopping with a miniature cart on a laptop keyboard.",
+      "name": "Nataliya Vaitkevich",
+      "url": "https://www.pexels.com/@n-voitkevich",
+      "bytes": 42670
+    }
+  },
+  "break-even-analysis-examples": {
+    "hero": {
+      "query": "coffee shop counter",
+      "file": "/blog/break-even-analysis-examples/hero.jpg",
+      "alt": "A barista wearing an apron serves an iced coffee to a customer inside a coffee shop.",
+      "name": "Emre  Akyol",
+      "url": "https://www.pexels.com/@emre-akyol-320381804",
+      "bytes": 43589
+    },
+    "mid": {
+      "query": "small business accounting desk",
+      "file": "/blog/break-even-analysis-examples/mid.jpg",
+      "alt": "Image of a checklist and calculator for managing small business accounting tasks efficiently.",
+      "name": "Leeloo The First",
+      "url": "https://www.pexels.com/@leeloothefirst",
+      "bytes": 45069
+    },
+    "bottom": {
+      "query": "financial chart laptop",
+      "file": "/blog/break-even-analysis-examples/bottom.jpg",
+      "alt": "Top-down view of a desk with charts, a laptop, and notebooks, ideal for data analysis themes.",
+      "name": "Lukas Blazek",
+      "url": "https://www.pexels.com/@goumbik",
+      "bytes": 54383
+    }
+  },
+  "cash-flow-management-small-business": {
+    "hero": {
+      "query": "small business owner",
+      "file": "/blog/cash-flow-management-small-business/hero.jpg",
+      "alt": "African American seamstress smiling at work with a 'Support Small Businesses' sign.",
+      "name": "Gustavo Fring",
+      "url": "https://www.pexels.com/@gustavo-fring",
+      "bytes": 41936
+    },
+    "mid": {
+      "query": "bills paperwork desk",
+      "file": "/blog/cash-flow-management-small-business/mid.jpg",
+      "alt": "Zloty banknotes and financial paperwork scattered on a desk, representing budgeting and finance.",
+      "name": "Jakub Zerdzicki",
+      "url": "https://www.pexels.com/@jakubzerdzicki",
+      "bytes": 46221
+    },
+    "bottom": {
+      "query": "cash money payment",
+      "file": "/blog/cash-flow-management-small-business/bottom.jpg",
+      "alt": "A person holding several twenty-dollar bills outdoors, depicting payment or financial transaction.",
+      "name": "Burst",
+      "url": "https://www.pexels.com/@burst",
+      "bytes": 71828
+    }
+  },
+  "discount-pricing-strategy": {
+    "hero": {
+      "query": "sale sign storefront",
+      "file": "/blog/discount-pricing-strategy/hero.jpg",
+      "alt": "Eye-catching neon 'Sale' sign in a fashion boutique window in Istanbul, Turkey.",
+      "name": "Meruyert Gonullu",
+      "url": "https://www.pexels.com/@meruyert-gonullu",
+      "bytes": 68902
+    },
+    "mid": {
+      "query": "retail shopping bags",
+      "file": "/blog/discount-pricing-strategy/mid.jpg",
+      "alt": "Crop unrecognizable female customer wearing coat standing with paper packets and handbag while shopping in city",
+      "name": "Tim Douglas",
+      "url": "https://www.pexels.com/@tim-douglas",
+      "bytes": 46325
+    },
+    "bottom": {
+      "query": "store discount display",
+      "file": "/blog/discount-pricing-strategy/bottom.jpg",
+      "alt": "Explore a stylish denim collection at a boutique in Miami, showcasing jeans with discounts.",
+      "name": "On  Shot",
+      "url": "https://www.pexels.com/@bluerhinomedia",
+      "bytes": 94706
+    }
+  },
+  "ebitda-vs-net-profit": {
+    "hero": {
+      "query": "financial statements review",
+      "file": "/blog/ebitda-vs-net-profit/hero.jpg",
+      "alt": "A financial statement on a wooden desk with colorful pens, ideal for accounting themes.",
+      "name": "RDNE Stock project",
+      "url": "https://www.pexels.com/@rdne",
+      "bytes": 85012
+    },
+    "mid": {
+      "query": "accountant calculator desk",
+      "file": "/blog/ebitda-vs-net-profit/mid.jpg",
+      "alt": "A businessman in a black suit using a calculator at a desk with financial documents and a laptop.",
+      "name": "RDNE Stock project",
+      "url": "https://www.pexels.com/@rdne",
+      "bytes": 51634
+    },
+    "bottom": {
+      "query": "balance sheet analysis",
+      "file": "/blog/ebitda-vs-net-profit/bottom.jpg",
+      "alt": "Close-up of a balance sheet under a magnifying glass on a wooden table.",
+      "name": "RDNE Stock project",
+      "url": "https://www.pexels.com/@rdne",
+      "bytes": 36933
+    }
+  },
+  "employee-vs-contractor-cost-comparison": {
+    "hero": {
+      "query": "office handshake",
+      "file": "/blog/employee-vs-contractor-cost-comparison/hero.jpg",
+      "alt": "Close-up of two businessmen shaking hands, symbolizing agreement and partnership.",
+      "name": "Bia Limova",
+      "url": "https://www.pexels.com/@bia-limova-1908542654",
+      "bytes": 33207
+    },
+    "mid": {
+      "query": "freelancer laptop home",
+      "file": "/blog/employee-vs-contractor-cost-comparison/mid.jpg",
+      "alt": "A person using a laptop to browse stock photo websites. Freelancing work in a cozy setting.",
+      "name": "SHVETS production",
+      "url": "https://www.pexels.com/@shvets-production",
+      "bytes": 81338
+    },
+    "bottom": {
+      "query": "team meeting business",
+      "file": "/blog/employee-vs-contractor-cost-comparison/bottom.jpg",
+      "alt": "Business professionals engaging in a collaborative meeting with charts and documents.",
+      "name": "Yan Krukau",
+      "url": "https://www.pexels.com/@yankrukov",
+      "bytes": 78898
+    }
+  },
+  "etsy-seller-fees-explained": {
+    "hero": {
+      "query": "handmade craft workshop",
+      "file": "/blog/etsy-seller-fees-explained/hero.jpg",
+      "alt": "A focused young woman sewing in a craft workshop, symbolizing creativity and small business.",
+      "name": "Gustavo Fring",
+      "url": "https://www.pexels.com/@gustavo-fring",
+      "bytes": 50056
+    },
+    "mid": {
+      "query": "online seller packaging",
+      "file": "/blog/etsy-seller-fees-explained/mid.jpg",
+      "alt": "Two women organizing and managing an online clothing store with boxes and a laptop.",
+      "name": "Kampus Production",
+      "url": "https://www.pexels.com/@kampus",
+      "bytes": 61522
+    },
+    "bottom": {
+      "query": "small craft shop",
+      "file": "/blog/etsy-seller-fees-explained/bottom.jpg",
+      "alt": "Handmade wooden utensils displayed at a local market in Sfax, Tunisia.",
+      "name": "Taha Loukil",
+      "url": "https://www.pexels.com/@taha-loukil-1743137",
+      "bytes": 122988
+    }
+  },
+  "freelance-rates-by-industry-uk": {
+    "hero": {
+      "query": "freelancer laptop coffee",
+      "file": "/blog/freelance-rates-by-industry-uk/hero.jpg",
+      "alt": "Young man working remotely on laptop while enjoying a coffee outdoors.",
+      "name": "Andrea Piacquadio",
+      "url": "https://www.pexels.com/@olly",
+      "bytes": 50805
+    },
+    "mid": {
+      "query": "creative agency desk",
+      "file": "/blog/freelance-rates-by-industry-uk/mid.jpg",
+      "alt": "A stylish desk setup featuring a digital tablet, keyboard, camera, and plant, ideal for creative work.",
+      "name": "Jakub Zerdzicki",
+      "url": "https://www.pexels.com/@jakubzerdzicki",
+      "bytes": 47778
+    },
+    "bottom": {
+      "query": "UK office worker",
+      "file": "/blog/freelance-rates-by-industry-uk/bottom.jpg",
+      "alt": "Close-up of office workers engaged in a tech project at a modern workplace.",
+      "name": "cottonbro studio",
+      "url": "https://www.pexels.com/@cottonbro",
+      "bytes": 47433
+    }
+  },
+  "gross-profit-vs-net-profit": {
+    "hero": {
+      "query": "calculator accountant desk",
+      "file": "/blog/gross-profit-vs-net-profit/hero.jpg",
+      "alt": "Calculator with glasses and folders on an office desk. Perfect for finance and accounting themes.",
+      "name": "Jakub Zerdzicki",
+      "url": "https://www.pexels.com/@jakubzerdzicki",
+      "bytes": 50748
+    },
+    "mid": {
+      "query": "business profit chart",
+      "file": "/blog/gross-profit-vs-net-profit/mid.jpg",
+      "alt": "A hand giving thumbs up next to profit chart on a whiteboard, indicating success.",
+      "name": "Nataliya Vaitkevich",
+      "url": "https://www.pexels.com/@n-voitkevich",
+      "bytes": 29845
+    },
+    "bottom": {
+      "query": "spreadsheet finance",
+      "file": "/blog/gross-profit-vs-net-profit/bottom.jpg",
+      "alt": "A close-up of a person holding a pen reviewing a financial document with cash visible, ideal for business themes.",
+      "name": "Mikhail Nilov",
+      "url": "https://www.pexels.com/@mikhail-nilov",
+      "bytes": 47887
+    }
+  },
+  "how-business-loans-work": {
+    "hero": {
+      "query": "loan agreement signing",
+      "file": "/blog/how-business-loans-work/hero.jpg",
+      "alt": "Detailed loan agreement document close-up on a wooden table representing legal and financial concepts.",
+      "name": "RDNE Stock project",
+      "url": "https://www.pexels.com/@rdne",
+      "bytes": 33116
+    },
+    "mid": {
+      "query": "bank meeting business",
+      "file": "/blog/how-business-loans-work/mid.jpg",
+      "alt": "Group of business professionals discussing financial strategies in a modern office setting.",
+      "name": "Kampus Production",
+      "url": "https://www.pexels.com/@kampus",
+      "bytes": 56164
+    },
+    "bottom": {
+      "query": "business plan paperwork",
+      "file": "/blog/how-business-loans-work/bottom.jpg",
+      "alt": "Overhead view of hands highlighting financial documents on a desk.",
+      "name": "RDNE Stock project",
+      "url": "https://www.pexels.com/@rdne",
+      "bytes": 60298
+    }
+  },
+  "how-much-to-charge-as-freelancer": {
+    "hero": {
+      "query": "freelancer laptop working",
+      "file": "/blog/how-much-to-charge-as-freelancer/hero.jpg",
+      "alt": "Close-up of a person working on a laptop with graphic design software.",
+      "name": "Danik Prihodko",
+      "url": "https://www.pexels.com/@danikprihodko",
+      "bytes": 62767
+    },
+    "mid": {
+      "query": "invoice payment desk",
+      "file": "/blog/how-much-to-charge-as-freelancer/mid.jpg",
+      "alt": "Person's hand holding a company invoice on a clipboard with a pen.",
+      "name": "Kindel Media",
+      "url": "https://www.pexels.com/@kindelmedia",
+      "bytes": 46617
+    },
+    "bottom": {
+      "query": "remote work coffee",
+      "file": "/blog/how-much-to-charge-as-freelancer/bottom.jpg",
+      "alt": "A person holds a brown coffee cup near a laptop on a clean white desk, perfect for remote work themes.",
+      "name": "Cup of  Couple",
+      "url": "https://www.pexels.com/@cup-of-couple",
+      "bytes": 31015
+    }
+  },
+  "how-to-calculate-break-even-point": {
+    "hero": {
+      "query": "calculator notebook desk",
+      "file": "/blog/how-to-calculate-break-even-point/hero.jpg",
+      "alt": "Close-up of hands using a calculator and writing equations on a notebook, perfect for math concepts.",
+      "name": "www.kaboompics.com",
+      "url": "https://www.pexels.com/@karola-g",
+      "bytes": 35740
+    },
+    "mid": {
+      "query": "business graph chart",
+      "file": "/blog/how-to-calculate-break-even-point/mid.jpg",
+      "alt": "Magnifying glass and colored pencils on financial trend graphs highlighting sales growth.",
+      "name": "RDNE Stock project",
+      "url": "https://www.pexels.com/@rdne",
+      "bytes": 66496
+    },
+    "bottom": {
+      "query": "small shop owner",
+      "file": "/blog/how-to-calculate-break-even-point/bottom.jpg",
+      "alt": "A friendly shopkeeper stands behind shelves of homemade preserves.",
+      "name": "Demetra Ioannidou",
+      "url": "https://www.pexels.com/@demetra-ioannidou-420891723",
+      "bytes": 87781
+    }
+  },
+  "how-to-calculate-roi-for-marketing": {
+    "hero": {
+      "query": "marketing campaign meeting",
+      "file": "/blog/how-to-calculate-roi-for-marketing/hero.jpg",
+      "alt": "A clean office desk setup featuring hashtag campaign marketing materials and a planner.",
+      "name": "Walls.io",
+      "url": "https://www.pexels.com/@walls-io-440716388",
+      "bytes": 53869
+    },
+    "mid": {
+      "query": "analytics dashboard screen",
+      "file": "/blog/how-to-calculate-roi-for-marketing/mid.jpg",
+      "alt": "Close-up of a tablet displaying analytics charts on a wooden office desk, alongside a smartphone and coffee cup.",
+      "name": "AS Photography",
+      "url": "https://www.pexels.com/@asphotography",
+      "bytes": 41574
+    },
+    "bottom": {
+      "query": "digital marketing team",
+      "file": "/blog/how-to-calculate-roi-for-marketing/bottom.jpg",
+      "alt": "Colleagues celebrating success in a modern digital marketing office with teamwork and collaboration.",
+      "name": "Mikael Blomkvist",
+      "url": "https://www.pexels.com/@mikael-blomkvist",
+      "bytes": 84278
+    }
+  },
+  "how-to-reduce-cost-per-unit": {
+    "hero": {
+      "query": "factory production line",
+      "file": "/blog/how-to-reduce-cost-per-unit/hero.jpg",
+      "alt": "Water bottles being processed on an automated conveyor in a modern factory setting.",
+      "name": "Vladimir Srajber",
+      "url": "https://www.pexels.com/@vladimirsrajber",
+      "bytes": 100533
+    },
+    "mid": {
+      "query": "manufacturing assembly",
+      "file": "/blog/how-to-reduce-cost-per-unit/mid.jpg",
+      "alt": "Vast industrial factory floor with machinery, crates, and structured workstations.",
+      "name": "Yetkin Ağaç",
+      "url": "https://www.pexels.com/@yetkin-agac-664866326",
+      "bytes": 102517
+    },
+    "bottom": {
+      "query": "quality control inspection",
+      "file": "/blog/how-to-reduce-cost-per-unit/bottom.jpg",
+      "alt": "Close-up of a worker measuring a steel beam with a digital caliper in an industrial setting.",
+      "name": "Michael Orshan",
+      "url": "https://www.pexels.com/@michael-orshan-2159363670",
+      "bytes": 37564
+    }
+  },
+  "how-to-value-a-business-to-sell": {
+    "hero": {
+      "query": "business handshake deal",
+      "file": "/blog/how-to-value-a-business-to-sell/hero.jpg",
+      "alt": "Close-up of two businessmen shaking hands, symbolizing agreement and partnership.",
+      "name": "Bia Limova",
+      "url": "https://www.pexels.com/@bia-limova-1908542654",
+      "bytes": 33207
+    },
+    "mid": {
+      "query": "for sale sign storefront",
+      "file": "/blog/how-to-value-a-business-to-sell/mid.jpg",
+      "alt": "Eye-catching neon 'Sale' sign in a fashion boutique window in Istanbul, Turkey.",
+      "name": "Meruyert Gonullu",
+      "url": "https://www.pexels.com/@meruyert-gonullu",
+      "bytes": 68902
+    },
+    "bottom": {
+      "query": "business meeting negotiation",
+      "file": "/blog/how-to-value-a-business-to-sell/bottom.jpg",
+      "alt": "Close-up of a handshake between two professionals in a business setting, symbolizing agreement.",
+      "name": "Pavel Danilyuk",
+      "url": "https://www.pexels.com/@pavel-danilyuk",
+      "bytes": 35352
+    }
+  },
+  "payback-period-vs-roi": {
+    "hero": {
+      "query": "calculator finance desk",
+      "file": "/blog/payback-period-vs-roi/hero.jpg",
+      "alt": "Hand using calculator for architectural calculations on blueprints.",
+      "name": "RDNE Stock project",
+      "url": "https://www.pexels.com/@rdne",
+      "bytes": 51426
+    },
+    "mid": {
+      "query": "investment growth chart",
+      "file": "/blog/payback-period-vs-roi/mid.jpg",
+      "alt": "A smartphone showing an investment app with green growth indicators, surrounded by credit cards, US dollars, and a passport.",
+      "name": "DΛVΞ GΛRCIΛ",
+      "url": "https://www.pexels.com/@davegarcia",
+      "bytes": 54732
+    },
+    "bottom": {
+      "query": "money clock business",
+      "file": "/blog/payback-period-vs-roi/bottom.jpg",
+      "alt": "Stacked coins and a classic alarm clock symbolize the value of time and money.",
+      "name": "Towfiqu barbhuiya",
+      "url": "https://www.pexels.com/@towfiqu-barbhuiya-3440682",
+      "bytes": 54692
+    }
+  },
+  "profit-margin-vs-markup-difference": {
+    "hero": {
+      "query": "store price tag",
+      "file": "/blog/profit-margin-vs-markup-difference/hero.jpg",
+      "alt": "Close-up of a blank white price tag on textured beige fabric, ideal for branding use.",
+      "name": "Andrzej Gdula",
+      "url": "https://www.pexels.com/@andrzej-gdula-177638374",
+      "bytes": 101141
+    },
+    "mid": {
+      "query": "calculator shop counter",
+      "file": "/blog/profit-margin-vs-markup-difference/mid.jpg",
+      "alt": "Hands counting 100 dollar bills using a calculator and money counter on a table.",
+      "name": "Tima Miroshnichenko",
+      "url": "https://www.pexels.com/@tima-miroshnichenko",
+      "bytes": 78564
+    },
+    "bottom": {
+      "query": "retail percentage discount",
+      "file": "/blog/profit-margin-vs-markup-difference/bottom.jpg",
+      "alt": "Red balloons with percentage signs, ideal for marketing promotions and sales events.",
+      "name": "www.kaboompics.com",
+      "url": "https://www.pexels.com/@karola-g",
+      "bytes": 62137
+    }
+  },
+  "revenue-growth-benchmarks": {
+    "hero": {
+      "query": "growth chart business",
+      "file": "/blog/revenue-growth-benchmarks/hero.jpg",
+      "alt": "Magnifying glass and colored pencils on financial trend graphs highlighting sales growth.",
+      "name": "RDNE Stock project",
+      "url": "https://www.pexels.com/@rdne",
+      "bytes": 66496
+    },
+    "mid": {
+      "query": "startup team office",
+      "file": "/blog/revenue-growth-benchmarks/mid.jpg",
+      "alt": "Team of developers working together on computers in a modern tech office.",
+      "name": "cottonbro studio",
+      "url": "https://www.pexels.com/@cottonbro",
+      "bytes": 63967
+    },
+    "bottom": {
+      "query": "upward arrow trend",
+      "file": "/blog/revenue-growth-benchmarks/bottom.jpg",
+      "alt": "Crop faceless male financier drawing scheme on whiteboard with marker during creating new project",
+      "name": "Malte Luk",
+      "url": "https://www.pexels.com/@maltelu",
+      "bytes": 41967
+    }
+  },
+  "sba-loan-vs-conventional-loan": {
+    "hero": {
+      "query": "loan paperwork pen",
+      "file": "/blog/sba-loan-vs-conventional-loan/hero.jpg",
+      "alt": "Side view of faceless formal man giving pen and paper to focused female with clenched hands at table on meeting",
+      "name": "Andrea Piacquadio",
+      "url": "https://www.pexels.com/@olly",
+      "bytes": 27661
+    },
+    "mid": {
+      "query": "bank exterior building",
+      "file": "/blog/sba-loan-vs-conventional-loan/mid.jpg",
+      "alt": "Close-up of Bank of California with classic architecture and columns.",
+      "name": "Stephen Leonardi",
+      "url": "https://www.pexels.com/@stephen-leonardi-587681991",
+      "bytes": 93187
+    },
+    "bottom": {
+      "query": "small business owner meeting",
+      "file": "/blog/sba-loan-vs-conventional-loan/bottom.jpg",
+      "alt": "Business team engaged in a collaborative meeting around a workspace with documents.",
+      "name": "RDNE Stock project",
+      "url": "https://www.pexels.com/@rdne",
+      "bytes": 62955
+    }
+  },
+  "startup-runway-burn-rate-guide": {
+    "hero": {
+      "query": "startup office work",
+      "file": "/blog/startup-runway-burn-rate-guide/hero.jpg",
+      "alt": "Contemporary open office space with people collaborating and working together.",
+      "name": "Startup Stock Photos",
+      "url": "https://www.pexels.com/@startup-stock-photos",
+      "bytes": 44521
+    },
+    "mid": {
+      "query": "hourglass desk business",
+      "file": "/blog/startup-runway-burn-rate-guide/mid.jpg",
+      "alt": "Modern laptop on a wooden desk beside an hourglass, symbolizing time and technology intersection.",
+      "name": "Burak The Weekender",
+      "url": "https://www.pexels.com/@weekendplayer",
+      "bytes": 36772
+    },
+    "bottom": {
+      "query": "founder laptop late night",
+      "file": "/blog/startup-runway-burn-rate-guide/bottom.jpg",
+      "alt": "An adult man working at a desk on a laptop with a smartphone nearby, in a dimly lit home office.",
+      "name": "Faye Tsui",
+      "url": "https://www.pexels.com/@faye-tsui-331490536",
+      "bytes": 30886
+    }
+  },
+  "true-cost-of-an-employee": {
+    "hero": {
+      "query": "office team meeting",
+      "file": "/blog/true-cost-of-an-employee/hero.jpg",
+      "alt": "Business professionals discussing strategy during a corporate meeting in a modern boardroom.",
+      "name": "MART  PRODUCTION",
+      "url": "https://www.pexels.com/@mart-production",
+      "bytes": 86562
+    },
+    "mid": {
+      "query": "employee desk computer",
+      "file": "/blog/true-cost-of-an-employee/mid.jpg",
+      "alt": "Young South Asian man in black shirt concentrating on work with laptop in modern office.",
+      "name": "Istiak Remon",
+      "url": "https://www.pexels.com/@istiak-remon-3540582",
+      "bytes": 35381
+    },
+    "bottom": {
+      "query": "human resources interview",
+      "file": "/blog/true-cost-of-an-employee/bottom.jpg",
+      "alt": "Professional man in turtleneck at office desk during an interview.",
+      "name": "Tima Miroshnichenko",
+      "url": "https://www.pexels.com/@tima-miroshnichenko",
+      "bytes": 48982
+    }
+  },
+  "uk-invoice-requirements": {
+    "hero": {
+      "query": "invoice paperwork desk",
+      "file": "/blog/uk-invoice-requirements/hero.jpg",
+      "alt": "Close-up of a tidy desk with receipts, documents, and office stationery for business organization.",
+      "name": "www.kaboompics.com",
+      "url": "https://www.pexels.com/@karola-g",
+      "bytes": 32086
+    },
+    "mid": {
+      "query": "UK business documents",
+      "file": "/blog/uk-invoice-requirements/mid.jpg",
+      "alt": "A tablet and educational documents on a wooden table with a pen.",
+      "name": "Mikhail Nilov",
+      "url": "https://www.pexels.com/@mikhail-nilov",
+      "bytes": 43162
+    },
+    "bottom": {
+      "query": "freelancer accounting laptop",
+      "file": "/blog/uk-invoice-requirements/bottom.jpg",
+      "alt": "Young woman handling financial tasks with papers and laptop in cozy living room.",
+      "name": "Nataliya Vaitkevich",
+      "url": "https://www.pexels.com/@n-voitkevich",
+      "bytes": 52519
+    }
+  },
+  "value-based-pricing-vs-cost-plus": {
+    "hero": {
+      "query": "premium product display",
+      "file": "/blog/value-based-pricing-vs-cost-plus/hero.jpg",
+      "alt": "Elegant display of wooden barrels and coffee bags with labeled pricing in a shop setting.",
+      "name": "Malcolm Garret",
+      "url": "https://www.pexels.com/@malcolm-garret-3023588",
+      "bytes": 48729
+    },
+    "mid": {
+      "query": "client meeting negotiation",
+      "file": "/blog/value-based-pricing-vs-cost-plus/mid.jpg",
+      "alt": "Two businessmen shaking hands across table, symbolizing agreement and partnership in an office environment.",
+      "name": "Kampus Production",
+      "url": "https://www.pexels.com/@kampus",
+      "bytes": 38454
+    },
+    "bottom": {
+      "query": "pricing strategy desk",
+      "file": "/blog/value-based-pricing-vs-cost-plus/bottom.jpg",
+      "alt": "A stylish workspace featuring a laptop, smartphone, clipboard, and stationery essentials.",
+      "name": "Leeloo The First",
+      "url": "https://www.pexels.com/@leeloothefirst",
+      "bytes": 53574
+    }
+  },
+  "what-is-a-good-profit-margin": {
+    "hero": {
+      "query": "small business shop owner",
+      "file": "/blog/what-is-a-good-profit-margin/hero.jpg",
+      "alt": "A friendly shopkeeper stands behind shelves of homemade preserves.",
+      "name": "Demetra Ioannidou",
+      "url": "https://www.pexels.com/@demetra-ioannidou-420891723",
+      "bytes": 87781
+    },
+    "mid": {
+      "query": "profit calculator desk",
+      "file": "/blog/what-is-a-good-profit-margin/mid.jpg",
+      "alt": "Close-up of a person using a calculator and laptop with stock charts for financial analysis.",
+      "name": "AlphaTradeZone",
+      "url": "https://www.pexels.com/@alphatradezone",
+      "bytes": 46573
+    },
+    "bottom": {
+      "query": "retail store inventory",
+      "file": "/blog/what-is-a-good-profit-margin/bottom.jpg",
+      "alt": "A vibrant display of various sneakers on shelves in a shoe store, showcasing styles and options.",
+      "name": "Stanislav Kondratiev",
+      "url": "https://www.pexels.com/@technobulka",
+      "bytes": 113517
+    }
+  },
+  "cost-plus-pricing-explained": {
+    "hero": {
+      "file": "/blog/cost-plus-pricing-explained/hero.jpg",
+      "alt": "Overhead view of a calculator, notebook, and pricing formula document on a workspace.",
+      "name": "Leeloo The First",
+      "url": "https://www.pexels.com/@leeloothefirst"
+    },
+    "mid": {
+      "file": "/blog/cost-plus-pricing-explained/mid.jpg",
+      "alt": "Yellow letter tiles spelling the word PRICE on a blue background.",
+      "name": "Ann H",
+      "url": "https://www.pexels.com/@ann-h-45017"
+    },
+    "bottom": {
+      "file": "/blog/cost-plus-pricing-explained/bottom.jpg",
+      "alt": "Warehouse workers handling boxes on organised shelves in a logistics facility.",
+      "name": "Tiger Lily",
+      "url": "https://www.pexels.com/@tiger-lily"
+    }
+  }
+}
