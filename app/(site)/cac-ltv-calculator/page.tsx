@@ -2,6 +2,7 @@ import CacLtvCalculator from "@/components/calculators/CacLtvCalculator";
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
+import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import MethodologyBox from "@/components/shared/MethodologyBox";
@@ -168,11 +169,15 @@ Payback target: under 12 months conservative, 12-18 typical, &gt; 18 hard to fun
         </dl>
       </section>
 
-      <RelatedTools
-        slugs={["roi-calculator", "subscription-pricing-calculator", "burn-rate-calculator"]}
-      />
+      <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
+        <RelatedTools
+          slugs={["roi-calculator", "subscription-pricing-calculator", "burn-rate-calculator"]}
+        />
+      </LazyBelowFold>
 
-      <MethodologyBox slug={SLUG} />
+      <LazyBelowFold minHeight={400} placeholderLabel="Methodology section loading">
+        <MethodologyBox slug={SLUG} />
+      </LazyBelowFold>
 
       <Disclaimer />
     </CalculatorShell>

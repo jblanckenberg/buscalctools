@@ -2,6 +2,7 @@ import DsoCalculator from "@/components/calculators/DsoCalculator";
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
+import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import MethodologyBox from "@/components/shared/MethodologyBox";
@@ -164,11 +165,15 @@ Example: AR = $120,000 | Annual Revenue = $1,200,000
         </dl>
       </section>
 
-      <RelatedTools
-        slugs={["working-capital-calculator", "cash-flow-calculator", "invoice-calculator"]}
-      />
+      <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
+        <RelatedTools
+          slugs={["working-capital-calculator", "cash-flow-calculator", "invoice-calculator"]}
+        />
+      </LazyBelowFold>
 
-      <MethodologyBox slug={SLUG} />
+      <LazyBelowFold minHeight={400} placeholderLabel="Methodology section loading">
+        <MethodologyBox slug={SLUG} />
+      </LazyBelowFold>
 
       <Disclaimer />
     </CalculatorShell>

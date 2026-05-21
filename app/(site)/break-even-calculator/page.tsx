@@ -2,6 +2,7 @@ import BreakEvenCalculator from "@/components/calculators/BreakEvenCalculator";
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
+import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import MethodologyBox from "@/components/shared/MethodologyBox";
@@ -148,14 +149,18 @@ Example: Fixed = $5,000 | Variable = $10 | Selling Price = $25
         </dl>
       </section>
 
-      <RelatedTools
-        slugs={["roi-calculator", "cash-flow-calculator", "cost-per-unit-calculator"]}
-        surfaceComparisonsForCalc="break-even-calculator"
-      />
+      <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
+        <RelatedTools
+          slugs={["roi-calculator", "cash-flow-calculator", "cost-per-unit-calculator"]}
+          surfaceComparisonsForCalc="break-even-calculator"
+        />
+      </LazyBelowFold>
 
       <EmbedCTA slug={SLUG} />
 
-      <MethodologyBox slug={SLUG} />
+      <LazyBelowFold minHeight={400} placeholderLabel="Methodology section loading">
+        <MethodologyBox slug={SLUG} />
+      </LazyBelowFold>
 
       <Disclaimer />
     </CalculatorShell>

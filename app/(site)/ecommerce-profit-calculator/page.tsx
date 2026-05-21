@@ -2,6 +2,7 @@ import EcommerceProfitCalculator from "@/components/calculators/EcommerceProfitC
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
+import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import MethodologyBox from "@/components/shared/MethodologyBox";
@@ -147,9 +148,13 @@ Example: $29.99 sale | $8 cost | 15% fee | $3.50 shipping | $2 ads
         </dl>
       </section>
 
-      <RelatedTools slugs={["profit-margin-calculator", "markup-calculator"]} />
+      <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
+        <RelatedTools slugs={["profit-margin-calculator", "markup-calculator"]} />
+      </LazyBelowFold>
 
-      <MethodologyBox slug={SLUG} />
+      <LazyBelowFold minHeight={400} placeholderLabel="Methodology section loading">
+        <MethodologyBox slug={SLUG} />
+      </LazyBelowFold>
 
       <Disclaimer />
     </CalculatorShell>

@@ -2,6 +2,7 @@ import DiscountCalculator from "@/components/calculators/DiscountCalculator";
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
+import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import MethodologyBox from "@/components/shared/MethodologyBox";
@@ -140,9 +141,13 @@ Reverse: Discount % = ((Original − Discounted) / Original) × 100`}
         </dl>
       </section>
 
-      <RelatedTools slugs={["markup-calculator", "pricing-calculator", "profit-margin-calculator"]} />
+      <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
+        <RelatedTools slugs={["markup-calculator", "pricing-calculator", "profit-margin-calculator"]} />
+      </LazyBelowFold>
 
-      <MethodologyBox slug={SLUG} />
+      <LazyBelowFold minHeight={400} placeholderLabel="Methodology section loading">
+        <MethodologyBox slug={SLUG} />
+      </LazyBelowFold>
 
       <Disclaimer />
     </CalculatorShell>
