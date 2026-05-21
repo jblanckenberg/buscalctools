@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { POSTS_LAST_REVIEWED, PUBLISHED_POSTS, postBySlug } from "@/lib/blog/posts";
 import { ARTICLE_BODIES } from "@/components/blog/articles";
+import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
@@ -131,7 +132,9 @@ export default async function ArticlePage({
 
       <AuthorCard />
 
-      <RelatedTools slugs={post.related} title="Calculators referenced in this article" />
+      <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
+        <RelatedTools slugs={post.related} title="Calculators referenced in this article" />
+      </LazyBelowFold>
 
       <Disclaimer />
     </article>

@@ -2,6 +2,7 @@ import SubscriptionPricingCalculator from "@/components/calculators/Subscription
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
+import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import MethodologyBox from "@/components/shared/MethodologyBox";
@@ -113,9 +114,13 @@ Example: $30/mo | 80% margin | 5% monthly churn (20-mo) | 20% annual churn (5-yr
         </dl>
       </section>
 
-      <RelatedTools slugs={["pricing-calculator", "cac-ltv-calculator", "freelance-rate-calculator"]} />
+      <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
+        <RelatedTools slugs={["pricing-calculator", "cac-ltv-calculator", "freelance-rate-calculator"]} />
+      </LazyBelowFold>
 
-      <MethodologyBox slug={SLUG} />
+      <LazyBelowFold minHeight={400} placeholderLabel="Methodology section loading">
+        <MethodologyBox slug={SLUG} />
+      </LazyBelowFold>
 
       <Disclaimer />
     </CalculatorShell>
