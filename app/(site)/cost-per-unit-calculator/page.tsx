@@ -5,6 +5,7 @@ import FaqList from "@/components/shared/FaqList";
 import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
+import GlossarySection from "@/components/shared/GlossarySection";
 import MethodologyBox from "@/components/shared/MethodologyBox";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
@@ -130,23 +131,13 @@ Example: Fixed $10,000 | Variable $5,000 | 500 units
 
       <FaqList items={META.faqs} />
 
-      <section className="mt-12">
-        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
-        <dl className="mt-3 space-y-3 text-sm text-gray-700">
-          <div>
-            <dt className="font-semibold text-brand-dark">Fixed Cost Per Unit</dt>
-            <dd>Total fixed costs divided by units produced. This number falls as volume rises — the source of economies of scale.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Variable Cost Per Unit</dt>
-            <dd>The per-unit cost that scales directly with each item produced — materials, packaging, freight, and direct labour.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Loaded Cost</dt>
-            <dd>The fully-allocated cost per unit including both variable and fixed components. The number a price must clear to earn a margin.</dd>
-          </div>
-        </dl>
-      </section>
+      <GlossarySection
+        items={[
+          { term: "Fixed Cost Per Unit", definition: "Total fixed costs divided by units produced. This number falls as volume rises — the source of economies of scale." },
+          { term: "Variable Cost Per Unit", definition: "The per-unit cost that scales directly with each item produced — materials, packaging, freight, and direct labour." },
+          { term: "Loaded Cost", definition: "The fully-allocated cost per unit including both variable and fixed components. The number a price must clear to earn a margin." },
+        ]}
+      />
 
       <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
         <RelatedTools slugs={["break-even-calculator", "pricing-calculator"]} />

@@ -5,6 +5,7 @@ import FaqList from "@/components/shared/FaqList";
 import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
+import GlossarySection from "@/components/shared/GlossarySection";
 import MethodologyBox from "@/components/shared/MethodologyBox";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
@@ -106,23 +107,13 @@ Example: $30,000/mo revenue, 15% materials
 
       <FaqList items={META.faqs} />
 
-      <section className="mt-12">
-        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
-        <dl className="mt-3 space-y-3 text-sm text-gray-700">
-          <div>
-            <dt className="font-semibold text-brand-dark">Real Revenue</dt>
-            <dd>Top-line revenue minus pass-through costs like materials and subcontractors. The base for Profit First allocations.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">TAPs</dt>
-            <dd>Target Allocation Percentages — the share of Real Revenue assigned to each account at your tier.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Profit Distribution</dt>
-            <dd>The quarterly transfer from the Profit account to the owner. Half is paid as a bonus, half kept as reserve.</dd>
-          </div>
-        </dl>
-      </section>
+      <GlossarySection
+        items={[
+          { term: "Real Revenue", definition: "Top-line revenue minus pass-through costs like materials and subcontractors. The base for Profit First allocations." },
+          { term: "TAPs", definition: "Target Allocation Percentages — the share of Real Revenue assigned to each account at your tier." },
+          { term: "Profit Distribution", definition: "The quarterly transfer from the Profit account to the owner. Half is paid as a bonus, half kept as reserve." },
+        ]}
+      />
 
       <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
         <RelatedTools slugs={["cash-flow-calculator", "net-profit-calculator", "freelance-rate-calculator"]} />

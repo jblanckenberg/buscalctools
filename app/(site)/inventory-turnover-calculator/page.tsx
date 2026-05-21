@@ -5,6 +5,7 @@ import FaqList from "@/components/shared/FaqList";
 import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
+import GlossarySection from "@/components/shared/GlossarySection";
 import MethodologyBox from "@/components/shared/MethodologyBox";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
@@ -101,23 +102,13 @@ Example: COGS $600,000 | Begin $120k, End $100k
 
       <FaqList items={META.faqs} />
 
-      <section className="mt-12">
-        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
-        <dl className="mt-3 space-y-3 text-sm text-gray-700">
-          <div>
-            <dt className="font-semibold text-brand-dark">Turnover Ratio</dt>
-            <dd>Annual cost of goods sold divided by average inventory. How many times you completely cycle through stock in a year.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Days in Inventory</dt>
-            <dd>365 divided by the turnover ratio. The average number of days a unit sits on the shelf before being sold.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Carrying Cost</dt>
-            <dd>The annual cost of holding inventory — insurance, warehousing, capital cost, obsolescence, shrinkage. Typically fifteen to twenty-five percent of average inventory value.</dd>
-          </div>
-        </dl>
-      </section>
+      <GlossarySection
+        items={[
+          { term: "Turnover Ratio", definition: "Annual cost of goods sold divided by average inventory. How many times you completely cycle through stock in a year." },
+          { term: "Days in Inventory", definition: "365 divided by the turnover ratio. The average number of days a unit sits on the shelf before being sold." },
+          { term: "Carrying Cost", definition: "The annual cost of holding inventory — insurance, warehousing, capital cost, obsolescence, shrinkage. Typically fifteen to twenty-five percent of average inventory value." },
+        ]}
+      />
 
       <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
         <RelatedTools slugs={["working-capital-calculator", "dso-calculator", "cash-flow-calculator"]} />

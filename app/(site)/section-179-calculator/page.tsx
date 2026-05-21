@@ -5,6 +5,7 @@ import FaqList from "@/components/shared/FaqList";
 import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
+import GlossarySection from "@/components/shared/GlossarySection";
 import MethodologyBox from "@/components/shared/MethodologyBox";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
@@ -107,27 +108,14 @@ NPV Comparison (5% discount rate):
 
       <FaqList items={META.faqs} />
 
-      <section className="mt-12">
-        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
-        <dl className="mt-3 space-y-3 text-sm text-gray-700">
-          <div>
-            <dt className="font-semibold text-brand-dark">Section 179</dt>
-            <dd>The IRC provision allowing businesses to immediately deduct the full cost of qualifying equipment in the year of purchase, subject to annual dollar caps and an income limitation.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">MACRS</dt>
-            <dd>Modified Accelerated Cost Recovery System — the default US depreciation method that spreads equipment cost over a fixed recovery period using accelerated schedules.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Bonus Depreciation</dt>
-            <dd>A separate accelerated-expensing provision that lets businesses deduct a percentage of qualifying property in year one. Currently phasing down annually unless extended.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Income Limitation</dt>
-            <dd>The rule preventing Section 179 from reducing taxable business income below zero. Unused deduction carries forward to future years rather than producing a refundable credit.</dd>
-          </div>
-        </dl>
-      </section>
+      <GlossarySection
+        items={[
+          { term: "Section 179", definition: "The IRC provision allowing businesses to immediately deduct the full cost of qualifying equipment in the year of purchase, subject to annual dollar caps and an income limitation." },
+          { term: "MACRS", definition: "Modified Accelerated Cost Recovery System — the default US depreciation method that spreads equipment cost over a fixed recovery period using accelerated schedules." },
+          { term: "Bonus Depreciation", definition: "A separate accelerated-expensing provision that lets businesses deduct a percentage of qualifying property in year one. Currently phasing down annually unless extended." },
+          { term: "Income Limitation", definition: "The rule preventing Section 179 from reducing taxable business income below zero. Unused deduction carries forward to future years rather than producing a refundable credit." },
+        ]}
+      />
 
       <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
         <RelatedTools slugs={["roi-calculator", "business-loan-calculator", "cash-flow-calculator"]} />

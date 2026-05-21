@@ -7,6 +7,7 @@ import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import MethodologyBox from "@/components/shared/MethodologyBox";
 import EmbedCTA from "@/components/shared/EmbedCTA";
+import GlossarySection from "@/components/shared/GlossarySection";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -135,23 +136,13 @@ Example: Revenue = $50,000 | COGS = $30,000
 
       <FaqList items={META.faqs} />
 
-      <section className="mt-12">
-        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
-        <dl className="mt-3 space-y-3 text-sm text-gray-700">
-          <div>
-            <dt className="font-semibold text-brand-dark">COGS (Cost of Goods Sold)</dt>
-            <dd>The direct cost of producing or buying the goods you sold during a period — raw materials, manufacturing labour, freight in.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Operating Expenses (OpEx)</dt>
-            <dd>Ongoing costs to run the business that are not tied to a specific unit sold — rent, salaries, software, marketing.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Net Profit</dt>
-            <dd>The bottom-line profit after all costs and taxes have been subtracted from revenue.</dd>
-          </div>
-        </dl>
-      </section>
+      <GlossarySection
+        items={[
+          { term: "COGS (Cost of Goods Sold)", definition: "The direct cost of producing or buying the goods you sold during a period — raw materials, manufacturing labour, freight in." },
+          { term: "Operating Expenses (OpEx)", definition: "Ongoing costs to run the business that are not tied to a specific unit sold — rent, salaries, software, marketing." },
+          { term: "Net Profit", definition: "The bottom-line profit after all costs and taxes have been subtracted from revenue." },
+        ]}
+      />
 
       <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
         <RelatedTools

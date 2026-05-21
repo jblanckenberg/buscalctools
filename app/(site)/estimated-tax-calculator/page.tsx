@@ -5,6 +5,7 @@ import FaqList from "@/components/shared/FaqList";
 import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
+import GlossarySection from "@/components/shared/GlossarySection";
 import MethodologyBox from "@/components/shared/MethodologyBox";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
@@ -143,23 +144,13 @@ TY 2026 Due Dates:
 
       <FaqList items={META.faqs} />
 
-      <section className="mt-12">
-        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
-        <dl className="mt-3 space-y-3 text-sm text-gray-700">
-          <div>
-            <dt className="font-semibold text-brand-dark">Safe Harbor</dt>
-            <dd>The IRS-structured payment level that eliminates the underpayment penalty regardless of year-end true-up. The lesser of last year's tax or ninety percent of this year's estimate.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">1040-ES</dt>
-            <dd>The IRS voucher used to pay quarterly estimated tax. Mail with payment or pay electronically via IRS Direct Pay.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Underpayment Penalty</dt>
-            <dd>An interest-based charge applied quarter-by-quarter when payments fall below the safe harbor threshold. Currently around eight percent annualised.</dd>
-          </div>
-        </dl>
-      </section>
+      <GlossarySection
+        items={[
+          { term: "Safe Harbor", definition: "The IRS-structured payment level that eliminates the underpayment penalty regardless of year-end true-up. The lesser of last year's tax or ninety percent of this year's estimate." },
+          { term: "1040-ES", definition: "The IRS voucher used to pay quarterly estimated tax. Mail with payment or pay electronically via IRS Direct Pay." },
+          { term: "Underpayment Penalty", definition: "An interest-based charge applied quarter-by-quarter when payments fall below the safe harbor threshold. Currently around eight percent annualised." },
+        ]}
+      />
 
       <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
         <RelatedTools

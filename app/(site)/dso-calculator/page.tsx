@@ -5,6 +5,7 @@ import FaqList from "@/components/shared/FaqList";
 import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
+import GlossarySection from "@/components/shared/GlossarySection";
 import MethodologyBox from "@/components/shared/MethodologyBox";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
@@ -147,23 +148,13 @@ Example: AR = $120,000 | Annual Revenue = $1,200,000
 
       <FaqList items={META.faqs} />
 
-      <section className="mt-12">
-        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
-        <dl className="mt-3 space-y-3 text-sm text-gray-700">
-          <div>
-            <dt className="font-semibold text-brand-dark">DSO</dt>
-            <dd>Days Sales Outstanding — the average number of days between issuing an invoice and collecting payment.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Accounts Receivable (AR)</dt>
-            <dd>Money owed to your business by customers for goods or services already delivered, still awaiting payment.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Net 30</dt>
-            <dd>Standard B2B payment term — invoice is due 30 days from issue date. DSO above 30 means customers are paying later than contractually required.</dd>
-          </div>
-        </dl>
-      </section>
+      <GlossarySection
+        items={[
+          { term: "DSO", definition: "Days Sales Outstanding — the average number of days between issuing an invoice and collecting payment." },
+          { term: "Accounts Receivable (AR)", definition: "Money owed to your business by customers for goods or services already delivered, still awaiting payment." },
+          { term: "Net 30", definition: "Standard B2B payment term — invoice is due 30 days from issue date. DSO above 30 means customers are paying later than contractually required." },
+        ]}
+      />
 
       <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
         <RelatedTools

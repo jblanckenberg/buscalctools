@@ -5,6 +5,7 @@ import FaqList from "@/components/shared/FaqList";
 import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
+import GlossarySection from "@/components/shared/GlossarySection";
 import MethodologyBox from "@/components/shared/MethodologyBox";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
@@ -147,27 +148,14 @@ Payback target: under 12 months conservative, 12-18 typical, &gt; 18 hard to fun
 
       <FaqList items={META.faqs} />
 
-      <section className="mt-12">
-        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
-        <dl className="mt-3 space-y-3 text-sm text-gray-700">
-          <div>
-            <dt className="font-semibold text-brand-dark">CAC</dt>
-            <dd>Customer acquisition cost — fully-loaded sales and marketing spend divided by new customers acquired in the same period.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">LTV</dt>
-            <dd>Lifetime value — the gross-margin contribution expected from a customer over the time they stay subscribed.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Payback Period</dt>
-            <dd>Months of gross-margin contribution needed to recover acquisition cost. The cash-flow check that sits alongside the LTV/CAC ratio.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">ARPU</dt>
-            <dd>Average revenue per user, usually quoted monthly. The input that drives both LTV and payback period.</dd>
-          </div>
-        </dl>
-      </section>
+      <GlossarySection
+        items={[
+          { term: "CAC", definition: "Customer acquisition cost — fully-loaded sales and marketing spend divided by new customers acquired in the same period." },
+          { term: "LTV", definition: "Lifetime value — the gross-margin contribution expected from a customer over the time they stay subscribed." },
+          { term: "Payback Period", definition: "Months of gross-margin contribution needed to recover acquisition cost. The cash-flow check that sits alongside the LTV/CAC ratio." },
+          { term: "ARPU", definition: "Average revenue per user, usually quoted monthly. The input that drives both LTV and payback period." },
+        ]}
+      />
 
       <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
         <RelatedTools

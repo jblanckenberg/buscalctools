@@ -5,6 +5,7 @@ import FaqList from "@/components/shared/FaqList";
 import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
+import GlossarySection from "@/components/shared/GlossarySection";
 import MethodologyBox from "@/components/shared/MethodologyBox";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
@@ -151,23 +152,13 @@ Break-even profit: typically $40-60k`}
 
       <FaqList items={META.faqs} />
 
-      <section className="mt-12">
-        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
-        <dl className="mt-3 space-y-3 text-sm text-gray-700">
-          <div>
-            <dt className="font-semibold text-brand-dark">Reasonable Salary</dt>
-            <dd>The W-2 wage an S-corp owner-employee must pay themselves for the work they actually perform. Set too low and the IRS will re-characterise distributions as wages.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Distribution</dt>
-            <dd>The portion of S-corp profit paid to owners after reasonable salary. Subject to income tax but not FICA, which is where the S-corp savings live.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Form 2553</dt>
-            <dd>The IRS election form an LLC or C-corp files to be taxed as an S-corp. Generally due within 75 days of the start of the tax year you want the election to take effect.</dd>
-          </div>
-        </dl>
-      </section>
+      <GlossarySection
+        items={[
+          { term: "Reasonable Salary", definition: "The W-2 wage an S-corp owner-employee must pay themselves for the work they actually perform. Set too low and the IRS will re-characterise distributions as wages." },
+          { term: "Distribution", definition: "The portion of S-corp profit paid to owners after reasonable salary. Subject to income tax but not FICA, which is where the S-corp savings live." },
+          { term: "Form 2553", definition: "The IRS election form an LLC or C-corp files to be taxed as an S-corp. Generally due within 75 days of the start of the tax year you want the election to take effect." },
+        ]}
+      />
 
       <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
         <RelatedTools

@@ -5,6 +5,7 @@ import FaqList from "@/components/shared/FaqList";
 import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
+import GlossarySection from "@/components/shared/GlossarySection";
 import MethodologyBox from "@/components/shared/MethodologyBox";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
@@ -134,27 +135,14 @@ Quarterly     = Total ÷ 4`}
 
       <FaqList items={META.faqs} />
 
-      <section className="mt-12">
-        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
-        <dl className="mt-3 space-y-3 text-sm text-gray-700">
-          <div>
-            <dt className="font-semibold text-brand-dark">SE Tax</dt>
-            <dd>Self-employment tax — the 15.3 percent combined Social Security and Medicare contribution paid by self-employed people in place of FICA withholding.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">SE Base</dt>
-            <dd>Net SE income multiplied by 92.35 percent. The figure SE tax is actually computed against, reflecting the employer-share deduction.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Half-SE Deduction</dt>
-            <dd>An above-the-line deduction equal to half of SE tax. Reduces AGI for federal income tax purposes and is the most-missed deduction in first-year filings.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">QBI Deduction</dt>
-            <dd>Section 199A's twenty percent deduction on qualified business income for most non-specified-service trades. Phases out at higher income levels and is not modelled in this v1 calculator.</dd>
-          </div>
-        </dl>
-      </section>
+      <GlossarySection
+        items={[
+          { term: "SE Tax", definition: "Self-employment tax — the 15.3 percent combined Social Security and Medicare contribution paid by self-employed people in place of FICA withholding." },
+          { term: "SE Base", definition: "Net SE income multiplied by 92.35 percent. The figure SE tax is actually computed against, reflecting the employer-share deduction." },
+          { term: "Half-SE Deduction", definition: "An above-the-line deduction equal to half of SE tax. Reduces AGI for federal income tax purposes and is the most-missed deduction in first-year filings." },
+          { term: "QBI Deduction", definition: "Section 199A's twenty percent deduction on qualified business income for most non-specified-service trades. Phases out at higher income levels and is not modelled in this v1 calculator." },
+        ]}
+      />
 
       <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
         <RelatedTools

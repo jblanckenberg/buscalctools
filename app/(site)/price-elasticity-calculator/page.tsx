@@ -5,6 +5,7 @@ import FaqList from "@/components/shared/FaqList";
 import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
+import GlossarySection from "@/components/shared/GlossarySection";
 import MethodologyBox from "@/components/shared/MethodologyBox";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
@@ -100,31 +101,15 @@ Typical elasticities (rough industry medians):
 
       <FaqList items={META.faqs} />
 
-      <section className="mt-12">
-        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
-        <dl className="mt-3 space-y-3 text-sm text-gray-700">
-          <div>
-            <dt className="font-semibold text-brand-dark">Price Elasticity of Demand</dt>
-            <dd>The percentage change in quantity demanded divided by the percentage change in price. Almost always negative; the absolute value tells you how responsive customers are.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Inelastic Demand</dt>
-            <dd>Elasticity between zero and one in absolute value. Demand drops less than price rises, so a price hike raises total revenue. Necessities and locked-in services typically sit here.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Elastic Demand</dt>
-            <dd>Elasticity greater than one in absolute value. Demand drops faster than price rises, so a price hike cuts total revenue. Most discretionary goods and substitutable commodities sit here.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Unit Elastic</dt>
-            <dd>Elasticity of exactly minus one. Demand drops at the same percentage rate as price rises, leaving total revenue unchanged. The theoretical break-even point of a price change.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Cross-Price Elasticity</dt>
-            <dd>The change in your demand caused by a competitor's price change. Positive when products substitute for each other. Often more damaging than own-price elasticity in competitive markets.</dd>
-          </div>
-        </dl>
-      </section>
+      <GlossarySection
+        items={[
+          { term: "Price Elasticity of Demand", definition: "The percentage change in quantity demanded divided by the percentage change in price. Almost always negative; the absolute value tells you how responsive customers are." },
+          { term: "Inelastic Demand", definition: "Elasticity between zero and one in absolute value. Demand drops less than price rises, so a price hike raises total revenue. Necessities and locked-in services typically sit here." },
+          { term: "Elastic Demand", definition: "Elasticity greater than one in absolute value. Demand drops faster than price rises, so a price hike cuts total revenue. Most discretionary goods and substitutable commodities sit here." },
+          { term: "Unit Elastic", definition: "Elasticity of exactly minus one. Demand drops at the same percentage rate as price rises, leaving total revenue unchanged. The theoretical break-even point of a price change." },
+          { term: "Cross-Price Elasticity", definition: "The change in your demand caused by a competitor's price change. Positive when products substitute for each other. Often more damaging than own-price elasticity in competitive markets." },
+        ]}
+      />
 
       <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
         <RelatedTools slugs={["pricing-calculator", "markup-calculator", "subscription-pricing-calculator"]} />

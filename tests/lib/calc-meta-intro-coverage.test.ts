@@ -27,10 +27,18 @@ function countWords(slug: string): number {
 
   // Strip imports, JSX tags, JSX attrs, code blocks (between backticks), and
   // template literal interpolations.
+  // Surface quoted-string content from innermost {…} blocks (e.g. GlossarySection
+  // items={[{ definition: "text" }]}) before stripping the braces so the copy
+  // is not lost when the surrounding {…} is removed.
   const stripped = src
     .replace(/^import .+$/gm, "")
     .replace(/<\/?[A-Za-z][\w.-]*[^>]*>/g, " ")
-    .replace(/\{[^}]*\}/g, " ")
+    .replace(/\{[^{}]*\}/g, (match) => {
+      // Extract quoted string values so copy survives brace stripping
+      const content = match.replace(/"([^"]*)"/g, " $1 ");
+      // Now strip the braces themselves, keeping the surfaced text
+      return content.replace(/^\{/, " ").replace(/\}$/, " ");
+    })
     .replace(/`[\s\S]*?`/g, " ")
     .replace(/\/\/.*$/gm, "")
     .replace(/\/\*[\s\S]*?\*\//g, " ")

@@ -5,6 +5,7 @@ import FaqList from "@/components/shared/FaqList";
 import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
+import GlossarySection from "@/components/shared/GlossarySection";
 import MethodologyBox from "@/components/shared/MethodologyBox";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
@@ -142,23 +143,13 @@ Example: $25/hr × 40 hrs/week × 52 weeks = $52,000 annual
 
       <FaqList items={META.faqs} />
 
-      <section className="mt-12">
-        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
-        <dl className="mt-3 space-y-3 text-sm text-gray-700">
-          <div>
-            <dt className="font-semibold text-brand-dark">Loaded Cost</dt>
-            <dd>Total employer cost per employee — gross salary plus statutory taxes (FICA, NIC, UIF) plus benefits and overhead.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Billable Hours</dt>
-            <dd>The portion of working hours that produce revenue — excludes paid leave, training, admin, and downtime.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Annualisation</dt>
-            <dd>The conversion of a periodic figure (hourly, weekly, monthly) into a yearly equivalent for comparison.</dd>
-          </div>
-        </dl>
-      </section>
+      <GlossarySection
+        items={[
+          { term: "Loaded Cost", definition: "Total employer cost per employee — gross salary plus statutory taxes (FICA, NIC, UIF) plus benefits and overhead." },
+          { term: "Billable Hours", definition: "The portion of working hours that produce revenue — excludes paid leave, training, admin, and downtime." },
+          { term: "Annualisation", definition: "The conversion of a periodic figure (hourly, weekly, monthly) into a yearly equivalent for comparison." },
+        ]}
+      />
 
       <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
         <RelatedTools

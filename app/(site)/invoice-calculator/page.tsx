@@ -5,6 +5,7 @@ import FaqList from "@/components/shared/FaqList";
 import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
+import GlossarySection from "@/components/shared/GlossarySection";
 import MethodologyBox from "@/components/shared/MethodologyBox";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
@@ -124,23 +125,13 @@ Invoice Total = Subtotal − Discount Amount + Tax Amount`}
 
       <FaqList items={META.faqs} />
 
-      <section className="mt-12">
-        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
-        <dl className="mt-3 space-y-3 text-sm text-gray-700">
-          <div>
-            <dt className="font-semibold text-brand-dark">Net Amount</dt>
-            <dd>The invoice subtotal before tax — what you actually earn from the sale.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Gross Amount</dt>
-            <dd>The total payable by the client, including tax. This is the figure that lands in your bank account.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">VAT and GST</dt>
-            <dd>Consumption taxes charged on the sale, collected by the seller, and remitted to the tax authority. Not revenue.</dd>
-          </div>
-        </dl>
-      </section>
+      <GlossarySection
+        items={[
+          { term: "Net Amount", definition: "The invoice subtotal before tax — what you actually earn from the sale." },
+          { term: "Gross Amount", definition: "The total payable by the client, including tax. This is the figure that lands in your bank account." },
+          { term: "VAT and GST", definition: "Consumption taxes charged on the sale, collected by the seller, and remitted to the tax authority. Not revenue." },
+        ]}
+      />
 
       <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
         <RelatedTools slugs={["freelance-rate-calculator", "net-profit-calculator"]} />

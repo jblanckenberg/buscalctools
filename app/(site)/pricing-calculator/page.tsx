@@ -5,6 +5,7 @@ import FaqList from "@/components/shared/FaqList";
 import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
+import GlossarySection from "@/components/shared/GlossarySection";
 import MethodologyBox from "@/components/shared/MethodologyBox";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
@@ -124,27 +125,14 @@ Example (margin mode): Cost = $20 | Target Margin = 40%
 
       <FaqList items={META.faqs} />
 
-      <section className="mt-12">
-        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
-        <dl className="mt-3 space-y-3 text-sm text-gray-700">
-          <div>
-            <dt className="font-semibold text-brand-dark">Target Margin</dt>
-            <dd>The gross margin you want each sale to earn, expressed as a percentage of selling price. Drives the price-from-margin formula.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Cost-Plus Pricing</dt>
-            <dd>Setting price by adding a fixed margin or markup on top of internal cost. Simple and defensible, but ignores what the customer is willing to pay.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Value-Based Pricing</dt>
-            <dd>Setting price from the value the customer perceives rather than internal cost. Usually delivers higher margins when the value is clearly quantifiable.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Psychological Price Point</dt>
-            <dd>A round-up to a price ending in 9 or 5 that anchors better with buyers than the raw calculator output. Worth a small premium over the mathematical answer.</dd>
-          </div>
-        </dl>
-      </section>
+      <GlossarySection
+        items={[
+          { term: "Target Margin", definition: "The gross margin you want each sale to earn, expressed as a percentage of selling price. Drives the price-from-margin formula." },
+          { term: "Cost-Plus Pricing", definition: "Setting price by adding a fixed margin or markup on top of internal cost. Simple and defensible, but ignores what the customer is willing to pay." },
+          { term: "Value-Based Pricing", definition: "Setting price from the value the customer perceives rather than internal cost. Usually delivers higher margins when the value is clearly quantifiable." },
+          { term: "Psychological Price Point", definition: "A round-up to a price ending in 9 or 5 that anchors better with buyers than the raw calculator output. Worth a small premium over the mathematical answer." },
+        ]}
+      />
 
       <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
         <RelatedTools slugs={["profit-margin-calculator", "markup-calculator"]} />

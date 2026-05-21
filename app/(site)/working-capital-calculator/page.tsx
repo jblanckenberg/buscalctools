@@ -5,6 +5,7 @@ import FaqList from "@/components/shared/FaqList";
 import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
+import GlossarySection from "@/components/shared/GlossarySection";
 import MethodologyBox from "@/components/shared/MethodologyBox";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
@@ -142,23 +143,13 @@ Example: Current Assets = $150,000 | Current Liabilities = $80,000
 
       <FaqList items={META.faqs} />
 
-      <section className="mt-12">
-        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
-        <dl className="mt-3 space-y-3 text-sm text-gray-700">
-          <div>
-            <dt className="font-semibold text-brand-dark">Current Assets</dt>
-            <dd>Assets that will be converted to cash within 12 months — cash, receivables, inventory, prepaid expenses.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Current Liabilities</dt>
-            <dd>Obligations due within 12 months — payables, short-term debt, accrued expenses, current portion of long-term debt.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Current Ratio</dt>
-            <dd>Current assets divided by current liabilities — a multiple that measures short-term liquidity. Banks typically want 1.5 or higher.</dd>
-          </div>
-        </dl>
-      </section>
+      <GlossarySection
+        items={[
+          { term: "Current Assets", definition: "Assets that will be converted to cash within 12 months — cash, receivables, inventory, prepaid expenses." },
+          { term: "Current Liabilities", definition: "Obligations due within 12 months — payables, short-term debt, accrued expenses, current portion of long-term debt." },
+          { term: "Current Ratio", definition: "Current assets divided by current liabilities — a multiple that measures short-term liquidity. Banks typically want 1.5 or higher." },
+        ]}
+      />
 
       <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
         <RelatedTools

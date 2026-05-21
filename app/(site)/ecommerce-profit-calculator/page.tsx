@@ -5,6 +5,7 @@ import FaqList from "@/components/shared/FaqList";
 import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
+import GlossarySection from "@/components/shared/GlossarySection";
 import MethodologyBox from "@/components/shared/MethodologyBox";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
@@ -126,27 +127,14 @@ Example: $29.99 sale | $8 cost | 15% fee | $3.50 shipping | $2 ads
 
       <FaqList items={META.faqs} />
 
-      <section className="mt-12">
-        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
-        <dl className="mt-3 space-y-3 text-sm text-gray-700">
-          <div>
-            <dt className="font-semibold text-brand-dark">Platform Fee</dt>
-            <dd>The marketplace cut taken on each sale. Amazon referral fees are typically 15%; Etsy charges 6.5% transaction plus listing and payment fees; eBay sits around 12-15%.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">ACoS</dt>
-            <dd>Advertising cost of sale — ad spend divided by ad-attributed revenue. The per-unit ad cost that has to come out of gross margin before it becomes profit.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">FBA</dt>
-            <dd>Fulfilment by Amazon — Amazon stores, picks, packs and ships your inventory in exchange for a per-unit fulfilment fee based on size and weight.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Landed Cost</dt>
-            <dd>The all-in product cost including supplier price, inbound freight, duties, and inspection. The right number to use in this calculator, not the supplier invoice alone.</dd>
-          </div>
-        </dl>
-      </section>
+      <GlossarySection
+        items={[
+          { term: "Platform Fee", definition: "The marketplace cut taken on each sale. Amazon referral fees are typically 15%; Etsy charges 6.5% transaction plus listing and payment fees; eBay sits around 12-15%." },
+          { term: "ACoS", definition: "Advertising cost of sale — ad spend divided by ad-attributed revenue. The per-unit ad cost that has to come out of gross margin before it becomes profit." },
+          { term: "FBA", definition: "Fulfilment by Amazon — Amazon stores, picks, packs and ships your inventory in exchange for a per-unit fulfilment fee based on size and weight." },
+          { term: "Landed Cost", definition: "The all-in product cost including supplier price, inbound freight, duties, and inspection. The right number to use in this calculator, not the supplier invoice alone." },
+        ]}
+      />
 
       <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
         <RelatedTools slugs={["profit-margin-calculator", "markup-calculator"]} />

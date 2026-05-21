@@ -5,6 +5,7 @@ import FaqList from "@/components/shared/FaqList";
 import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
+import GlossarySection from "@/components/shared/GlossarySection";
 import MethodologyBox from "@/components/shared/MethodologyBox";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
@@ -92,27 +93,14 @@ Example: $30/mo | 80% margin | 5% monthly churn (20-mo) | 20% annual churn (5-yr
 
       <FaqList items={META.faqs} />
 
-      <section className="mt-12">
-        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
-        <dl className="mt-3 space-y-3 text-sm text-gray-700">
-          <div>
-            <dt className="font-semibold text-brand-dark">Annual Discount</dt>
-            <dd>The percentage taken off twelve months of monthly price when a customer prepays for the year. Convention is sixteen to twenty percent.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Monthly Churn</dt>
-            <dd>The percentage of monthly subscribers who cancel each month. Inverted gives expected lifespan in months.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Annual Churn</dt>
-            <dd>The percentage of annual subscribers who fail to renew each year. Typically thirty to fifty percent lower in absolute terms than the monthly equivalent.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Break-Even Discount</dt>
-            <dd>The discount level at which annual LTV exactly matches monthly LTV. Any discount below it makes the annual plan a positive trade for the business.</dd>
-          </div>
-        </dl>
-      </section>
+      <GlossarySection
+        items={[
+          { term: "Annual Discount", definition: "The percentage taken off twelve months of monthly price when a customer prepays for the year. Convention is sixteen to twenty percent." },
+          { term: "Monthly Churn", definition: "The percentage of monthly subscribers who cancel each month. Inverted gives expected lifespan in months." },
+          { term: "Annual Churn", definition: "The percentage of annual subscribers who fail to renew each year. Typically thirty to fifty percent lower in absolute terms than the monthly equivalent." },
+          { term: "Break-Even Discount", definition: "The discount level at which annual LTV exactly matches monthly LTV. Any discount below it makes the annual plan a positive trade for the business." },
+        ]}
+      />
 
       <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
         <RelatedTools slugs={["pricing-calculator", "cac-ltv-calculator", "freelance-rate-calculator"]} />

@@ -5,6 +5,7 @@ import FaqList from "@/components/shared/FaqList";
 import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
+import GlossarySection from "@/components/shared/GlossarySection";
 import MethodologyBox from "@/components/shared/MethodologyBox";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
@@ -124,27 +125,14 @@ Net Profit Margin    = Net Profit / Revenue × 100`}
 
       <FaqList items={META.faqs} />
 
-      <section className="mt-12">
-        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
-        <dl className="mt-3 space-y-3 text-sm text-gray-700">
-          <div>
-            <dt className="font-semibold text-brand-dark">COGS</dt>
-            <dd>Cost of goods sold — the direct costs of producing what you sell. Materials, direct labour, freight in. Excludes overhead and admin.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">EBIT</dt>
-            <dd>Earnings before interest and tax — gross profit minus operating expenses. The headline operating-profit number.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">EBT</dt>
-            <dd>Earnings before tax — operating profit after deducting interest expense. The base figure for calculating corporate tax.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Net Profit Margin</dt>
-            <dd>Net profit divided by revenue. The percentage of every dollar of sales that becomes profit after all costs and tax.</dd>
-          </div>
-        </dl>
-      </section>
+      <GlossarySection
+        items={[
+          { term: "COGS", definition: "Cost of goods sold — the direct costs of producing what you sell. Materials, direct labour, freight in. Excludes overhead and admin." },
+          { term: "EBIT", definition: "Earnings before interest and tax — gross profit minus operating expenses. The headline operating-profit number." },
+          { term: "EBT", definition: "Earnings before tax — operating profit after deducting interest expense. The base figure for calculating corporate tax." },
+          { term: "Net Profit Margin", definition: "Net profit divided by revenue. The percentage of every dollar of sales that becomes profit after all costs and tax." },
+        ]}
+      />
 
       <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
         <RelatedTools slugs={["profit-margin-calculator", "roi-calculator"]} />
