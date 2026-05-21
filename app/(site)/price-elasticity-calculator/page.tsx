@@ -87,7 +87,43 @@ Typical elasticities (rough industry medians):
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this before any meaningful price change — a five, ten, or twenty percent hike across an existing product, a new pricing tier, or a discount campaign you suspect might be cannibalising margin. It is the right tool when you have at least two data points of historical price and volume on the same product, or when you want to stress-test a price decision against industry-typical elasticity ranges.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you are setting price from scratch with no historical data, start with the Pricing Calculator and use this one later to test the elasticity assumption. For recurring revenue products where annual versus monthly mix matters, the Subscription Pricing Calculator is the better companion.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
+
+      <section className="mt-12">
+        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
+        <dl className="mt-3 space-y-3 text-sm text-gray-700">
+          <div>
+            <dt className="font-semibold text-brand-dark">Price Elasticity of Demand</dt>
+            <dd>The percentage change in quantity demanded divided by the percentage change in price. Almost always negative; the absolute value tells you how responsive customers are.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">Inelastic Demand</dt>
+            <dd>Elasticity between zero and one in absolute value. Demand drops less than price rises, so a price hike raises total revenue. Necessities and locked-in services typically sit here.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">Elastic Demand</dt>
+            <dd>Elasticity greater than one in absolute value. Demand drops faster than price rises, so a price hike cuts total revenue. Most discretionary goods and substitutable commodities sit here.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">Unit Elastic</dt>
+            <dd>Elasticity of exactly minus one. Demand drops at the same percentage rate as price rises, leaving total revenue unchanged. The theoretical break-even point of a price change.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">Cross-Price Elasticity</dt>
+            <dd>The change in your demand caused by a competitor's price change. Positive when products substitute for each other. Often more damaging than own-price elasticity in competitive markets.</dd>
+          </div>
+        </dl>
+      </section>
 
       <RelatedTools slugs={["pricing-calculator", "markup-calculator", "subscription-pricing-calculator"]} />
 

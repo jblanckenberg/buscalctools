@@ -121,7 +121,39 @@ Quarterly     = Total ÷ 4`}
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this if you are a freelancer, sole proprietor, single-member LLC owner, or independent contractor with 1099 income. It produces the total tax exposure for the year and the four equal quarterly payments to send to the IRS so you stay under the safe-harbor threshold. Re-run it every time net income shifts meaningfully — gaining a major client, losing one, or moving to a new state.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If profit is climbing past roughly fifty thousand dollars a year and the SE tax line is getting painful, run the S-Corp Election Calculator to see whether switching tax structures will reduce the bill. To set the quarterly payment exactly to the safe-harbor minimum rather than full liability, use the Estimated Tax Calculator.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
+
+      <section className="mt-12">
+        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
+        <dl className="mt-3 space-y-3 text-sm text-gray-700">
+          <div>
+            <dt className="font-semibold text-brand-dark">SE Tax</dt>
+            <dd>Self-employment tax — the 15.3 percent combined Social Security and Medicare contribution paid by self-employed people in place of FICA withholding.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">SE Base</dt>
+            <dd>Net SE income multiplied by 92.35 percent. The figure SE tax is actually computed against, reflecting the employer-share deduction.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">Half-SE Deduction</dt>
+            <dd>An above-the-line deduction equal to half of SE tax. Reduces AGI for federal income tax purposes and is the most-missed deduction in first-year filings.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">QBI Deduction</dt>
+            <dd>Section 199A's twenty percent deduction on qualified business income for most non-specified-service trades. Phases out at higher income levels and is not modelled in this v1 calculator.</dd>
+          </div>
+        </dl>
+      </section>
 
       <RelatedTools
         slugs={["s-corp-election-calculator", "estimated-tax-calculator", "freelance-rate-calculator"]}

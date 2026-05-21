@@ -94,7 +94,39 @@ NPV Comparison (5% discount rate):
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this when planning a major equipment purchase — vehicles, machinery, computers, qualifying software, or office equipment — and you want to know whether immediate Section 179 expensing or the slower MACRS schedule produces more present-value tax benefit. It is also the right tool when modelling a year-end capex push to reduce a higher-than-expected tax bill.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you are evaluating the underlying return on the investment rather than the tax timing, the ROI Calculator is the better starting point. To see whether the equipment purchase fits within available financing, pair this with the Business Loan Calculator.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
+
+      <section className="mt-12">
+        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
+        <dl className="mt-3 space-y-3 text-sm text-gray-700">
+          <div>
+            <dt className="font-semibold text-brand-dark">Section 179</dt>
+            <dd>The IRC provision allowing businesses to immediately deduct the full cost of qualifying equipment in the year of purchase, subject to annual dollar caps and an income limitation.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">MACRS</dt>
+            <dd>Modified Accelerated Cost Recovery System — the default US depreciation method that spreads equipment cost over a fixed recovery period using accelerated schedules.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">Bonus Depreciation</dt>
+            <dd>A separate accelerated-expensing provision that lets businesses deduct a percentage of qualifying property in year one. Currently phasing down annually unless extended.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">Income Limitation</dt>
+            <dd>The rule preventing Section 179 from reducing taxable business income below zero. Unused deduction carries forward to future years rather than producing a refundable credit.</dd>
+          </div>
+        </dl>
+      </section>
 
       <RelatedTools slugs={["roi-calculator", "business-loan-calculator", "cash-flow-calculator"]} />
 

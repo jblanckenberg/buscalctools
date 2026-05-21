@@ -82,7 +82,43 @@ Example: $500,000 payroll, 8 employees ($62,500 avg), moderate state (~3.5%):
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this when budgeting headcount additions, when sizing payroll for an annual operating plan, when negotiating salary against a fully-loaded cost target, or when comparing the true cost of opening operations in different US states. The employer payroll tax burden typically adds nine to thirteen percent on top of gross wages and is one of the larger non-salary line items in any small-business budget.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you want to see total per-employee cost including benefits, workspace, equipment, and overhead, the Employee Cost Calculator extends this view. If you are pricing your own time as an owner rather than computing employer-side burden, switch to the Self-Employment Tax Calculator.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
+
+      <section className="mt-12">
+        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
+        <dl className="mt-3 space-y-3 text-sm text-gray-700">
+          <div>
+            <dt className="font-semibold text-brand-dark">FICA</dt>
+            <dd>Federal Insurance Contributions Act tax — the combined 7.65 percent Social Security and Medicare employer share. Social Security caps at the annual wage base; Medicare has no cap.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">FUTA</dt>
+            <dd>Federal Unemployment Tax Act — a 0.6 percent federal levy on the first seven thousand dollars of each employee's annual wages, after the standard state credit.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">State UI</dt>
+            <dd>State unemployment insurance — a state-administered employer tax whose rate is adjusted each year based on the employer's actual claims experience. New employers start at a default rate for two to three years.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">Workers Compensation</dt>
+            <dd>Mandatory insurance covering on-the-job injuries. Premium varies dramatically by industry — office staff at a fraction of a percent, construction in the high single digits or more.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">Experience Rating</dt>
+            <dd>The state UI mechanism that adjusts an established employer's rate up or down based on the unemployment claims actually filed by former employees.</dd>
+          </div>
+        </dl>
+      </section>
 
       <RelatedTools slugs={["employee-cost-calculator", "self-employment-tax-calculator", "hourly-to-salary-calculator"]} />
 
