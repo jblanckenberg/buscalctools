@@ -3,9 +3,9 @@ import { VARIANTS, getVariant, listVariants, allVariantParams } from "@/lib/vari
 import { CALC_META } from "@/lib/calc-meta";
 
 describe("variant matrix", () => {
-  it("includes exactly 15 variant pages", () => {
+  it("includes exactly 25 variant pages", () => {
     const flat = Object.values(VARIANTS).flatMap((m) => Object.values(m));
-    expect(flat).toHaveLength(15);
+    expect(flat).toHaveLength(25);
   });
 
   it("every variant references a known calculator", () => {
@@ -27,13 +27,13 @@ describe("variant matrix", () => {
 
   it("listVariants returns all variants for a calc", () => {
     const list = listVariants("profit-margin-calculator");
-    expect(list.map((v) => v.slug).sort()).toEqual(["ecommerce", "restaurants", "uk", "us"]);
+    expect(list.map((v) => v.slug).sort()).toEqual(["ecommerce", "restaurants", "uk", "us", "za"]);
   });
 
   it("allVariantParams emits flat {calculator, variant} list for generateStaticParams", () => {
     const params = allVariantParams();
     expect(params).toContainEqual({ calculator: "profit-margin-calculator", variant: "uk" });
-    expect(params).toHaveLength(15);
+    expect(params).toHaveLength(25);
   });
 
   it("no intro is still an OPERATOR_TO_FILL stub", () => {
