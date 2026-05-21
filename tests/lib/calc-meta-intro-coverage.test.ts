@@ -3,10 +3,20 @@ import fs from "node:fs";
 import path from "node:path";
 import { TOOLS } from "@/lib/tools";
 
+const WORD_THRESHOLD = 200;
+
 // Count visible-text words in a calculator's page.tsx by stripping JSX tags,
 // imports, attributes, and code blocks. This is a heuristic, not a parser —
-// the threshold (200 words) is set loosely so a calculator with the
+// the threshold (WORD_THRESHOLD = 200) is set loosely so a calculator with the
 // recommended 200-400 word intro+example copy passes comfortably.
+//
+// Known false-negative cases (acceptable — they push the count DOWN, not up):
+//   1. {TEMPLATE_VAR} JSX interpolations stripped entirely.
+//   2. `template literal` backtick blocks stripped (FormulaBox content lost).
+//   3. dangerouslySetInnerHTML={{ __html: "..." }} — outer {{...}} stripped as
+//      two single-brace tokens, inner string content dropped. No current page
+//      uses this pattern but future authors should be aware.
+//   4. Copy inside imported shared components is not followed.
 function countWords(slug: string): number {
   const candidates = [
     path.resolve(__dirname, `../../app/(site)/${slug}/page.tsx`),
@@ -30,11 +40,11 @@ function countWords(slug: string): number {
   return stripped.split(/\s+/).filter((w) => w.length > 1).length;
 }
 
-describe("calculator pages have >= 200 words of visible intro/example copy", () => {
+describe(`calculator pages have >= ${WORD_THRESHOLD} words of visible intro/example copy`, () => {
   for (const tool of TOOLS) {
     it(`${tool.slug}`, () => {
       const wc = countWords(tool.slug);
-      expect(wc, `${tool.slug}: only ${wc} words — add 200-400 of intro/example/methodology copy`).toBeGreaterThanOrEqual(200);
+      expect(wc, `${tool.slug}: only ${wc} words — add 200-400 of intro/example/methodology copy`).toBeGreaterThanOrEqual(WORD_THRESHOLD);
     });
   }
 });

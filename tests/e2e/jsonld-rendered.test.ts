@@ -28,8 +28,8 @@ function extractJsonLd(html: string): unknown[] {
   while ((m = re.exec(html)) !== null) {
     try {
       out.push(JSON.parse(m[1]));
-    } catch {
-      // skip malformed
+    } catch (err) {
+      console.warn("extractJsonLd: failed to parse JSON-LD block:", err);
     }
   }
   return out;

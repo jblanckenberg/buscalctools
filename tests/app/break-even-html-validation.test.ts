@@ -26,10 +26,13 @@ describe("break-even-calculator rendered HTML is well-formed", () => {
   // Count opens vs closes for each structural tag. Void elements (meta, link, br,
   // input, img, source, etc.) are NOT in this list — they have no closing tag by
   // definition, and Next.js's <meta/> XHTML-style serialisation is not a real bug.
-  it("has no mismatched section/ul/ol/dl/article/div/li/dt/dd tags", () => {
+  it("has balanced open/close counts for all structural tags", () => {
+    // Strip <script> blocks before counting — JSON-LD payloads can contain
+    // literal '<section>' or '</details>' strings that would inflate the count.
+    const scrubbed = html.replace(/<script[^>]*>[\s\S]*?<\/script>/g, "");
     for (const tag of ["section", "ul", "ol", "dl", "article", "div", "li", "dt", "dd", "nav", "header", "main", "footer", "details", "summary", "table", "tbody", "tr", "td", "th"]) {
-      const open = (html.match(new RegExp(`<${tag}(?:\\s|>)`, "g")) || []).length;
-      const close = (html.match(new RegExp(`</${tag}>`, "g")) || []).length;
+      const open = (scrubbed.match(new RegExp(`<${tag}(?:\\s|>)`, "g")) || []).length;
+      const close = (scrubbed.match(new RegExp(`</${tag}>`, "g")) || []).length;
       expect(open, `<${tag}> tag mismatch: ${open} open vs ${close} close`).toBe(close);
     }
   });
