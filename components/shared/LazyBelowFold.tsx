@@ -16,11 +16,13 @@ export default function LazyBelowFold({
   rootMargin = "200px",
 }: Props) {
   const ref = useRef<HTMLDivElement | null>(null);
+  const didReveal = useRef(false);
   const [visible, setVisible] = useState(() => typeof window === "undefined");
 
   useEffect(() => {
-    if (visible) return;
+    if (didReveal.current) return;
     if (typeof IntersectionObserver === "undefined") {
+      didReveal.current = true;
       setVisible(true);
       return;
     }
@@ -29,6 +31,7 @@ export default function LazyBelowFold({
       (entries) => {
         for (const e of entries) {
           if (e.isIntersecting) {
+            didReveal.current = true;
             setVisible(true);
             io.disconnect();
             return;
@@ -39,7 +42,7 @@ export default function LazyBelowFold({
     );
     io.observe(ref.current);
     return () => io.disconnect();
-  }, [visible, rootMargin]);
+  }, [rootMargin]);
 
   if (visible) return <>{children}</>;
   return (
