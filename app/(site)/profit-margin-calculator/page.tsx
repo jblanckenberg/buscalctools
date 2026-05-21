@@ -2,10 +2,9 @@ import ProfitMarginCalculator from "@/components/calculators/ProfitMarginCalcula
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
-import LazyBelowFold from "@/components/shared/LazyBelowFold";
-import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
-import MethodologyBox from "@/components/shared/MethodologyBox";
+import LazyMethodologyBox from "@/components/shared/LazyMethodologyBox";
+import LazyRelatedTools from "@/components/shared/LazyRelatedTools";
 import EmbedCTA from "@/components/shared/EmbedCTA";
 import GlossarySection from "@/components/shared/GlossarySection";
 import WebAppSchema from "@/components/shared/WebAppSchema";
@@ -144,18 +143,14 @@ Example: Revenue = $50,000 | COGS = $30,000
         ]}
       />
 
-      <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
-        <RelatedTools
-          slugs={["markup-calculator", "pricing-calculator", "net-profit-calculator"]}
-          surfaceComparisonsForCalc="profit-margin-calculator"
-        />
-      </LazyBelowFold>
+      <LazyRelatedTools
+        slugs={["markup-calculator", "pricing-calculator", "net-profit-calculator"]}
+        surfaceComparisonsForCalc="profit-margin-calculator"
+      />
 
       <EmbedCTA slug={SLUG} />
 
-      <LazyBelowFold minHeight={400} placeholderLabel="Methodology section loading">
-        <MethodologyBox slug={SLUG} />
-      </LazyBelowFold>
+      <LazyMethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>

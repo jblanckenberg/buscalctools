@@ -2,11 +2,10 @@ import RevenueGrowthCalculator from "@/components/calculators/RevenueGrowthCalcu
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
-import LazyBelowFold from "@/components/shared/LazyBelowFold";
-import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import GlossarySection from "@/components/shared/GlossarySection";
-import MethodologyBox from "@/components/shared/MethodologyBox";
+import LazyMethodologyBox from "@/components/shared/LazyMethodologyBox";
+import LazyRelatedTools from "@/components/shared/LazyRelatedTools";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -139,13 +138,9 @@ Example CAGR: Revenue grew from $100,000 to $250,000 over 4 years
         ]}
       />
 
-      <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
-        <RelatedTools slugs={["net-profit-calculator", "business-valuation-calculator", "cash-flow-calculator"]} />
-      </LazyBelowFold>
+      <LazyRelatedTools slugs={["net-profit-calculator", "business-valuation-calculator", "cash-flow-calculator"]} />
 
-      <LazyBelowFold minHeight={400} placeholderLabel="Methodology section loading">
-        <MethodologyBox slug={SLUG} />
-      </LazyBelowFold>
+      <LazyMethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>

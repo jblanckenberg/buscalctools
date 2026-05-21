@@ -2,11 +2,10 @@ import DsoCalculator from "@/components/calculators/DsoCalculator";
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
-import LazyBelowFold from "@/components/shared/LazyBelowFold";
-import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import GlossarySection from "@/components/shared/GlossarySection";
-import MethodologyBox from "@/components/shared/MethodologyBox";
+import LazyMethodologyBox from "@/components/shared/LazyMethodologyBox";
+import LazyRelatedTools from "@/components/shared/LazyRelatedTools";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -156,15 +155,11 @@ Example: AR = $120,000 | Annual Revenue = $1,200,000
         ]}
       />
 
-      <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
-        <RelatedTools
-          slugs={["working-capital-calculator", "cash-flow-calculator", "invoice-calculator"]}
-        />
-      </LazyBelowFold>
+      <LazyRelatedTools
+        slugs={["working-capital-calculator", "cash-flow-calculator", "invoice-calculator"]}
+      />
 
-      <LazyBelowFold minHeight={400} placeholderLabel="Methodology section loading">
-        <MethodologyBox slug={SLUG} />
-      </LazyBelowFold>
+      <LazyMethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>

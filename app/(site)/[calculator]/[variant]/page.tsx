@@ -6,10 +6,9 @@ import VariantSchema from "@/components/shared/VariantSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import FaqList from "@/components/shared/FaqList";
 import FormulaBox from "@/components/shared/FormulaBox";
-import LazyBelowFold from "@/components/shared/LazyBelowFold";
-import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
-import MethodologyBox from "@/components/shared/MethodologyBox";
+import LazyMethodologyBox from "@/components/shared/LazyMethodologyBox";
+import LazyRelatedTools from "@/components/shared/LazyRelatedTools";
 import { variantMetadata } from "@/lib/seo";
 import { calcMeta, calcBreadcrumb } from "@/lib/calc-meta";
 import { allVariantParams, getVariant } from "@/lib/variants";
@@ -102,12 +101,8 @@ export default async function VariantPage({ params }: { params: Promise<Params> 
         </pre>
       </FormulaBox>
       <FaqList items={meta.faqs} />
-      <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
-        <RelatedTools slugs={[calculator]} />
-      </LazyBelowFold>
-      <LazyBelowFold minHeight={400} placeholderLabel="Methodology section loading">
-        <MethodologyBox slug={calculator} />
-      </LazyBelowFold>
+      <LazyRelatedTools slugs={[calculator]} />
+      <LazyMethodologyBox slug={calculator} />
       <Disclaimer />
     </CalculatorShell>
   );
