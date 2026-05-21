@@ -130,7 +130,35 @@ TY 2026 Due Dates:
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this any quarter you have self-employment or business income that is not subject to W-2 withholding. It is the right tool for freelancers, sole proprietors, single-member LLC owners, S-corp shareholders taking distributions, and partners with K-1 income — anyone who is responsible for moving their own tax payments to the IRS on the quarterly schedule.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If most of your income runs through W-2 withholding and the side income is small, increasing your W-2 withholding via Form W-4 can cover the gap without quarterly vouchers. To see how much SE tax sits inside your projected liability, pair this with the Self-Employment Tax Calculator.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
+
+      <section className="mt-12">
+        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
+        <dl className="mt-3 space-y-3 text-sm text-gray-700">
+          <div>
+            <dt className="font-semibold text-brand-dark">Safe Harbor</dt>
+            <dd>The IRS-structured payment level that eliminates the underpayment penalty regardless of year-end true-up. The lesser of last year's tax or ninety percent of this year's estimate.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">1040-ES</dt>
+            <dd>The IRS voucher used to pay quarterly estimated tax. Mail with payment or pay electronically via IRS Direct Pay.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">Underpayment Penalty</dt>
+            <dd>An interest-based charge applied quarter-by-quarter when payments fall below the safe harbor threshold. Currently around eight percent annualised.</dd>
+          </div>
+        </dl>
+      </section>
 
       <RelatedTools
         slugs={["self-employment-tax-calculator", "s-corp-election-calculator", "cash-flow-calculator"]}

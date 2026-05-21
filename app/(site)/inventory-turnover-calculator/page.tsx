@@ -88,7 +88,35 @@ Example: COGS $600,000 | Begin $120k, End $100k
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this when you stock physical inventory and want to see whether you are turning it efficiently relative to your sector — retail, wholesale, light manufacturing, or distribution. It is also the right tool when planning a buying cycle, evaluating a slow-moving SKU, or building the working-capital section of a credit application.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you sell services rather than goods, inventory turnover is not a relevant metric — switch to the Working Capital Calculator or the Cash Flow Calculator. For a deeper dive into how slow inventory ties up cash, pair this with the Working Capital Calculator to see the cash-conversion-cycle picture.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
+
+      <section className="mt-12">
+        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
+        <dl className="mt-3 space-y-3 text-sm text-gray-700">
+          <div>
+            <dt className="font-semibold text-brand-dark">Turnover Ratio</dt>
+            <dd>Annual cost of goods sold divided by average inventory. How many times you completely cycle through stock in a year.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">Days in Inventory</dt>
+            <dd>365 divided by the turnover ratio. The average number of days a unit sits on the shelf before being sold.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">Carrying Cost</dt>
+            <dd>The annual cost of holding inventory — insurance, warehousing, capital cost, obsolescence, shrinkage. Typically fifteen to twenty-five percent of average inventory value.</dd>
+          </div>
+        </dl>
+      </section>
 
       <RelatedTools slugs={["working-capital-calculator", "dso-calculator", "cash-flow-calculator"]} />
 

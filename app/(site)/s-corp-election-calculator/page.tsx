@@ -138,7 +138,35 @@ Break-even profit: typically $40-60k`}
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this when you have an LLC or sole proprietorship that has consistently cleared roughly forty to sixty thousand dollars of net profit and you want to know whether electing S-corp status delivers enough self-employment tax savings to justify the added payroll and compliance overhead. Re-run the numbers each year as profit grows or as the reasonable-salary band tightens.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If profit is still climbing toward the break-even threshold, hold the election and continue with the LLC default. Pair the result here with the Estimated Tax Calculator to see whether the quarterly payment schedule changes meaningfully after the election.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
+
+      <section className="mt-12">
+        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
+        <dl className="mt-3 space-y-3 text-sm text-gray-700">
+          <div>
+            <dt className="font-semibold text-brand-dark">Reasonable Salary</dt>
+            <dd>The W-2 wage an S-corp owner-employee must pay themselves for the work they actually perform. Set too low and the IRS will re-characterise distributions as wages.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">Distribution</dt>
+            <dd>The portion of S-corp profit paid to owners after reasonable salary. Subject to income tax but not FICA, which is where the S-corp savings live.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">Form 2553</dt>
+            <dd>The IRS election form an LLC or C-corp files to be taxed as an S-corp. Generally due within 75 days of the start of the tax year you want the election to take effect.</dd>
+          </div>
+        </dl>
+      </section>
 
       <RelatedTools
         slugs={["self-employment-tax-calculator", "estimated-tax-calculator", "freelance-rate-calculator"]}

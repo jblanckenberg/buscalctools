@@ -79,7 +79,39 @@ Example: $30/mo | 80% margin | 5% monthly churn (20-mo) | 20% annual churn (5-yr
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this when designing or repricing a recurring-revenue product — SaaS, membership, subscription box, or content site — and you need to decide the annual-plan discount that maximises lifetime value rather than just nominal revenue. It is also the right tool when an existing monthly customer base is being migrated to annual contracts and you need to size the incentive.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you are setting the monthly price from scratch, the Pricing Calculator is the better starting point. To check that the resulting LTV justifies your customer acquisition cost, run the output through the CAC vs LTV Calculator before committing the discount publicly.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
+
+      <section className="mt-12">
+        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
+        <dl className="mt-3 space-y-3 text-sm text-gray-700">
+          <div>
+            <dt className="font-semibold text-brand-dark">Annual Discount</dt>
+            <dd>The percentage taken off twelve months of monthly price when a customer prepays for the year. Convention is sixteen to twenty percent.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">Monthly Churn</dt>
+            <dd>The percentage of monthly subscribers who cancel each month. Inverted gives expected lifespan in months.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">Annual Churn</dt>
+            <dd>The percentage of annual subscribers who fail to renew each year. Typically thirty to fifty percent lower in absolute terms than the monthly equivalent.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">Break-Even Discount</dt>
+            <dd>The discount level at which annual LTV exactly matches monthly LTV. Any discount below it makes the annual plan a positive trade for the business.</dd>
+          </div>
+        </dl>
+      </section>
 
       <RelatedTools slugs={["pricing-calculator", "cac-ltv-calculator", "freelance-rate-calculator"]} />
 

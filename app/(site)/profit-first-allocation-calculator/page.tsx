@@ -93,7 +93,35 @@ Example: $30,000/mo revenue, 15% materials
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this when you are adopting the Profit First system for the first time, when annual revenue crosses into a new tier and the target percentages should shift, or when you want a single monthly bank-allocation rhythm rather than a profit-and-loss-driven owner draw. It is built for owner-operated small businesses where cash discipline matters more than accounting nuance.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you are pricing a service rather than allocating revenue, the Freelance Rate Calculator is the better starting point. To check whether the bank balance and the income statement actually agree, run the Cash Flow Calculator alongside this allocation view.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
+
+      <section className="mt-12">
+        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
+        <dl className="mt-3 space-y-3 text-sm text-gray-700">
+          <div>
+            <dt className="font-semibold text-brand-dark">Real Revenue</dt>
+            <dd>Top-line revenue minus pass-through costs like materials and subcontractors. The base for Profit First allocations.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">TAPs</dt>
+            <dd>Target Allocation Percentages — the share of Real Revenue assigned to each account at your tier.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">Profit Distribution</dt>
+            <dd>The quarterly transfer from the Profit account to the owner. Half is paid as a bonus, half kept as reserve.</dd>
+          </div>
+        </dl>
+      </section>
 
       <RelatedTools slugs={["cash-flow-calculator", "net-profit-calculator", "freelance-rate-calculator"]} />
 
