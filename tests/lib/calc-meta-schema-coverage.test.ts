@@ -23,10 +23,10 @@ describe("calc-meta schema coverage — every TOOLS slug has full JSON-LD inputs
       it("has HowTo steps for HowTo schema (>= 3, every step non-empty)", () => {
         expect(meta?.howToSteps, `${tool.slug}: howToSteps missing`).toBeDefined();
         expect(meta!.howToSteps!.length, `${tool.slug}: howToSteps.length < 3`).toBeGreaterThanOrEqual(3);
-        for (const s of meta!.howToSteps!) {
-          expect(s.name.trim().length).toBeGreaterThan(0);
-          expect(s.text.trim().length).toBeGreaterThan(0);
-        }
+        meta!.howToSteps!.forEach((s, idx) => {
+          expect(s.name.trim().length, `${tool.slug}: howToSteps[${idx}].name empty`).toBeGreaterThan(0);
+          expect(s.text.trim().length, `${tool.slug}: howToSteps[${idx}].text empty`).toBeGreaterThan(0);
+        });
       });
 
       it("has howToName + howToDescription for HowTo schema", () => {
@@ -34,9 +34,12 @@ describe("calc-meta schema coverage — every TOOLS slug has full JSON-LD inputs
         expect(meta?.howToDescription?.trim().length, `${tool.slug}: howToDescription missing`).toBeGreaterThan(0);
       });
 
-      it("has featureList for SoftwareApplication schema (>= 3 features)", () => {
+      it("has featureList for SoftwareApplication schema (>= 3 non-empty features)", () => {
         expect(meta?.featureList, `${tool.slug}: featureList missing`).toBeDefined();
-        expect(meta!.featureList!.length).toBeGreaterThanOrEqual(3);
+        expect(meta!.featureList!.length, `${tool.slug}: featureList.length < 3`).toBeGreaterThanOrEqual(3);
+        meta!.featureList!.forEach((f, idx) => {
+          expect(f.trim().length, `${tool.slug}: featureList[${idx}] empty`).toBeGreaterThan(0);
+        });
       });
 
       it("has applicationSubCategory for SoftwareApplication schema", () => {
