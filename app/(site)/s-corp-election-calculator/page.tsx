@@ -2,6 +2,7 @@ import SCorpElectionCalculator from "@/components/calculators/SCorpElectionCalcu
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
+import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import MethodologyBox from "@/components/shared/MethodologyBox";
@@ -168,11 +169,15 @@ Break-even profit: typically $40-60k`}
         </dl>
       </section>
 
-      <RelatedTools
-        slugs={["self-employment-tax-calculator", "estimated-tax-calculator", "freelance-rate-calculator"]}
-      />
+      <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
+        <RelatedTools
+          slugs={["self-employment-tax-calculator", "estimated-tax-calculator", "freelance-rate-calculator"]}
+        />
+      </LazyBelowFold>
 
-      <MethodologyBox slug={SLUG} />
+      <LazyBelowFold minHeight={400} placeholderLabel="Methodology section loading">
+        <MethodologyBox slug={SLUG} />
+      </LazyBelowFold>
 
       <Disclaimer />
     </CalculatorShell>

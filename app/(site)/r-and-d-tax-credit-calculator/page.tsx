@@ -2,6 +2,7 @@ import RAndDTaxCreditCalculator from "@/components/calculators/RAndDTaxCreditCal
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
+import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import MethodologyBox from "@/components/shared/MethodologyBox";
@@ -156,9 +157,13 @@ Example: $200k wages + $20k supplies + $50k contract research
         </dl>
       </section>
 
-      <RelatedTools slugs={["self-employment-tax-calculator", "section-179-calculator", "estimated-tax-calculator"]} />
+      <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
+        <RelatedTools slugs={["self-employment-tax-calculator", "section-179-calculator", "estimated-tax-calculator"]} />
+      </LazyBelowFold>
 
-      <MethodologyBox slug={SLUG} />
+      <LazyBelowFold minHeight={400} placeholderLabel="Methodology section loading">
+        <MethodologyBox slug={SLUG} />
+      </LazyBelowFold>
 
       <Disclaimer />
     </CalculatorShell>
