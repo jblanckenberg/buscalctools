@@ -129,6 +129,24 @@ Example CAGR: Revenue grew from $100,000 to $250,000 over 4 years
 
       <FaqList items={META.faqs} />
 
+      <section className="mt-12">
+        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
+        <dl className="mt-3 space-y-3 text-sm text-gray-700">
+          <div>
+            <dt className="font-semibold text-brand-dark">Growth Rate</dt>
+            <dd>The percentage change in revenue between two periods, calculated as the difference divided by the earlier period.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">CAGR</dt>
+            <dd>Compound annual growth rate — the smoothed annual rate that links a starting value to an ending value across multiple years.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">MoM and YoY</dt>
+            <dd>Month-over-month and year-over-year comparisons. Year-over-year cancels seasonality; month-over-month is more sensitive but noisier.</dd>
+          </div>
+        </dl>
+      </section>
+
       <RelatedTools slugs={["net-profit-calculator", "business-valuation-calculator", "cash-flow-calculator"]} />
 
       <MethodologyBox slug={SLUG} />
