@@ -26,7 +26,7 @@ export default function SiteLayout({
         src="https://consent.cookiebot.com/uc.js"
         data-cbid={COOKIEBOT_CBID}
         data-blockingmode="auto"
-        strategy="beforeInteractive"
+        strategy="afterInteractive"
       />
       <Header />
       <main className="min-h-screen bg-white" data-pagefind-body>{children}</main>
