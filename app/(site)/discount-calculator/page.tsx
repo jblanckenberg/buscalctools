@@ -122,6 +122,24 @@ Reverse: Discount % = ((Original − Discounted) / Original) × 100`}
 
       <FaqList items={META.faqs} />
 
+      <section className="mt-12">
+        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
+        <dl className="mt-3 space-y-3 text-sm text-gray-700">
+          <div>
+            <dt className="font-semibold text-brand-dark">Discount Rate</dt>
+            <dd>The percentage taken off the original price. Apply it to the price first, then add tax on the discounted amount.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">Effective Discount</dt>
+            <dd>The true percentage off when two or more discounts stack. Multiply the remaining-price factors rather than adding the percentages.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">Contribution per Sale</dt>
+            <dd>Sale price minus variable cost — the per-unit gross profit that has to cover the lost margin from the discount through extra volume.</dd>
+          </div>
+        </dl>
+      </section>
+
       <RelatedTools slugs={["markup-calculator", "pricing-calculator", "profit-margin-calculator"]} />
 
       <MethodologyBox slug={SLUG} />

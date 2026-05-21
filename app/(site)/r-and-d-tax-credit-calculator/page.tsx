@@ -134,6 +134,28 @@ Example: $200k wages + $20k supplies + $50k contract research
 
       <FaqList items={META.faqs} />
 
+      <section className="mt-12">
+        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
+        <dl className="mt-3 space-y-3 text-sm text-gray-700">
+          <div>
+            <dt className="font-semibold text-brand-dark">QRE</dt>
+            <dd>Qualified research expenditure — the wage, supply, and contract-research dollars that count toward the §41 credit base.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">ASC</dt>
+            <dd>Alternative Simplified Credit — the more common method for calculating the credit, equal to 14 percent of the increase over half of the prior three-year average QREs.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">QSB</dt>
+            <dd>Qualified small business — a company with under five million in gross receipts and no gross receipts more than five years before the current tax year. Eligible to offset payroll tax with the credit.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">Four-Part Test</dt>
+            <dd>The §41 qualification framework: permitted purpose, technological uncertainty, process of experimentation, and technological in nature.</dd>
+          </div>
+        </dl>
+      </section>
+
       <RelatedTools slugs={["self-employment-tax-calculator", "section-179-calculator", "estimated-tax-calculator"]} />
 
       <MethodologyBox slug={SLUG} />

@@ -123,6 +123,28 @@ Net Profit Margin    = Net Profit / Revenue × 100`}
 
       <FaqList items={META.faqs} />
 
+      <section className="mt-12">
+        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
+        <dl className="mt-3 space-y-3 text-sm text-gray-700">
+          <div>
+            <dt className="font-semibold text-brand-dark">COGS</dt>
+            <dd>Cost of goods sold — the direct costs of producing what you sell. Materials, direct labour, freight in. Excludes overhead and admin.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">EBIT</dt>
+            <dd>Earnings before interest and tax — gross profit minus operating expenses. The headline operating-profit number.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">EBT</dt>
+            <dd>Earnings before tax — operating profit after deducting interest expense. The base figure for calculating corporate tax.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">Net Profit Margin</dt>
+            <dd>Net profit divided by revenue. The percentage of every dollar of sales that becomes profit after all costs and tax.</dd>
+          </div>
+        </dl>
+      </section>
+
       <RelatedTools slugs={["profit-margin-calculator", "roi-calculator"]} />
 
       <MethodologyBox slug={SLUG} />

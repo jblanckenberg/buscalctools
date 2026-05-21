@@ -127,11 +127,19 @@ Example: Cost = $40 | Markup = 50%
         <dl className="mt-3 space-y-3 text-sm text-gray-700">
           <div>
             <dt className="font-semibold text-brand-dark">Markup</dt>
-            <dd>A percentage added on top of cost to set selling price.</dd>
+            <dd>A percentage added on top of cost to set selling price. Calculated as profit divided by cost.</dd>
           </div>
           <div>
             <dt className="font-semibold text-brand-dark">Margin</dt>
-            <dd>Profit expressed as a percentage of selling price (always lower than the equivalent markup).</dd>
+            <dd>Profit expressed as a percentage of selling price. Always lower than the equivalent markup on the same transaction.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">Cost Price</dt>
+            <dd>The all-in unit cost, including supplier invoice, inbound freight, duties, and allocated overhead — not just the wholesale price.</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-brand-dark">Keystone Markup</dt>
+            <dd>The retail-industry shorthand for a 100 percent markup — doubling the wholesale cost to set retail price. Common in apparel and homewares.</dd>
           </div>
         </dl>
       </section>
