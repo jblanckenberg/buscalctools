@@ -2,6 +2,7 @@ import EstimatedTaxCalculator from "@/components/calculators/EstimatedTaxCalcula
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
+import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import MethodologyBox from "@/components/shared/MethodologyBox";
@@ -160,11 +161,15 @@ TY 2026 Due Dates:
         </dl>
       </section>
 
-      <RelatedTools
-        slugs={["self-employment-tax-calculator", "s-corp-election-calculator", "cash-flow-calculator"]}
-      />
+      <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
+        <RelatedTools
+          slugs={["self-employment-tax-calculator", "s-corp-election-calculator", "cash-flow-calculator"]}
+        />
+      </LazyBelowFold>
 
-      <MethodologyBox slug={SLUG} />
+      <LazyBelowFold minHeight={400} placeholderLabel="Methodology section loading">
+        <MethodologyBox slug={SLUG} />
+      </LazyBelowFold>
 
       <Disclaimer />
     </CalculatorShell>

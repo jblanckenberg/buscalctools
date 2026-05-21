@@ -2,6 +2,7 @@ import HourlyToSalaryCalculator from "@/components/calculators/HourlyToSalaryCal
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
+import LazyBelowFold from "@/components/shared/LazyBelowFold";
 import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import MethodologyBox from "@/components/shared/MethodologyBox";
@@ -159,11 +160,15 @@ Example: $25/hr × 40 hrs/week × 52 weeks = $52,000 annual
         </dl>
       </section>
 
-      <RelatedTools
-        slugs={["employee-cost-calculator", "freelance-rate-calculator"]}
-      />
+      <LazyBelowFold minHeight={240} placeholderLabel="Related calculators loading">
+        <RelatedTools
+          slugs={["employee-cost-calculator", "freelance-rate-calculator"]}
+        />
+      </LazyBelowFold>
 
-      <MethodologyBox slug={SLUG} />
+      <LazyBelowFold minHeight={400} placeholderLabel="Methodology section loading">
+        <MethodologyBox slug={SLUG} />
+      </LazyBelowFold>
 
       <Disclaimer />
     </CalculatorShell>
