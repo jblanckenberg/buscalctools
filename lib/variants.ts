@@ -1,7 +1,7 @@
 import type { Variant, VariantMatrix } from "@/lib/variants.types";
 
 /**
- * Variant matrix — 25 entries across 11 parent calculators.
+ * Variant matrix — 29 entries across 11 parent calculators.
  * Each entry adds geo/scenario/audience nuance on top of the parent calc.
  * Title body is kept ≤70 chars before the ` | BusCalcTools` brand suffix
  * so the full string fits inside Google's title-rendering envelope.
@@ -621,6 +621,227 @@ Plug loan amount, term, and rate into the calculator and it returns:
 
 For comparable UK SME lending rates, the Bank of England's monthly Money and Credit statistical release publishes the average rate on new SME lending, and the British Business Bank's annual Small Business Finance Markets report covers regional benchmarks.`,
       hreflangCountry: "en-GB",
+    },
+    us: {
+      slug: "us",
+      kind: "geo",
+      label: "USA",
+      h1Suffix: " for US Businesses",
+      title: "Business Loan Calculator USA | BusCalcTools",
+      description:
+        "Calculate US business loan repayments at SBA, conventional, and alt-lender rates. Monthly payment, total interest, and full amortisation in dollars.",
+      voiceAnswer: undefined,
+      intro: `A US business loan calculator uses the standard amortisation formula to compute monthly repayments and total interest cost at prevailing 2026 US small business lending rates. With the Federal Funds rate sitting in the 4-5% range and Prime tracking at roughly 7-8%, the all-in cost of US SMB borrowing in 2026 spans a wide arc — from 7-10% on conventional bank term loans to 15-30% APR on alternative lenders. The SBA.gov website, Federal Reserve Senior Loan Officer Opinion Survey, and NFIB Small Business Economic Trends report are the authoritative sources for current US small business lending benchmarks.
+
+US small business borrowing in 2026 has settled into a five-product market that this calculator handles cleanly:
+
+**1. SBA-7(a) — the workhorse of US small business lending**
+- Up to $5 million principal, 10-year working capital / 25-year real estate amortisation
+- Pricing: Prime + 3.0% to 6.5% (tiered by loan size); larger loans get the lower spread
+- Typical 2026 all-in APR: 9-12% with Prime at ~7-8%
+- SBA guarantee: 75% on loans above $150k, 85% on loans below $150k
+- Use of funds: working capital, equipment, owner-occupied real estate, business acquisition, refinance
+
+**2. SBA-504 — fixed-asset and real-estate financing**
+- Up to $5.5 million ($5M project portion, plus the lender's first-mortgage portion can push total to $20M+)
+- Structure: 50% bank first mortgage, 40% CDC/SBA debenture at sub-market fixed rate, 10% borrower equity
+- Pricing: 504 debenture portion ~6% fixed (2026 Treasury-plus), bank first mortgage at market
+- 10, 20, or 25-year amortisation
+
+**3. Conventional term loan**
+- $50k-$10M+
+- Pricing 7-10% APR for established borrowers with collateral
+- 3-7 year typical term
+- Bank or credit union, often relationship-based
+
+**4. Business line of credit**
+- Revolving, $10k-$1M typical
+- Prime + 1.5% to 5% on drawn balances
+- Often interest-only during draw period
+
+**5. Alternative lenders (OnDeck, Bluevine, Funding Circle, Kabbage, Fundbox)**
+- $5k-$500k
+- 15-30% APR effective on short-term and 6-18% on medium-term
+- Faster decisions (24-72 hours) but materially higher cost
+
+**Worked example — SBA-7(a):** A US small business takes a $100,000 SBA-7(a) loan at 10% APR over 10 years to fund a build-out. Using M = P × [r(1+r)^n] / [(1+r)^n − 1] with r = 0.10/12 = 0.008333 and n = 120, the monthly payment is $1,321.51. Total paid over 120 months = $158,581. Of that, $100,000 is principal and $58,581 is interest — about 59% of the original principal paid in interest over the term.
+
+**The personal-guarantee reality:** almost every US SBA loan requires personal guarantees from owners holding 20% or more equity. Most conventional small business loans also require personal guarantees until the business has substantial standalone credit history. This means SMB borrowing in the US is, in practice, secured by the owner's home and personal assets in most cases — the calculator's monthly payment is the public number, but the personal-asset exposure is the private one.
+
+**Origination and SBA guarantee fees:** conventional lenders charge 0-5% origination fees that should be added to the principal when modelling true cost. SBA-7(a) borrowers also pay an upfront guarantee fee, tiered by loan size: 0% on loans up to $1M during current SBA fee-waiver windows, 0.55% on $1M-$1.5M, 0.75% on $1.5M-$2M, and 0.85% on $2M-$5M (check current SBA fee notices, as these are revised). On a $100k SBA-7(a) the guarantee fee under the current waiver is $0; on a $2.5M loan, roughly $20,000.
+
+For authoritative current data, the SBA.gov SOP 50 10 7 sets the underwriting and pricing rules for 7(a) and 504 loans, the Federal Reserve's H.15 release publishes Prime daily, the Senior Loan Officer Opinion Survey tracks tightening or easing in SMB credit standards quarterly, and the NFIB Small Business Economic Trends survey publishes monthly SMB borrowing-needs data. Pair this calculator with /roi-calculator/us to test whether the debt-funded project actually pays off and /cash-flow-calculator/us to confirm the monthly payment fits projected cash flow.`,
+      hreflangCountry: "en-US",
+    },
+    sba: {
+      slug: "sba",
+      kind: "scenario",
+      label: "SBA",
+      h1Suffix: " for SBA Loans",
+      title: "SBA Loan Calculator (7a, 504) | BusCalcTools",
+      description:
+        "Model SBA-7(a), 504, and Express loan repayments with current SBA guarantee-fee tiers and Prime-linked pricing. Monthly payment, total interest, amortisation.",
+      voiceAnswer: undefined,
+      intro: `An SBA loan calculator computes monthly repayments and total interest cost across the three main SBA programs — 7(a), 504, and Express — using current Prime-linked pricing and SBA guarantee-fee tiers. The 7(a) program is the SBA's general-purpose loan up to $5 million, 504 is fixed-asset and real-estate financing up to $5.5 million per project, and Express is a fast-track product up to $500,000 with a reduced 50% SBA guarantee (versus 75-85% on standard 7(a)). The SBA.gov SOP 50 10 7 and the SBA's quarterly fee notices are the authoritative sources for current program rules.
+
+The three SBA programs each have a distinct rate cap, fee structure, and process timeline that the calculator's "loan amount + rate + term" inputs only partially capture — so context matters when interpreting the monthly payment number.
+
+**SBA-7(a) — general purpose, up to $5M**
+- Maximum variable rate: Prime + 3.0% on loans above $350k, Prime + 4.5% on $50k-$350k, Prime + 6.0% on $25k-$50k, Prime + 6.5% on loans up to $25k (tiered to reflect underwriting cost on smaller loans)
+- Maximum fixed rate: tied to a quarterly SBA peg (typically Treasury-plus a small spread)
+- Term: up to 10 years for working capital, 25 years for real estate
+- Collateral: SBA requires lender to take all available collateral up to the loan amount; lender may not decline solely for lack of collateral if other underwriting is strong
+- Personal guarantee: required from any owner ≥20% equity; spousal guarantee may also be required in community-property states (AZ, CA, ID, LA, NV, NM, TX, WA, WI)
+
+**SBA-504 — fixed assets and real estate, up to $5.5M debenture**
+- Structure: 50% bank first mortgage at market rate / 40% CDC-SBA debenture at sub-market fixed / 10% borrower equity
+- 504 debenture rate: ~6% fixed in 2026 (10-year Treasury plus a spread, set monthly by the CDC at debenture pricing)
+- Term: 10, 20, or 25 years (25-year option added in recent SBA reforms)
+- Use of funds restricted: must be fixed-asset purchase (real estate, heavy equipment) — no working capital or business acquisition
+
+**SBA Express — fast-track, up to $500k**
+- 36-hour SBA decision
+- 50% SBA guarantee (vs 75-85% on standard 7(a)) means lender takes more risk and prices it accordingly
+- Maximum rate: Prime + 4.5% on loans above $50k, Prime + 6.5% below $50k
+- Often used for lines of credit and quick working-capital needs
+
+**SBA guarantee fees (tiered by loan size, 2026):**
+- $0 - $1,000,000: 0% during current SBA fee-waiver windows (verify against the current SBA fee notice, as these are reset annually)
+- $1,000,001 - $1,500,000: 0.55%
+- $1,500,001 - $2,000,000: 0.75%
+- $2,000,001 - $5,000,000: 0.85% (subject to annual review)
+- All fees are charged on the guaranteed portion only, not the full loan amount
+
+**Worked example:** A US food manufacturer takes a $500,000 SBA-7(a) loan at Prime + 2.75% — with Prime at 7.75% that's 10.5% APR — to fund a new processing line, 10-year fully-amortising. Using M = P × [r(1+r)^n] / [(1+r)^n − 1] with r = 0.105/12 = 0.00875 and n = 120, the monthly payment is $6,746.75. Total paid = $809,610. Total interest = $309,610 — about 62% of the original principal paid in interest over the 10-year term. The SBA guarantee fee on this loan (current waiver) is $0; outside the waiver window at 0% / 0.55% / 0.75% / 0.85% tiers, a $500k loan would carry no guarantee fee since it's below the $1M threshold.
+
+**SBA eligibility — the gating questions before rate math matters:**
+- For-profit, US-based, operating in an eligible industry
+- Meets SBA size standards by NAICS code (most retail, manufacturing, and services are under 500 employees; some industries use revenue thresholds)
+- Owner has invested reasonable equity
+- Demonstrated repayment ability from business cash flow
+- Has exhausted other non-SBA financing options (or can demonstrate they would not be available)
+
+**Process timeline:** SBA Express decisions in 36 hours, standard 7(a) decisions in 30-90 days, 504 in 60-120 days. The 504 timeline is the longest because the CDC, SBA, and bank all underwrite separately.
+
+For authoritative current data, the SBA's SOP 50 10 7 (Small Business Lender Operating Procedures) sets all 7(a) and 504 underwriting and pricing rules, the SBA quarterly fee notices publish current guarantee fees, and individual CDCs (Certified Development Companies) publish current 504 debenture rates. Pair this calculator with /business-loan-calculator/us for conventional alternatives and /cash-flow-calculator/us to model affordability of the projected monthly payment.`,
+      hreflangCountry: "en-US",
+    },
+    "equipment-finance": {
+      slug: "equipment-finance",
+      kind: "scenario",
+      label: "Equipment Finance",
+      h1Suffix: " for Equipment Finance",
+      title: "Equipment Finance Calculator | BusCalcTools",
+      description:
+        "Model equipment loan vs lease, with Section 179 expensing and bonus depreciation built in. Monthly payment, total cost, and after-tax comparison.",
+      voiceAnswer: undefined,
+      intro: `An equipment finance calculator models monthly payments and after-tax cost across the three main equipment-financing structures — equipment loan, capital (finance) lease, and operating lease — and lets you stack Section 179 expensing and bonus depreciation on top to see true after-tax cost. IRS Publication 946 (How to Depreciate Property), Section 179 of the Internal Revenue Code, and the Equipment Leasing and Finance Association (ELFA) Monthly Confidence Index are the authoritative sources for current equipment-finance benchmarks and tax rules.
+
+US small businesses finance roughly $1 trillion of equipment annually across these three structures, and the right structure depends on tax position, balance-sheet objectives, and how long you intend to hold the asset.
+
+**1. Equipment loan**
+- You own the equipment immediately; lender takes a UCC-1 security interest
+- Depreciate the asset on your books; deduct interest expense separately
+- Section 179 expensing or bonus depreciation available in year of placed-in-service
+- Typical rate: 7-12% APR depending on credit and asset type
+- Term: matched to equipment useful life, typically 3-7 years
+
+**2. Capital (finance) lease**
+- Lessor owns title, lessee has economic ownership
+- Often a $1 buyout or fair-market-value buyout at end of term
+- For tax: treated like a loan — depreciate, deduct interest portion of lease payment
+- For GAAP: capitalised on the balance sheet under ASC 842
+- Same Section 179 / bonus depreciation eligibility as a loan
+
+**3. Operating lease (true lease)**
+- Lessor retains title; lessee returns at end of term
+- Lower monthly payments because no equity buildup
+- Tax: deduct the full lease payment as operating expense (no depreciation, no Section 179)
+- GAAP: on-balance-sheet under ASC 842 (right-of-use asset and lease liability)
+- Typical with technology, vehicles, and equipment with rapid obsolescence
+
+**Section 179 expensing 2026:**
+- Maximum deduction: up to $1.22 million in equipment cost expensed in year of placed-in-service (verify against the current IRS Section 179 cap, which is indexed annually)
+- Phase-out: begins at $3.05 million in equipment placed in service in the tax year; dollar-for-dollar reduction in the cap above that
+- Eligible property: tangible personal property used in the active conduct of a trade or business
+- Election: made annually on Form 4562
+
+**Bonus depreciation 2026:** 60% of basis in year of placed-in-service for qualifying property (down from 100% pre-2023, phasing 20 percentage points per year toward 0% in 2027 under the current TCJA sunset, subject to ongoing legislative changes — verify current rate). Bonus depreciation applies to the portion of basis not expensed under Section 179.
+
+**Worked example — equipment loan with Section 179:** A landscaping company buys a $80,000 truck on a 5-year loan at 8% APR. Using M = P × [r(1+r)^n] / [(1+r)^n − 1] with r = 0.08/12 = 0.006667 and n = 60, the monthly payment is $1,622.11. Total paid over 60 months = $97,327. Total interest = $17,327 — about 22% of principal in interest over the term. Under Section 179, the full $80,000 cost is deductible in year 1 if elected; at a 35% combined federal-plus-state marginal rate, that's $28,000 of federal-plus-state tax saved in year 1, bringing the effective after-tax cost of the truck to roughly $69,327 ($97,327 total paid minus $28,000 tax shield, before discounting).
+
+**Worked example — operating lease comparison:** the same $80,000 truck on a 5-year operating lease at $1,400/month means $84,000 total lease payments over 60 months — slightly less than the $97,327 loan total. The lessee deducts $16,800/year in lease payments (about $5,880/year federal-plus-state tax shield at 35% marginal, $29,400 total over 5 years), making the after-tax cost of the lease roughly $54,600. The lease wins on after-tax cost in this scenario, but the company doesn't own the truck at the end — if the truck still has $25,000-$30,000 of residual value, the loan-plus-Section-179 path leaves you with the asset and the lease path doesn't.
+
+**Industry-typical equipment-finance norms:**
+- Construction: heavy equipment financed 3-7 years; manufacturer captives (Caterpillar Financial, John Deere Financial, Komatsu Financial) often beat bank rates
+- Trucking: tractor financing 3-5 years; trailer financing 5-7 years; PACCAR Financial, Daimler Truck Financial, and Navistar Capital are the captives
+- Manufacturing: machine-tool financing 5-10 years on long-life capex; CIT, US Bank Equipment Finance, and Wells Fargo Equipment Finance dominate
+- Medical equipment: 3-7 years; manufacturer programs (Siemens Healthineers Financial, GE HealthCare Capital) compete with specialty lenders
+- Technology / IT: 2-4 year operating leases dominant due to obsolescence risk
+
+For authoritative current rules, IRS Publication 946 covers MACRS depreciation, Section 179, and bonus depreciation; the IRS Form 4562 instructions cover the election mechanics; and the ELFA Monthly Confidence Index publishes current equipment-finance pricing and volume benchmarks. Pair this calculator with /roi-calculator for the project-level return analysis and /business-loan-calculator/us for conventional loan alternatives.`,
+      hreflangCountry: "en-US",
+    },
+    za: {
+      slug: "za",
+      kind: "geo",
+      label: "South Africa",
+      h1Suffix: " for South African Businesses",
+      title: "Business Loan Calculator South Africa | BusCalcTools",
+      description:
+        "Calculate SA business loan repayments at prime-linked rates from the big-five banks, SEFA, and IDC. Monthly payment, total interest, and amortisation in rand.",
+      voiceAnswer: undefined,
+      intro: `A South African business loan calculator computes monthly repayments and total interest cost at prevailing 2026 SA SME lending rates. With the SARB repo rate driving prime at roughly 11.75% in 2026 (track current SARB MPC decisions on the South African Reserve Bank website), unsecured SME term loans typically price at prime + 4% to prime + 10%, putting the all-in cost in the 15.75% to 21.75% range. State-backed lending via SEFA and IDC sits materially below market at 6-10%. The SARB Monetary Policy Statement, NCR (National Credit Regulator) annual report, and the FinScope SA SMME survey are authoritative references for current SA SME finance benchmarks.
+
+SA SME borrowing in 2026 splits into five distinct channels, each priced and structured differently. This calculator handles the math for all five — the operator just needs to plug in the right rate for the channel they're modelling.
+
+**1. Big-five commercial bank business loans**
+- Standard Bank Business Banking, Absa Business, Nedbank Business, FNB BizFin, Capitec Business
+- Unsecured SME term loans: prime + 4% to prime + 10% depending on credit, sector, and tenor (so 15.75% to 21.75% with prime at 11.75%)
+- Secured (property, asset-backed): prime + 1% to prime + 4% (12.75% to 15.75%)
+- Term: 1-7 years typical for unsecured, up to 20 years for property-secured
+- Personal surety almost universal for loans below R10 million
+
+**2. SEFA (Small Enterprise Finance Agency)**
+- Micro loans up to R50,000; small loans R50,001 to R5 million
+- Pricing: prime + 2% to prime + 3% (13.75% to 14.75%)
+- Term: up to 60 months for working capital, longer for asset finance
+- Eligibility: SA-registered, B-BBEE level demonstrable contribution, sector focus on township and rural enterprise
+
+**3. IDC (Industrial Development Corporation)**
+- Minimum R1 million; no formal maximum (typical deals R5m-R1bn)
+- Pricing: 6-10% — sub-market because IDC is a development finance institution with concessional mandate
+- Restricted to qualifying enterprises with developmental impact — B-BBEE level, sector (manufacturing, mining, infrastructure), and job creation are scored
+- Term: matched to project, typically 5-15 years
+- Process is slower than commercial bank — 3-6 months from application to drawdown is typical
+
+**4. Asset finance**
+- Wesbank, ABSA Vehicle and Asset Finance, MBSA (Mercedes-Benz Financial Services), Stanlib Equipment Finance
+- Vehicles and commercial equipment, 3-6 year terms typical
+- Pricing: prime + 1% to prime + 5% depending on asset and customer
+- Residual / balloon structures common for fleet
+
+**5. Alternative and fintech lenders**
+- Merchant Capital, Lulalend, Retail Capital, Bridgement, Pollen Finance
+- Short-term revenue-based and term products R10k-R5m
+- Effective APR 25-60% on short-term, 18-30% on medium-term
+- Faster (24-72 hour decisions) but materially more expensive than bank or SEFA
+
+**Worked example:** A Johannesburg manufacturing SME takes an unsecured R1,000,000 term loan from a big-five bank at prime + 6% = 17.75% APR over 5 years. Using M = P × [r(1+r)^n] / [(1+r)^n − 1] with r = 0.1775/12 = 0.014792 and n = 60, the monthly payment is R25,257.62. Total paid over 60 months = R1,515,457. Total interest = R515,457 — about 52% of the original principal paid in interest over the term. The same R1m at prime + 2% (13.75%) from SEFA would carry a monthly payment of roughly R23,159 and total interest of about R389,541, a R125,916 saving over the 5-year term if the borrower qualifies for SEFA pricing.
+
+**The personal-surety reality:** for unsecured SME loans below R10 million from any of the big-five banks, personal surety from the owner (and often the spouse if married in community of property) is universal. The bank requires unlimited surety in most cases, meaning the surety is liable for the full debt even if the business assets are liquidated. The calculator's monthly payment line is the public number; the personal-balance-sheet exposure behind it is the private one.
+
+**Origination and admin fees:**
+- Big-five banks: R1,000-R5,000 initiation fee plus monthly service fee of R50-R100
+- SEFA: 1-2% initiation fee
+- Alternative lenders: 2-5% origination + monthly service fee, often baked into the headline rate
+
+**NCR and NCA considerations:** the National Credit Act applies to all credit granted to juristic persons (companies, CCs, trusts) with annual turnover below R1 million and to all natural-person credit. NCA-regulated loans require pre-agreement quote (Form 20), full cost-of-credit disclosure, and prescribed dispute-resolution channels. For SME loans above the R1m turnover threshold to corporate entities, the NCA does not apply, but the NCR still regulates the lender's credit-provider registration. The National Credit Regulator's annual report publishes current NCA enforcement priorities.
+
+**B-BBEE impact on lending access:** access to procurement-backed lending (where the loan is structured against confirmed government or large-corporate purchase orders) and to state-backed programmes (SEFA, IDC, NEF) is meaningfully easier for B-BBEE Level 1-4 entities. Sector codes also matter — the construction sector B-BBEE code differs from the financial services code, and lender scorecards weight these differently.
+
+For authoritative current data, the SARB Monetary Policy Statement publishes the repo rate decision and forward guidance, BankservAfrica's BETI tracks SME credit demand, and the FinScope SA SMME survey publishes biennial SME finance access data. Pair this calculator with /cash-flow-calculator/za to model affordability and /invoice-calculator/za for the VAT-compliant invoice format SARS requires on the funded project.`,
+      hreflangCountry: "en-ZA",
     },
   },
 
