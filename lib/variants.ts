@@ -627,7 +627,7 @@ For comparable UK SME lending rates, the Bank of England's monthly Money and Cre
       kind: "geo",
       label: "USA",
       h1Suffix: " for US Businesses",
-      title: "Business Loan Calculator USA | BusCalcTools",
+      title: "Business Loan Calculator USA (SBA, Bank) | BusCalcTools",
       description:
         "Calculate US business loan repayments at SBA, conventional, and alt-lender rates. Monthly payment, total interest, and full amortisation in dollars.",
       voiceAnswer: undefined,
@@ -678,7 +678,7 @@ For authoritative current data, the SBA.gov SOP 50 10 7 sets the underwriting an
       kind: "scenario",
       label: "SBA",
       h1Suffix: " for SBA Loans",
-      title: "SBA Loan Calculator (7a, 504) | BusCalcTools",
+      title: "SBA Loan Calculator — 7(a), 504, Express | BusCalcTools",
       description:
         "Model SBA-7(a), 504, and Express loan repayments with current SBA guarantee-fee tiers and Prime-linked pricing. Monthly payment, total interest, amortisation.",
       voiceAnswer: undefined,
@@ -731,7 +731,7 @@ For authoritative current data, the SBA's SOP 50 10 7 (Small Business Lender Ope
       kind: "scenario",
       label: "Equipment Finance",
       h1Suffix: " for Equipment Finance",
-      title: "Equipment Finance Calculator | BusCalcTools",
+      title: "Equipment Finance Calculator (Loan vs Lease) | BusCalcTools",
       description:
         "Model equipment loan vs lease, with Section 179 expensing and bonus depreciation built in. Monthly payment, total cost, and after-tax comparison.",
       voiceAnswer: undefined,
