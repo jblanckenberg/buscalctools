@@ -2,9 +2,10 @@ import RevenueGrowthCalculator from "@/components/calculators/RevenueGrowthCalcu
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
-import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
-import MethodologyBox from "@/components/shared/MethodologyBox";
+import GlossarySection from "@/components/shared/GlossarySection";
+import LazyMethodologyBox from "@/components/shared/LazyMethodologyBox";
+import LazyRelatedTools from "@/components/shared/LazyRelatedTools";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -129,9 +130,17 @@ Example CAGR: Revenue grew from $100,000 to $250,000 over 4 years
 
       <FaqList items={META.faqs} />
 
-      <RelatedTools slugs={["net-profit-calculator", "business-valuation-calculator", "cash-flow-calculator"]} />
+      <GlossarySection
+        items={[
+          { term: "Growth Rate", definition: "The percentage change in revenue between two periods, calculated as the difference divided by the earlier period." },
+          { term: "CAGR", definition: "Compound annual growth rate — the smoothed annual rate that links a starting value to an ending value across multiple years." },
+          { term: "MoM and YoY", definition: "Month-over-month and year-over-year comparisons. Year-over-year cancels seasonality; month-over-month is more sensitive but noisier." },
+        ]}
+      />
 
-      <MethodologyBox slug={SLUG} />
+      <LazyRelatedTools slugs={["net-profit-calculator", "business-valuation-calculator", "cash-flow-calculator"]} />
+
+      <LazyMethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>

@@ -2,9 +2,10 @@ import SCorpElectionCalculator from "@/components/calculators/SCorpElectionCalcu
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
-import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
-import MethodologyBox from "@/components/shared/MethodologyBox";
+import GlossarySection from "@/components/shared/GlossarySection";
+import LazyMethodologyBox from "@/components/shared/LazyMethodologyBox";
+import LazyRelatedTools from "@/components/shared/LazyRelatedTools";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -138,13 +139,31 @@ Break-even profit: typically $40-60k`}
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this when you have an LLC or sole proprietorship that has consistently cleared roughly forty to sixty thousand dollars of net profit and you want to know whether electing S-corp status delivers enough self-employment tax savings to justify the added payroll and compliance overhead. Re-run the numbers each year as profit grows or as the reasonable-salary band tightens.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If profit is still climbing toward the break-even threshold, hold the election and continue with the LLC default. Pair the result here with the Estimated Tax Calculator to see whether the quarterly payment schedule changes meaningfully after the election.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
 
-      <RelatedTools
+      <GlossarySection
+        items={[
+          { term: "Reasonable Salary", definition: "The W-2 wage an S-corp owner-employee must pay themselves for the work they actually perform. Set too low and the IRS will re-characterise distributions as wages." },
+          { term: "Distribution", definition: "The portion of S-corp profit paid to owners after reasonable salary. Subject to income tax but not FICA, which is where the S-corp savings live." },
+          { term: "Form 2553", definition: "The IRS election form an LLC or C-corp files to be taxed as an S-corp. Generally due within 75 days of the start of the tax year you want the election to take effect." },
+        ]}
+      />
+
+      <LazyRelatedTools
         slugs={["self-employment-tax-calculator", "estimated-tax-calculator", "freelance-rate-calculator"]}
       />
 
-      <MethodologyBox slug={SLUG} />
+      <LazyMethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>

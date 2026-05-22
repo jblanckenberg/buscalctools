@@ -6,9 +6,9 @@ import VariantSchema from "@/components/shared/VariantSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import FaqList from "@/components/shared/FaqList";
 import FormulaBox from "@/components/shared/FormulaBox";
-import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
-import MethodologyBox from "@/components/shared/MethodologyBox";
+import LazyMethodologyBox from "@/components/shared/LazyMethodologyBox";
+import LazyRelatedTools from "@/components/shared/LazyRelatedTools";
 import { variantMetadata } from "@/lib/seo";
 import { calcMeta, calcBreadcrumb } from "@/lib/calc-meta";
 import { allVariantParams, getVariant } from "@/lib/variants";
@@ -101,8 +101,8 @@ export default async function VariantPage({ params }: { params: Promise<Params> 
         </pre>
       </FormulaBox>
       <FaqList items={meta.faqs} />
-      <RelatedTools slugs={[calculator]} />
-      <MethodologyBox slug={calculator} />
+      <LazyRelatedTools slugs={[calculator]} />
+      <LazyMethodologyBox slug={calculator} />
       <Disclaimer />
     </CalculatorShell>
   );

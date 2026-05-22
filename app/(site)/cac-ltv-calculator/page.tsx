@@ -2,9 +2,10 @@ import CacLtvCalculator from "@/components/calculators/CacLtvCalculator";
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
-import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
-import MethodologyBox from "@/components/shared/MethodologyBox";
+import GlossarySection from "@/components/shared/GlossarySection";
+import LazyMethodologyBox from "@/components/shared/LazyMethodologyBox";
+import LazyRelatedTools from "@/components/shared/LazyRelatedTools";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -146,11 +147,20 @@ Payback target: under 12 months conservative, 12-18 typical, &gt; 18 hard to fun
 
       <FaqList items={META.faqs} />
 
-      <RelatedTools
+      <GlossarySection
+        items={[
+          { term: "CAC", definition: "Customer acquisition cost — fully-loaded sales and marketing spend divided by new customers acquired in the same period." },
+          { term: "LTV", definition: "Lifetime value — the gross-margin contribution expected from a customer over the time they stay subscribed." },
+          { term: "Payback Period", definition: "Months of gross-margin contribution needed to recover acquisition cost. The cash-flow check that sits alongside the LTV/CAC ratio." },
+          { term: "ARPU", definition: "Average revenue per user, usually quoted monthly. The input that drives both LTV and payback period." },
+        ]}
+      />
+
+      <LazyRelatedTools
         slugs={["roi-calculator", "subscription-pricing-calculator", "burn-rate-calculator"]}
       />
 
-      <MethodologyBox slug={SLUG} />
+      <LazyMethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>

@@ -2,9 +2,10 @@ import PricingCalculator from "@/components/calculators/PricingCalculator";
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
-import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
-import MethodologyBox from "@/components/shared/MethodologyBox";
+import GlossarySection from "@/components/shared/GlossarySection";
+import LazyMethodologyBox from "@/components/shared/LazyMethodologyBox";
+import LazyRelatedTools from "@/components/shared/LazyRelatedTools";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -123,9 +124,18 @@ Example (margin mode): Cost = $20 | Target Margin = 40%
 
       <FaqList items={META.faqs} />
 
-      <RelatedTools slugs={["profit-margin-calculator", "markup-calculator"]} />
+      <GlossarySection
+        items={[
+          { term: "Target Margin", definition: "The gross margin you want each sale to earn, expressed as a percentage of selling price. Drives the price-from-margin formula." },
+          { term: "Cost-Plus Pricing", definition: "Setting price by adding a fixed margin or markup on top of internal cost. Simple and defensible, but ignores what the customer is willing to pay." },
+          { term: "Value-Based Pricing", definition: "Setting price from the value the customer perceives rather than internal cost. Usually delivers higher margins when the value is clearly quantifiable." },
+          { term: "Psychological Price Point", definition: "A round-up to a price ending in 9 or 5 that anchors better with buyers than the raw calculator output. Worth a small premium over the mathematical answer." },
+        ]}
+      />
 
-      <MethodologyBox slug={SLUG} />
+      <LazyRelatedTools slugs={["profit-margin-calculator", "markup-calculator"]} />
+
+      <LazyMethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>

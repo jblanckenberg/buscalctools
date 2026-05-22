@@ -2,9 +2,10 @@ import WorkingCapitalCalculator from "@/components/calculators/WorkingCapitalCal
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
-import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
-import MethodologyBox from "@/components/shared/MethodologyBox";
+import GlossarySection from "@/components/shared/GlossarySection";
+import LazyMethodologyBox from "@/components/shared/LazyMethodologyBox";
+import LazyRelatedTools from "@/components/shared/LazyRelatedTools";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -141,29 +142,19 @@ Example: Current Assets = $150,000 | Current Liabilities = $80,000
 
       <FaqList items={META.faqs} />
 
-      <section className="mt-12">
-        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
-        <dl className="mt-3 space-y-3 text-sm text-gray-700">
-          <div>
-            <dt className="font-semibold text-brand-dark">Current Assets</dt>
-            <dd>Assets that will be converted to cash within 12 months — cash, receivables, inventory, prepaid expenses.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Current Liabilities</dt>
-            <dd>Obligations due within 12 months — payables, short-term debt, accrued expenses, current portion of long-term debt.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Current Ratio</dt>
-            <dd>Current assets divided by current liabilities — a multiple that measures short-term liquidity. Banks typically want 1.5 or higher.</dd>
-          </div>
-        </dl>
-      </section>
+      <GlossarySection
+        items={[
+          { term: "Current Assets", definition: "Assets that will be converted to cash within 12 months — cash, receivables, inventory, prepaid expenses." },
+          { term: "Current Liabilities", definition: "Obligations due within 12 months — payables, short-term debt, accrued expenses, current portion of long-term debt." },
+          { term: "Current Ratio", definition: "Current assets divided by current liabilities — a multiple that measures short-term liquidity. Banks typically want 1.5 or higher." },
+        ]}
+      />
 
-      <RelatedTools
+      <LazyRelatedTools
         slugs={["cash-flow-calculator", "dso-calculator", "business-loan-calculator"]}
       />
 
-      <MethodologyBox slug={SLUG} />
+      <LazyMethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>

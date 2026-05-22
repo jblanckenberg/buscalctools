@@ -2,9 +2,10 @@ import DiscountCalculator from "@/components/calculators/DiscountCalculator";
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
-import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
-import MethodologyBox from "@/components/shared/MethodologyBox";
+import GlossarySection from "@/components/shared/GlossarySection";
+import LazyMethodologyBox from "@/components/shared/LazyMethodologyBox";
+import LazyRelatedTools from "@/components/shared/LazyRelatedTools";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -122,9 +123,17 @@ Reverse: Discount % = ((Original − Discounted) / Original) × 100`}
 
       <FaqList items={META.faqs} />
 
-      <RelatedTools slugs={["markup-calculator", "pricing-calculator", "profit-margin-calculator"]} />
+      <GlossarySection
+        items={[
+          { term: "Discount Rate", definition: "The percentage taken off the original price. Apply it to the price first, then add tax on the discounted amount." },
+          { term: "Effective Discount", definition: "The true percentage off when two or more discounts stack. Multiply the remaining-price factors rather than adding the percentages." },
+          { term: "Contribution per Sale", definition: "Sale price minus variable cost — the per-unit gross profit that has to cover the lost margin from the discount through extra volume." },
+        ]}
+      />
 
-      <MethodologyBox slug={SLUG} />
+      <LazyRelatedTools slugs={["markup-calculator", "pricing-calculator", "profit-margin-calculator"]} />
+
+      <LazyMethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>

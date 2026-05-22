@@ -2,9 +2,10 @@ import NetProfitCalculator from "@/components/calculators/NetProfitCalculator";
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
-import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
-import MethodologyBox from "@/components/shared/MethodologyBox";
+import GlossarySection from "@/components/shared/GlossarySection";
+import LazyMethodologyBox from "@/components/shared/LazyMethodologyBox";
+import LazyRelatedTools from "@/components/shared/LazyRelatedTools";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -123,9 +124,18 @@ Net Profit Margin    = Net Profit / Revenue × 100`}
 
       <FaqList items={META.faqs} />
 
-      <RelatedTools slugs={["profit-margin-calculator", "roi-calculator"]} />
+      <GlossarySection
+        items={[
+          { term: "COGS", definition: "Cost of goods sold — the direct costs of producing what you sell. Materials, direct labour, freight in. Excludes overhead and admin." },
+          { term: "EBIT", definition: "Earnings before interest and tax — gross profit minus operating expenses. The headline operating-profit number." },
+          { term: "EBT", definition: "Earnings before tax — operating profit after deducting interest expense. The base figure for calculating corporate tax." },
+          { term: "Net Profit Margin", definition: "Net profit divided by revenue. The percentage of every dollar of sales that becomes profit after all costs and tax." },
+        ]}
+      />
 
-      <MethodologyBox slug={SLUG} />
+      <LazyRelatedTools slugs={["profit-margin-calculator", "roi-calculator"]} />
+
+      <LazyMethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>

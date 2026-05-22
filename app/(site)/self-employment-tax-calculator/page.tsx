@@ -2,9 +2,10 @@ import SelfEmploymentTaxCalculator from "@/components/calculators/SelfEmployment
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
-import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
-import MethodologyBox from "@/components/shared/MethodologyBox";
+import GlossarySection from "@/components/shared/GlossarySection";
+import LazyMethodologyBox from "@/components/shared/LazyMethodologyBox";
+import LazyRelatedTools from "@/components/shared/LazyRelatedTools";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -121,13 +122,32 @@ Quarterly     = Total ÷ 4`}
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this if you are a freelancer, sole proprietor, single-member LLC owner, or independent contractor with 1099 income. It produces the total tax exposure for the year and the four equal quarterly payments to send to the IRS so you stay under the safe-harbor threshold. Re-run it every time net income shifts meaningfully — gaining a major client, losing one, or moving to a new state.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If profit is climbing past roughly fifty thousand dollars a year and the SE tax line is getting painful, run the S-Corp Election Calculator to see whether switching tax structures will reduce the bill. To set the quarterly payment exactly to the safe-harbor minimum rather than full liability, use the Estimated Tax Calculator.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
 
-      <RelatedTools
+      <GlossarySection
+        items={[
+          { term: "SE Tax", definition: "Self-employment tax — the 15.3 percent combined Social Security and Medicare contribution paid by self-employed people in place of FICA withholding." },
+          { term: "SE Base", definition: "Net SE income multiplied by 92.35 percent. The figure SE tax is actually computed against, reflecting the employer-share deduction." },
+          { term: "Half-SE Deduction", definition: "An above-the-line deduction equal to half of SE tax. Reduces AGI for federal income tax purposes and is the most-missed deduction in first-year filings." },
+          { term: "QBI Deduction", definition: "Section 199A's twenty percent deduction on qualified business income for most non-specified-service trades. Phases out at higher income levels and is not modelled in this v1 calculator." },
+        ]}
+      />
+
+      <LazyRelatedTools
         slugs={["s-corp-election-calculator", "estimated-tax-calculator", "freelance-rate-calculator"]}
       />
 
-      <MethodologyBox slug={SLUG} />
+      <LazyMethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>

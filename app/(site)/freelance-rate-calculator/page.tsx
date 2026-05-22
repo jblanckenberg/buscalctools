@@ -2,9 +2,9 @@ import FreelanceRateCalculator from "@/components/calculators/FreelanceRateCalcu
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
-import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
-import MethodologyBox from "@/components/shared/MethodologyBox";
+import LazyMethodologyBox from "@/components/shared/LazyMethodologyBox";
+import LazyRelatedTools from "@/components/shared/LazyRelatedTools";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -131,9 +131,9 @@ Example: Income $60,000 | Overhead $6,000 | 25hr/wk | 6 weeks off
 
       <FaqList items={META.faqs} />
 
-      <RelatedTools slugs={["invoice-calculator", "profit-margin-calculator"]} />
+      <LazyRelatedTools slugs={["invoice-calculator", "profit-margin-calculator"]} />
 
-      <MethodologyBox slug={SLUG} />
+      <LazyMethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>

@@ -2,9 +2,10 @@ import RAndDTaxCreditCalculator from "@/components/calculators/RAndDTaxCreditCal
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
-import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
-import MethodologyBox from "@/components/shared/MethodologyBox";
+import GlossarySection from "@/components/shared/GlossarySection";
+import LazyMethodologyBox from "@/components/shared/LazyMethodologyBox";
+import LazyRelatedTools from "@/components/shared/LazyRelatedTools";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -134,9 +135,18 @@ Example: $200k wages + $20k supplies + $50k contract research
 
       <FaqList items={META.faqs} />
 
-      <RelatedTools slugs={["self-employment-tax-calculator", "section-179-calculator", "estimated-tax-calculator"]} />
+      <GlossarySection
+        items={[
+          { term: "QRE", definition: "Qualified research expenditure — the wage, supply, and contract-research dollars that count toward the §41 credit base." },
+          { term: "ASC", definition: "Alternative Simplified Credit — the more common method for calculating the credit, equal to 14 percent of the increase over half of the prior three-year average QREs." },
+          { term: "QSB", definition: "Qualified small business — a company with under five million in gross receipts and no gross receipts more than five years before the current tax year. Eligible to offset payroll tax with the credit." },
+          { term: "Four-Part Test", definition: "The §41 qualification framework: permitted purpose, technological uncertainty, process of experimentation, and technological in nature." },
+        ]}
+      />
 
-      <MethodologyBox slug={SLUG} />
+      <LazyRelatedTools slugs={["self-employment-tax-calculator", "section-179-calculator", "estimated-tax-calculator"]} />
+
+      <LazyMethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>

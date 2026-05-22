@@ -2,10 +2,11 @@ import BreakEvenCalculator from "@/components/calculators/BreakEvenCalculator";
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
-import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
-import MethodologyBox from "@/components/shared/MethodologyBox";
+import LazyMethodologyBox from "@/components/shared/LazyMethodologyBox";
+import LazyRelatedTools from "@/components/shared/LazyRelatedTools";
 import EmbedCTA from "@/components/shared/EmbedCTA";
+import GlossarySection from "@/components/shared/GlossarySection";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -130,32 +131,22 @@ Example: Fixed = $5,000 | Variable = $10 | Selling Price = $25
 
       <FaqList items={META.faqs} />
 
-      <section className="mt-12">
-        <h2 className="text-lg font-semibold text-brand-dark">Glossary</h2>
-        <dl className="mt-3 space-y-3 text-sm text-gray-700">
-          <div>
-            <dt className="font-semibold text-brand-dark">Contribution Margin</dt>
-            <dd>Selling price minus variable cost per unit — the profit each sale contributes toward covering fixed costs.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Fixed Costs</dt>
-            <dd>Costs that stay the same regardless of how many units you sell.</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-brand-dark">Variable Costs</dt>
-            <dd>Costs that scale directly with each unit produced or sold.</dd>
-          </div>
-        </dl>
-      </section>
+      <GlossarySection
+        items={[
+          { term: "Contribution Margin", definition: "Selling price minus variable cost per unit — the profit each sale contributes toward covering fixed costs." },
+          { term: "Fixed Costs", definition: "Costs that stay the same regardless of how many units you sell." },
+          { term: "Variable Costs", definition: "Costs that scale directly with each unit produced or sold." },
+        ]}
+      />
 
-      <RelatedTools
+      <LazyRelatedTools
         slugs={["roi-calculator", "cash-flow-calculator", "cost-per-unit-calculator"]}
         surfaceComparisonsForCalc="break-even-calculator"
       />
 
       <EmbedCTA slug={SLUG} />
 
-      <MethodologyBox slug={SLUG} />
+      <LazyMethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>

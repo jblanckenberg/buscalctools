@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { POSTS_LAST_REVIEWED, PUBLISHED_POSTS, postBySlug } from "@/lib/blog/posts";
+import { blogFaqs } from "@/lib/blog/faqs";
 import { ARTICLE_BODIES } from "@/components/blog/articles";
-import RelatedTools from "@/components/shared/RelatedTools";
+import LazyRelatedTools from "@/components/shared/LazyRelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import AuthorCard from "@/components/shared/AuthorCard";
@@ -87,12 +88,35 @@ export default async function ArticlePage({
     },
   };
 
+  const faqs = blogFaqs(slug);
+  const faqSchema =
+    faqs && faqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((f) => ({
+            "@type": "Question",
+            name: f.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: f.answer,
+            },
+          })),
+        }
+      : null;
+
   return (
     <article className="mx-auto max-w-3xl px-4 py-8 sm:py-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
 
       <Breadcrumbs
         items={[
@@ -131,7 +155,7 @@ export default async function ArticlePage({
 
       <AuthorCard />
 
-      <RelatedTools slugs={post.related} title="Calculators referenced in this article" />
+      <LazyRelatedTools slugs={post.related} title="Calculators referenced in this article" />
 
       <Disclaimer />
     </article>

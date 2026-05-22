@@ -2,9 +2,10 @@ import ProfitFirstAllocationCalculator from "@/components/calculators/ProfitFirs
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
-import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
-import MethodologyBox from "@/components/shared/MethodologyBox";
+import GlossarySection from "@/components/shared/GlossarySection";
+import LazyMethodologyBox from "@/components/shared/LazyMethodologyBox";
+import LazyRelatedTools from "@/components/shared/LazyRelatedTools";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -93,11 +94,29 @@ Example: $30,000/mo revenue, 15% materials
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this when you are adopting the Profit First system for the first time, when annual revenue crosses into a new tier and the target percentages should shift, or when you want a single monthly bank-allocation rhythm rather than a profit-and-loss-driven owner draw. It is built for owner-operated small businesses where cash discipline matters more than accounting nuance.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you are pricing a service rather than allocating revenue, the Freelance Rate Calculator is the better starting point. To check whether the bank balance and the income statement actually agree, run the Cash Flow Calculator alongside this allocation view.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
 
-      <RelatedTools slugs={["cash-flow-calculator", "net-profit-calculator", "freelance-rate-calculator"]} />
+      <GlossarySection
+        items={[
+          { term: "Real Revenue", definition: "Top-line revenue minus pass-through costs like materials and subcontractors. The base for Profit First allocations." },
+          { term: "TAPs", definition: "Target Allocation Percentages — the share of Real Revenue assigned to each account at your tier." },
+          { term: "Profit Distribution", definition: "The quarterly transfer from the Profit account to the owner. Half is paid as a bonus, half kept as reserve." },
+        ]}
+      />
 
-      <MethodologyBox slug={SLUG} />
+      <LazyRelatedTools slugs={["cash-flow-calculator", "net-profit-calculator", "freelance-rate-calculator"]} />
+
+      <LazyMethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>

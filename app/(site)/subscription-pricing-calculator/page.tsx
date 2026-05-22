@@ -2,9 +2,10 @@ import SubscriptionPricingCalculator from "@/components/calculators/Subscription
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
-import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
-import MethodologyBox from "@/components/shared/MethodologyBox";
+import GlossarySection from "@/components/shared/GlossarySection";
+import LazyMethodologyBox from "@/components/shared/LazyMethodologyBox";
+import LazyRelatedTools from "@/components/shared/LazyRelatedTools";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -79,11 +80,30 @@ Example: $30/mo | 80% margin | 5% monthly churn (20-mo) | 20% annual churn (5-yr
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this when designing or repricing a recurring-revenue product — SaaS, membership, subscription box, or content site — and you need to decide the annual-plan discount that maximises lifetime value rather than just nominal revenue. It is also the right tool when an existing monthly customer base is being migrated to annual contracts and you need to size the incentive.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you are setting the monthly price from scratch, the Pricing Calculator is the better starting point. To check that the resulting LTV justifies your customer acquisition cost, run the output through the CAC vs LTV Calculator before committing the discount publicly.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
 
-      <RelatedTools slugs={["pricing-calculator", "cac-ltv-calculator", "freelance-rate-calculator"]} />
+      <GlossarySection
+        items={[
+          { term: "Annual Discount", definition: "The percentage taken off twelve months of monthly price when a customer prepays for the year. Convention is sixteen to twenty percent." },
+          { term: "Monthly Churn", definition: "The percentage of monthly subscribers who cancel each month. Inverted gives expected lifespan in months." },
+          { term: "Annual Churn", definition: "The percentage of annual subscribers who fail to renew each year. Typically thirty to fifty percent lower in absolute terms than the monthly equivalent." },
+          { term: "Break-Even Discount", definition: "The discount level at which annual LTV exactly matches monthly LTV. Any discount below it makes the annual plan a positive trade for the business." },
+        ]}
+      />
 
-      <MethodologyBox slug={SLUG} />
+      <LazyRelatedTools slugs={["pricing-calculator", "cac-ltv-calculator", "freelance-rate-calculator"]} />
+
+      <LazyMethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>

@@ -2,9 +2,10 @@ import InventoryTurnoverCalculator from "@/components/calculators/InventoryTurno
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
-import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
-import MethodologyBox from "@/components/shared/MethodologyBox";
+import GlossarySection from "@/components/shared/GlossarySection";
+import LazyMethodologyBox from "@/components/shared/LazyMethodologyBox";
+import LazyRelatedTools from "@/components/shared/LazyRelatedTools";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -88,11 +89,29 @@ Example: COGS $600,000 | Begin $120k, End $100k
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this when you stock physical inventory and want to see whether you are turning it efficiently relative to your sector — retail, wholesale, light manufacturing, or distribution. It is also the right tool when planning a buying cycle, evaluating a slow-moving SKU, or building the working-capital section of a credit application.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you sell services rather than goods, inventory turnover is not a relevant metric — switch to the Working Capital Calculator or the Cash Flow Calculator. For a deeper dive into how slow inventory ties up cash, pair this with the Working Capital Calculator to see the cash-conversion-cycle picture.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
 
-      <RelatedTools slugs={["working-capital-calculator", "dso-calculator", "cash-flow-calculator"]} />
+      <GlossarySection
+        items={[
+          { term: "Turnover Ratio", definition: "Annual cost of goods sold divided by average inventory. How many times you completely cycle through stock in a year." },
+          { term: "Days in Inventory", definition: "365 divided by the turnover ratio. The average number of days a unit sits on the shelf before being sold." },
+          { term: "Carrying Cost", definition: "The annual cost of holding inventory — insurance, warehousing, capital cost, obsolescence, shrinkage. Typically fifteen to twenty-five percent of average inventory value." },
+        ]}
+      />
 
-      <MethodologyBox slug={SLUG} />
+      <LazyRelatedTools slugs={["working-capital-calculator", "dso-calculator", "cash-flow-calculator"]} />
+
+      <LazyMethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>

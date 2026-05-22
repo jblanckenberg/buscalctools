@@ -2,9 +2,9 @@ import BusinessValuationCalculator from "@/components/calculators/BusinessValuat
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
-import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
-import MethodologyBox from "@/components/shared/MethodologyBox";
+import LazyMethodologyBox from "@/components/shared/LazyMethodologyBox";
+import LazyRelatedTools from "@/components/shared/LazyRelatedTools";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -133,12 +133,12 @@ DCF Valuation:
 
       <FaqList items={META.faqs} />
 
-      <RelatedTools
+      <LazyRelatedTools
         slugs={["net-profit-calculator", "roi-calculator", "revenue-growth-calculator"]}
         surfaceComparisonsForCalc="business-valuation-calculator"
       />
 
-      <MethodologyBox slug={SLUG} />
+      <LazyMethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>

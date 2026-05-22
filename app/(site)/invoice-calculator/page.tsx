@@ -2,9 +2,10 @@ import InvoiceCalculator from "@/components/calculators/InvoiceCalculator";
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
-import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
-import MethodologyBox from "@/components/shared/MethodologyBox";
+import GlossarySection from "@/components/shared/GlossarySection";
+import LazyMethodologyBox from "@/components/shared/LazyMethodologyBox";
+import LazyRelatedTools from "@/components/shared/LazyRelatedTools";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -123,9 +124,17 @@ Invoice Total = Subtotal − Discount Amount + Tax Amount`}
 
       <FaqList items={META.faqs} />
 
-      <RelatedTools slugs={["freelance-rate-calculator", "net-profit-calculator"]} />
+      <GlossarySection
+        items={[
+          { term: "Net Amount", definition: "The invoice subtotal before tax — what you actually earn from the sale." },
+          { term: "Gross Amount", definition: "The total payable by the client, including tax. This is the figure that lands in your bank account." },
+          { term: "VAT and GST", definition: "Consumption taxes charged on the sale, collected by the seller, and remitted to the tax authority. Not revenue." },
+        ]}
+      />
 
-      <MethodologyBox slug={SLUG} />
+      <LazyRelatedTools slugs={["freelance-rate-calculator", "net-profit-calculator"]} />
+
+      <LazyMethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>

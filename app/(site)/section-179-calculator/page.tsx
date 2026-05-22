@@ -2,9 +2,10 @@ import Section179Calculator from "@/components/calculators/Section179Calculator"
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
-import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
-import MethodologyBox from "@/components/shared/MethodologyBox";
+import GlossarySection from "@/components/shared/GlossarySection";
+import LazyMethodologyBox from "@/components/shared/LazyMethodologyBox";
+import LazyRelatedTools from "@/components/shared/LazyRelatedTools";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -94,11 +95,30 @@ NPV Comparison (5% discount rate):
         </p>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-lg font-semibold text-brand-dark">When to use this calculator</h2>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          Use this when planning a major equipment purchase — vehicles, machinery, computers, qualifying software, or office equipment — and you want to know whether immediate Section 179 expensing or the slower MACRS schedule produces more present-value tax benefit. It is also the right tool when modelling a year-end capex push to reduce a higher-than-expected tax bill.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+          If you are evaluating the underlying return on the investment rather than the tax timing, the ROI Calculator is the better starting point. To see whether the equipment purchase fits within available financing, pair this with the Business Loan Calculator.
+        </p>
+      </section>
+
       <FaqList items={META.faqs} />
 
-      <RelatedTools slugs={["roi-calculator", "business-loan-calculator", "cash-flow-calculator"]} />
+      <GlossarySection
+        items={[
+          { term: "Section 179", definition: "The IRC provision allowing businesses to immediately deduct the full cost of qualifying equipment in the year of purchase, subject to annual dollar caps and an income limitation." },
+          { term: "MACRS", definition: "Modified Accelerated Cost Recovery System — the default US depreciation method that spreads equipment cost over a fixed recovery period using accelerated schedules." },
+          { term: "Bonus Depreciation", definition: "A separate accelerated-expensing provision that lets businesses deduct a percentage of qualifying property in year one. Currently phasing down annually unless extended." },
+          { term: "Income Limitation", definition: "The rule preventing Section 179 from reducing taxable business income below zero. Unused deduction carries forward to future years rather than producing a refundable credit." },
+        ]}
+      />
 
-      <MethodologyBox slug={SLUG} />
+      <LazyRelatedTools slugs={["roi-calculator", "business-loan-calculator", "cash-flow-calculator"]} />
+
+      <LazyMethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>

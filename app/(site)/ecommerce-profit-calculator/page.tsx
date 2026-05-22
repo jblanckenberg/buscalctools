@@ -2,9 +2,10 @@ import EcommerceProfitCalculator from "@/components/calculators/EcommerceProfitC
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import FormulaBox from "@/components/shared/FormulaBox";
 import FaqList from "@/components/shared/FaqList";
-import RelatedTools from "@/components/shared/RelatedTools";
 import Disclaimer from "@/components/shared/Disclaimer";
-import MethodologyBox from "@/components/shared/MethodologyBox";
+import GlossarySection from "@/components/shared/GlossarySection";
+import LazyMethodologyBox from "@/components/shared/LazyMethodologyBox";
+import LazyRelatedTools from "@/components/shared/LazyRelatedTools";
 import WebAppSchema from "@/components/shared/WebAppSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import { calculatorMetadata } from "@/lib/seo";
@@ -125,9 +126,18 @@ Example: $29.99 sale | $8 cost | 15% fee | $3.50 shipping | $2 ads
 
       <FaqList items={META.faqs} />
 
-      <RelatedTools slugs={["profit-margin-calculator", "markup-calculator"]} />
+      <GlossarySection
+        items={[
+          { term: "Platform Fee", definition: "The marketplace cut taken on each sale. Amazon referral fees are typically 15%; Etsy charges 6.5% transaction plus listing and payment fees; eBay sits around 12-15%." },
+          { term: "ACoS", definition: "Advertising cost of sale — ad spend divided by ad-attributed revenue. The per-unit ad cost that has to come out of gross margin before it becomes profit." },
+          { term: "FBA", definition: "Fulfilment by Amazon — Amazon stores, picks, packs and ships your inventory in exchange for a per-unit fulfilment fee based on size and weight." },
+          { term: "Landed Cost", definition: "The all-in product cost including supplier price, inbound freight, duties, and inspection. The right number to use in this calculator, not the supplier invoice alone." },
+        ]}
+      />
 
-      <MethodologyBox slug={SLUG} />
+      <LazyRelatedTools slugs={["profit-margin-calculator", "markup-calculator"]} />
+
+      <LazyMethodologyBox slug={SLUG} />
 
       <Disclaimer />
     </CalculatorShell>
