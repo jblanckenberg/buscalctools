@@ -14,6 +14,14 @@ you can keep next to your pricing sheet.
   credit={{ name: "Andrzej Gdula", url: "https://www.pexels.com/@andrzej-gdula-177638374" }}
 />
 
+<div className="my-6 rounded-xl border border-brand-primary/20 bg-brand-light/50 p-6">
+  <p className="m-0 text-base font-semibold text-brand-dark">Quick converter:</p>
+  <p className="mt-2 mb-3 text-sm text-gray-700">
+    Skip the math — our [Markup Calculator](/markup-calculator) shows markup-to-margin conversion side-by-side, instantly. Or use the [Profit Margin Calculator](/profit-margin-calculator) to measure your actual business margin.
+  </p>
+  <a href="/markup-calculator" className="inline-block rounded-lg bg-brand-primary px-4 py-2 text-sm font-medium text-white hover:bg-brand-dark">Open Markup Calculator →</a>
+</div>
+
 ## The one-sentence difference
 
 **Markup is a percentage of your cost.** Margin is a percentage of your
@@ -24,6 +32,8 @@ completely different percentage numbers.
 
 You buy widgets for $40 each. You sell them for $60. Your profit per
 widget is $20.
+
+{/* Math verification: profit = 60 - 40 = 20. Markup = 20/40*100 = 50%. Margin = 20/60*100 = 33.33%. */}
 
 - **Markup**: $20 profit ÷ $40 cost = **50% markup**
 - **Margin**: $20 profit ÷ $60 selling price = **33% margin**
@@ -38,15 +48,25 @@ margin." She didn't — she was getting a 23% margin. Over a year of
 sales, that error cost her tens of thousands of dollars in profit she
 thought she was making.
 
+{/* Math verification: 30% markup -> margin = 30/(100+30)*100 = 23.08%. Confirmed. */}
+
 If you want a 30% margin on a $40 cost, you need to charge $57.14 —
 which is a 43% markup, not a 30% markup. The conversion formula:
+
+{/* Math verification: target 30% margin on $40 cost. Price = cost / (1 - margin) = 40 / 0.70 = 57.14. Markup = (57.14 - 40)/40 * 100 = 42.86% ≈ 43%. */}
 
 ```
 Margin (%) = Markup / (100 + Markup) × 100
 Markup (%) = Margin / (100 − Margin) × 100
 ```
 
-## Quick-reference conversion table
+## Full markup → margin conversion table (5% to 150%)
+
+Every figure below is computed with `margin = markup / (100 + markup) × 100`.
+Bookmark this table — it's the fastest way to translate a supplier's
+markup quote into the margin number your P&L actually reports.
+
+{/* Math verification: all 30 rows below computed via margin = markup/(100+markup)*100. Spot-checks: 5% -> 4.76%, 50% -> 33.33%, 100% -> 50.00%, 150% -> 60.00%. */}
 
 <div className="mt-4 overflow-x-auto rounded-xl border border-gray-200">
   <table className="w-full text-sm">
@@ -57,20 +77,88 @@ Markup (%) = Margin / (100 − Margin) × 100
       </tr>
     </thead>
     <tbody>
-      <tr className="border-t border-gray-200"><td className="px-4 py-2">10%</td><td className="px-4 py-2">9.1%</td></tr>
-      <tr className="border-t border-gray-200"><td className="px-4 py-2">25%</td><td className="px-4 py-2">20%</td></tr>
-      <tr className="border-t border-gray-200"><td className="px-4 py-2">33%</td><td className="px-4 py-2">25%</td></tr>
-      <tr className="border-t border-gray-200"><td className="px-4 py-2">50%</td><td className="px-4 py-2">33.3%</td></tr>
-      <tr className="border-t border-gray-200"><td className="px-4 py-2">75%</td><td className="px-4 py-2">42.9%</td></tr>
-      <tr className="border-t border-gray-200"><td className="px-4 py-2">100%</td><td className="px-4 py-2">50%</td></tr>
-      <tr className="border-t border-gray-200"><td className="px-4 py-2">200%</td><td className="px-4 py-2">66.7%</td></tr>
-      <tr className="border-t border-gray-200"><td className="px-4 py-2">300%</td><td className="px-4 py-2">75%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">5%</td><td className="px-4 py-2">4.76%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">10%</td><td className="px-4 py-2">9.09%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">15%</td><td className="px-4 py-2">13.04%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">20%</td><td className="px-4 py-2">16.67%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">25%</td><td className="px-4 py-2">20.00%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">30%</td><td className="px-4 py-2">23.08%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">35%</td><td className="px-4 py-2">25.93%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">40%</td><td className="px-4 py-2">28.57%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">45%</td><td className="px-4 py-2">31.03%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">50%</td><td className="px-4 py-2">33.33%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">55%</td><td className="px-4 py-2">35.48%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">60%</td><td className="px-4 py-2">37.50%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">65%</td><td className="px-4 py-2">39.39%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">70%</td><td className="px-4 py-2">41.18%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">75%</td><td className="px-4 py-2">42.86%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">80%</td><td className="px-4 py-2">44.44%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">85%</td><td className="px-4 py-2">45.95%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">90%</td><td className="px-4 py-2">47.37%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">95%</td><td className="px-4 py-2">48.72%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">100%</td><td className="px-4 py-2">50.00%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">105%</td><td className="px-4 py-2">51.22%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">110%</td><td className="px-4 py-2">52.38%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">115%</td><td className="px-4 py-2">53.49%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">120%</td><td className="px-4 py-2">54.55%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">125%</td><td className="px-4 py-2">55.56%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">130%</td><td className="px-4 py-2">56.52%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">135%</td><td className="px-4 py-2">57.45%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">140%</td><td className="px-4 py-2">58.33%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">145%</td><td className="px-4 py-2">59.18%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">150%</td><td className="px-4 py-2">60.00%</td></tr>
     </tbody>
   </table>
 </div>
 
 Notice that to double your money on a sale (100% markup), the margin is
 only 50%. Margin can never exceed 100% — it's capped by the selling price.
+That mathematical ceiling is why software companies, which often run at
+80-90% gross margin, are quoting wildly different numbers from a retailer
+running at 50% margin (which is still a "double your money" deal).
+
+## Inverse table: target margin → required markup
+
+If you start with a margin target — which most owners and finance teams
+do, because margin is what your accountant reports — work backwards to
+find the markup percentage to apply when pricing from cost.
+
+{/* Math verification: markup = margin / (100 - margin) * 100. Spot-checks: 30% -> 42.86%, 50% -> 100%, 70% -> 233.33%. */}
+
+<div className="mt-4 overflow-x-auto rounded-xl border border-gray-200">
+  <table className="w-full text-sm">
+    <thead className="bg-brand-light">
+      <tr className="text-left">
+        <th className="px-4 py-2 text-brand-dark">Target margin</th>
+        <th className="px-4 py-2 text-brand-dark">→ Markup to apply</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">5%</td><td className="px-4 py-2">5.26%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">10%</td><td className="px-4 py-2">11.11%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">15%</td><td className="px-4 py-2">17.65%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">20%</td><td className="px-4 py-2">25.00%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">25%</td><td className="px-4 py-2">33.33%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">30%</td><td className="px-4 py-2">42.86%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">35%</td><td className="px-4 py-2">53.85%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">40%</td><td className="px-4 py-2">66.67%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">45%</td><td className="px-4 py-2">81.82%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">50%</td><td className="px-4 py-2">100.00%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">55%</td><td className="px-4 py-2">122.22%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">60%</td><td className="px-4 py-2">150.00%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">65%</td><td className="px-4 py-2">185.71%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">70%</td><td className="px-4 py-2">233.33%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">75%</td><td className="px-4 py-2">300.00%</td></tr>
+      <tr className="border-t border-gray-200"><td className="px-4 py-2">80%</td><td className="px-4 py-2">400.00%</td></tr>
+    </tbody>
+  </table>
+</div>
+
+The non-linearity is striking. Going from 50% to 60% margin requires
+jumping from 100% to 150% markup — half again as much. Going from 70%
+to 80% requires nearly doubling the markup (233% → 400%). Each extra
+margin point gets exponentially more expensive to extract from the
+customer.
 
 
 <Figure
@@ -79,27 +167,240 @@ only 50%. Margin can never exceed 100% — it's capped by the selling price.
   credit={{ name: "Tima Miroshnichenko", url: "https://www.pexels.com/@tima-miroshnichenko" }}
 />
 
-## Which one should you use?
+## Worked examples across five industries
 
-Both, depending on the question you're answering.
+Different industries quote prices in different ways. Below are realistic
+unit-economics for each — note which percentage is the customary
+conversation in that industry, and how dramatically the two numbers
+diverge in high-margin businesses.
 
-- **Use markup when pricing from cost.** "What should I charge?" → Take
-  your cost, apply a markup percentage. This is the simplest, fastest
-  pricing method.
-- **Use margin when measuring profitability.** "How much of every dollar
-  I bring in is profit?" → That's margin. Investors, finance teams, and
-  benchmarking all use margin.
-- **Convert between them when comparing.** A supplier says they take 30%
-  markup; your accountant says you need 40% margin. These are talking
-  about different things — convert one to the other before deciding.
+### SaaS (per-seat subscription)
 
-## The trap: industry norms vary
+You charge $100/seat/month. Your delivery cost per seat (hosting, support,
+payment fees) is $15.
 
-Different industries quote prices in different ways. Retail traditionally
-thinks in markup ("keystone" means 100% markup = 50% margin). Restaurants
-think in margin (a 30% food cost = 70% margin on food). Manufacturing
-thinks in margin. Online ad platforms quote in both, often confusingly.
-Always check which one you're looking at.
+{/* Math verification: revenue=100, cost=15, profit=85. Markup = 85/15*100 = 566.67%. Margin = 85/100*100 = 85.00%. */}
+
+- Markup: 566.7%
+- Margin: 85.0%
+- Industry convention: **margin** ("our gross margin is 85%")
+
+SaaS founders almost never quote markup because the number is absurdly
+large and unhelpful. Margin is the metric VCs benchmark — anything below
+70% is "low margin SaaS" and changes the valuation multiple.
+
+### E-commerce (physical product)
+
+You sell a $50 item that costs you $30 to land (product + inbound
+shipping + packaging).
+
+{/* Math verification: revenue=50, cost=30, profit=20. Markup = 20/30*100 = 66.67%. Margin = 20/50*100 = 40.00%. */}
+
+- Markup: 66.7%
+- Margin: 40.0%
+- Industry convention: **both**, with markup dominating supplier
+  conversations and margin dominating P&L review
+
+E-commerce sits in the middle — buyers and suppliers talk markup ("I'm
+buying it from you for $30 and selling at $50, that's a 67% markup"),
+but the Shopify margin report and the year-end P&L report margin.
+
+### Professional services (per-hour)
+
+You bill clients $150/hour. The loaded cost of the senior consultant
+delivering the work — salary, benefits, payroll tax, allocated overhead
+— is $55/hour.
+
+{/* Math verification: revenue=150, cost=55, profit=95. Markup = 95/55*100 = 172.73%. Margin = 95/150*100 = 63.33%. */}
+
+- Markup: 172.7%
+- Margin: 63.3%
+- Industry convention: **margin** at the agency/firm level; **multiplier**
+  at the project level
+
+Agency owners talk multiplier ("we bill at 3x cost") which is just
+markup + 100%. A 3x multiplier = 200% markup = 66.7% margin. Once you
+know the multiplier, the margin is fixed; the conversion isn't optional.
+
+### Manufacturing (B2B unit)
+
+You sell a component to OEMs for $80. Direct cost (materials + machine
+time + direct labour) is $52.
+
+{/* Math verification: revenue=80, cost=52, profit=28. Markup = 28/52*100 = 53.85%. Margin = 28/80*100 = 35.00%. */}
+
+- Markup: 53.8%
+- Margin: 35.0%
+- Industry convention: **margin**, except in cost-plus government
+  contracts which are always quoted as markup
+
+Manufacturing finance teams talk gross margin. The exception is
+cost-plus contracts (common in defence, aerospace, and government work)
+where the deal is literally "cost + 8%" or "cost + 12%" markup, by
+contract.
+
+### Restaurant (food + beverage)
+
+A dish on your menu sells for $24. The food cost (the ingredients on the
+plate) is $7.20.
+
+{/* Math verification: revenue=24, cost=7.20, profit=16.80. Markup = 16.80/7.20*100 = 233.33%. Margin = 16.80/24*100 = 70.00%. Food cost ratio = 7.20/24 = 30%. */}
+
+- Markup: 233.3%
+- Margin: 70.0%
+- Food cost ratio: 30%
+- Industry convention: **food cost ratio** (the inverse of margin)
+
+Restaurants don't say "70% margin" — they say "30% food cost." Same
+number, flipped. The industry rule of thumb is "keep food cost under
+33% on the plate," which means keep margin above 67%. Beverage cost
+ratios are typically half of food (15-18% on wine, 20% on beer), so
+beverage margins run 80-85%.
+
+## Decision tree: which one to use, by role
+
+Both numbers are correct; the right one to lead with depends on the
+question you're answering and who you're talking to.
+
+### Founder pricing a new product
+
+Start from a **margin target** — you know the margin you need to cover
+overhead, taxes, and reinvestment (often 40-50% for a small product
+business, 70%+ for software). Convert the margin target to a markup,
+then apply the markup to your cost to get the price. Using the inverse
+table above: want 40% margin → mark up cost by 66.7%.
+
+### Salesperson or estimator quoting jobs
+
+Use **markup**. "Cost + 40%" is one multiplication on a calculator. No
+division required, no risk of confusing yourself in front of a customer.
+Whatever margin target the company has set, convert it once to a markup,
+and from then on every quote is `cost × (1 + markup)`.
+
+### Investor or finance team reviewing performance
+
+Use **margin**. Gross margin (and below it, operating and net margin)
+is a percentage of revenue, which makes it directly comparable across
+companies of vastly different sizes. A $2M revenue SaaS with 80% margin
+and a $200M revenue SaaS with 80% margin are doing the same thing well.
+Markup would obscure that.
+
+### Bookkeeper or controller categorising COGS
+
+Use **both**. Record markup on the pricing sheet (because that's how
+the line was priced and how the next item like it should be priced),
+and report margin on the P&L (because that's the standard format
+investors, lenders, and tax authorities expect).
+
+### Tax accountant filing returns
+
+Use **gross margin** to compute cost of goods sold for the income
+statement. Tax authorities never ask about markup; they ask about COGS
+and gross profit. Markup is irrelevant to the tax return.
+
+## Five common conversion mistakes (and what they cost)
+
+### Mistake 1: "Adding 30% gets me a 30% margin"
+
+The bakery example again. Marking up cost by 30% gives 23.08% margin,
+not 30%. On $1M of revenue, that's $69,200 of profit you thought you
+were earning but weren't.
+
+{/* Math verification: 30% markup -> 23.08% margin. Delta = 30 - 23.08 = 6.92 percentage points. On $1M revenue = $69,200. */}
+
+### Mistake 2: Treating VAT or sales tax as profit
+
+You buy something for $100 and sell it for $120, where local VAT is 20%.
+You think you have a 20% margin. You actually have **zero margin** —
+that $20 isn't yours, it's the tax authority's. The real net price is
+$100 (the $120 divided by 1.20), and your profit on a $100 net sale of
+a $100 cost item is $0.
+
+{/* Math verification: gross=120, VAT=20%, net = 120/1.20 = 100. Cost=100. Profit = 100-100 = 0. Margin = 0%. */}
+
+### Mistake 3: Quoting markup, reporting margin (without converting)
+
+The salesperson tells the CEO "we're getting 50% on every job." The CEO
+hears 50% margin and assumes the company is making $50 on every $100 of
+sales. The salesperson means 50% markup — which is 33.3% margin —
+$33 of profit on $100 of sale, not $50. Compounded over a year, the CEO
+plans hiring and capex on $170k of profit that doesn't exist on
+$1M revenue.
+
+{/* Math verification: 50% markup at $1M revenue. Actual margin = 33.33%, so profit = $333,333. CEO assumed 50% margin = $500,000. Delta = $166,667. */}
+
+### Mistake 4: Importing markup from your inventory system as margin
+
+Many accounting systems (QuickBooks, Xero, Shopify) let you set either
+markup or margin on a product, then display the other. If a colleague
+sets up a new product with "30" in the markup field but you read the
+column as margin, you'll consistently under-price the line by 7
+percentage points of margin until someone catches it. Always check the
+column header before changing prices in bulk.
+
+### Mistake 5: The discount trap
+
+You sell a $60 product (50% markup on $40 cost, 33.3% margin). Marketing
+runs a 30% discount, so the sale price drops to $42. Your profit on the
+discounted sale is only **$2** — a 4.8% margin, not the 3.3% you'd
+expect by "subtracting 30 from 33."
+
+{/* Math verification: cost=40, price=60, discounted sale = 60 * 0.70 = 42. Profit = 42 - 40 = 2. Margin = 2/42 * 100 = 4.76%. */}
+
+A 30% discount on a 33% margin product leaves almost no profit. A 50%
+discount would put you underwater. This is why retailers with thin
+margins (grocery, electronics) never run deep discounts, and why
+high-margin businesses (jewellery, software) can give 50% off and still
+make money.
+
+## Margin types: gross, operating, net, contribution
+
+So far we've been talking about **gross margin** — profit after only
+the direct cost of delivering the product. There are three other margin
+numbers you'll see on a financial statement, and they tell different
+stories:
+
+- **Gross margin** = (Revenue − COGS) ÷ Revenue. Direct cost only:
+  inventory, direct labour, payment processing.
+- **Operating margin** = (Revenue − COGS − Operating expenses) ÷ Revenue.
+  After rent, salaries, marketing, software. This is the number that
+  tells you whether the *business model* works.
+- **Net margin** = (Revenue − All costs − Interest − Tax) ÷ Revenue.
+  What's actually left for the owners. Usually 5-15 percentage points
+  below operating margin.
+- **Contribution margin** = (Price − Variable cost per unit) ÷ Price.
+  Used in break-even analysis and unit economics. Tells you how much
+  each additional unit sold contributes to fixed costs and profit.
+
+When this article (and most online conversion tables) says "margin," it
+means gross margin. For the difference between gross and net specifically,
+read [Gross Profit vs Net Profit: What's the Difference?](/blog/gross-profit-vs-net-profit).
+
+## Industry conventions: keystone, food cost, cost-plus, billable rate
+
+A handful of pricing traditions confuse the conversation because they're
+quoted in their own jargon, not in plain markup or margin.
+
+- **Keystone (retail)** — 100% markup, also called "double the cost."
+  This is 50% margin. It's the historic American department-store
+  standard and still common in jewellery, fashion, and gift retail.
+- **Food cost (restaurants)** — the inverse of margin, expressed as
+  cost-to-price ratio. A 30% food cost = 70% gross margin. Industry
+  benchmark is 28-32% food cost on plates, 18-22% on beverages.
+- **Cost-plus (manufacturing and government)** — a contract that
+  literally specifies a markup. "Cost + 10%" means the buyer pays
+  whatever the seller's verified cost is plus 10% markup, regardless
+  of what would happen at market price. Common in defence, public
+  infrastructure, and government IT.
+- **Billable rate / multiplier (professional services)** — agencies
+  and consultancies often quote a multiplier on loaded labour cost.
+  "3x multiplier" means billable rate = 3 × cost-per-hour. That's 200%
+  markup and 66.7% margin. "2.5x" is 150% markup and 60% margin.
+
+{/* Math verification: 3x multiplier means price = 3 * cost. Markup = (3c - c)/c = 200%. Margin = (3c - c)/(3c) = 66.67%. */}
+
+When you hear one of these, mentally convert it back to margin so you
+can compare apples-to-apples with whatever you're benchmarking against.
 
 
 <Figure
@@ -107,6 +408,61 @@ Always check which one you're looking at.
   alt="Red balloons with percentage signs, ideal for marketing promotions and sales events."
   credit={{ name: "www.kaboompics.com", url: "https://www.pexels.com/@karola-g" }}
 />
+
+## Frequently asked questions
+
+### What's the difference between markup and margin?
+
+Markup is profit as a percentage of cost. Margin is profit as a
+percentage of selling price. The same sale always shows a higher markup
+percentage than margin percentage.
+
+### Is markup the same as gross profit?
+
+No. Markup is a **percentage**; gross profit is a **dollar amount**.
+The same gross profit can be quoted as either markup or margin
+depending on the denominator. Markup uses cost as the denominator;
+margin uses revenue.
+
+### How do I convert markup to margin?
+
+`Margin (%) = Markup ÷ (100 + Markup) × 100`. For example, a 60% markup
+converts to a 37.5% margin: 60 ÷ 160 × 100 = 37.5.
+
+{/* Math verification: 60% markup -> 60/(100+60)*100 = 37.50%. */}
+
+### Why is my margin always lower than my markup?
+
+Because they have different denominators. Margin divides by selling
+price (which is bigger than cost), and the bigger the denominator, the
+smaller the percentage. The gap widens dramatically at high markups:
+100% markup → 50% margin, but 300% markup → only 75% margin.
+
+### What's a good markup percentage?
+
+It depends on the industry. Restaurants typically use 200-300% markup
+(70-75% margin on food, higher on drinks). Retail "keystone" is 100%
+markup (50% margin). Service businesses often use 150-200% markup
+(60-66% margin). See the industry examples above for typical ranges.
+
+### Can margin be higher than 100%?
+
+No. Margin is profit divided by selling price, and profit cannot exceed
+selling price (that would require negative cost). The mathematical
+ceiling is 100%, approached but never reached. Markup, on the other
+hand, has no ceiling — a $1 cost item sold for $100 has 9,900% markup
+and 99% margin.
+
+{/* Math verification: cost=1, price=100, profit=99. Markup = 99/1*100 = 9900%. Margin = 99/100*100 = 99%. */}
+
+### Does VAT or sales tax affect margin?
+
+Yes. Gross margin in standard accounting is computed on net revenue —
+revenue *after* removing VAT or sales tax, because that tax is not
+yours to keep. A $120 sale at 20% VAT is a $100 net sale; margin
+calculations should use the $100. Markup, similarly, should be applied
+to net cost (excluding recoverable VAT) and produce a net selling
+price, with VAT added on top for the customer-facing number.
 
 ## Try it yourself
 
@@ -122,6 +478,8 @@ appropriate VAT or sales tax.
 
 - Markup is profit ÷ cost. Margin is profit ÷ selling price.
 - For the same sale, markup is always a higher percentage than margin.
-- 50% markup = 33% margin. 100% markup = 50% margin.
-- Use markup to set prices; use margin to measure profitability.
+- 50% markup = 33% margin. 100% markup = 50% margin. 300% markup = 75% margin.
+- Use markup to set prices (it's faster); use margin to measure profitability (it's comparable).
+- Margin is capped at 100%; markup has no ceiling.
+- Industry conventions vary (keystone, food cost, cost-plus, multiplier) — always convert back to margin to compare like-for-like.
 - Always confirm which one a supplier, employee, or competitor is quoting before reacting.
