@@ -59,7 +59,8 @@ export default function BusinessLoanPage() {
         <h2 className="text-lg font-semibold text-brand-dark">Common mistakes</h2>
         <ul className="mt-3 space-y-3 text-sm leading-relaxed text-gray-700">
           <li>
-            <strong className="text-brand-dark">Comparing on monthly payment alone</strong> — a longer term gives a smaller monthly payment but a much larger total interest bill. A $50,000 loan at 8% costs $10,829 in interest over 5 years versus $18,526 over 10 years — same monthly comfort, $7,697 more out of pocket. Always compare total cost, not just the monthly line.
+            <strong className="text-brand-dark">Comparing on monthly payment alone</strong> — a longer term gives a smaller monthly payment but a much larger total interest bill. A $50,000 loan at 8% APR costs $10,829 in interest over 5 years (at $1,014/month) versus $22,797 over 10 years (at $607/month) — the smaller monthly figure feels easier, but you pay $11,968 more interest for the same principal. Always compare total cost, not just the monthly line.
+            {/* Math verification: $50k @ 8%/60mo PMT = $1,013.82/mo, total $60,829, interest $10,829. $50k @ 8%/120mo PMT = $606.64/mo, total $72,797, interest $22,797. Delta $11,968. */}
           </li>
           <li>
             <strong className="text-brand-dark">Quoting the headline rate, ignoring fees</strong> — origination fees, processing fees, and prepayment penalties can add 1–3% to the effective cost of borrowing. APR captures these; the headline interest rate does not. A 7% loan with a 3% origination fee can be more expensive than an 8% loan with no fees.
