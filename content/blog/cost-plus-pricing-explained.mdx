@@ -1,8 +1,10 @@
 <Lead>
 Cost-plus pricing is the simplest way to set a price: take your cost,
 add a markup, and that's your selling price. It's also the pricing
-method that lets the most money slip through your fingers. Here's when
-it works, when it doesn't, and how to use it without leaving margin on
+method that lets the most money slip through your fingers — and the
+one most likely to bury a small business when overhead is misallocated.
+Here's when it works, when it doesn't, four formula variations, five
+industry worked examples, and how to use it without leaving margin on
 the table.
 </Lead>
 
@@ -13,6 +15,14 @@ the table.
   credit={{ name: "Leeloo The First", url: "https://www.pexels.com/@leeloothefirst" }}
 />
 
+<div className="my-6 rounded-xl border border-brand-primary/20 bg-brand-light/50 p-6">
+  <p className="m-0 text-base font-semibold text-brand-dark">Run the cost-plus math now:</p>
+  <p className="mt-2 mb-3 text-sm text-gray-700">
+    Use our [Pricing Calculator](/pricing-calculator) to set a cost-plus floor and flip between margin-mode and markup-mode in one click. For pure markup conversions, the [Markup Calculator](/markup-calculator) shows the equivalent margin side-by-side, and the [Profit Margin Calculator](/profit-margin-calculator) measures the result after the fact.
+  </p>
+  <a href="/pricing-calculator" className="inline-block rounded-lg bg-brand-primary px-4 py-2 text-sm font-medium text-white hover:bg-brand-dark">Open Pricing Calculator →</a>
+</div>
+
 ## The formula
 
 ```
@@ -21,6 +31,10 @@ Selling Price = Unit Cost × (1 + Markup %)
 Example: $40 cost × 1.5 (50% markup) = $60 price
 ```
 
+That one line is the entire method. Everything that follows is about
+**what counts as "cost"**, **what markup to apply**, and **when this
+method earns more money than the alternatives**.
+
 ## Why people use it
 
 - **It's fast.** No market research, no positioning analysis — just arithmetic.
@@ -28,7 +42,210 @@ Example: $40 cost × 1.5 (50% markup) = $60 price
 - **It's easy to explain.** Customers, partners, and tax authorities all understand "cost plus 30%".
 - **It's defensible.** Useful in government contracts and regulated industries where pricing must be justified.
 
-## Why it costs you money
+## The four variations of the cost-plus formula
+
+Most small businesses run the basic markup version and stop there. The
+real leverage lives in the next three variations.
+
+### 1. Basic markup (the one everyone uses)
+
+```
+Price = Unit Cost × (1 + Markup %)
+```
+
+{/* Math verification: $40 * 1.50 = $60. Markup 50%, margin = 20/60 = 33.33%. */}
+
+A $40 cost item with a 50% markup sells for **$60**. Profit per unit is
+$20. **Margin is only 33%**, not 50% — see [profit margin vs markup](/blog/profit-margin-vs-markup-difference)
+for why the two numbers differ.
+
+### 2. Target-margin pricing (the variation accountants use)
+
+If you start from a margin target (which is what your accountant and
+investors will report), invert the formula:
+
+```
+Price = Unit Cost ÷ (1 − Target Margin %)
+```
+
+{/* Math verification: $40 / (1 - 0.40) = $66.67. Equivalent markup = (66.67-40)/40 = 66.67%. */}
+
+A $40 cost item at a **40% margin target** prices at **$40 ÷ 0.60 =
+$66.67** — which is the same as applying a 66.7% markup. Every margin
+target has a matching markup; the [Markup Calculator](/markup-calculator)
+does the conversion for you.
+
+### 3. Blended cost-plus (labour + materials + overhead absorption)
+
+The version that survives contact with reality. Instead of marking up
+direct cost, you mark up **fully-loaded cost** — direct inputs plus a
+share of overhead.
+
+{/* Math verification: materials $12 + labour $18 + overhead allocation $10 = $40 fully-loaded. With 40% markup: $40 * 1.40 = $56. Margin = 16/56 = 28.57%. */}
+
+```
+Materials:                $12
+Direct labour:            $18
+Allocated overhead:       $10
+----------------------
+Fully-loaded cost:        $40
+× (1 + 40% markup)        × 1.40
+----------------------
+Selling price:            $56  (28.6% margin)
+```
+
+If you marked up the $30 of direct cost by 40%, you'd price at $42 —
+**and lose $4 per unit after overhead**. The most common cost-plus
+failure isn't the formula, it's leaving overhead out of the cost number.
+
+### 4. Activity-based costing (ABC) — the "smart" cost-plus
+
+Flat overhead absorption (a single % of revenue or a single $/hour rate)
+breaks when your product mix is heterogeneous. ABC allocates overhead
+by **activity drivers** — machine hours, customer-service touches,
+setup time, dispatch calls — instead of one blended rate.
+
+We work a full ABC example in the [overhead-allocation section](#the-overhead-allocation-problem-where-most-cost-plus-quietly-fails)
+below. Short version: ABC keeps you from accidentally pricing your
+high-touch products at a loss while subsidising commodity SKUs.
+
+## Five industry worked examples
+
+The right markup is industry-dependent. Below are five concrete
+scenarios with the math worked through, plus the typical markup range
+for that industry and whether cost-plus is even the right method there.
+
+### 1. SaaS — per-seat subscription
+
+A vertical SaaS company prices a seat using fully-loaded cost-plus.
+
+{/* Math verification: direct = 25 + 8 + 4 = $37 (hosting, support, payment processing). Allocated R&D + G&A overhead = $15. Fully loaded = $52. Price at 50% markup = 52 * 1.50 = $78/mo. Margin = 26/78 = 33.33%. Annual = 78 * 12 = $936. */}
+
+```
+Hosting + bandwidth per seat:    $4
+Customer-support load:           $8
+Payment processing:              $25
+Allocated R&D + G&A:             $15
+----------------------------
+Fully-loaded cost:               $52/seat/month
+× (1 + 50% markup)               × 1.50
+----------------------------
+Price:                           $78/seat/month  ($936/yr)
+```
+
+- **Industry-typical SaaS gross margin: 70–90%.**
+- **Is cost-plus the right method here?** **No.** $78/seat is far below
+  what a B2B SaaS replacing $400k/year of analyst headcount could
+  command — usually $300–$2,000/seat/month. SaaS economics reward
+  value-based pricing because the marginal cost of one more seat is
+  near zero; cost-plus caps your ceiling at the wrong number. See
+  [value-based pricing vs cost-plus](/blog/value-based-pricing-vs-cost-plus)
+  for the full breakdown.
+
+### 2. E-commerce — physical product
+
+A boutique sells a curated home-goods item online.
+
+{/* Math verification: direct = wholesale $14 + freight-in $2.50 + packaging $1.50 = $18. OH allocation pick-pack $3 + returns reserve $1 = $4. Loaded = $22. 150% markup -> $22 * 2.50 = $55. Margin = 33/55 = 60%. */}
+
+```
+Wholesale cost:                  $14.00
+Freight-in:                      $2.50
+Packaging:                       $1.50
+Pick-pack labour allocation:     $3.00
+Returns reserve (5%):            $1.00
+----------------------------
+Fully-loaded cost:               $22.00
+× (1 + 150% markup)              × 2.50
+----------------------------
+Selling price:                   $55.00  (60% margin)
+```
+
+- **Industry-typical e-commerce margin: 30–50% on physical product**
+  (higher for digital, lower for grocery and electronics).
+- **Is cost-plus the right method here?** **Mostly yes.** E-commerce
+  competes against transparent price-comparison engines, so wild
+  value-based premiums get punished. The right move is cost-plus
+  pricing with bundle / cross-sell upsell, not raw value-based.
+
+### 3. Professional services — bookkeeping firm billing per hour
+
+A boutique bookkeeping practice prices senior bookkeeper time.
+
+{/* Math verification: bookkeeper salary $35/hr * 1.25 (payroll+benefits load) = $43.75/hr. Plus allocated overhead (rent, software, mgmt) $25/hr = $68.75 loaded. 100% markup -> $137.50/hr. Margin = 68.75/137.50 = 50%. */}
+
+```
+Bookkeeper wage:                 $35.00/hr
++ Payroll tax + benefits (25%):  $8.75/hr
++ Allocated overhead:            $25.00/hr
+----------------------------
+Fully-loaded cost:               $68.75/hr
+× (1 + 100% markup) [2× multiplier]   × 2.00
+----------------------------
+Billable rate:                   $137.50/hr  (50% margin)
+```
+
+- **Industry-typical pro-services margin: 50–65% at the firm level.**
+- **Is cost-plus the right method here?** **Yes for compliance work**
+  (bookkeeping, payroll, basic tax prep) where customers price-shop on
+  hourly rates. **No for advisory work** (CFO services, M&A advisory) —
+  there value-based pricing earns 2–10× the cost-plus rate. The same
+  firm should run **two pricing methods** for two product lines.
+
+### 4. Manufacturing — precision B2B component
+
+A small manufacturer sells a custom-machined part to an OEM.
+
+{/* Math verification: materials $32 + direct labour $18 + machine time $12 = $62 direct. Factory overhead allocation (depreciation, supervision, utilities) = $20. Loaded = $82. 30% markup -> $82 * 1.30 = $106.60. Margin = 24.60/106.60 = 23.08%. */}
+
+```
+Materials:                       $32
+Direct labour:                   $18
+Machine time:                    $12
+Factory overhead allocation:     $20
+----------------------------
+Fully-loaded cost:               $82/unit
+× (1 + 30% markup)               × 1.30
+----------------------------
+Selling price:                   $106.60/unit  (23% margin)
+```
+
+- **Industry-typical B2B manufacturing margin: 25–40%.**
+- **Is cost-plus the right method here?** **Yes when the part is
+  commodity or non-critical.** **No when your component sits on the
+  customer's critical path** — then it's a value-based deal (we saw a
+  similar component earn 2–3× the cost-plus price in the
+  [value-based vs cost-plus](/blog/value-based-pricing-vs-cost-plus#3-custom-manufacturer-2-3-when-youre-on-the-critical-path)
+  worked example). Cost-plus is the default; switch when leverage exists.
+
+### 5. Retail — boutique apparel
+
+An independent apparel store prices a wholesale piece.
+
+{/* Math verification: wholesale $22 + freight $2 = $24 direct. Allocated rent + sales staff + POS = $8/unit. Loaded = $32. 120% markup -> $32 * 2.20 = $70.40. Margin = 38.40/70.40 = 54.55%. */}
+
+```
+Wholesale cost:                  $22
+Freight to store:                $2
+Allocated rent + staff + POS:    $8
+----------------------------
+Fully-loaded cost:               $32/unit
+× (1 + 120% markup)              × 2.20
+----------------------------
+Retail price:                    $70.40  (55% margin)
+```
+
+- **Industry-typical apparel retail margin: 50–60%** (keystone — 100%
+  markup, 50% margin — is the historic floor; full-price boutiques run
+  120–150% markup to absorb seasonal markdowns).
+- **Is cost-plus the right method here?** **Yes, with one caveat.**
+  Retail relies on the **keystone tradition** (cost × 2) because
+  markdown cycles destroy unloaded markups. If you don't bake
+  end-of-season clearance into the original markup, the blended margin
+  collapses below 30%. Cost-plus retail = "keystone for the customer
+  who pays full price, then markdown ladder to clear stock."
+
+## Why cost-plus costs you money
 
 Cost-plus ignores the only thing that actually determines what you can
 charge: **what the customer is willing to pay**.
@@ -49,6 +266,73 @@ Two ways this bites:
   credit={{ name: "Ann H", url: "https://www.pexels.com/@ann-h-45017" }}
 />
 
+## The overhead allocation problem (where most cost-plus quietly fails)
+
+Cost-plus pricing only works if your overhead is allocated to the right
+products. The classic failure: a plumber, agency, or workshop with a
+**diverse product mix** allocates overhead as a flat % of revenue (or a
+flat $/hour rate) and accidentally **prices the high-touch service at a
+loss while over-pricing the simple one.**
+
+### Worked example: residential plumber
+
+A plumber runs two services:
+
+- **Drain unblock**: 800 jobs/year, 1.5 hours each, labour cost $60/job,
+  customer is one dispatch call.
+- **Bathroom install**: 50 jobs/year, 30 hours each, labour cost $1,800/job,
+  customer is six dispatch / quote / scheduling touches.
+
+Annual overhead (truck, insurance, dispatch, scheduling, marketing) =
+**$80,000**.
+
+{/* Math verification: total billable hrs = 800*1.5 + 50*30 = 1200 + 1500 = 2700. OH per hour = 80000 / 2700 = $29.63. */}
+
+#### Method A — flat $/hour overhead (the lazy default)
+
+Total billable hours = **2,700/year**. Overhead per hour = **$80,000 ÷
+2,700 = $29.63**.
+
+{/* Math verification: drain loaded = $60 + ($29.63 * 1.5) = $60 + $44.44 = $104.44. At $180 sell price, margin = 75.56/180 = 41.98%. Install loaded = $1800 + ($29.63 * 30) = $1800 + $888.89 = $2688.89. At $4500 sell price, margin = 1811.11/4500 = 40.25%. */}
+
+- **Drain job loaded cost:** $60 + (1.5 × $29.63) = **$104.44**. At a
+  $180 sell price, that's a **42% margin** — looks fine.
+- **Install loaded cost:** $1,800 + (30 × $29.63) = **$2,689**. At a
+  $4,500 sell price, that's a **40% margin** — also looks fine.
+
+The plumber concludes both services are roughly equally profitable and
+expands the bathroom-install business because it's bigger ticket.
+
+#### Method B — ABC by customer touches (the truth)
+
+Real overhead drivers are **dispatch calls, scheduling, customer
+service** — not billable hours.
+
+{/* Math verification: total touches = 800*1 + 50*6 = 800 + 300 = 1100. OH per touch = 80000/1100 = $72.73. Drain loaded = $60 + (1*$72.73) = $132.73. Margin at $180 = 47.27/180 = 26.26%. Install loaded = $1800 + (6*$72.73) = $1800 + $436.36 = $2236.36. Margin at $4500 = 2263.64/4500 = 50.30%. */}
+
+Total touches = 800 × 1 + 50 × 6 = **1,100 touches/year**. Overhead per
+touch = **$80,000 ÷ 1,100 = $72.73**.
+
+- **Drain job loaded cost (ABC):** $60 + (1 × $72.73) = **$132.73**.
+  At $180 sell price, margin = **26%** — much thinner than the flat
+  method suggested.
+- **Install job loaded cost (ABC):** $1,800 + (6 × $72.73) = **$2,236**.
+  At $4,500 sell price, margin = **50%** — much fatter than the flat
+  method suggested.
+
+**The reality:** drain jobs are the cash cow and the plumber was about
+to scale the **less profitable** product line. The flat overhead
+method buried the truth; ABC surfaced it.
+
+### What to do about it
+
+- If your product mix is homogeneous (one category, similar size), flat
+  $/hour overhead is fine.
+- If your product mix is heterogeneous (a few high-touch big-tickets
+  alongside many small commodity jobs), **switch to ABC for the two or
+  three biggest product lines**. You don't have to ABC everything;
+  fixing the worst-allocated 20% recovers 80% of the misallocation.
+
 ## The hidden trap: your cost number is probably wrong
 
 Most cost-plus pricing uses only direct cost (materials, direct
@@ -67,21 +351,175 @@ separates fixed from variable costs so you can see the true number.
   credit={{ name: "Tiger Lily", url: "https://www.pexels.com/@tiger-lily" }}
 />
 
+## Five scenarios where cost-plus fails
+
+Cost-plus is a default, not a strategy. These are the situations where
+defaulting to it actively destroys margin or revenue.
+
+### 1. The market sets the price (commodity goods)
+
+Your cost is $4.50. Add a 30% markup → **$5.85**. The market price for
+the same commodity (bread flour, sugar, generic detergent, off-patent
+pharma) is **$4.20**. You lose every sale.
+
+In commodity markets, **the market price is the price**. Cost-plus only
+tells you whether you can afford to play. If your cost-plus floor is
+above market, the question isn't "what markup do I add" but "how do I
+get my cost below $4.20."
+
+### 2. Overhead is genuinely hard to allocate
+
+A shared-services business (one team supporting many products, one
+factory producing dozens of SKUs) can't allocate overhead cleanly
+without ABC — and most owners won't do ABC. Result: cost numbers wander
+by ±30%, and so do the resulting prices. **Cost-plus inherits the
+sloppiness of the cost number.**
+
+### 3. Value varies wildly across customer segments
+
+You sell the same software to a 10-person startup and a 10,000-person
+enterprise. Cost-plus prices them identically. The enterprise will pay
+20× what the startup will, because the value is 20× larger. Cost-plus
+leaves that 19× behind; segment-priced or value-based capture it.
+
+### 4. Competition prices on value
+
+If your category leader prices on value and you price on cost-plus,
+they earn 3–5× your revenue per customer on similar deliverables. You
+stay busy; they stay rich. This is the slow-bleed failure mode —
+nothing breaks, you just never accumulate margin.
+
+### 5. Your product mix is heterogeneous
+
+Mixing high-touch and low-touch products under one flat markup means
+one of them is wrong. Either the high-touch product is sold below cost
+(see the plumber example above) or the low-touch product is priced
+above market and loses sales. **Flat cost-plus across a heterogeneous
+mix is mathematically guaranteed to misprice at least one line.**
+
 ## When cost-plus IS the right answer
 
-- **Government / defence contracts.** Often require cost-plus pricing by regulation.
+- **Government / defence contracts.** Often require cost-plus pricing by regulation (see next section).
 - **Custom manufacturing.** Each unit is different; no market price exists.
 - **Wholesale to retailers.** Retailers expect a predictable cost-plus quote so they can set their own retail price.
-- **Service businesses with stable costs.** Cleaning, accounting, basic professional services where customers price-shop.
+- **Service businesses with stable costs.** Cleaning, accounting compliance work, basic professional services where customers price-shop.
 - **Commodity products.** When the market dictates a tight price band, cost-plus tells you whether to play.
+
+## Cost-plus vs value-based — when to switch
+
+Most businesses should run cost-plus as a **floor** and consider
+value-based on top whenever specific signals appear. The full decision
+framework lives in [value-based pricing vs cost-plus](/blog/value-based-pricing-vs-cost-plus);
+the short version:
+
+**Stay on cost-plus when:**
+
+- The product is a commodity or table-stakes deliverable.
+- The buyer is a procurement professional with a calculator.
+- You sell through channel partners (wholesalers, distributors) who
+  expect predictable cost+markup quotes.
+- You're in a regulated industry (government contracts, utilities).
+
+**Switch to value-based when:**
+
+- The deliverable creates a quantifiable outcome (revenue lift, cost
+  saving, time saved at an hourly rate).
+- You're differentiated enough that the buyer can't comparison-shop on
+  price alone.
+- The buyer is B2B and decision-makers care about ROI rather than line
+  cost.
+- Your typical customer segment values the outcome at 3–10× your
+  cost-plus floor.
+
+Cost-plus and value-based aren't a binary choice — most mature
+businesses **price the same firm differently for different product
+lines**. The bookkeeping firm in example 3 above runs cost-plus on
+compliance work and value-based on advisory.
+
+## Government and regulated cost-plus contracts
+
+Cost-plus is mandatory in much of public procurement. Knowing the rules
+is the entire ballgame if your business bids on these contracts.
+
+- **US Federal Acquisition Regulation (FAR).** FAR Part 15.404-4 caps
+  cost-plus profit at roughly **10% on standard work**, **8% on
+  construction**, and **6% on architect / engineering** services. The
+  fee is negotiated upfront and held fixed once awarded.
+- **UK MOD / public sector.** Single Source Contract Regulations set a
+  baseline profit rate (annually published, typically 7–9%) on
+  non-competitive defence contracts. The MOD's Single Source Regulations
+  Office audits the cost base.
+- **EU defence and infrastructure.** Member states use cost-plus for
+  most non-competitive defence procurement, with national profit caps
+  in the 8–12% range.
+- **Why they exist:** transparency and accountability. Public money
+  buyers can't tolerate the "value-based" black box; they need to see
+  the cost base and verify the markup is reasonable. The buyer trades
+  efficiency (cost-plus does not reward the supplier for being lean)
+  for auditability.
+- **How they audit:** verified cost statements, allowable-cost
+  schedules (what counts as overhead vs profit), and post-award audits.
+  An SMB bidding gov contracts needs **fully-loaded cost** accounting
+  from day one — there is no retrofitting allowable costs after the
+  contract is awarded.
+
+If you're a small business eyeing public-sector work, **build your
+cost accounting before you bid**, not after. The math we showed in the
+fully-loaded cost section is the minimum standard; gov contracts will
+want it formalised into a verifiable cost-statement format (DCAA-compliant
+in the US, SSRO-compliant in the UK).
+
+## The wholesale + retail markup stack
+
+Most small businesses model **their own markup** but ignore that their
+product moves through 2–3 markup layers before reaching the consumer.
+Get this wrong and your "MSRP" suggestion is unrealistic.
+
+{/* Math verification: mfg cost $10 -> wholesale (30% markup) = $13. -> distributor (30% markup) = $13 * 1.30 = $16.90. -> retail (50% markup) = $16.90 * 1.50 = $25.35. Total markup on original $10 cost = (25.35 - 10)/10 = 153.5%. With keystone (100%) retail markup instead: retail = $16.90 * 2 = $33.80. Total markup = (33.80 - 10)/10 = 238%. */}
+
+```
+Manufacturer cost:               $10.00
+× (1 + 30% markup)               × 1.30
+----------------------------
+Wholesale price:                 $13.00
+× (1 + 30% distributor markup)   × 1.30
+----------------------------
+Distributor price:               $16.90
+× (1 + 50% retail markup)        × 1.50
+----------------------------
+Retail price:                    $25.35
+```
+
+**Total markup on the original $10 cost = 153.5%.** Stack a keystone
+(100%) retail markup on top instead of 50% and the retail price jumps
+to **$33.80** — a 238% total stack.
+
+**Implications for the manufacturer:**
+
+1. **Your wholesale price determines the consumer price**, but with a
+   2.5–3.4× multiplier depending on the channel. Selling at $13
+   wholesale doesn't mean a $20 consumer price.
+2. **Direct-to-consumer (DTC) collapses the stack.** If you sell at $25
+   DTC instead of through the channel, you keep $15 of margin per unit
+   instead of $3 — at the cost of also owning marketing, fulfilment,
+   and returns.
+3. **MAP (minimum advertised price) policies exist** because
+   manufacturers want to prevent retailers from discounting below the
+   level that keeps the channel healthy. If the retailer prices below
+   $20, distributors squeeze the manufacturer for a lower wholesale.
+
+The [Pricing Calculator](/pricing-calculator) models a single stage of
+markup. For multi-stage channel modelling, build a spreadsheet with the
+stack above as your template.
 
 ## How to use cost-plus without losing money
 
 1. **Calculate fully-loaded cost**, not just direct cost.
-2. **Set a target margin, not a target markup.** 30% margin and 30% markup are very different — see the difference in our markup vs margin guide.
+2. **Set a target margin, not a target markup.** 30% margin and 30% markup are very different — see the difference in our [margin vs markup guide](/blog/profit-margin-vs-markup-difference).
 3. **Check the result against the market.** If your cost-plus price is wildly above or below competitors, the issue is your cost, not the market.
 4. **Use it as a floor, not a default.** Cost-plus gives you the minimum viable price. Then ask: what would customers pay if I positioned this differently?
 5. **Re-cost annually.** Inputs change. A markup that was profitable last year may not be this year if supplier prices rose 8%.
+6. **ABC the heterogeneous product lines.** Don't ABC everything; ABC the two or three lines where touch / setup time / machine hours diverge most from billable hours.
 
 ## A safer alternative
 
@@ -91,9 +529,85 @@ The [Pricing Calculator](/pricing-calculator) does cost-plus and lets
 you toggle between margin-mode and markup-mode, and handles VAT/sales
 tax for UK/SA/US.
 
+## Frequently asked questions
+
+### What is cost-plus pricing?
+
+Cost-plus pricing is a method that sets the selling price by adding a
+fixed markup percentage to the unit cost of a product or service. The
+formula is `Price = Unit Cost × (1 + Markup %)`. It's the simplest
+pricing method and guarantees a margin as long as the cost number is
+fully loaded (direct cost plus allocated overhead). It's used by
+government contractors, manufacturers selling to wholesalers, and most
+small service businesses.
+
+### What's a typical cost-plus markup percentage?
+
+It depends heavily on industry. Typical ranges:
+**SaaS** 200–600% markup (70–90% margin),
+**e-commerce physical product** 100–150% markup (50–60% margin),
+**professional services** 100–200% markup (50–66% margin),
+**B2B manufacturing** 25–55% markup (20–35% margin),
+**retail apparel** 100–150% markup (50–60% margin, "keystone+"),
+**restaurants** 200–300% on food (70–75% margin),
+**government contracts** capped at 8–12% per FAR / MOD rules.
+
+### When should I use cost-plus pricing?
+
+Use cost-plus when (1) you're in a regulated or government contract
+that requires it, (2) you sell through wholesalers / retailers who
+expect cost+markup quotes, (3) the product is a commodity where the
+market sets the price band, or (4) you can't quantify customer value
+in dollars. For differentiated B2B work where outcomes are
+measurable, switch to [value-based pricing](/blog/value-based-pricing-vs-cost-plus).
+
+### Is cost-plus pricing the same as markup pricing?
+
+Essentially yes. "Markup pricing" is the most common variation of
+cost-plus — apply a percentage markup to cost. The broader cost-plus
+family also includes target-margin pricing (work backwards from a
+margin target) and activity-based cost-plus (allocate overhead by
+activity drivers, then mark up). All four are cost-plus methods; basic
+markup is just the most common.
+
+### How do I calculate my cost-plus price?
+
+Three steps. (1) Calculate **fully-loaded cost** — direct cost plus
+allocated overhead per unit. (2) Pick a **target margin** appropriate
+for your industry (see typical ranges above). (3) Convert the margin
+to a markup with `Markup = Margin / (100 − Margin) × 100` and apply.
+Example: $40 fully-loaded cost, 40% target margin → markup = 40/60 =
+66.7% → price = $40 × 1.667 = **$66.67**. The [Pricing Calculator](/pricing-calculator)
+does this conversion automatically and adds VAT/sales tax for your
+region.
+
+### What's wrong with cost-plus pricing?
+
+Three failure modes: (1) it ignores **customer willingness to pay**,
+which leaves money on the table when the outcome is worth more than
+your cost-plus number; (2) it depends on a fully-loaded **accurate
+cost number**, and most small businesses leave 20–40% of overhead out;
+(3) it **misallocates overhead** in heterogeneous product mixes,
+making some lines look profitable when they're actually losing money.
+Cost-plus is a floor, not a strategy.
+
+### Cost-plus vs value-based pricing — which is better?
+
+Neither is universally better. **Cost-plus is better** for commodities,
+channel sales, government contracts, and compliance services where
+buyers price-shop. **Value-based is better** for differentiated B2B
+services where outcomes are quantifiable and buyers care about ROI.
+Mature businesses run both: cost-plus on commodity SKUs and
+compliance work, value-based on advisory and differentiated offers.
+See the full [value-based vs cost-plus comparison](/blog/value-based-pricing-vs-cost-plus)
+for the side-by-side framework.
+
 ## Bottom line
 
-- Cost-plus is fast and guarantees a margin — IF your cost is fully loaded.
-- It ignores customer willingness to pay — usually the most valuable input.
+- Cost-plus is fast and guarantees a margin — **IF your cost is fully loaded**.
+- The four variations (basic markup, target-margin, blended, ABC) cover 95% of cases; pick the one that matches your product mix.
+- Industry-typical margins vary 3× across SaaS, services, manufacturing, retail, and e-commerce; benchmark before you set yours.
+- The overhead-allocation problem buries more cost-plus pricing than the formula itself does.
+- Cost-plus ignores customer willingness to pay — usually the most valuable input.
 - Use it as a floor for negotiation, not a default selling price.
 - Re-cost annually; markups that worked last year may be losing money now.
