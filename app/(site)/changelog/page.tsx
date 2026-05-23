@@ -4,16 +4,17 @@ import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { CHANGELOG_ENTRIES, type ChangelogEntryKind } from "@/lib/changelog";
 import { CALC_META, formatReviewDate } from "@/lib/calc-meta";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
-import { hreflang } from "@/lib/seo";
+import { staticPageMetadata } from "@/lib/seo";
 import { TOOLS } from "@/lib/tools";
 
 const CHANGELOG_URL = `${SITE_URL}/changelog`;
 
-export const metadata: Metadata = {
-  title: "Changelog",
-  description: `Substantive updates, reviews, and corrections to ${SITE_NAME} calculators and articles — with the date each page was last reviewed.`,
-  alternates: { canonical: CHANGELOG_URL, languages: hreflang(CHANGELOG_URL) },
-};
+export const metadata: Metadata = staticPageMetadata({
+  slug: "changelog",
+  title: "Changelog — Calculator Updates & Improvements | BusCalcTools",
+  description:
+    "Dated log of every new calculator, formula correction, content expansion, and structural change on buscalctools.com.",
+});
 
 const KIND_LABEL: Record<ChangelogEntryKind, string> = {
   review: "Review",

@@ -83,6 +83,60 @@ function variantHreflang(calcSlug: string, variant: Variant): Record<string, str
   };
 }
 
+type StaticPageMetadataArgs = {
+  // Path under SITE_URL, no leading slash (e.g. "about", "terms").
+  slug: string;
+  // Full <title> as it should appear in the tab — brand suffix already baked in
+  // where natural. We emit with { absolute: title } so the root layout's
+  // "%s | BusCalcTools" template doesn't double-append the brand.
+  title: string;
+  description: string;
+  // Optional override for the OG image path. Defaults to /og/<slug>.png so
+  // every supporting page renders a unique social card. The actual PNG may
+  // not exist yet — Next.js renders the meta tag regardless and the image
+  // backfill is tracked separately.
+  ogImage?: string;
+};
+
+/**
+ * Metadata builder for the 10 static supporting pages (about, terms, privacy,
+ * cookies, disclaimer, disclosure, editorial-policy, corrections-policy,
+ * changelog, methodology) plus the author profile page. Closes the audit
+ * finding where og:url / og:image / og:title fell back to root-layout defaults,
+ * causing every social share to render as the homepage card.
+ *
+ * Use calculatorMetadata for calculator pages and variantMetadata for variant
+ * pages — they include hreflang language maps which static pages don't need.
+ */
+export function staticPageMetadata({
+  slug,
+  title,
+  description,
+  ogImage,
+}: StaticPageMetadataArgs): Metadata {
+  const url = `${SITE_URL}/${slug}`;
+  const image = ogImage ?? `/og/${slug}.png`;
+  return {
+    title: { absolute: title },
+    description,
+    alternates: { canonical: url, languages: hreflang(url) },
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: SITE_NAME,
+      type: "website",
+      images: [{ url: image }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+    },
+  };
+}
+
 export function variantMetadata({ calcSlug, variant }: VariantMetadataArgs): Metadata {
   const url = `${SITE_URL}/${calcSlug}/${variant.slug}`;
   return {

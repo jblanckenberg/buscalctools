@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
-import { SITE_NAME, SITE_URL } from "@/lib/site";
-import { hreflang } from "@/lib/seo";
+import { SITE_NAME } from "@/lib/site";
+import { staticPageMetadata } from "@/lib/seo";
 
-const TERMS_URL = `${SITE_URL}/terms`;
-
-export const metadata: Metadata = {
-  title: "Terms of Use",
+export const metadata: Metadata = staticPageMetadata({
+  slug: "terms",
+  title: "Terms of Use — Permitted Use & Liability | BusCalcTools",
   description:
-    "Terms of use for BusCalcTools — permitted use, content rights, sources, liability limits, and contact. Calculators are educational, not advice.",
-  alternates: { canonical: TERMS_URL, languages: hreflang(TERMS_URL) },
-};
+    "The terms governing your use of buscalctools.com, including liability limits and acceptable use of our calculator results.",
+});
 
 export default function TermsPage() {
   return (

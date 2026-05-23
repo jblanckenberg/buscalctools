@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
-import { AUTHOR, AUTHOR_PROFILE_URL, authorPersonLdStandalone } from "@/lib/author";
-import { SITE_NAME, SITE_URL } from "@/lib/site";
-import { hreflang } from "@/lib/seo";
+import { AUTHOR, authorPersonLdStandalone } from "@/lib/author";
+import { SITE_NAME } from "@/lib/site";
+import { staticPageMetadata } from "@/lib/seo";
 import { TOPICS } from "@/lib/topics";
 
-const PROFILE_URL = AUTHOR_PROFILE_URL;
-
-export const metadata: Metadata = {
-  title: `${AUTHOR.name} — Author Profile`,
-  description: `${AUTHOR.name}, ${AUTHOR.jobTitle}. Bio, expertise, and editorial responsibilities for every calculator and article on ${SITE_NAME}.`,
-  alternates: { canonical: PROFILE_URL, languages: hreflang(PROFILE_URL) },
-};
+export const metadata: Metadata = staticPageMetadata({
+  slug: `authors/${AUTHOR.slug}`,
+  title: `${AUTHOR.name} — Editor at ${SITE_NAME}`,
+  description: `Author bio, expertise, and editorial responsibilities for ${AUTHOR.name} at ${SITE_NAME} — every calculator and article on the site.`,
+});
 
 export default function AuthorProfilePage() {
   return (

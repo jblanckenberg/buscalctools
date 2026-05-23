@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
-import { SITE_URL } from "@/lib/site";
-import { hreflang } from "@/lib/seo";
+import { staticPageMetadata } from "@/lib/seo";
 
-const COOKIES_URL = `${SITE_URL}/cookies`;
-
-export const metadata: Metadata = {
-  title: "Cookie Policy",
+export const metadata: Metadata = staticPageMetadata({
+  slug: "cookies",
+  title: "Cookie Policy — Categories, Consent, Opt-Out | BusCalcTools",
   description:
-    "How BusCalcTools uses cookies and similar storage — Google AdSense, Microsoft Clarity, and your region preference.",
-  alternates: { canonical: COOKIES_URL, languages: hreflang(COOKIES_URL) },
-};
+    "The cookies we set on buscalctools.com, why we set them, how to opt out, and how our Cookiebot banner works.",
+});
 
 export default function CookiesPage() {
   return (

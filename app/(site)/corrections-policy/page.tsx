@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
-import { hreflang } from "@/lib/seo";
+import { staticPageMetadata } from "@/lib/seo";
 
 const CORRECTIONS_URL = `${SITE_URL}/corrections-policy`;
 
-export const metadata: Metadata = {
-  title: "Corrections Policy",
-  description: `How ${SITE_NAME} handles factual errors, broken calculations, and outdated rates — how to report, response times, and the public correction log.`,
-  alternates: { canonical: CORRECTIONS_URL, languages: hreflang(CORRECTIONS_URL) },
-};
+export const metadata: Metadata = staticPageMetadata({
+  slug: "corrections-policy",
+  title: "Corrections Policy — Errors, Updates, History | BusCalcTools",
+  description:
+    "How we handle errors in formulas or copy, when we publish updates, and where to find the changelog for each calculator.",
+});
 
 const correctionsLd = {
   "@context": "https://schema.org",

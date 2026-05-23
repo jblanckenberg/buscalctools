@@ -2,18 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { AUTHOR, authorPersonLdStandalone } from "@/lib/author";
-import { SITE_NAME, SITE_URL } from "@/lib/site";
-import { hreflang } from "@/lib/seo";
+import { SITE_NAME } from "@/lib/site";
+import { staticPageMetadata } from "@/lib/seo";
 import { TOPICS } from "@/lib/topics";
 
-const ABOUT_URL = `${SITE_URL}/about`;
-
-export const metadata: Metadata = {
-  title: "About — Who Builds BusCalcTools",
+export const metadata: Metadata = staticPageMetadata({
+  slug: "about",
+  title: "About BusCalcTools — Free Business Calculators",
   description:
-    "James Blanckenberg builds BusCalcTools — free profit, pricing, and growth calculators for small business owners across the US, UK, and South Africa.",
-  alternates: { canonical: ABOUT_URL, languages: hreflang(ABOUT_URL) },
-};
+    "Who we are and how we build the free business calculators that help SMB owners price, plan, and report with confidence.",
+});
 
 export default function AboutPage() {
   return (

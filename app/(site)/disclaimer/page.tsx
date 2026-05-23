@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
-import { SITE_URL } from "@/lib/site";
-import { hreflang } from "@/lib/seo";
+import { staticPageMetadata } from "@/lib/seo";
 
-const DISCLAIMER_URL = `${SITE_URL}/disclaimer`;
-
-export const metadata: Metadata = {
-  title: "Disclaimer",
+export const metadata: Metadata = staticPageMetadata({
+  slug: "disclaimer",
+  title: "Disclaimer — Informational Use Only | BusCalcTools",
   description:
-    "BusCalcTools calculators are educational tools, not financial, tax, or legal advice. Tax rates come from primary government data, reviewed annually.",
-  alternates: { canonical: DISCLAIMER_URL, languages: hreflang(DISCLAIMER_URL) },
-};
+    "Why our calculator results are informational only and not financial, tax, or legal advice. When to consult a licensed professional.",
+});
 
 export default function DisclaimerPage() {
   return (

@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
-import { SITE_NAME, SITE_URL } from "@/lib/site";
-import { hreflang } from "@/lib/seo";
+import { SITE_NAME } from "@/lib/site";
+import { staticPageMetadata } from "@/lib/seo";
 
-const PRIVACY_URL = `${SITE_URL}/privacy`;
-
-export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: `How ${SITE_NAME} handles data, cookies, analytics, and advertising — and your rights under GDPR, UK PECR, and CCPA.`,
-  alternates: { canonical: PRIVACY_URL, languages: hreflang(PRIVACY_URL) },
-};
+export const metadata: Metadata = staticPageMetadata({
+  slug: "privacy",
+  title: "Privacy Policy — Cookies, Data, Your Rights | BusCalcTools",
+  description:
+    "What we collect, what we don't, the cookies we set, and your rights under GDPR and CCPA. No calculator inputs leave your browser.",
+});
 
 export default function PrivacyPage() {
   return (

@@ -2,18 +2,19 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { CALC_META, type CalcCategory } from "@/lib/calc-meta";
-import { hreflang } from "@/lib/seo";
+import { staticPageMetadata } from "@/lib/seo";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import { TOOLS, type Tool } from "@/lib/tools";
 import { TOPICS } from "@/lib/topics";
 
 const INDEX_URL = `${SITE_URL}/methodology`;
 
-export const metadata: Metadata = {
-  title: "Methodology — How the calculators work",
-  description: `Formulas, primary sources, and assumptions for every calculator on ${SITE_NAME} — grouped by topic, with dated review cadence.`,
-  alternates: { canonical: INDEX_URL, languages: hreflang(INDEX_URL) },
-};
+export const metadata: Metadata = staticPageMetadata({
+  slug: "methodology",
+  title: "Methodology — Sources, Formulas, Assumptions | BusCalcTools",
+  description:
+    "The reference sources, default assumptions, and formula derivations behind every calculator. Audit trail for transparency.",
+});
 
 type CategoryGroup = {
   category: CalcCategory;

@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
-import { SITE_URL } from "@/lib/site";
-import { hreflang } from "@/lib/seo";
+import { staticPageMetadata } from "@/lib/seo";
 
-const DISCLOSURE_URL = `${SITE_URL}/disclosure`;
-
-export const metadata: Metadata = {
-  title: "Advertising & Affiliate Disclosure",
+export const metadata: Metadata = staticPageMetadata({
+  slug: "disclosure",
+  title: "Affiliate Disclosure — How We Make Money | BusCalcTools",
   description:
-    "How BusCalcTools makes money — display advertising via Google AdSense. We have no affiliate relationships and no sponsored content.",
-  alternates: { canonical: DISCLOSURE_URL, languages: hreflang(DISCLOSURE_URL) },
-};
+    "Our affiliate relationships and how recommendation links work. Why our calculator outputs are unaffected by any partner relationship.",
+});
 
 export default function DisclosurePage() {
   return (

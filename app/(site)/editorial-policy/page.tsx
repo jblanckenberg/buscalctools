@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
-import { SITE_NAME, SITE_URL } from "@/lib/site";
-import { hreflang } from "@/lib/seo";
+import { SITE_NAME } from "@/lib/site";
+import { staticPageMetadata } from "@/lib/seo";
 
-const EDITORIAL_URL = `${SITE_URL}/editorial-policy`;
-
-export const metadata: Metadata = {
-  title: "Editorial Policy",
+export const metadata: Metadata = staticPageMetadata({
+  slug: "editorial-policy",
+  title: "Editorial Policy — How We Build Our Calculators | BusCalcTools",
   description:
-    "How BusCalcTools researches, reviews, and updates calculator inputs and articles — sources, fact-checking, AI disclosure, and update cadence.",
-  alternates: { canonical: EDITORIAL_URL, languages: hreflang(EDITORIAL_URL) },
-};
+    "The sourcing, review, and update standards behind every formula and calculator on the site. Author bylines, fact-check process.",
+});
 
 export default function EditorialPolicyPage() {
   return (
