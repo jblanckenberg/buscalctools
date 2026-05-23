@@ -16,7 +16,7 @@ const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "cac-ltv-calculator",
-  title: "CAC LTV Calculator — Lifetime Value vs Acquisition Cost | BusCalcTools",
+  title: "CAC vs LTV Calculator — Payback & Ratio | BusCalcTools",
   description:
     "Free CAC vs LTV calculator. Find your customer acquisition cost, lifetime value, payback period, and the all-important LTV/CAC ratio for any subscription business.",
 });

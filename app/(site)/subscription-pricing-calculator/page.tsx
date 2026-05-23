@@ -16,7 +16,7 @@ const META = calcMeta(SLUG)!;
 
 export const metadata = calculatorMetadata({
   slug: "subscription-pricing-calculator",
-  title: "Subscription Pricing Calculator — Monthly vs Annual | BusCalcTools",
+  title: "Subscription Pricing Calculator — Annual LTV | BusCalcTools",
   description:
     "Free subscription pricing calculator. Compare monthly vs annual LTV at any discount, find the break-even discount, and size your prepay incentive.",
 });
