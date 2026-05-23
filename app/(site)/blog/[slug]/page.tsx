@@ -5,9 +5,9 @@ import { POSTS_LAST_REVIEWED, PUBLISHED_POSTS, postBySlug } from "@/lib/blog/pos
 import { blogFaqs } from "@/lib/blog/faqs";
 import { ARTICLE_BODIES } from "@/components/blog/articles";
 import LazyRelatedTools from "@/components/shared/LazyRelatedTools";
+import LazyAuthorCard from "@/components/shared/LazyAuthorCard";
 import Disclaimer from "@/components/shared/Disclaimer";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
-import AuthorCard from "@/components/shared/AuthorCard";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import { hreflang } from "@/lib/seo";
 import { AUTHOR, AUTHOR_URL } from "@/lib/author";
@@ -153,7 +153,7 @@ export default async function ArticlePage({
         <Body />
       </div>
 
-      <AuthorCard />
+      <LazyAuthorCard />
 
       <LazyRelatedTools slugs={post.related} title="Calculators referenced in this article" />
 
