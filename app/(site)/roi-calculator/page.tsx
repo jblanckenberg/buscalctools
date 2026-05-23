@@ -127,7 +127,7 @@ Example: Investment = $10,000 | Net Return = $13,500 | Period = 18 months
 
       <FaqList items={META.faqs} />
 
-      <LazyRelatedTools slugs={["break-even-calculator", "business-valuation-calculator", "payback-period-calculator"]} />
+      <LazyRelatedTools slugs={["npv-calculator", "irr-calculator", "cagr-calculator", "payback-period-calculator"]} />
 
       <EmbedCTA slug={SLUG} />
 

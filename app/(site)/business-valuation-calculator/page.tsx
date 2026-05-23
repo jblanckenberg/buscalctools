@@ -134,7 +134,7 @@ DCF Valuation:
       <FaqList items={META.faqs} />
 
       <LazyRelatedTools
-        slugs={["net-profit-calculator", "roi-calculator", "revenue-growth-calculator"]}
+        slugs={["npv-calculator", "cagr-calculator", "roi-calculator", "revenue-growth-calculator"]}
         surfaceComparisonsForCalc="business-valuation-calculator"
       />
 
