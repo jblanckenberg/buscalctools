@@ -105,8 +105,27 @@ export default async function ArticlePage({
         }
       : null;
 
+  // LCP preload — every blog post has /blog/<slug>/hero.{webp,jpg} (priority
+  // image). The responsive hero generator emits /blog/<slug>/hero-{480,768,
+  // 1200}.{avif,webp} alongside. Preload the AVIF set so the browser starts
+  // the LCP fetch in parallel with HTML parse rather than after CSS parse +
+  // <picture> resolution. imageSrcSet + imageSizes mirror the <picture>
+  // sources so the browser preloads the exact variant it will end up using.
+  const heroStem = `/blog/${slug}/hero`;
+  const heroPreloadSrcSet = `${heroStem}-480.avif 480w, ${heroStem}-768.avif 768w, ${heroStem}-1200.avif 1200w`;
+  const heroPreloadSizes =
+    "(max-width: 640px) 100vw, (max-width: 1024px) 768px, 1200px";
+
   return (
     <article className="mx-auto max-w-3xl px-4 py-8 sm:py-12">
+      <link
+        rel="preload"
+        as="image"
+        href={`${heroStem}-1200.avif`}
+        imageSrcSet={heroPreloadSrcSet}
+        imageSizes={heroPreloadSizes}
+        type="image/avif"
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
