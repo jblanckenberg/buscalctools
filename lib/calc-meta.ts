@@ -439,6 +439,57 @@ export const CALC_META: Record<string, CalcMeta> = {
     ],
   },
 
+  "cagr-calculator": {
+    slug: "cagr-calculator",
+    lastReviewed: "2026-05-23",
+    scenarios: [
+      {
+        label: "Investment: $10k → $30k over 15 years",
+        href: "/cagr-calculator?start=10000&end=30000&periods=15",
+      },
+      {
+        label: "Revenue: $500k → $2M over 5 years",
+        href: "/cagr-calculator?start=500000&end=2000000&periods=5",
+      },
+      {
+        label: "Doubled in 7 years (Rule of 72)",
+        href: "/cagr-calculator?start=1000&end=2000&periods=7",
+      },
+    ],
+    category: "Funding & Valuation",
+    applicationSubCategory: "CAGR Calculator",
+    featureList: [
+      "Computes CAGR from any start, end, and period count",
+      "Year-by-year projection at the computed CAGR",
+      "Total growth + multiplier alongside CAGR",
+      "Region-aware currency formatting",
+    ],
+    howToName: "How to calculate compound annual growth rate (CAGR)",
+    howToDescription:
+      "Find the constant annual rate that would take a start value to an end value over a fixed period — the standard metric for comparing investments and growth.",
+    howToSteps: [
+      { name: "Enter the start value", text: "The beginning balance, revenue, or any metric you want to track." },
+      { name: "Enter the end value", text: "The final value after the growth period." },
+      { name: "Enter the number of periods", text: "Typically years, but any consistent unit works." },
+      { name: "Read CAGR, total growth, and the projection table", text: "CAGR is the smoothed annual rate; the projection table shows what value year-by-year compounding at that rate produces." },
+    ],
+    methodologyNote:
+      "CAGR smooths volatility — a 50%-then-(-30%) ride has the same CAGR as 5%-5% if endpoints match. Pair CAGR with standard deviation or max drawdown when comparing risky investments.",
+    featuredAnswer:
+      "CAGR (Compound Annual Growth Rate) is the constant annual rate at which a start value would have grown to reach an end value over N periods. The formula is CAGR = (End / Start)^(1/N) − 1. A $10,000 investment that grows to $30,000 over 15 years has a CAGR of 7.60%. CAGR smooths out year-to-year volatility — useful for comparing investments of different lengths, but it hides the actual ride.",
+    voiceAnswer:
+      "Compound annual growth rate is end value divided by start value, raised to one over the number of periods, minus one. It's the smoothed annual return that connects a start to an end.",
+    faqs: [
+      { q: "What is CAGR?", a: "Compound Annual Growth Rate is the constant annual rate that would have taken a start value to an end value over N periods. It's the standard way to express \"growth per year\" while smoothing out the volatile year-to-year ride. CAGR is widely used in investing, revenue modelling, and M&A because it produces a single comparable number for any growth story." },
+      { q: "How is CAGR calculated?", a: "CAGR = (End Value / Start Value)^(1 / N) − 1, where N is the number of periods (usually years). Example: an investment goes from $10,000 to $30,000 over 15 years. CAGR = (30000/10000)^(1/15) − 1 = 3^0.0667 − 1 ≈ 7.60%. The math relies on the start being positive — CAGR is undefined for zero or negative start values." },
+      { q: "Is CAGR the same as average annual return?", a: "No, and the difference matters. The arithmetic average of yearly returns over-counts volatility — a +50% year and a −30% year average to +10%, but the actual CAGR is about 2.5%. CAGR is the geometric mean of growth, which correctly reflects how compounding works. Always prefer CAGR when comparing investments." },
+      { q: "What is a good CAGR?", a: "Long-run S&P 500 CAGR is about 7–10% real (after inflation), so a 10%+ CAGR is comparable to equity-market returns. SMB revenue growth above 20% CAGR is considered strong; 10–20% is solid; below 10% is roughly inflation-tracking. CAGR rules vary by industry — SaaS investors expect 40%+ for early-stage, while utility companies plan around 3–5%." },
+      { q: "When does CAGR mislead?", a: "CAGR collapses volatility into a single number, so two very different ride experiences can produce identical CAGR. A portfolio that grew steadily and a portfolio that boomed-then-crashed can both end at the same multiplier — and CAGR will report them as equivalent. Pair CAGR with maximum drawdown or standard deviation when comparing risky paths. Also: CAGR over a short period (less than 3 years) is statistically noisy and shouldn't be extrapolated." },
+      { q: "How does CAGR differ from IRR?", a: "CAGR assumes a single start cash flow and a single end value with no intermediate cash flows. IRR handles arbitrary cash-flow series including intermediate inflows and outflows. For a stock you hold without dividends, CAGR = IRR. For a project with dividends or interim payments, you must use IRR — CAGR will mis-state the actual return." },
+      { q: "Can I use CAGR with monthly or quarterly data?", a: "Yes — just keep the period unit consistent. If your start and end span 24 months and you enter periods = 24, you get monthly compound growth rate. To annualise, multiply the result by 12. Most users keep CAGR strictly annual (N = years) for comparison with other annualised metrics." },
+    ],
+  },
+
   "pricing-calculator": {
     slug: "pricing-calculator",
     lastReviewed: "2026-05-17",
