@@ -13,3 +13,33 @@ body {
     text-wrap: balance;
   }
 }
+
+/*
+ * Defer rendering of heavy below-fold blocks inside blog-post bodies.
+ * Tables and figures dominate DOM cost on deepened posts (30-row
+ * conversion table on profit-margin-vs-markup is the single largest
+ * block, plus the mid + bottom Pexels figures). content-visibility:
+ * auto tells the browser to skip layout + painting for these elements
+ * when off-screen, dramatically reducing TBT / DOM-size impact without
+ * altering the visible output.
+ *
+ * contain-intrinsic-size uses `auto <fallback>` so the browser uses the
+ * last-rendered size when re-deferring, falling back to the provided
+ * size on first paint. Defending against CLS — tables get a generous
+ * 1200px height fallback (covers our 30-row conversion table at desktop
+ * line-height), figures get the standard 650px we author into <Figure>.
+ *
+ * Browser support: Chrome 85+, Edge 85+, Safari 18+, Firefox 125+.
+ * Our browserslist target (Chrome/Edge 110+, Safari 16+, FF 110+)
+ * means Safari 16-17 and Firefox 110-124 ignore the property and just
+ * render normally — graceful degradation, no JS fallback needed.
+ */
+.prose-content table {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1200px;
+}
+
+.prose-content figure {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 650px;
+}
