@@ -334,6 +334,60 @@ export const CALC_META: Record<string, CalcMeta> = {
     ],
   },
 
+  "npv-calculator": {
+    slug: "npv-calculator",
+    lastReviewed: "2026-05-23",
+    scenarios: [
+      {
+        label: "3-year project: $10k → $4k×3 @ 10%",
+        href: "/npv-calculator?initial=10000&rate=10&flows=4000%2C4000%2C4000",
+      },
+      {
+        label: "5-year SaaS: $50k → $15k×5 @ 12%",
+        href: "/npv-calculator?initial=50000&rate=12&flows=15000%2C15000%2C15000%2C15000%2C15000",
+      },
+      {
+        label: "Equipment: $25k → $8k×4 + $5k salvage @ 8%",
+        href: "/npv-calculator?initial=25000&rate=8&flows=8000%2C8000%2C8000%2C13000",
+      },
+    ],
+    category: "Funding & Valuation",
+    applicationSubCategory: "NPV Calculator",
+    featureList: [
+      "Discounts up to 15 future cash flows to present value",
+      "Per-period present-value breakdown with cumulative NPV",
+      "Accept / reject decision tier (NPV ≥ 0 ⇒ accept)",
+      "Region-aware currency formatting (USD, GBP, ZAR)",
+    ],
+    howToName: "How to calculate net present value (NPV)",
+    howToDescription:
+      "Decide whether a project clears your cost of capital by discounting every future cash flow back to today and comparing the sum to the up-front cost.",
+    howToSteps: [
+      { name: "Enter the initial investment", text: "The up-front cost at period 0. Use a positive number — negative future flows are handled in the next field." },
+      { name: "Enter the discount rate", text: "Your required return: WACC, hurdle rate, or cost of capital. Most SMBs use 8–12%." },
+      { name: "Enter each period's cash flow", text: "Comma-separated, period 1 first. Negative values handle follow-on investments." },
+      { name: "Read the NPV and decision", text: "Positive NPV ⇒ accept (the project clears your discount rate). Negative NPV ⇒ reject or renegotiate." },
+    ],
+    methodologyNote:
+      "NPV assumes the discount rate is constant across all periods. For projects where the cost of capital is expected to change (rising rates, refinancing windows), model each phase separately or use a weighted average rate.",
+    featuredAnswer:
+      "Net Present Value (NPV) is the sum of all future cash flows discounted back to today, minus the initial investment. NPV = Σ (Cash Flow ÷ (1 + r)ᵗ) − Initial Cost. Positive NPV means the project creates value above your required return; negative NPV means it destroys value. A textbook 3-year project of −$10,000 returning $4,000 per year at a 10% discount rate gives an NPV of −$52.59, so the project just barely fails to clear the 10% hurdle.",
+    voiceAnswer:
+      "Net present value equals the sum of future cash flows divided by one plus the discount rate raised to the period, minus the initial cost. Positive NPV accepts the project; negative NPV rejects it.",
+    faqs: [
+      { q: "What is NPV?", a: "Net Present Value is the sum of all future cash flows discounted to today, minus the initial investment. A positive NPV means the project earns more than your required rate of return; a negative NPV means it earns less. NPV is the most theoretically sound way to choose between mutually exclusive projects, because it accounts for both the size and the timing of every cash flow." },
+      { q: "What discount rate should I use?", a: "Use your weighted average cost of capital (WACC) if you have one. For most small businesses without complex capital structures, use your required rate of return — typically 8–12%. If you would deploy the cash into a low-risk alternative earning 6%, your discount rate should be at least 6% plus a risk premium for the project. A higher rate is more conservative." },
+      { q: "What does a negative NPV mean?", a: "Negative NPV means the project does not earn back your required return. Either the cash flows are too low, the discount rate is too high for these flows, or both. A negative NPV does not mean the project loses money in absolute terms — the cash flows may still be positive — it means the project earns less than your cost of capital, so the cash is better deployed elsewhere." },
+      { q: "What is the difference between NPV and IRR?", a: "NPV gives a dollar value at a fixed discount rate. IRR gives the break-even rate — the discount rate that would make NPV exactly zero. Use NPV to decide whether to take a single project. Use IRR to rank projects of similar size when capital is constrained. For mutually exclusive projects of different sizes, NPV is the better tiebreaker." },
+      { q: "Should I include taxes?", a: "Yes — discount after-tax cash flows. NPV calculated on pre-tax flows systematically overstates project value by the marginal tax rate × every period's flow. If you cannot easily estimate after-tax cash flows, at minimum subtract the expected tax in each year before discounting. Tax rates differ by jurisdiction (US 21% federal, UK 25%, SA 27%) — use the rate that applies to the entity holding the asset." },
+      { q: "How do I handle terminal or salvage values?", a: "Add the salvage value to the final period's cash flow. If a piece of equipment generates $8,000/year for 4 years and then sells for $5,000 at the end of year 4, the final-period flow is $13,000. Real-estate or perpetuity-style projects use a terminal-value formula (TV ÷ (1 + r)ᴺ) added to the last discounted period." },
+      { q: "Can I use NPV for projects with irregular cash flows?", a: "Yes — NPV handles any cash-flow shape as long as the periods are uniform. If your flows arrive monthly rather than annually, just enter the monthly discount rate (annual ÷ 12) and one flow per month. For genuinely irregular timing (e.g. some flows arrive 3 months apart, others 9 months apart), convert to monthly periods and zero-fill the empty months." },
+      { q: "What is the most common NPV mistake?", a: "Discounting nominal cash flows with a real discount rate (or vice versa). Either work entirely in nominal terms — inflated future cash flows discounted at a nominal rate — or entirely in real terms — today's-dollars cash flows discounted at a real rate. Mixing the two systematically inflates or deflates the NPV by the inflation rate compounded over the project life. For a 10-year project at 3% inflation that is a 34% error." },
+      { q: "Is NPV the same as profit?", a: "No. Profit is an accounting concept measured period by period and includes non-cash items like depreciation. NPV is a cash-flow concept measured over the project's entire life and weights cash by when it arrives. A project can be accounting-profitable every year and still have a negative NPV (the profit is not large enough or arrives too late to justify the up-front cash outlay)." },
+      { q: "How is NPV used in M&A?", a: "Acquirers calculate the NPV of the target's expected future free cash flows to determine maximum bid price. If the NPV of the cash flows is $50M, a rational bidder pays no more than $50M — anything above that destroys value for shareholders. In practice, buyers often pay 10–30% above NPV as a control premium, betting on synergies that are not yet in the cash-flow model." },
+    ],
+  },
+
   "pricing-calculator": {
     slug: "pricing-calculator",
     lastReviewed: "2026-05-17",
