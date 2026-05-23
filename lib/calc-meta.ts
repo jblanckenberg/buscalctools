@@ -388,6 +388,57 @@ export const CALC_META: Record<string, CalcMeta> = {
     ],
   },
 
+  "irr-calculator": {
+    slug: "irr-calculator",
+    lastReviewed: "2026-05-23",
+    scenarios: [
+      {
+        label: "3-year project: $1k → $400×3 (IRR ≈ 9.7%)",
+        href: "/irr-calculator?initial=1000&flows=400%2C400%2C400&hurdle=10",
+      },
+      {
+        label: "SaaS: $10k → $5k×3 (IRR ≈ 23.4%)",
+        href: "/irr-calculator?initial=10000&flows=5000%2C5000%2C5000&hurdle=12",
+      },
+      {
+        label: "Equipment: $25k → $8k×4 + $5k salvage",
+        href: "/irr-calculator?initial=25000&flows=8000%2C8000%2C8000%2C13000&hurdle=10",
+      },
+    ],
+    category: "Funding & Valuation",
+    applicationSubCategory: "IRR Calculator",
+    featureList: [
+      "Newton-Raphson IRR solver with bisection fallback",
+      "Custom hurdle rate for the accept/reject decision",
+      "Up to 15 cash-flow periods",
+      "Iteration count + convergence flag for diagnosis",
+    ],
+    howToName: "How to calculate internal rate of return (IRR)",
+    howToDescription:
+      "Find the discount rate that makes NPV exactly zero — the rate a project itself earns on absorbed cash.",
+    howToSteps: [
+      { name: "Enter the initial investment", text: "Up-front cost at period 0." },
+      { name: "Enter your hurdle rate", text: "Your required return — IRR must clear this for the project to be accepted." },
+      { name: "Enter each period's cash flow", text: "Comma-separated. At least one sign change is required for IRR to exist." },
+      { name: "Read the IRR and decision", text: "IRR above hurdle ⇒ accept; below ⇒ reject or renegotiate." },
+    ],
+    methodologyNote:
+      "When cash flows have more than one sign change, multiple IRRs can exist. The solver returns the lowest positive root by default; use NPV for unambiguous accept/reject in those cases.",
+    featuredAnswer:
+      "The Internal Rate of Return (IRR) is the discount rate that makes a project's NPV exactly zero — the rate the project itself earns on absorbed cash. IRR is solved iteratively. A project of −$1,000 returning $400 per year for 3 years has an IRR of ~9.7%. Accept the project if IRR is above your hurdle rate (typically 10–15% for SMBs); reject if below.",
+    voiceAnswer:
+      "Internal Rate of Return is the discount rate that makes net present value equal zero. Compare IRR against your hurdle rate — above means accept, below means reject.",
+    faqs: [
+      { q: "What is IRR?", a: "Internal Rate of Return is the discount rate at which the NPV of all cash flows from a project equals zero. It's the project's own annualised return — the rate that perfectly balances the up-front cost against the discounted future inflows. A 14% IRR means the project earns 14% per year on the money it has absorbed." },
+      { q: "How is IRR different from NPV?", a: "NPV gives a dollar value at a fixed discount rate (your hurdle). IRR gives the break-even discount rate. Use NPV when you want a yes/no on a single project. Use IRR to rank projects of similar size when capital is constrained. For mutually exclusive projects of very different sizes, NPV is the better tiebreaker — high IRR on a tiny project can be less valuable than moderate IRR on a large one." },
+      { q: "What is a good IRR for a small business?", a: "Most SMBs target IRR above 15–20% for projects of moderate risk, and 25–35% for higher-risk ventures or early-stage product bets. Above 50% IRR usually means something is mispriced or the cash-flow assumptions are too optimistic — pressure-test the inputs." },
+      { q: "What is the hurdle rate?", a: "The hurdle rate is the minimum IRR required to accept a project. Set it at your weighted average cost of capital plus a risk premium — typically 10–15% for stable SMB cash flows. Higher hurdles make you more selective and protect against overly optimistic forecasts." },
+      { q: "Why does my IRR have multiple solutions?", a: "When the cash-flow series has more than one sign change (e.g. invest, return, invest again, return), the equation can have multiple mathematical roots. Each is a valid IRR by the strict definition, but only one is economically meaningful. In those cases, NPV with an explicit hurdle is unambiguous — use it instead." },
+      { q: "Why does the solver say 'no sign change'?", a: "IRR mathematically requires at least one period of net positive cash flow and one of net negative. If your full series is all-negative (pure cost) or all-positive (pure return with no cost), no IRR exists. Check that the initial investment is captured and that the cash flows include at least one positive period." },
+      { q: "Should I use IRR for projects with very different lifetimes?", a: "Be careful. IRR implicitly assumes the cash flows can be reinvested at the same IRR — a generous assumption for short, high-IRR projects. For long-life vs short-life comparisons, calculate the modified IRR (MIRR) or just use NPV at a common hurdle rate. NPV is the safer default when lifetimes differ by 2× or more." },
+    ],
+  },
+
   "pricing-calculator": {
     slug: "pricing-calculator",
     lastReviewed: "2026-05-17",
