@@ -334,6 +334,162 @@ export const CALC_META: Record<string, CalcMeta> = {
     ],
   },
 
+  "npv-calculator": {
+    slug: "npv-calculator",
+    lastReviewed: "2026-05-23",
+    scenarios: [
+      {
+        label: "3-year project: $10k → $4k×3 @ 10%",
+        href: "/npv-calculator?initial=10000&rate=10&flows=4000%2C4000%2C4000",
+      },
+      {
+        label: "5-year SaaS: $50k → $15k×5 @ 12%",
+        href: "/npv-calculator?initial=50000&rate=12&flows=15000%2C15000%2C15000%2C15000%2C15000",
+      },
+      {
+        label: "Equipment: $25k → $8k×4 + $5k salvage @ 8%",
+        href: "/npv-calculator?initial=25000&rate=8&flows=8000%2C8000%2C8000%2C13000",
+      },
+    ],
+    category: "Funding & Valuation",
+    applicationSubCategory: "NPV Calculator",
+    featureList: [
+      "Discounts up to 15 future cash flows to present value",
+      "Per-period present-value breakdown with cumulative NPV",
+      "Accept / reject decision tier (NPV ≥ 0 ⇒ accept)",
+      "Region-aware currency formatting (USD, GBP, ZAR)",
+    ],
+    howToName: "How to calculate net present value (NPV)",
+    howToDescription:
+      "Decide whether a project clears your cost of capital by discounting every future cash flow back to today and comparing the sum to the up-front cost.",
+    howToSteps: [
+      { name: "Enter the initial investment", text: "The up-front cost at period 0. Use a positive number — negative future flows are handled in the next field." },
+      { name: "Enter the discount rate", text: "Your required return: WACC, hurdle rate, or cost of capital. Most SMBs use 8–12%." },
+      { name: "Enter each period's cash flow", text: "Comma-separated, period 1 first. Negative values handle follow-on investments." },
+      { name: "Read the NPV and decision", text: "Positive NPV ⇒ accept (the project clears your discount rate). Negative NPV ⇒ reject or renegotiate." },
+    ],
+    methodologyNote:
+      "NPV assumes the discount rate is constant across all periods. For projects where the cost of capital is expected to change (rising rates, refinancing windows), model each phase separately or use a weighted average rate.",
+    featuredAnswer:
+      "Net Present Value (NPV) is the sum of all future cash flows discounted back to today, minus the initial investment. NPV = Σ (Cash Flow ÷ (1 + r)ᵗ) − Initial Cost. Positive NPV means the project creates value above your required return; negative NPV means it destroys value. A textbook 3-year project of −$10,000 returning $4,000 per year at a 10% discount rate gives an NPV of −$52.59, so the project just barely fails to clear the 10% hurdle.",
+    voiceAnswer:
+      "Net present value equals the sum of future cash flows divided by one plus the discount rate raised to the period, minus the initial cost. Positive NPV accepts the project; negative NPV rejects it.",
+    faqs: [
+      { q: "What is NPV?", a: "Net Present Value is the sum of all future cash flows discounted to today, minus the initial investment. A positive NPV means the project earns more than your required rate of return; a negative NPV means it earns less. NPV is the most theoretically sound way to choose between mutually exclusive projects, because it accounts for both the size and the timing of every cash flow." },
+      { q: "What discount rate should I use?", a: "Use your weighted average cost of capital (WACC) if you have one. For most small businesses without complex capital structures, use your required rate of return — typically 8–12%. If you would deploy the cash into a low-risk alternative earning 6%, your discount rate should be at least 6% plus a risk premium for the project. A higher rate is more conservative." },
+      { q: "What does a negative NPV mean?", a: "Negative NPV means the project does not earn back your required return. Either the cash flows are too low, the discount rate is too high for these flows, or both. A negative NPV does not mean the project loses money in absolute terms — the cash flows may still be positive — it means the project earns less than your cost of capital, so the cash is better deployed elsewhere." },
+      { q: "What is the difference between NPV and IRR?", a: "NPV gives a dollar value at a fixed discount rate. IRR gives the break-even rate — the discount rate that would make NPV exactly zero. Use NPV to decide whether to take a single project. Use IRR to rank projects of similar size when capital is constrained. For mutually exclusive projects of different sizes, NPV is the better tiebreaker." },
+      { q: "Should I include taxes?", a: "Yes — discount after-tax cash flows. NPV calculated on pre-tax flows systematically overstates project value by the marginal tax rate × every period's flow. If you cannot easily estimate after-tax cash flows, at minimum subtract the expected tax in each year before discounting. Tax rates differ by jurisdiction (US 21% federal, UK 25%, SA 27%) — use the rate that applies to the entity holding the asset." },
+      { q: "How do I handle terminal or salvage values?", a: "Add the salvage value to the final period's cash flow. If a piece of equipment generates $8,000/year for 4 years and then sells for $5,000 at the end of year 4, the final-period flow is $13,000. Real-estate or perpetuity-style projects use a terminal-value formula (TV ÷ (1 + r)ᴺ) added to the last discounted period." },
+      { q: "Can I use NPV for projects with irregular cash flows?", a: "Yes — NPV handles any cash-flow shape as long as the periods are uniform. If your flows arrive monthly rather than annually, just enter the monthly discount rate (annual ÷ 12) and one flow per month. For genuinely irregular timing (e.g. some flows arrive 3 months apart, others 9 months apart), convert to monthly periods and zero-fill the empty months." },
+      { q: "What is the most common NPV mistake?", a: "Discounting nominal cash flows with a real discount rate (or vice versa). Either work entirely in nominal terms — inflated future cash flows discounted at a nominal rate — or entirely in real terms — today's-dollars cash flows discounted at a real rate. Mixing the two systematically inflates or deflates the NPV by the inflation rate compounded over the project life. For a 10-year project at 3% inflation that is a 34% error." },
+      { q: "Is NPV the same as profit?", a: "No. Profit is an accounting concept measured period by period and includes non-cash items like depreciation. NPV is a cash-flow concept measured over the project's entire life and weights cash by when it arrives. A project can be accounting-profitable every year and still have a negative NPV (the profit is not large enough or arrives too late to justify the up-front cash outlay)." },
+      { q: "How is NPV used in M&A?", a: "Acquirers calculate the NPV of the target's expected future free cash flows to determine maximum bid price. If the NPV of the cash flows is $50M, a rational bidder pays no more than $50M — anything above that destroys value for shareholders. In practice, buyers often pay 10–30% above NPV as a control premium, betting on synergies that are not yet in the cash-flow model." },
+    ],
+  },
+
+  "irr-calculator": {
+    slug: "irr-calculator",
+    lastReviewed: "2026-05-23",
+    scenarios: [
+      {
+        label: "3-year project: $1k → $400×3 (IRR ≈ 9.7%)",
+        href: "/irr-calculator?initial=1000&flows=400%2C400%2C400&hurdle=10",
+      },
+      {
+        label: "SaaS: $10k → $5k×3 (IRR ≈ 23.4%)",
+        href: "/irr-calculator?initial=10000&flows=5000%2C5000%2C5000&hurdle=12",
+      },
+      {
+        label: "Equipment: $25k → $8k×4 + $5k salvage",
+        href: "/irr-calculator?initial=25000&flows=8000%2C8000%2C8000%2C13000&hurdle=10",
+      },
+    ],
+    category: "Funding & Valuation",
+    applicationSubCategory: "IRR Calculator",
+    featureList: [
+      "Newton-Raphson IRR solver with bisection fallback",
+      "Custom hurdle rate for the accept/reject decision",
+      "Up to 15 cash-flow periods",
+      "Iteration count + convergence flag for diagnosis",
+    ],
+    howToName: "How to calculate internal rate of return (IRR)",
+    howToDescription:
+      "Find the discount rate that makes NPV exactly zero — the rate a project itself earns on absorbed cash.",
+    howToSteps: [
+      { name: "Enter the initial investment", text: "Up-front cost at period 0." },
+      { name: "Enter your hurdle rate", text: "Your required return — IRR must clear this for the project to be accepted." },
+      { name: "Enter each period's cash flow", text: "Comma-separated. At least one sign change is required for IRR to exist." },
+      { name: "Read the IRR and decision", text: "IRR above hurdle ⇒ accept; below ⇒ reject or renegotiate." },
+    ],
+    methodologyNote:
+      "When cash flows have more than one sign change, multiple IRRs can exist. The solver returns the lowest positive root by default; use NPV for unambiguous accept/reject in those cases.",
+    featuredAnswer:
+      "The Internal Rate of Return (IRR) is the discount rate that makes a project's NPV exactly zero — the rate the project itself earns on absorbed cash. IRR is solved iteratively. A project of −$1,000 returning $400 per year for 3 years has an IRR of ~9.7%. Accept the project if IRR is above your hurdle rate (typically 10–15% for SMBs); reject if below.",
+    voiceAnswer:
+      "Internal Rate of Return is the discount rate that makes net present value equal zero. Compare IRR against your hurdle rate — above means accept, below means reject.",
+    faqs: [
+      { q: "What is IRR?", a: "Internal Rate of Return is the discount rate at which the NPV of all cash flows from a project equals zero. It's the project's own annualised return — the rate that perfectly balances the up-front cost against the discounted future inflows. A 14% IRR means the project earns 14% per year on the money it has absorbed." },
+      { q: "How is IRR different from NPV?", a: "NPV gives a dollar value at a fixed discount rate (your hurdle). IRR gives the break-even discount rate. Use NPV when you want a yes/no on a single project. Use IRR to rank projects of similar size when capital is constrained. For mutually exclusive projects of very different sizes, NPV is the better tiebreaker — high IRR on a tiny project can be less valuable than moderate IRR on a large one." },
+      { q: "What is a good IRR for a small business?", a: "Most SMBs target IRR above 15–20% for projects of moderate risk, and 25–35% for higher-risk ventures or early-stage product bets. Above 50% IRR usually means something is mispriced or the cash-flow assumptions are too optimistic — pressure-test the inputs." },
+      { q: "What is the hurdle rate?", a: "The hurdle rate is the minimum IRR required to accept a project. Set it at your weighted average cost of capital plus a risk premium — typically 10–15% for stable SMB cash flows. Higher hurdles make you more selective and protect against overly optimistic forecasts." },
+      { q: "Why does my IRR have multiple solutions?", a: "When the cash-flow series has more than one sign change (e.g. invest, return, invest again, return), the equation can have multiple mathematical roots. Each is a valid IRR by the strict definition, but only one is economically meaningful. In those cases, NPV with an explicit hurdle is unambiguous — use it instead." },
+      { q: "Why does the solver say 'no sign change'?", a: "IRR mathematically requires at least one period of net positive cash flow and one of net negative. If your full series is all-negative (pure cost) or all-positive (pure return with no cost), no IRR exists. Check that the initial investment is captured and that the cash flows include at least one positive period." },
+      { q: "Should I use IRR for projects with very different lifetimes?", a: "Be careful. IRR implicitly assumes the cash flows can be reinvested at the same IRR — a generous assumption for short, high-IRR projects. For long-life vs short-life comparisons, calculate the modified IRR (MIRR) or just use NPV at a common hurdle rate. NPV is the safer default when lifetimes differ by 2× or more." },
+    ],
+  },
+
+  "cagr-calculator": {
+    slug: "cagr-calculator",
+    lastReviewed: "2026-05-23",
+    scenarios: [
+      {
+        label: "Investment: $10k → $30k over 15 years",
+        href: "/cagr-calculator?start=10000&end=30000&periods=15",
+      },
+      {
+        label: "Revenue: $500k → $2M over 5 years",
+        href: "/cagr-calculator?start=500000&end=2000000&periods=5",
+      },
+      {
+        label: "Doubled in 7 years (Rule of 72)",
+        href: "/cagr-calculator?start=1000&end=2000&periods=7",
+      },
+    ],
+    category: "Funding & Valuation",
+    applicationSubCategory: "CAGR Calculator",
+    featureList: [
+      "Computes CAGR from any start, end, and period count",
+      "Year-by-year projection at the computed CAGR",
+      "Total growth + multiplier alongside CAGR",
+      "Region-aware currency formatting",
+    ],
+    howToName: "How to calculate compound annual growth rate (CAGR)",
+    howToDescription:
+      "Find the constant annual rate that would take a start value to an end value over a fixed period — the standard metric for comparing investments and growth.",
+    howToSteps: [
+      { name: "Enter the start value", text: "The beginning balance, revenue, or any metric you want to track." },
+      { name: "Enter the end value", text: "The final value after the growth period." },
+      { name: "Enter the number of periods", text: "Typically years, but any consistent unit works." },
+      { name: "Read CAGR, total growth, and the projection table", text: "CAGR is the smoothed annual rate; the projection table shows what value year-by-year compounding at that rate produces." },
+    ],
+    methodologyNote:
+      "CAGR smooths volatility — a 50%-then-(-30%) ride has the same CAGR as 5%-5% if endpoints match. Pair CAGR with standard deviation or max drawdown when comparing risky investments.",
+    featuredAnswer:
+      "CAGR (Compound Annual Growth Rate) is the constant annual rate at which a start value would have grown to reach an end value over N periods. The formula is CAGR = (End / Start)^(1/N) − 1. A $10,000 investment that grows to $30,000 over 15 years has a CAGR of 7.60%. CAGR smooths out year-to-year volatility — useful for comparing investments of different lengths, but it hides the actual ride.",
+    voiceAnswer:
+      "Compound annual growth rate is end value divided by start value, raised to one over the number of periods, minus one. It's the smoothed annual return that connects a start to an end.",
+    faqs: [
+      { q: "What is CAGR?", a: "Compound Annual Growth Rate is the constant annual rate that would have taken a start value to an end value over N periods. It's the standard way to express \"growth per year\" while smoothing out the volatile year-to-year ride. CAGR is widely used in investing, revenue modelling, and M&A because it produces a single comparable number for any growth story." },
+      { q: "How is CAGR calculated?", a: "CAGR = (End Value / Start Value)^(1 / N) − 1, where N is the number of periods (usually years). Example: an investment goes from $10,000 to $30,000 over 15 years. CAGR = (30000/10000)^(1/15) − 1 = 3^0.0667 − 1 ≈ 7.60%. The math relies on the start being positive — CAGR is undefined for zero or negative start values." },
+      { q: "Is CAGR the same as average annual return?", a: "No, and the difference matters. The arithmetic average of yearly returns over-counts volatility — a +50% year and a −30% year average to +10%, but the actual CAGR is about 2.5%. CAGR is the geometric mean of growth, which correctly reflects how compounding works. Always prefer CAGR when comparing investments." },
+      { q: "What is a good CAGR?", a: "Long-run S&P 500 CAGR is about 7–10% real (after inflation), so a 10%+ CAGR is comparable to equity-market returns. SMB revenue growth above 20% CAGR is considered strong; 10–20% is solid; below 10% is roughly inflation-tracking. CAGR rules vary by industry — SaaS investors expect 40%+ for early-stage, while utility companies plan around 3–5%." },
+      { q: "When does CAGR mislead?", a: "CAGR collapses volatility into a single number, so two very different ride experiences can produce identical CAGR. A portfolio that grew steadily and a portfolio that boomed-then-crashed can both end at the same multiplier — and CAGR will report them as equivalent. Pair CAGR with maximum drawdown or standard deviation when comparing risky paths. Also: CAGR over a short period (less than 3 years) is statistically noisy and shouldn't be extrapolated." },
+      { q: "How does CAGR differ from IRR?", a: "CAGR assumes a single start cash flow and a single end value with no intermediate cash flows. IRR handles arbitrary cash-flow series including intermediate inflows and outflows. For a stock you hold without dividends, CAGR = IRR. For a project with dividends or interim payments, you must use IRR — CAGR will mis-state the actual return." },
+      { q: "Can I use CAGR with monthly or quarterly data?", a: "Yes — just keep the period unit consistent. If your start and end span 24 months and you enter periods = 24, you get monthly compound growth rate. To annualise, multiply the result by 12. Most users keep CAGR strictly annual (N = years) for comparison with other annualised metrics." },
+    ],
+  },
+
   "pricing-calculator": {
     slug: "pricing-calculator",
     lastReviewed: "2026-05-17",

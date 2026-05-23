@@ -126,7 +126,7 @@ Count years until sum of discounted cash flows >= Initial Investment`}
 
       <FaqList items={META.faqs} />
 
-      <LazyRelatedTools slugs={["roi-calculator", "break-even-calculator", "business-valuation-calculator"]} />
+      <LazyRelatedTools slugs={["npv-calculator", "irr-calculator", "roi-calculator"]} />
 
       <LazyMethodologyBox slug={SLUG} />
 

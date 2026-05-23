@@ -138,7 +138,7 @@ Example CAGR: Revenue grew from $100,000 to $250,000 over 4 years
         ]}
       />
 
-      <LazyRelatedTools slugs={["net-profit-calculator", "business-valuation-calculator", "cash-flow-calculator"]} />
+      <LazyRelatedTools slugs={["cagr-calculator", "net-profit-calculator", "business-valuation-calculator"]} />
 
       <LazyMethodologyBox slug={SLUG} />
 
