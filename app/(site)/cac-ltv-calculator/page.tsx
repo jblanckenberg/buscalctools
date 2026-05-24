@@ -157,7 +157,7 @@ Payback target: under 12 months conservative, 12-18 typical, &gt; 18 hard to fun
       />
 
       <LazyRelatedTools
-        slugs={["roi-calculator", "subscription-pricing-calculator", "burn-rate-calculator"]}
+        slugs={["churn-rate-calculator", "mrr-calculator", "arr-calculator", "subscription-pricing-calculator"]}
       />
 
       <LazyMethodologyBox slug={SLUG} />

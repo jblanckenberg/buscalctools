@@ -144,7 +144,7 @@ Example: Revenue = $50,000 | COGS = $30,000
       />
 
       <LazyRelatedTools
-        slugs={["markup-calculator", "pricing-calculator", "net-profit-calculator"]}
+        slugs={["gross-profit-calculator", "markup-calculator", "pricing-calculator", "net-profit-calculator"]}
         surfaceComparisonsForCalc="profit-margin-calculator"
       />
 

@@ -132,7 +132,7 @@ Example: Cost = $40 | Markup = 50%
         ]}
       />
 
-      <LazyRelatedTools slugs={["profit-margin-calculator", "pricing-calculator"]} />
+      <LazyRelatedTools slugs={["profit-margin-calculator", "gross-profit-calculator", "pricing-calculator"]} />
 
       <LazyMethodologyBox slug={SLUG} />
 
