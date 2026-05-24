@@ -101,7 +101,7 @@ Example: $30/mo | 80% margin | 5% monthly churn (20-mo) | 20% annual churn (5-yr
         ]}
       />
 
-      <LazyRelatedTools slugs={["pricing-calculator", "cac-ltv-calculator", "freelance-rate-calculator"]} />
+      <LazyRelatedTools slugs={["mrr-calculator", "arr-calculator", "churn-rate-calculator", "cac-ltv-calculator"]} />
 
       <LazyMethodologyBox slug={SLUG} />
 

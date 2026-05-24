@@ -133,7 +133,7 @@ Net Profit Margin    = Net Profit / Revenue × 100`}
         ]}
       />
 
-      <LazyRelatedTools slugs={["profit-margin-calculator", "roi-calculator"]} />
+      <LazyRelatedTools slugs={["gross-profit-calculator", "roe-calculator", "roa-calculator", "profit-margin-calculator"]} />
 
       <LazyMethodologyBox slug={SLUG} />
 

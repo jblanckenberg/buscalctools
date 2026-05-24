@@ -227,6 +227,41 @@ export const CALC_META: Record<string, CalcMeta> = {
     ],
   },
 
+  "gross-profit-calculator": {
+    slug: "gross-profit-calculator",
+    lastReviewed: "2026-05-24",
+    scenarios: [
+      { label: "Retail: $100k revenue / $60k COGS (40% margin)", href: "/gross-profit-calculator?revenue=100000&cogs=60000" },
+      { label: "SaaS: $250k revenue / $40k COGS (84% margin)", href: "/gross-profit-calculator?revenue=250000&cogs=40000" },
+      { label: "Wholesale: $500k revenue / $425k COGS (15% margin)", href: "/gross-profit-calculator?revenue=500000&cogs=425000" },
+    ],
+    category: "Profit & Pricing",
+    applicationSubCategory: "Gross Profit Calculator",
+    featureList: [
+      "Computes gross profit (currency) and gross margin (%)",
+      "Color-coded tier: green ≥40%, amber 20–39%, red <20%",
+      "Region-aware currency formatting",
+      "Industry benchmarks in the FormulaBox",
+    ],
+    howToName: "How to calculate gross profit and gross margin",
+    howToDescription: "Subtract cost of goods sold from revenue to get gross profit. Divide by revenue to get gross margin.",
+    howToSteps: [
+      { name: "Enter revenue", text: "Total sales for the period." },
+      { name: "Enter COGS", text: "Direct cost of producing what you sold — materials, direct labour, inbound freight, packaging. Exclude rent, sales, marketing, R&D." },
+      { name: "Read gross profit and gross margin", text: "Gross profit is in dollars; gross margin is the % of revenue. Compare margin against industry benchmarks." },
+    ],
+    featuredAnswer:
+      "Gross Profit = Revenue − Cost of Goods Sold (COGS). Gross Margin = Gross Profit ÷ Revenue × 100. Revenue of $100,000 with $60,000 COGS gives $40,000 gross profit and 40% gross margin. Gross margin benchmarks: software 70–90%, premium retail 50–60%, general retail 30–45%, commodity wholesale 10–20%.",
+    voiceAnswer: "Gross profit is revenue minus cost of goods sold. Gross margin is that profit as a percentage of revenue.",
+    faqs: [
+      { q: "What is gross profit?", a: "Gross profit is revenue minus cost of goods sold (COGS). It's the money left over after paying the direct costs of producing what you sold, before any operating expense (rent, salaries, marketing) is deducted. Gross profit is the cleanest indicator of pricing power: when revenue and COGS move together but gross profit doesn't, your pricing isn't keeping up with costs." },
+      { q: "What's the difference between gross profit and net profit?", a: "Gross profit is revenue minus COGS only. Net profit is what's left after ALL expenses — gross profit minus operating expenses (sales, G&A, R&D), interest, and tax. A company can be gross-profitable and net-loss-making if operating expenses exceed gross profit. Use gross profit to evaluate pricing and unit economics; use net profit to evaluate the whole business." },
+      { q: "What counts as COGS?", a: "COGS includes the direct costs of producing what you sold: raw materials, components, direct labour hours, inbound freight, packaging, manufacturing overhead allocated per unit. Exclude rent (operating expense), sales salaries (operating expense), marketing (operating expense), and admin (operating expense). When in doubt: if the cost would disappear if you didn't make any sales, it's probably COGS." },
+      { q: "What is a good gross margin?", a: "Depends heavily on industry. Software / SaaS typically lands at 70–90%. Premium retail and consumer brands run 50–60%. General retail is 30–45%. Restaurants run 60–70% gross margin (food cost ~30–40%). Commodity wholesale margins can be 10–20%. The right benchmark is whatever covers your operating expenses and leaves a healthy net margin — usually at least 2× the operating-expense ratio." },
+      { q: "Why is my gross margin shrinking?", a: "Three common causes. One: COGS is rising faster than your prices — common when input commodity prices spike. Two: your product mix has shifted toward lower-margin SKUs (the new product line that's selling well may be cannibalising the higher-margin one). Three: you've quietly added discounts or rebates that aren't visible in headline pricing. Calculate gross margin per SKU and per channel to localise the leak." },
+    ],
+  },
+
   "break-even-calculator": {
     slug: "break-even-calculator",
     lastReviewed: "2026-05-17",
@@ -1907,6 +1942,250 @@ export const CALC_META: Record<string, CalcMeta> = {
       { q: "What is the inventory days outstanding (DIO)?", a: "Same as 'days in inventory' — 365 / Turnover. Together with DSO (days sales outstanding, on receivables) and DPO (days payable outstanding, on payables), it forms the cash conversion cycle: DSO + DIO − DPO. The lower the cycle, the less working capital your business consumes per dollar of revenue." },
       { q: "Does inventory turnover vary by season?", a: "Yes substantially in seasonal businesses. Retailers might see turnover of 1-2 in January (post-holiday clearance) and 8-10 in December (peak holiday). Use an annual figure with 12-month average inventory for the headline number, then monitor a 3-month rolling figure to detect trends." },
       { q: "How does inventory turnover affect business valuation?", a: "Acquirers and lenders use turnover to assess working-capital efficiency. A business with 8× turnover in a category where the median is 5× often commands a higher multiple — it's generating the same revenue with less capital tied up. The difference can be 10-25% of business value at sale." },
+    ],
+  },
+
+  // --- Phase 1B (2026-05-24): Cash-flow ratios ---
+
+  "quick-ratio-calculator": {
+    slug: "quick-ratio-calculator",
+    lastReviewed: "2026-05-24",
+    scenarios: [
+      { label: "Healthy: $50k cash + $25k AR + $10k securities / $60k liab", href: "/quick-ratio-calculator?cash=50000&ar=25000&securities=10000&liabilities=60000" },
+      { label: "Caution: $20k cash + $10k AR / $50k liab (0.6)", href: "/quick-ratio-calculator?cash=20000&ar=10000&securities=0&liabilities=50000" },
+      { label: "Strong: $200k cash / $50k liab (4.0)", href: "/quick-ratio-calculator?cash=200000&ar=0&securities=0&liabilities=50000" },
+    ],
+    category: "Break-Even & Cash Flow",
+    applicationSubCategory: "Quick Ratio Calculator",
+    featureList: ["Quick (acid-test) ratio from 4 inputs", "Excludes inventory — stricter than current ratio", "Health-tier rating ≥1 / 0.5–1 / <0.5", "Region-aware currency"],
+    howToName: "How to calculate the quick ratio (acid-test ratio)",
+    howToDescription: "Add cash, AR, and marketable securities, then divide by current liabilities.",
+    howToSteps: [
+      { name: "Sum your most liquid assets", text: "Cash, accounts receivable, and any marketable securities convertible to cash within 90 days." },
+      { name: "Enter current liabilities", text: "All obligations due within 12 months." },
+      { name: "Read the ratio", text: "≥1.0 means liquid assets cover obligations; <1.0 means you'd need to liquidate inventory or borrow to cover them." },
+    ],
+    featuredAnswer: "Quick Ratio = (Cash + Marketable Securities + Accounts Receivable) ÷ Current Liabilities. A ratio of 1.0 means liquid assets exactly cover short-term obligations. Below 1.0 means inventory or borrowing would be needed in a squeeze. The quick ratio is stricter than the current ratio because it excludes inventory, which may not convert to cash fast enough during a liquidity event.",
+    voiceAnswer: "Quick ratio is cash plus receivables plus marketable securities, divided by current liabilities. Above one is healthy.",
+    faqs: [
+      { q: "What is the quick ratio?", a: "The quick ratio (also called acid-test ratio) measures whether a business has enough truly liquid assets to cover its short-term obligations without selling inventory. The formula is (cash + accounts receivable + marketable securities) divided by current liabilities. A ratio of 1.0 or higher is generally considered healthy." },
+      { q: "Why exclude inventory?", a: "Inventory can take weeks or months to convert to cash, and during a liquidity event it often sells at a discount or not at all. The quick ratio's job is to stress-test true liquidity — what can you actually turn into cash today. Inventory is included in the broader current ratio." },
+      { q: "What is a good quick ratio?", a: "Above 1.0 is healthy. Above 2.0 is very strong but may signal idle cash that could be deployed for higher returns. Below 0.5 is poor — material risk of a short-term liquidity squeeze. Industry context matters: retail typically runs 0.5–1.0 because inventory is the main current asset; software often runs 2+." },
+      { q: "How is quick ratio different from current ratio?", a: "Both compare current assets to current liabilities. Current ratio includes EVERY current asset (cash, AR, inventory, prepaid expenses). Quick ratio excludes inventory and prepaid expenses — the harder-to-liquidate items. Quick ratio is always lower than or equal to current ratio for the same business." },
+      { q: "How can I improve my quick ratio?", a: "Three levers. One: collect AR faster (lower DSO). Two: reduce reliance on short-term debt by termming it out into long-term obligations. Three: hold more cash, though this trades against deployment opportunities. Cutting inventory doesn't help quick ratio specifically (inventory isn't in the numerator) but does help current ratio and working capital." },
+    ],
+  },
+
+  "current-ratio-calculator": {
+    slug: "current-ratio-calculator",
+    lastReviewed: "2026-05-24",
+    scenarios: [
+      { label: "Healthy: $150k assets / $75k liab (2.0)", href: "/current-ratio-calculator?assets=150000&liabilities=75000" },
+      { label: "Caution: $80k assets / $75k liab (1.07)", href: "/current-ratio-calculator?assets=80000&liabilities=75000" },
+      { label: "Strong: $500k assets / $100k liab (5.0)", href: "/current-ratio-calculator?assets=500000&liabilities=100000" },
+    ],
+    category: "Break-Even & Cash Flow",
+    applicationSubCategory: "Current Ratio Calculator",
+    featureList: ["Current ratio + working-capital in one calc", "Health-tier rating ≥1.5 / 1.0–1.5 / <1.0", "Includes inventory and prepaid expenses", "Region-aware currency"],
+    howToName: "How to calculate the current ratio",
+    howToDescription: "Divide current assets by current liabilities — the simplest liquidity test.",
+    howToSteps: [
+      { name: "Sum current assets", text: "Cash, AR, inventory, prepaid expenses, marketable securities — anything convertible to cash within 12 months." },
+      { name: "Sum current liabilities", text: "AP, short-term debt, accrued expenses, current portion of long-term debt." },
+      { name: "Read the ratio + working capital", text: "Current ratio ≥1.5 is healthy. Working capital (assets − liabilities) is the dollar cushion." },
+    ],
+    featuredAnswer: "Current Ratio = Current Assets ÷ Current Liabilities. A ratio of 2.0 means current assets are twice current liabilities — a healthy cushion. Below 1.0 means liabilities exceed assets in the 12-month window. Working capital is the dollar version: current assets minus current liabilities, the cash cushion that funds day-to-day operations.",
+    voiceAnswer: "Current ratio is current assets divided by current liabilities. One and a half or higher is healthy.",
+    faqs: [
+      { q: "What is the current ratio?", a: "The current ratio compares all current assets (cash, AR, inventory, prepaid expenses) to all current liabilities (AP, short-term debt, accrued expenses). It's the broadest liquidity test, asking: can the business cover its 12-month obligations from its 12-month assets? Anything ≥1.5 is generally healthy; below 1.0 is a red flag." },
+      { q: "What is a good current ratio?", a: "1.5 to 3.0 is the typical healthy range. Above 3 may indicate the business is hoarding working capital that could be deployed for higher returns. Below 1.0 means short-term liabilities exceed short-term assets — the business may struggle to meet obligations without refinancing or asset sales." },
+      { q: "Current ratio vs quick ratio?", a: "Current ratio includes inventory and prepaid expenses; quick ratio excludes them. Use quick ratio for a stricter liquidity test (can you pay your bills WITHOUT selling inventory?) and current ratio for the broader picture." },
+      { q: "What is working capital?", a: "Working capital is the dollar version of the current ratio: Current Assets − Current Liabilities. If current assets are $150k and current liabilities are $75k, working capital is $75k. It's the cash cushion that funds day-to-day operations." },
+      { q: "Can current ratio be too high?", a: "Yes. A current ratio of 5+ usually means the business is holding excess cash, AR, or inventory that could be deployed more productively. Acquirers often discount working-capital-heavy businesses because the buyer effectively pays full price for assets sitting idle." },
+    ],
+  },
+
+  "debt-to-equity-calculator": {
+    slug: "debt-to-equity-calculator",
+    lastReviewed: "2026-05-24",
+    scenarios: [
+      { label: "Conservative: $100k debt / $400k equity (0.25)", href: "/debt-to-equity-calculator?debt=100000&equity=400000" },
+      { label: "Healthy: $100k debt / $150k equity (0.67)", href: "/debt-to-equity-calculator?debt=100000&equity=150000" },
+      { label: "High leverage: $500k debt / $200k equity (2.5)", href: "/debt-to-equity-calculator?debt=500000&equity=200000" },
+    ],
+    category: "Funding & Valuation",
+    applicationSubCategory: "Debt-to-Equity Calculator",
+    featureList: ["D/E ratio with capital-structure breakdown", "Debt as % of total capital", "Health tier ≤1 / 1–2 / >2 (non-financial)", "Industry benchmarks in FormulaBox"],
+    howToName: "How to calculate the debt-to-equity (D/E) ratio",
+    howToDescription: "Divide total interest-bearing debt by total shareholders' equity to measure leverage.",
+    howToSteps: [
+      { name: "Sum total debt", text: "All interest-bearing obligations: bank loans, bonds, lines of credit, lease obligations. Exclude trade payables (those are operating, not financing)." },
+      { name: "Enter total shareholders' equity", text: "Total assets minus total liabilities — the residual owner's claim from the balance sheet." },
+      { name: "Read the ratio and capital mix", text: "≤1 is conservative, 1–2 is elevated, >2 is high leverage. Industry context matters." },
+    ],
+    methodologyNote: "Banks and financial institutions follow different leverage rules — their D/E commonly runs 8–15 and is bounded by regulatory capital requirements. The benchmarks here apply to non-financial businesses.",
+    featuredAnswer: "Debt-to-Equity (D/E) = Total Debt ÷ Total Shareholders' Equity. A D/E of 1.0 means equal debt and equity. Above 2.0 is high leverage (more risk, more potential reward); below 0.5 is conservative. Industry context matters — utilities and banks can run high D/E because of stable cash flows or regulation, while tech companies typically run below 0.5.",
+    voiceAnswer: "Debt-to-equity is total debt divided by total shareholders' equity. Above one is elevated leverage.",
+    faqs: [
+      { q: "What is debt-to-equity?", a: "D/E measures financial leverage — how much of the business is funded by borrowing versus owner capital. A D/E of 1.0 means equal amounts of debt and equity. Higher leverage amplifies returns when revenue grows but magnifies losses when revenue shrinks or rates rise." },
+      { q: "What counts as debt in D/E?", a: "Interest-bearing obligations: bank loans, bonds, lines of credit, lease obligations (under IFRS 16 / ASC 842), and the current portion of long-term debt. Trade payables (what you owe suppliers) are operating liabilities, not debt, and don't count." },
+      { q: "What is a good D/E ratio?", a: "Heavily industry-dependent. Tech and software typically run 0.1–0.5 (intangible-asset base doesn't service debt well). Manufacturing and retail run 0.5–1.5. Utilities run 1.5–3 (stable cash flows support steady debt). Banks run 8–15 (different rules). Compare against industry peers, not absolute benchmarks." },
+      { q: "Why do banks have such high D/E?", a: "Banks are in the business of borrowing money (deposits) and lending it out at a margin. Their leverage IS their business model. Bank capital is bounded by regulatory requirements (Basel III tier 1 ratios) rather than market-based D/E norms. Don't compare bank D/E to corporate D/E." },
+      { q: "How can I lower D/E?", a: "Three levers. One: pay down debt from operating cash flow. Two: raise equity (sell shares, retain more earnings, take on a partner). Three: grow the business so equity expands faster than debt. Of the three, retaining earnings is typically the lowest-cost lever for healthy SMBs." },
+    ],
+  },
+
+  // --- Phase 1B: Return ratios ---
+
+  "roe-calculator": {
+    slug: "roe-calculator",
+    lastReviewed: "2026-05-24",
+    scenarios: [
+      { label: "S&P 500 avg: $60k NI / $400k equity (15%)", href: "/roe-calculator?netIncome=60000&equity=400000" },
+      { label: "Strong: $200k NI / $800k equity (25%)", href: "/roe-calculator?netIncome=200000&equity=800000" },
+      { label: "Weak: $20k NI / $400k equity (5%)", href: "/roe-calculator?netIncome=20000&equity=400000" },
+    ],
+    category: "Funding & Valuation",
+    applicationSubCategory: "ROE Calculator",
+    featureList: ["Computes ROE in seconds", "Health tier ≥15% / 8–15% / <8%", "FormulaBox includes Du Pont decomposition", "Region-aware currency"],
+    howToName: "How to calculate return on equity (ROE)",
+    howToDescription: "Divide annual net income by shareholders' equity to measure equity efficiency.",
+    howToSteps: [
+      { name: "Enter annual net income", text: "After-tax profit for the year, from the bottom of the income statement." },
+      { name: "Enter shareholders' equity", text: "Total assets minus total liabilities from the balance sheet. Use average equity if it changed materially during the year." },
+      { name: "Read ROE and compare to industry benchmarks", text: "≥20% is excellent, 15–20% is strong, 8–15% is modest, below 8% is weak." },
+    ],
+    featuredAnswer: "Return on Equity (ROE) = Net Income ÷ Shareholders' Equity × 100. A 15% ROE means the business generates 15¢ of after-tax profit per dollar of equity per year. ROE above 15% is comparable to long-run S&P 500 returns; above 20% is excellent. Beware that very high ROE often signals high leverage rather than operating excellence — read alongside debt-to-equity.",
+    voiceAnswer: "Return on equity is net income divided by shareholders' equity. Above fifteen percent is strong.",
+    faqs: [
+      { q: "What is ROE?", a: "Return on equity measures how efficiently a business turns owner capital into profit. The formula is net income divided by shareholders' equity, expressed as a percentage. ROE of 15% means each dollar of equity produced 15¢ of after-tax profit during the year." },
+      { q: "What is a good ROE?", a: "Above 20% is excellent and matches premium public-company benchmarks. 15–20% is strong (comparable to long-run S&P 500 returns). 8–15% is modest. Below 8% suggests equity might be more productively deployed elsewhere — even a bond portfolio earning 5% with no operating risk starts to look attractive." },
+      { q: "Why does high leverage inflate ROE?", a: "The Du Pont identity decomposes ROE into margin × asset turnover × equity multiplier. The equity multiplier is total assets divided by equity — leverage. A highly-leveraged company has a higher equity multiplier, which directly raises ROE without any improvement in operating performance. Always cross-check ROE against ROA (which ignores leverage) to see which is driving the result." },
+      { q: "ROE vs ROA?", a: "ROA uses total assets in the denominator; ROE uses only equity. The gap between them quantifies leverage. A company with 15% ROE and 5% ROA is using 3× leverage to amplify operating performance. A company with 15% ROE and 15% ROA has no leverage — pure operating return." },
+      { q: "Should I use beginning, ending, or average equity?", a: "Average equity is technically most accurate, especially when equity changes materially through the year (large dividend, share buyback, capital raise). For SMBs with stable balance sheets, ending equity is fine. Use whichever the relevant benchmark uses for consistency." },
+    ],
+  },
+
+  "roa-calculator": {
+    slug: "roa-calculator",
+    lastReviewed: "2026-05-24",
+    scenarios: [
+      { label: "Software: $80k NI / $400k assets (20%)", href: "/roa-calculator?netIncome=80000&assets=400000" },
+      { label: "Manufacturer: $80k NI / $1.5M assets (5.3%)", href: "/roa-calculator?netIncome=80000&assets=1500000" },
+      { label: "Strong: $100k NI / $1M assets (10%)", href: "/roa-calculator?netIncome=100000&assets=1000000" },
+    ],
+    category: "Funding & Valuation",
+    applicationSubCategory: "ROA Calculator",
+    featureList: ["Computes ROA in seconds", "Health tier ≥8% / 4–8% / <4%", "Leverage-agnostic complement to ROE", "Industry benchmarks in FormulaBox"],
+    howToName: "How to calculate return on assets (ROA)",
+    howToDescription: "Divide annual net income by total assets to measure asset productivity.",
+    howToSteps: [
+      { name: "Enter annual net income", text: "After-tax profit for the year." },
+      { name: "Enter total assets", text: "Cash + AR + inventory + PP&E + intangibles — everything the business owns, from the balance sheet." },
+      { name: "Read ROA and compare to industry benchmarks", text: "Asset-light businesses naturally score higher; capital-intensive industries naturally score lower." },
+    ],
+    featuredAnswer: "Return on Assets (ROA) = Net Income ÷ Total Assets × 100. ROA measures operating productivity stripped of capital-structure effects — unlike ROE, it isn't inflated by leverage. Asset-light businesses (software, services) typically score 15%+. Capital-intensive industries (manufacturing, transport) score 5–8%. Below 4% suggests assets aren't earning their keep.",
+    voiceAnswer: "Return on assets is net income divided by total assets. Strong ROA is at least eight percent.",
+    faqs: [
+      { q: "What is ROA?", a: "Return on assets measures how productively a business uses its asset base to generate profit. The formula is net income divided by total assets. Unlike ROE, ROA isn't distorted by leverage — it's a cleaner measure of operating efficiency. ROA of 10% means each dollar of assets produced 10¢ of after-tax profit." },
+      { q: "ROA vs ROE?", a: "ROA uses total assets; ROE uses only equity. The gap quantifies leverage. A company can have strong ROE (say 20%) and weak ROA (say 4%) — the difference is leverage. ROA strips out the leverage effect and shows underlying productivity. For comparing companies with different capital structures, ROA is the more honest metric." },
+      { q: "Why do tech companies have higher ROA?", a: "Software businesses are asset-light: most of the value sits in intangibles (code, brand, customer relationships) which often aren't fully capitalised on the balance sheet. The denominator is small relative to the income, so ROA looks high. Capital-intensive industries (utilities, transport, manufacturing) have large PP&E bases that depress ROA structurally." },
+      { q: "What is a good ROA?", a: "Industry-dependent. Software / SaaS: 15–25%. Consumer goods: 8–12%. Manufacturing: 5–8%. Retail: 5–10%. Utilities and transport: 2–5%. Always compare against industry peers — comparing a SaaS company's ROA to a utility's is meaningless." },
+      { q: "Can ROA be negative?", a: "Yes — when net income is negative (the business is loss-making). Negative ROA means the asset base is destroying value rather than creating it. Persistent negative ROA points to either an obsolete business model or a turnaround opportunity, depending on cause." },
+    ],
+  },
+
+  // --- Phase 1B: SaaS metrics ---
+
+  "churn-rate-calculator": {
+    slug: "churn-rate-calculator",
+    lastReviewed: "2026-05-24",
+    scenarios: [
+      { label: "Healthy SaaS: 1000 start / 50 lost / 80 new", href: "/churn-rate-calculator?start=1000&lost=50&new=80" },
+      { label: "Best-in-class: 500 start / 5 lost / 30 new", href: "/churn-rate-calculator?start=500&lost=5&new=30" },
+      { label: "At-risk: 200 start / 30 lost / 10 new", href: "/churn-rate-calculator?start=200&lost=30&new=10" },
+    ],
+    category: "Funding & Valuation",
+    applicationSubCategory: "Churn Rate Calculator",
+    featureList: ["Gross + net churn + retention in one calc", "Negative-churn detection (cohort growth)", "Health tier ≤5% / 5–10% / >10%", "SaaS benchmarks in FormulaBox"],
+    howToName: "How to calculate gross and net churn rate",
+    howToDescription: "Divide lost customers by start, then net out new customers for net churn.",
+    howToSteps: [
+      { name: "Enter starting customers", text: "Customer count at the beginning of the period (typically a month or year)." },
+      { name: "Enter customers lost", text: "Cancellations + non-renewals during the period." },
+      { name: "Enter new customers acquired", text: "Required for net churn — netted against lost customers." },
+      { name: "Read both gross and net churn", text: "Gross measures product fit; net measures growth quality (negative net churn = cohort growing without new sales)." },
+    ],
+    featuredAnswer: "Gross Churn Rate = Customers Lost ÷ Customers at Start × 100. Net Churn Rate = (Lost − New) ÷ Start × 100. A SaaS with 1,000 customers losing 50 and gaining 80 has 5% gross churn (healthy) and -3% net churn (cohort grew before new sales). Best-in-class B2B SaaS runs under 1% monthly gross churn; above 10% is usually fatal at scale.",
+    voiceAnswer: "Gross churn is customers lost divided by starting customers. Net churn nets out new acquisitions.",
+    faqs: [
+      { q: "What is churn rate?", a: "Churn rate is the percentage of customers (or revenue) lost during a period. Gross churn divides lost by start. Net churn nets out new customers acquired during the same period. Both are typically measured monthly for SaaS and annually for enterprise contracts." },
+      { q: "Gross churn vs net churn?", a: "Gross churn measures customer loss only — it ignores new acquisitions. Net churn nets out new customers, so it can go negative when expansion + new exceed loss + contraction (the SaaS holy grail of 'negative net churn'). Track both: gross measures retention, net measures growth quality." },
+      { q: "What is a good churn rate for SaaS?", a: "Best-in-class B2B SaaS runs under 1% monthly gross churn (annualised ~11%). Healthy B2B is 1–3% monthly. Mature consumer SaaS often runs 3–7% monthly. Above 10% monthly churn (annualised >70%) is usually fatal at scale — acquisition cost can't keep up." },
+      { q: "How can I reduce churn?", a: "Three levers. One: better onboarding (most churn happens in the first 30 days). Two: usage activation (customers who actively use the product churn less). Three: pricing alignment (charge in a way that grows with the customer's value-derived). Add-ons and annual contracts also mechanically lower monthly churn percentages." },
+      { q: "Should I measure customer churn or revenue churn?", a: "Both. Customer churn tells you about product fit and onboarding. Revenue churn (MRR lost / starting MRR) tells you about commercial health. A business losing many small customers but no large ones has high customer churn and low revenue churn — different actions needed." },
+    ],
+  },
+
+  "mrr-calculator": {
+    slug: "mrr-calculator",
+    lastReviewed: "2026-05-24",
+    scenarios: [
+      { label: "Growth month: 100k start, 12k new, 4k exp, 2k contr, 3k churn", href: "/mrr-calculator?starting=100000&new=12000&expansion=4000&contraction=2000&churn=3000" },
+      { label: "Flat month: 100k start, 5k new, 1k exp, 1k contr, 5k churn", href: "/mrr-calculator?starting=100000&new=5000&expansion=1000&contraction=1000&churn=5000" },
+      { label: "Declining: 100k start, 3k new, 1k exp, 4k contr, 8k churn", href: "/mrr-calculator?starting=100000&new=3000&expansion=1000&contraction=4000&churn=8000" },
+    ],
+    category: "Funding & Valuation",
+    applicationSubCategory: "MRR Calculator",
+    featureList: ["Full MRR waterfall: new / expansion / contraction / churn", "Net new MRR + monthly growth rate", "Implied ARR (ending MRR × 12)", "Region-aware currency"],
+    howToName: "How to calculate MRR movement",
+    howToDescription: "Start with last month's MRR, add new + expansion, subtract contraction + churn to get this month's ending MRR.",
+    howToSteps: [
+      { name: "Enter starting MRR", text: "Last month's ending MRR." },
+      { name: "Enter new MRR", text: "From customers acquired this month." },
+      { name: "Enter expansion MRR", text: "Upgrades and add-ons from existing customers." },
+      { name: "Enter contraction MRR", text: "Downgrades from existing customers." },
+      { name: "Enter churn MRR", text: "MRR lost from cancelled customers." },
+      { name: "Read ending MRR, net new MRR, and growth rate", text: "Growth rate is net new MRR divided by starting MRR." },
+    ],
+    featuredAnswer: "Ending MRR = Starting + New + Expansion − Contraction − Churn. Net New MRR is (New + Expansion) minus (Contraction + Churn). Growth Rate is Net New ÷ Starting × 100. A SaaS with $100k starting MRR adding $12k new + $4k expansion against $2k contraction + $3k churn ends at $111k MRR with 11% monthly growth — sustaining that pace doubles MRR every 7 months.",
+    voiceAnswer: "Ending MRR equals starting MRR plus new plus expansion minus contraction minus churn.",
+    faqs: [
+      { q: "What is MRR?", a: "Monthly Recurring Revenue is the normalised monthly value of all active subscriptions. Annual contracts are divided by 12 to get monthly equivalent. MRR is the most-watched SaaS health metric because it captures recurring revenue exactly — one-time fees and overages are excluded." },
+      { q: "What is the SaaS Quick Ratio?", a: "Different from the cash-flow quick ratio. SaaS Quick Ratio = (New + Expansion MRR) ÷ (Contraction + Churn MRR). It measures how efficiently a business is growing MRR. Quick Ratio ≥ 4 is healthy; ≤ 1 is a treadmill (you're acquiring just to replace lost MRR)." },
+      { q: "What is net new MRR?", a: "(New + Expansion) − (Contraction + Churn). The single most-watched SaaS health number. Positive net new MRR means the business is growing organically. Negative net new MRR means MRR is shrinking even before churn drag — investigate immediately." },
+      { q: "How does MRR differ from revenue?", a: "MRR is the monthly equivalent of all CURRENTLY ACTIVE subscriptions. Revenue is what was actually billed/collected, including one-time fees, overages, and partial-month proration. MRR is forward-looking (run-rate); revenue is historical (actual)." },
+      { q: "How does expansion MRR drive net negative churn?", a: "If existing customers expand by $5k while you lose $3k to churn and $1k to contraction, net churn is -$1k — your cohort grew without any new customers. This is the holy grail of SaaS economics: every cohort produces more revenue over time, even as some customers leave. Usage-based pricing and seat-based pricing both create this dynamic naturally." },
+    ],
+  },
+
+  "arr-calculator": {
+    slug: "arr-calculator",
+    lastReviewed: "2026-05-24",
+    scenarios: [
+      { label: "$50k MRR @ 2% churn / 5% growth", href: "/arr-calculator?mrr=50000&churn=2&growth=5" },
+      { label: "$10k MRR @ 1% churn / 10% growth", href: "/arr-calculator?mrr=10000&churn=1&growth=10" },
+      { label: "$200k MRR @ 5% churn / 3% growth", href: "/arr-calculator?mrr=200000&churn=5&growth=3" },
+    ],
+    category: "Funding & Valuation",
+    applicationSubCategory: "ARR Calculator",
+    featureList: ["Naive ARR (MRR × 12)", "Churn-adjusted 12-mo forward projection", "Growth-projected 12-mo forward projection", "Three ARR numbers side-by-side"],
+    howToName: "How to calculate annual recurring revenue (ARR)",
+    howToDescription: "Multiply MRR by 12 for naive ARR; apply churn or growth rate for forward-looking variants.",
+    howToSteps: [
+      { name: "Enter current MRR", text: "This month's monthly recurring revenue." },
+      { name: "Enter monthly churn rate", text: "Used for the churn-adjusted 12-month forward projection." },
+      { name: "Enter monthly growth rate", text: "Net new MRR ÷ starting MRR. Used for the growth-projected variant." },
+      { name: "Compare the three ARR numbers", text: "The gap between naive, churn-adjusted, and growth-projected ARR shows how stable current MRR really is." },
+    ],
+    featuredAnswer: "Annual Recurring Revenue (ARR) = MRR × 12. A SaaS with $50k MRR has $600k naive ARR. Churn-adjusted ARR projects current MRR forward 12 months at the prevailing churn rate, then annualises; at 2% monthly churn the same $50k MRR becomes $471k churn-adjusted ARR. Growth-projected ARR does the opposite at the current growth rate.",
+    voiceAnswer: "Annual recurring revenue is monthly recurring revenue times twelve.",
+    faqs: [
+      { q: "What is ARR?", a: "Annual Recurring Revenue is the annualised value of currently active subscriptions. Naive ARR is simply MRR × 12, treating today's MRR as if it stayed flat for 12 months. It's the headline number on most SaaS investor decks." },
+      { q: "ARR vs revenue?", a: "ARR is the annualised RUN-RATE of recurring subscriptions today. Revenue is what actually got billed over a past period, including one-time fees, overages, and partial-month proration. A business can have $1M ARR but report $0.85M trailing-12-month revenue if growth was front-loaded recently." },
+      { q: "What is committed ARR (cARR)?", a: "cARR includes ARR from customers with signed contracts even if billing hasn't started. Used to show the 'true' run-rate when there's a lag between contract signing and service start. cARR is always ≥ ARR." },
+      { q: "Should I show naive or adjusted ARR?", a: "Investor decks almost always show naive ARR. Honest internal reporting shows naive + churn-adjusted side-by-side, especially when churn is non-trivial. A wide gap between naive and adjusted ARR is itself a useful signal — it means current MRR is unstable." },
+      { q: "How does ARR relate to MRR growth?", a: "ARR is a snapshot; MRR growth is the rate of change. A business with $1M ARR and 10% monthly MRR growth will have $3.1M ARR in 12 months (1 × 1.1^12 = 3.14). Both numbers are needed to understand the business — ARR for size, MRR growth for trajectory." },
     ],
   },
 };

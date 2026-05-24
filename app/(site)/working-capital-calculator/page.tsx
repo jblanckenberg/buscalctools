@@ -151,7 +151,7 @@ Example: Current Assets = $150,000 | Current Liabilities = $80,000
       />
 
       <LazyRelatedTools
-        slugs={["cash-flow-calculator", "dso-calculator", "business-loan-calculator"]}
+        slugs={["current-ratio-calculator", "quick-ratio-calculator", "cash-flow-calculator", "dso-calculator"]}
       />
 
       <LazyMethodologyBox slug={SLUG} />

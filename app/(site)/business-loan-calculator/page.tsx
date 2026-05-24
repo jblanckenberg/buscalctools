@@ -421,7 +421,7 @@ Example: $50,000 loan | 8% APR | 60 months
 
       <FaqList items={META.faqs} />
 
-      <LazyRelatedTools slugs={["cash-flow-calculator", "roi-calculator"]} />
+      <LazyRelatedTools slugs={["debt-to-equity-calculator", "cash-flow-calculator", "roi-calculator"]} />
 
       <LazyMethodologyBox slug={SLUG} />
 

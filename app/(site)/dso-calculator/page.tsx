@@ -156,7 +156,7 @@ Example: AR = $120,000 | Annual Revenue = $1,200,000
       />
 
       <LazyRelatedTools
-        slugs={["working-capital-calculator", "cash-flow-calculator", "invoice-calculator"]}
+        slugs={["quick-ratio-calculator", "working-capital-calculator", "cash-flow-calculator", "invoice-calculator"]}
       />
 
       <LazyMethodologyBox slug={SLUG} />

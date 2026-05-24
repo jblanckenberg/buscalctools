@@ -125,7 +125,7 @@ Running Balance (Month N) = Opening Balance + Sum of Net Cash Flows (Month 1 to 
 
       <FaqList items={META.faqs} />
 
-      <LazyRelatedTools slugs={["break-even-calculator", "burn-rate-calculator"]} />
+      <LazyRelatedTools slugs={["quick-ratio-calculator", "current-ratio-calculator", "break-even-calculator", "burn-rate-calculator"]} />
 
       <EmbedCTA slug={SLUG} />
 
