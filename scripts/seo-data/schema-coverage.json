@@ -1,0 +1,977 @@
+{
+  "generated": "2026-05-24T06:15:43.285Z",
+  "pages_audited": 64,
+  "by_kind": {
+    "static": {
+      "count": 14,
+      "coverage": {
+        "breadcrumb": 13,
+        "faq": 1,
+        "webapp": 1,
+        "howto": 1,
+        "article": 0,
+        "collection": 1,
+        "organization": 1
+      }
+    },
+    "calculator": {
+      "count": 44,
+      "coverage": {
+        "breadcrumb": 44,
+        "faq": 44,
+        "webapp": 44,
+        "howto": 44,
+        "article": 0,
+        "collection": 0,
+        "organization": 0
+      }
+    },
+    "author": {
+      "count": 1,
+      "coverage": {
+        "breadcrumb": 1,
+        "faq": 0,
+        "webapp": 0,
+        "howto": 0,
+        "article": 0,
+        "collection": 0,
+        "organization": 1
+      }
+    },
+    "blog": {
+      "count": 2,
+      "coverage": {
+        "breadcrumb": 2,
+        "faq": 1,
+        "webapp": 0,
+        "howto": 0,
+        "article": 0,
+        "collection": 1,
+        "organization": 0
+      }
+    },
+    "compare": {
+      "count": 2,
+      "coverage": {
+        "breadcrumb": 1,
+        "faq": 0,
+        "webapp": 0,
+        "howto": 0,
+        "article": 0,
+        "collection": 1,
+        "organization": 0
+      }
+    },
+    "topic": {
+      "count": 1,
+      "coverage": {
+        "breadcrumb": 1,
+        "faq": 1,
+        "webapp": 0,
+        "howto": 0,
+        "article": 0,
+        "collection": 0,
+        "organization": 0
+      }
+    }
+  },
+  "calc_gaps": [],
+  "pages": [
+    {
+      "slug": "[calculator]/[variant]",
+      "kind": "static",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": false,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 110
+    },
+    {
+      "slug": "about",
+      "kind": "static",
+      "signals": {
+        "breadcrumb": true,
+        "faq": false,
+        "webapp": false,
+        "howto": false,
+        "article": false,
+        "collection": false,
+        "organization": true
+      },
+      "lines": 119
+    },
+    {
+      "slug": "arr-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 85
+    },
+    {
+      "slug": "authors/james-blanckenberg",
+      "kind": "author",
+      "signals": {
+        "breadcrumb": true,
+        "faq": false,
+        "webapp": false,
+        "howto": false,
+        "article": false,
+        "collection": false,
+        "organization": true
+      },
+      "lines": 185
+    },
+    {
+      "slug": "blog",
+      "kind": "blog",
+      "signals": {
+        "breadcrumb": true,
+        "faq": false,
+        "webapp": false,
+        "howto": false,
+        "article": false,
+        "collection": true,
+        "organization": false
+      },
+      "lines": 96
+    },
+    {
+      "slug": "blog/[slug]",
+      "kind": "blog",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": false,
+        "howto": false,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 183
+    },
+    {
+      "slug": "break-even-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 155
+    },
+    {
+      "slug": "burn-rate-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 137
+    },
+    {
+      "slug": "business-loan-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 432
+    },
+    {
+      "slug": "business-valuation-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 147
+    },
+    {
+      "slug": "cac-ltv-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 169
+    },
+    {
+      "slug": "cagr-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 105
+    },
+    {
+      "slug": "cash-flow-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 138
+    },
+    {
+      "slug": "changelog",
+      "kind": "static",
+      "signals": {
+        "breadcrumb": true,
+        "faq": false,
+        "webapp": false,
+        "howto": false,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 197
+    },
+    {
+      "slug": "churn-rate-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 85
+    },
+    {
+      "slug": "compare",
+      "kind": "compare",
+      "signals": {
+        "breadcrumb": true,
+        "faq": false,
+        "webapp": false,
+        "howto": false,
+        "article": false,
+        "collection": true,
+        "organization": false
+      },
+      "lines": 92
+    },
+    {
+      "slug": "compare/[slug]",
+      "kind": "compare",
+      "signals": {
+        "breadcrumb": false,
+        "faq": false,
+        "webapp": false,
+        "howto": false,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 64
+    },
+    {
+      "slug": "contact",
+      "kind": "static",
+      "signals": {
+        "breadcrumb": true,
+        "faq": false,
+        "webapp": false,
+        "howto": false,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 110
+    },
+    {
+      "slug": "cookies",
+      "kind": "static",
+      "signals": {
+        "breadcrumb": true,
+        "faq": false,
+        "webapp": false,
+        "howto": false,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 167
+    },
+    {
+      "slug": "corrections-policy",
+      "kind": "static",
+      "signals": {
+        "breadcrumb": true,
+        "faq": false,
+        "webapp": false,
+        "howto": false,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 209
+    },
+    {
+      "slug": "cost-per-unit-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 332
+    },
+    {
+      "slug": "current-ratio-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 80
+    },
+    {
+      "slug": "debt-to-equity-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 86
+    },
+    {
+      "slug": "disclaimer",
+      "kind": "static",
+      "signals": {
+        "breadcrumb": true,
+        "faq": false,
+        "webapp": false,
+        "howto": false,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 42
+    },
+    {
+      "slug": "disclosure",
+      "kind": "static",
+      "signals": {
+        "breadcrumb": true,
+        "faq": false,
+        "webapp": false,
+        "howto": false,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 109
+    },
+    {
+      "slug": "discount-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 142
+    },
+    {
+      "slug": "dso-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 168
+    },
+    {
+      "slug": "ecommerce-profit-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 146
+    },
+    {
+      "slug": "editorial-policy",
+      "kind": "static",
+      "signals": {
+        "breadcrumb": true,
+        "faq": false,
+        "webapp": false,
+        "howto": false,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 170
+    },
+    {
+      "slug": "employee-cost-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 141
+    },
+    {
+      "slug": "estimated-tax-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 164
+    },
+    {
+      "slug": "freelance-rate-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 142
+    },
+    {
+      "slug": "gross-profit-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 87
+    },
+    {
+      "slug": "hourly-to-salary-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 163
+    },
+    {
+      "slug": "inventory-turnover-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 120
+    },
+    {
+      "slug": "invoice-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 143
+    },
+    {
+      "slug": "irr-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 103
+    },
+    {
+      "slug": "markup-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 143
+    },
+    {
+      "slug": "methodology",
+      "kind": "static",
+      "signals": {
+        "breadcrumb": true,
+        "faq": false,
+        "webapp": false,
+        "howto": false,
+        "article": false,
+        "collection": true,
+        "organization": false
+      },
+      "lines": 137
+    },
+    {
+      "slug": "methodology/[slug]",
+      "kind": "static",
+      "signals": {
+        "breadcrumb": true,
+        "faq": false,
+        "webapp": true,
+        "howto": false,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 266
+    },
+    {
+      "slug": "mrr-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 83
+    },
+    {
+      "slug": "net-profit-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 144
+    },
+    {
+      "slug": "npv-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 128
+    },
+    {
+      "slug": "page.tsx",
+      "kind": "static",
+      "signals": {
+        "breadcrumb": false,
+        "faq": false,
+        "webapp": false,
+        "howto": false,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 100
+    },
+    {
+      "slug": "payback-period-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 137
+    },
+    {
+      "slug": "payroll-tax-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 116
+    },
+    {
+      "slug": "price-elasticity-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 121
+    },
+    {
+      "slug": "pricing-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 144
+    },
+    {
+      "slug": "privacy",
+      "kind": "static",
+      "signals": {
+        "breadcrumb": true,
+        "faq": false,
+        "webapp": false,
+        "howto": false,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 370
+    },
+    {
+      "slug": "profit-first-allocation-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 125
+    },
+    {
+      "slug": "profit-margin-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 159
+    },
+    {
+      "slug": "quick-ratio-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 80
+    },
+    {
+      "slug": "r-and-d-tax-credit-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 155
+    },
+    {
+      "slug": "revenue-growth-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 149
+    },
+    {
+      "slug": "roa-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 87
+    },
+    {
+      "slug": "roe-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 84
+    },
+    {
+      "slug": "roi-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 140
+    },
+    {
+      "slug": "s-corp-election-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 172
+    },
+    {
+      "slug": "section-179-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 127
+    },
+    {
+      "slug": "self-employment-tax-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 156
+    },
+    {
+      "slug": "subscription-pricing-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 112
+    },
+    {
+      "slug": "terms",
+      "kind": "static",
+      "signals": {
+        "breadcrumb": true,
+        "faq": false,
+        "webapp": false,
+        "howto": false,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 114
+    },
+    {
+      "slug": "topics/[slug]",
+      "kind": "topic",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": false,
+        "howto": false,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 159
+    },
+    {
+      "slug": "working-capital-calculator",
+      "kind": "calculator",
+      "signals": {
+        "breadcrumb": true,
+        "faq": true,
+        "webapp": true,
+        "howto": true,
+        "article": false,
+        "collection": false,
+        "organization": false
+      },
+      "lines": 163
+    }
+  ]
+}
