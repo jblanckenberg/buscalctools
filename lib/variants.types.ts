@@ -28,6 +28,18 @@ export type Variant = {
    * leave this undefined and fall back to the parent calc's hreflang map.
    */
   hreflangCountry: "en-US" | "en-GB" | "en-ZA" | undefined;
+  /**
+   * Variant-specific FAQ. When present, the variant page renders THESE instead
+   * of the parent calculator's FAQ — every variant must carry a unique set so no
+   * FAQ block (or FAQPage schema) is duplicated across pages. AdSense de-dup.
+   */
+  faqs?: { q: string; a: string }[];
+  /**
+   * Variant-specific worked example, rendered as its own prose section beneath
+   * the calculator. Uses the same markdown-lite renderer as `intro`. Deepens
+   * each variant into a standalone destination rather than a thin templated stop.
+   */
+  workedExample?: string;
 };
 
 /** Variant matrix: calc slug → variant slug → Variant. */

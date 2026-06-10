@@ -10,7 +10,7 @@ const SEARCH_URL = `${SITE_URL}/search`;
 export const metadata: Metadata = {
   title: "Search BusCalcTools",
   description:
-    "Search 18 free business calculators and 25 guides — profit margin, pricing, break-even, ROI, freelance rate, loans, and valuation. US, UK, SA.",
+    "Search 44 free business calculators and 25 guides — profit margin, pricing, break-even, ROI, freelance rate, loans, and valuation. US, UK, SA.",
   alternates: { canonical: SEARCH_URL, languages: hreflang(SEARCH_URL) },
   robots: { index: true, follow: true },
 };
@@ -49,11 +49,10 @@ export default function SearchPage() {
           What you can search
         </h2>
         <p className="mt-3 text-sm leading-relaxed text-gray-700">
-          The search index covers <strong>18 free calculators</strong> (profit
-          margin, markup, break-even, ROI, pricing, invoice, freelance rate,
-          cash flow, net profit, ecommerce profit, cost per unit, business
-          loan, payback period, burn rate, business valuation, revenue
-          growth, employee cost, and discount), <strong>25 long-form guides</strong>
+          The search index covers <strong>44 free calculators</strong> (covering
+          profit, pricing, markup, break-even, ROI, cash flow, business loans,
+          valuation, tax, SaaS metrics, freelance rates, and more),
+          {" "}<strong>25 long-form guides</strong>
           {" "}covering pricing strategy, profit benchmarks, cash flow, hiring,
           valuation, and loans, and <strong>4 topic hubs</strong> that group
           related tools.

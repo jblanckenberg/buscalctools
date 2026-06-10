@@ -1,4 +1,4 @@
-"""Walk both sites' rendered calc pages and emit a schema-presence CSV.
+﻿"""Walk both sites' rendered calc pages and emit a schema-presence CSV.
 
 Output: a CSV with one row per calculator page across both sites, columns indicating
 whether each of WebApplication / SoftwareApplication / FAQPage / BreadcrumbList / HowTo
@@ -11,7 +11,7 @@ import csv
 import re
 from pathlib import Path
 
-BC_OUT = Path(r"C:\BizProfitCalc\bizapp\out")
+BC_OUT = Path(r"C:\websites\BizProfitCalc\bizapp\out")
 FC_ROOT = Path(r"C:\FIN_CALC_SITE\Finance_Calculator_Hub")
 OUT = Path(__file__).resolve().parent.parent / "docs" / "schema_audit_2026-05-15.csv"
 
@@ -63,3 +63,4 @@ if __name__ == "__main__":
         writer.writeheader()
         writer.writerows(rows)
     print(f"Wrote {len(rows)} rows to {OUT}")
+

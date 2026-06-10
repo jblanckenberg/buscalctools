@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import dynamic from "next/dynamic";
 import CalculatorShell from "@/components/shared/CalculatorShell";
 import VariantIntro, { isOperatorStub } from "@/components/shared/VariantIntro";
+import ProseSection from "@/components/shared/ProseSection";
 import VariantSchema from "@/components/shared/VariantSchema";
 import HowToSchema from "@/components/shared/HowToSchema";
 import FaqList from "@/components/shared/FaqList";
@@ -95,12 +96,15 @@ export default async function VariantPage({ params }: { params: Promise<Params> 
       />
       <VariantIntro intro={v.intro} />
       <Calculator />
+      {v.workedExample ? (
+        <ProseSection heading="Worked example" text={v.workedExample} />
+      ) : null}
       <FormulaBox>
         <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed">
           {`See parent calculator at /${calculator} for the full formula reference.`}
         </pre>
       </FormulaBox>
-      <FaqList items={meta.faqs} />
+      <FaqList items={v.faqs ?? meta.faqs} />
       <LazyRelatedTools slugs={[calculator]} />
       <LazyMethodologyBox slug={calculator} />
       <Disclaimer />
