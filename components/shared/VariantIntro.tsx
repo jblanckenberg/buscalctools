@@ -56,6 +56,15 @@ function renderParagraph(para: string, i: number): React.ReactNode {
   );
 }
 
+/**
+ * Render markdown-lite prose (paragraphs, simple lists, **bold**) to React nodes.
+ * Shared by VariantIntro and ProseSection so intros and worked examples render
+ * identically.
+ */
+export function renderProse(text: string): React.ReactNode[] {
+  return text.split("\n\n").map((para, i) => renderParagraph(para, i));
+}
+
 export default function VariantIntro({ intro }: Props) {
   const stub = isOperatorStub(intro);
   if (stub) {
@@ -72,7 +81,7 @@ export default function VariantIntro({ intro }: Props) {
   }
   return (
     <section className="my-6 max-w-3xl text-base leading-relaxed text-gray-800">
-      {intro.split("\n\n").map((para, i) => renderParagraph(para, i))}
+      {renderProse(intro)}
     </section>
   );
 }

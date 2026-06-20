@@ -1,4 +1,5 @@
 import type { Variant, VariantMatrix } from "@/lib/variants.types";
+import { VARIANT_EXTRA } from "@/lib/variant-extra";
 
 /**
  * Variant matrix — 29 entries across 11 parent calculators.
@@ -61,7 +62,7 @@ Net-margin benchmarks (IRS Statistics of Income and NYU Stern industry tables):
 - Restaurants: 3-9%
 - Construction: 5-10%
 
-The single biggest US-specific lever past $1M revenue is electing S-corp status (if eligible) to escape SE tax on a reasonable-salary versus distribution split — the calculator's scenario toggle models this. For underlying rules, IRS Publication 535, Form 1120 instructions, and the Schedule SE instructions are authoritative.`,
+The single biggest US-specific lever past $1M revenue is electing S-corp status (if eligible) to escape SE tax on a reasonable-salary versus distribution split — you can model this by re-running the calculator with each entity's effective tax rate. For underlying rules, IRS Publication 535, Form 1120 instructions, and the Schedule SE instructions are authoritative.`,
       hreflangCountry: "en-US",
     },
     restaurants: {
@@ -77,7 +78,7 @@ The single biggest US-specific lever past $1M revenue is electing S-corp status 
 
 Restaurant P&L is a different animal from generic retail because two cost lines — food and labor — are simultaneously huge, variable daily, and the operator's main lever. The industry has converged on prime cost (food cost + total labor including taxes and benefits, as a % of sales) as the single most important operating metric. Keep prime cost under 60% of revenue and the rest of the math usually works; let it drift above 65% and the venue loses money even on busy nights.
 
-This calculator splits the analysis into the lines a restaurant operator actually tracks:
+To use a Revenue/COGS/OpEx margin tool well, map your P&L onto the lines a restaurant operator actually tracks:
 - **Food cost percentage**: COGS food ÷ food sales. Target 28-32% full-service, 25-30% QSR
 - **Beverage cost percentage**: 18-22% beer, 22-28% wine, 18-24% spirits
 - **Labor cost percentage**: including FICA, workers' comp, and benefits. Target 28-35% depending on service model
@@ -86,7 +87,7 @@ This calculator splits the analysis into the lines a restaurant operator actuall
 
 A common reason restaurants run unprofitable: they price the menu off food cost alone and forget that labor scales with covers, not revenue. A $14 burger at 30% food cost looks fine until you realise four-top tables tie up a server for an hour and labor cost balloons.
 
-The calculator also outputs break-even cover count — how many guests per shift you need to clear fixed costs. Pair it with seat-turn rate to see whether the venue is geometrically capable of profit at current pricing, or whether menu engineering is needed (a price increase on items with the lowest cost-to-price ratio).
+From the margin figures you can also reason about break-even cover count — how many guests per shift you need to clear fixed costs. Pair it with seat-turn rate to see whether the venue is geometrically capable of profit at current pricing, or whether menu engineering is needed (a price increase on items with the lowest cost-to-price ratio).
 
 For US operators, the National Restaurant Association's annual Restaurant Industry Operations Report is the authoritative benchmark source. For UK operators, UKHospitality's quarterly tracker publishes comparable figures.`,
       hreflangCountry: undefined,
@@ -133,7 +134,7 @@ If gross margin lands under 30%, you're in a high-volume model where price disci
 
 The fastest way to bankrupt an ecommerce brand is to optimise revenue while ignoring contribution margin. Top-line growth funded by a 5x ROAS on a 35% gross-margin product is a slow leak — every order makes the loss bigger because variable costs eat the margin before fixed costs are even covered.
 
-This calculator pulls apart ecommerce P&L into the lines that actually move:
+To read ecommerce P&L through a Revenue/COGS/OpEx margin tool, group your costs into the lines that actually move:
 
 **Per-order variable costs:**
 - COGS (landed cost including supplier, freight, duties, packaging)
@@ -156,7 +157,7 @@ Net-margin benchmarks by category (Shopify and McKinsey data):
 - Home goods: 8-14%
 - Supplements: 12-20%
 
-The single biggest leverage point in DTC ecommerce isn't ad spend — it's repeat purchase rate. A brand with 30% second-order rate at 90 days is worth 2-3x a brand at 10% second-order, because CAC amortises across a longer LTV. The calculator's repeat-rate toggle models this. For DTC benchmarks, the Shopify State of Commerce report and the U.S. Census Bureau's quarterly e-commerce sales release are useful references.`,
+The single biggest leverage point in DTC ecommerce isn't ad spend — it's repeat purchase rate. A brand with 30% second-order rate at 90 days is worth 2-3x a brand at 10% second-order, because CAC amortises across a longer LTV. You can see this in the margins by re-running OpEx with a lower per-order acquisition cost as repeat rate rises. For DTC benchmarks, the Shopify State of Commerce report and the U.S. Census Bureau's quarterly e-commerce sales release are useful references.`,
       hreflangCountry: undefined,
     },
   },
@@ -288,7 +289,7 @@ Beyond tax, US freelancers pay for things employees get for free:
 - **Disability / life insurance**
 - **Business deductions** (home office, mileage, software, professional development)
 
-The calculator takes your post-tax income target, state, and assumed billable hours and outputs the hourly rate required. It also models the S-corp election break-even — usually worthwhile above $80-90k SE profit, depending on reasonable-comp rules and state. For tax specifics, IRS Publication 334 and Schedule SE instructions are authoritative.`,
+The calculator takes your income target (inflate it by your tax buffer), overhead, and assumed billable hours and outputs the hourly rate required. Model the S-corp election break-even separately — usually worthwhile above $80-90k SE profit, depending on reasonable-comp rules and state. For tax specifics, IRS Publication 334 and Schedule SE instructions are authoritative.`,
       hreflangCountry: "en-US",
     },
     za: {
@@ -326,7 +327,7 @@ Tax threshold for under-65s is therefore R102,500 of taxable income before any t
 - **Overhead**: accountant (R1,200-3,500/month), liability insurance, software, co-working or load-shedding-resilient home office (inverter + UPS: R25-80k once-off)
 - **Income smoothing**: 3-4 months' costs in reserve — SA invoice payment terms regularly drift to 60-75 days
 
-Worked example: a Joburg consultant targeting R500,000 take-home, 1,200 billable hours, R6,000/month overhead. Pre-tax revenue needed ≈ R720,000; hourly rate ≈ R600/hour. If VAT-registered, charge R690/hour ex-VAT to clients (which is R793 incl-VAT) so the R90 in absorbed payment-processing fees doesn't erode margin.
+Worked example: a Joburg consultant targeting R500,000 take-home, 1,200 billable hours, R6,000/month overhead. Pre-tax revenue needed ≈ R720,000; the recommended rate it returns is ex-VAT — if VAT-registered, add 15% on top manually to clients (which is R793 incl-VAT) so the R90 in absorbed payment-processing fees doesn't erode margin.
 
 For underlying rules, see SARS' Comprehensive Guide to the ITR12 and the IRP6 provisional tax guide, and pair this with /invoice-calculator/za for SA invoice requirements and /employee-cost-calculator/za once you hire your first employee.`,
       hreflangCountry: "en-ZA",
@@ -358,7 +359,7 @@ The "tri-tax stack" is what makes NY freelance rate-setting different from Flori
 - **Freelance Isn't Free Act (FIFA)**: NYC ordinance requires written contracts for engagements $800+ and pays within 30 days; treble damages plus attorney fees for non-compliance — a useful collections lever
 - **Self-funded retirement**: SEP-IRA up to 25% of net SE income capped at $72,000 (2026), Solo 401(k) combined up to $72,000 (or $80,000 if 50+)
 
-Worked example: a Brooklyn-based UX consultant targeting $130k take-home after all taxes, 1,150 billable hours/year. Pre-tax revenue needed ≈ $245,000 (47% effective combined burden); hourly rate ≈ $215/hour, day rate ≈ $1,700, weekly retainer ≈ $7,500.
+Worked example: a Brooklyn-based UX consultant targeting $130k take-home after all taxes, 1,150 billable hours/year. Pre-tax revenue needed ≈ $245,000 (47% effective combined burden); hourly rate ≈ $215/hour and day rate ≈ $1,700; derive any weekly retainer yourself by multiplying the day rate by committed days.
 
 The S-corp election typically breaks even around $85-110k SE profit for NY freelancers given state-level admin overhead. For specifics, the NY Department of Taxation and Finance Personal Income Tax guidance and IRS Schedule SE instructions are authoritative.`,
       hreflangCountry: "en-US",
@@ -390,7 +391,7 @@ Texas is structurally the cheapest US state for a successful sole-proprietor fre
 - **Retirement**: SEP-IRA up to 25% of net SE income capped at $72,000 (2026), Solo 401(k) combined up to $72,000 (or $80,000 if 50+)
 - **Asset protection**: Texas has strong homestead and asset-protection statutes; pairs well with an LLC wrapper once SE income tops $80k
 
-Worked example: an Austin-based developer targeting $110k take-home, 1,250 billable hours/year. Pre-tax revenue needed ≈ $155,000 (29% effective combined federal burden); hourly rate ≈ $125/hour, day rate ≈ $1,000, weekly retainer ≈ $4,500.
+Worked example: an Austin-based developer targeting $110k take-home, 1,250 billable hours/year. Pre-tax revenue needed ≈ $155,000 (29% effective combined federal burden); hourly rate ≈ $125/hour and day rate ≈ $1,000; a weekly retainer is a manual multiple of the day rate.
 
 The S-corp election typically breaks even around $80-100k SE profit for Texas freelancers — earlier than in high-tax states because there's no state-level S-corp surcharge to erode the federal SE tax savings. For specifics, IRS Publication 334 and the Texas Comptroller's franchise tax overview are authoritative.`,
       hreflangCountry: "en-US",
@@ -423,7 +424,7 @@ Beyond rate, three commercial moves separate designers earning $50k from designe
 2. **Retainer engagements** — replacing project-by-project with monthly retainers stabilises revenue and lets you charge a premium for guaranteed availability
 3. **Scope-and-deliverable proposals** — fixed-scope, fixed-price proposals (with explicit revision rounds) consistently price 30-50% higher than hourly because you're selling outcome, not time
 
-The calculator outputs both minimum hourly floor and equivalent project-based price for typical design deliverables (logo systems, brand guidelines, websites, illustration sets). For industry rate benchmarks, the AIGA Design Salary Survey and the BLS Occupational Employment and Wages Statistics for graphic designers are useful references.`,
+The calculator outputs the minimum hourly floor and recommended rate; multiply by estimated deliverable hours yourself to derive a project-based floor (logo systems, brand guidelines, websites, illustration sets). For industry rate benchmarks, the AIGA Design Salary Survey and the BLS Occupational Employment and Wages Statistics for graphic designers are useful references.`,
       hreflangCountry: undefined,
     },
     developers: {
@@ -460,7 +461,7 @@ This calculator works backwards from a target take-home, accounting for:
 - Health insurance, retirement, and tools (IDEs, hosting, GitHub Copilot / Cursor, monitoring)
 - Income smoothing reserve
 
-It also outputs day-rate and weekly equivalent for enterprise procurement teams, plus indicative SOW pricing for common project types (MVP build, audit / code review, infrastructure migration).`,
+It also outputs the day-rate equivalent for enterprise procurement teams; derive SOW pricing yourself from the recommended hourly rate (MVP build, audit / code review, infrastructure migration).`,
       hreflangCountry: undefined,
     },
   },
@@ -527,11 +528,11 @@ Restaurant break-even has more moving parts than almost any other small-business
 
 **Step-fixed labor** (per shift, not per cover): hosts, dishwashers, prep cooks, sous chefs scheduled to a shift regardless of cover count.
 
-Plug average check, target food and labor percentages, and fixed costs into the calculator and it returns:
-- Break-even covers per day
+Enter average check as the price per unit, per-cover variable cost (food, beverage, processing), and monthly fixed costs and it returns:
+- Break-even units (treat one cover as one unit) — divide by your trading days for a per-day figure
 - Break-even revenue per month
-- Margin of safety (current covers vs break-even covers)
-- "What if" sliders for menu-price increases and labor-cost reductions
+- Compare your current covers against the break-even units the tool returns to gauge your margin of safety
+- Re-run the calculator with a higher average check or lower per-cover cost to see the effect of menu-price increases or labor savings
 
 Three structural patterns that put a restaurant permanently below break-even, no matter how busy:
 1. **Menu-price compression** — operators afraid to raise prices, while food and labor have inflated 15-30% over 2022-2024
@@ -617,7 +618,7 @@ Plug loan amount, term, and rate into the calculator and it returns:
 - Monthly repayment
 - Total interest cost over term
 - Amortisation schedule (capital vs interest by month)
-- Affordability check (repayment as % of monthly profit; aim for under 25% of monthly EBITDA for comfort)
+- To sense-check affordability, divide the calculator's monthly repayment by your monthly EBITDA yourself; under 25% is generally comfortable
 
 For comparable UK SME lending rates, the Bank of England's monthly Money and Credit statistical release publishes the average rate on new SME lending, and the British Business Bank's annual Small Business Finance Markets report covers regional benchmarks.`,
       hreflangCountry: "en-GB",
@@ -735,7 +736,7 @@ For authoritative current data, the SBA's SOP 50 10 7 (Small Business Lender Ope
       description:
         "Model equipment loan vs lease, with Section 179 expensing and bonus depreciation built in. Monthly payment, total cost, and after-tax comparison.",
       voiceAnswer: undefined,
-      intro: `An equipment finance calculator models monthly payments and after-tax cost across the three main equipment-financing structures — equipment loan, capital (finance) lease, and operating lease — and lets you stack Section 179 expensing and bonus depreciation on top to see true after-tax cost. IRS Publication 946 (How to Depreciate Property), Section 179 of the Internal Revenue Code, and the Equipment Leasing and Finance Association (ELFA) Monthly Confidence Index are the authoritative sources for current equipment-finance benchmarks and tax rules.
+      intro: `An equipment finance calculator models monthly payments for an equipment loan; you then apply tax effects and compare lease structures yourself, since the tool amortises one fixed-rate loan only — equipment loan, capital (finance) lease, and operating lease — and you apply Section 179 expensing and bonus depreciation separately to the total cost it returns, to estimate after-tax cost. IRS Publication 946 (How to Depreciate Property), Section 179 of the Internal Revenue Code, and the Equipment Leasing and Finance Association (ELFA) Monthly Confidence Index are the authoritative sources for current equipment-finance benchmarks and tax rules.
 
 US small businesses finance roughly $1 trillion of equipment annually across these three structures, and the right structure depends on tax position, balance-sheet objectives, and how long you intend to hold the asset.
 
@@ -853,9 +854,9 @@ For authoritative current data, the SARB Monetary Policy Statement publishes the
       h1Suffix: " for South African Businesses",
       title: "Pricing Calculator South Africa | BusCalcTools",
       description:
-        "Calculate SA selling price with SARS VAT 15%, payment-processor fees, and target margin pre-filled. Forward and reverse pricing for ZAR retail and B2B.",
+        "Calculate SA selling price from cost with SARS VAT 15% and your target margin. Forward pricing from cost to ZAR shelf price for retail and B2B.",
       voiceAnswer: undefined,
-      intro: `A South African pricing calculator converts cost to shelf price including 15% VAT, payment-processor fees (typically 2.5-3.5% via Yoco, PayFast, Peach, or Stitch), and your target margin. The R1,000,000 rolling 12-month turnover threshold for compulsory VAT registration is the single biggest pricing inflection point. SARS' VAT 404 Guide for Vendors is the authoritative reference.
+      intro: `A South African pricing calculator converts cost to shelf price including 15% VAT and your target margin. Payment-processor fees (typically 2.5-3.5% via Yoco, PayFast, Peach, or Stitch) are not a separate field — fold them into your target margin. The R1,000,000 rolling 12-month turnover threshold for compulsory VAT registration is the single biggest pricing inflection point. SARS' VAT 404 Guide for Vendors is the authoritative reference.
 
 SA pricing has three structural features absent in UK or US frameworks. First, the headline VAT rate (15%) is materially lower than the UK's 20% but higher than the average US state sales tax — and unlike US sales tax, SA VAT is charged on services as well as goods, with very few exemptions. Second, the R1 million turnover threshold for VAT registration is a notorious pricing cliff: cross it for the first time and your effective margin on existing customers drops 13% overnight unless you reprice. Third, the cash-vs-credit landscape is bifurcated — informal sector pricing assumes cash and instant payment, while formal B2B pricing assumes 30-60 day Net terms and the working-capital cost that implies.
 
@@ -1089,7 +1090,7 @@ For specifics, see Texas Comptroller Publication 94-108 (Engaged in Business in 
       voiceAnswer: undefined,
       intro: `Marketing ROI = (revenue attributable to marketing − marketing spend) ÷ marketing spend. The industry shorthand ROAS = gross revenue ÷ ad spend, before COGS. Healthy benchmarks: ROAS 3-4x for ecommerce paid social, CAC payback under 12 months for SaaS, LTV:CAC ratio of 3:1 or better. IAB attribution standards are the closest framework.
 
-"Marketing ROI" gets used loosely across teams that mean very different things. A CMO usually means brand-attributable revenue lift over a long window. A performance marketer means ROAS this week. A CFO means contribution-margin payback against fully-loaded customer acquisition cost. This calculator outputs the four metrics they actually need, side-by-side, so the conversation can converge:
+"Marketing ROI" gets used loosely across teams that mean very different things. A CMO usually means brand-attributable revenue lift over a long window. A performance marketer means ROAS this week. A CFO means contribution-margin payback against fully-loaded customer acquisition cost. This calculator outputs profit-based ROI, net profit, and annualised ROI; derive ROAS, MER, CAC and LTV:CAC separately with their own inputs, so the conversation can converge:
 
 **ROAS (Return on Ad Spend)** = revenue / ad spend
 - Industry shorthand for performance marketing
@@ -1115,7 +1116,7 @@ For specifics, see Texas Comptroller Publication 94-108 (Engaged in Business in 
 - Content / SEO LTV:CAC: typically 5:1+ once mature (12-18 month ramp)
 - Affiliate / referral CAC: lowest at 10-30% of paid CAC
 
-**The calculator handles common gotchas:**
+**Account for these common gotchas in the Net Return you enter (the calculator divides net profit by spend — it does not adjust for attribution itself):**
 - Attribution windows (last-click vs first-click vs linear)
 - iOS 14.5+ paid-social under-reporting (Meta typically under-reports actual revenue by 15-40% post-ATT)
 - Returns and refunds (gross revenue overstates contribution)
@@ -1129,7 +1130,10 @@ For framework-level guidance, the IAB's MRC-accredited attribution standards and
 
 /** Look up a single variant by `(calc, variant)` pair. Returns undefined if either is unknown. */
 export function getVariant(calc: string, variant: string): Variant | undefined {
-  return VARIANTS[calc]?.[variant];
+  const base = VARIANTS[calc]?.[variant];
+  if (!base) return undefined;
+  const extra = VARIANT_EXTRA[`${calc}/${variant}`];
+  return extra ? { ...base, faqs: extra.faqs, workedExample: extra.workedExample } : base;
 }
 
 /** All variants for a parent calculator (empty array if the calc has none). */

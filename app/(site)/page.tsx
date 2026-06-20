@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     absolute: "Free Business Calculators — Profit, Pricing & ROI | BusCalcTools",
   },
   description:
-    "18 free business calculators for profit, pricing, break-even, ROI, loans & cash flow. Instant results, no sign-up. USA, UK, South Africa.",
+    "44 free business calculators for profit, pricing, break-even, ROI, loans & cash flow. Instant results, no sign-up. USA, UK, South Africa.",
   alternates: { canonical: SITE_URL, languages: hreflang(SITE_URL) },
 };
 
@@ -26,8 +26,19 @@ export default function HomePage() {
           Free Business Calculators for Profit, Pricing &amp; Growth
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-gray-600">
-          18 free, instant tools for small business owners and freelancers.
+          44 free, instant tools for small business owners and freelancers.
           No sign-up. No ads above the calculator. Just results.
+        </p>
+        <p className="mt-4 max-w-3xl text-base leading-relaxed text-gray-600">
+          Every tool runs entirely in your browser — change an input and the
+          answer updates as you type, with nothing to install and no numbers
+          sent to a server. Each calculator ships with a worked example, a
+          plain-English explanation of the formula, region-aware tax defaults
+          for the USA, UK, and South Africa, and citations to primary sources
+          (IRS, HMRC, SARS) with the date each rate was last verified. Whether
+          you are setting a price, checking a margin, sizing a loan repayment,
+          or working out a sustainable freelance rate, start with the topic
+          that matches your decision below.
         </p>
       </section>
 

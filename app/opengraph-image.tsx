@@ -4,7 +4,7 @@ export const dynamic = "force-static";
 export const contentType = "image/png";
 export const size = { width: 1200, height: 630 };
 export const alt =
-  "BusCalcTools — 18 free profit, pricing, and growth calculators";
+  "BusCalcTools — 44 free profit, pricing, and growth calculators";
 
 export default function Image() {
   return new ImageResponse(
@@ -102,7 +102,7 @@ export default function Image() {
               color: "#EBF2FA",
             }}
           >
-            <span>18 calculators</span>
+            <span>44 calculators</span>
             <span style={{ opacity: 0.4 }}>•</span>
             <span>25 guides</span>
             <span style={{ opacity: 0.4 }}>•</span>

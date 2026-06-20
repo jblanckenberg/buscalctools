@@ -1,0 +1,1768 @@
+{
+  "generated": "2026-05-24T06:13:09.799Z",
+  "source": "C:/BizProfitCalc/keywords/buscalctools_keywords.csv",
+  "pages_mapped": 42,
+  "pages_unmapped": 13,
+  "map": {
+    "arr-calculator": {
+      "primary": {
+        "keyword": "customer lifetime value equation",
+        "volume": 2900,
+        "difficulty": 17,
+        "intent": "informational",
+        "cluster": "cac_ltv_marketing",
+        "priority_tier": "P1",
+        "match_via": "cluster"
+      },
+      "secondary": [
+        {
+          "keyword": "cac customer acquisition cost",
+          "volume": 5400,
+          "difficulty": 33,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "customer lifetime value",
+          "volume": 5400,
+          "difficulty": 38,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "lifetime value of a customer",
+          "volume": 5400,
+          "difficulty": 38,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "equation for customer lifetime value",
+          "volume": 2400,
+          "difficulty": 17,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "lifetime value of customer equation",
+          "volume": 2400,
+          "difficulty": 17,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "break-even-calculator": {
+      "primary": {
+        "keyword": "equation for break even point",
+        "volume": 5400,
+        "difficulty": 14,
+        "intent": "informational",
+        "cluster": "break_even",
+        "priority_tier": "P1",
+        "match_via": "slug"
+      },
+      "secondary": [
+        {
+          "keyword": "break even period formula",
+          "volume": 5400,
+          "difficulty": 19,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "break even",
+          "volume": 9900,
+          "difficulty": 37,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "point of break even",
+          "volume": 6600,
+          "difficulty": 27,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "break-even point",
+          "volume": 6600,
+          "difficulty": 27,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "break even point",
+          "volume": 6600,
+          "difficulty": 27,
+          "match_via": "slug"
+        }
+      ]
+    },
+    "burn-rate-calculator": {
+      "primary": {
+        "keyword": "discounted cash flow",
+        "volume": 110000,
+        "difficulty": 36,
+        "intent": "informational",
+        "cluster": "cash_flow_working_capital",
+        "priority_tier": "P2",
+        "match_via": "cluster"
+      },
+      "secondary": [
+        {
+          "keyword": "discount cash flow",
+          "volume": 110000,
+          "difficulty": 43,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "discounted cash flow training",
+          "volume": 22200,
+          "difficulty": 23,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "cash flow statement",
+          "volume": 18100,
+          "difficulty": 21,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "cash flow statements",
+          "volume": 18100,
+          "difficulty": 23,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "free cash flow definition",
+          "volume": 12100,
+          "difficulty": 17,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "business-loan-calculator": {
+      "primary": {
+        "keyword": "sba loan",
+        "volume": 135000,
+        "difficulty": 58,
+        "intent": "informational",
+        "cluster": "business_loans",
+        "priority_tier": "P3",
+        "match_via": "slug"
+      },
+      "secondary": [
+        {
+          "keyword": "business markup calculator",
+          "volume": 22200,
+          "difficulty": 21,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "loan calculator for business",
+          "volume": 18100,
+          "difficulty": 21,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "business loan calculator",
+          "volume": 18100,
+          "difficulty": 21,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "loan calculator for business loan",
+          "volume": 18100,
+          "difficulty": 21,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "loan calculator business loan",
+          "volume": 18100,
+          "difficulty": 21,
+          "match_via": "slug"
+        }
+      ]
+    },
+    "business-valuation-calculator": {
+      "primary": {
+        "keyword": "business markup calculator",
+        "volume": 22200,
+        "difficulty": 21,
+        "intent": "commercial",
+        "cluster": "markup_margin",
+        "priority_tier": "P2",
+        "match_via": "slug"
+      },
+      "secondary": [
+        {
+          "keyword": "loan calculator for business",
+          "volume": 18100,
+          "difficulty": 21,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "business loan calculator",
+          "volume": 18100,
+          "difficulty": 21,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "loan calculator for business loan",
+          "volume": 18100,
+          "difficulty": 21,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "loan calculator business loan",
+          "volume": 18100,
+          "difficulty": 21,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "irr supply center inc",
+          "volume": 8100,
+          "difficulty": 10,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "cac-ltv-calculator": {
+      "primary": {
+        "keyword": "customer lifetime value equation",
+        "volume": 2900,
+        "difficulty": 17,
+        "intent": "informational",
+        "cluster": "cac_ltv_marketing",
+        "priority_tier": "P1",
+        "match_via": "cluster"
+      },
+      "secondary": [
+        {
+          "keyword": "cac customer acquisition cost",
+          "volume": 5400,
+          "difficulty": 33,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "customer lifetime value",
+          "volume": 5400,
+          "difficulty": 38,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "lifetime value of a customer",
+          "volume": 5400,
+          "difficulty": 38,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "equation for customer lifetime value",
+          "volume": 2400,
+          "difficulty": 17,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "lifetime value of customer equation",
+          "volume": 2400,
+          "difficulty": 17,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "cagr-calculator": {
+      "primary": {
+        "keyword": "irr supply center inc",
+        "volume": 8100,
+        "difficulty": 10,
+        "intent": "informational",
+        "cluster": "roi_npv_irr",
+        "priority_tier": "P1",
+        "match_via": "cluster"
+      },
+      "secondary": [
+        {
+          "keyword": "calculator for npv",
+          "volume": 6600,
+          "difficulty": 10,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "return on investment roi calculator",
+          "volume": 22200,
+          "difficulty": 34,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "formula for npv",
+          "volume": 9900,
+          "difficulty": 16,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "formula of npv",
+          "volume": 9900,
+          "difficulty": 16,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "npv formula",
+          "volume": 9900,
+          "difficulty": 16,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "cash-flow-calculator": {
+      "primary": {
+        "keyword": "discounted cash flow",
+        "volume": 110000,
+        "difficulty": 36,
+        "intent": "informational",
+        "cluster": "cash_flow_working_capital",
+        "priority_tier": "P2",
+        "match_via": "slug"
+      },
+      "secondary": [
+        {
+          "keyword": "discount cash flow",
+          "volume": 110000,
+          "difficulty": 43,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "discounted cash flow training",
+          "volume": 22200,
+          "difficulty": 23,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "cash flow statement",
+          "volume": 18100,
+          "difficulty": 21,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "cash flow statements",
+          "volume": 18100,
+          "difficulty": 23,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "free cash flow definition",
+          "volume": 12100,
+          "difficulty": 17,
+          "match_via": "slug"
+        }
+      ]
+    },
+    "churn-rate-calculator": {
+      "primary": {
+        "keyword": "what is a churn rate",
+        "volume": 2900,
+        "difficulty": 30,
+        "intent": "informational",
+        "cluster": "cac_ltv_marketing",
+        "priority_tier": "P2",
+        "match_via": "slug"
+      },
+      "secondary": [
+        {
+          "keyword": "what is the churn rate",
+          "volume": 2900,
+          "difficulty": 33,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "churn rate",
+          "volume": 3600,
+          "difficulty": 46,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "rate of churn",
+          "volume": 3600,
+          "difficulty": 46,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "customer lifetime value equation",
+          "volume": 2900,
+          "difficulty": 17,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "cac customer acquisition cost",
+          "volume": 5400,
+          "difficulty": 33,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "cost-per-unit-calculator": {
+      "primary": {
+        "keyword": "storage unit cost per month",
+        "volume": 2400,
+        "difficulty": 3,
+        "intent": "informational",
+        "cluster": "cost_per_unit",
+        "priority_tier": "P1",
+        "match_via": "slug"
+      },
+      "secondary": [
+        {
+          "keyword": "average manufacturing cost per unit",
+          "volume": 1900,
+          "difficulty": 20,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "indifferent outsourcing cost per unit",
+          "volume": 1600,
+          "difficulty": 20,
+          "match_via": "slug"
+        }
+      ]
+    },
+    "current-ratio-calculator": {
+      "primary": {
+        "keyword": "discounted cash flow",
+        "volume": 110000,
+        "difficulty": 36,
+        "intent": "informational",
+        "cluster": "cash_flow_working_capital",
+        "priority_tier": "P2",
+        "match_via": "cluster"
+      },
+      "secondary": [
+        {
+          "keyword": "discount cash flow",
+          "volume": 110000,
+          "difficulty": 43,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "discounted cash flow training",
+          "volume": 22200,
+          "difficulty": 23,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "cash flow statement",
+          "volume": 18100,
+          "difficulty": 21,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "cash flow statements",
+          "volume": 18100,
+          "difficulty": 23,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "free cash flow definition",
+          "volume": 12100,
+          "difficulty": 17,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "debt-to-equity-calculator": {
+      "primary": {
+        "keyword": "sba loan",
+        "volume": 135000,
+        "difficulty": 58,
+        "intent": "informational",
+        "cluster": "business_loans",
+        "priority_tier": "P3",
+        "match_via": "cluster"
+      },
+      "secondary": [
+        {
+          "keyword": "loan calculator for business",
+          "volume": 18100,
+          "difficulty": 21,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "business loan calculator",
+          "volume": 18100,
+          "difficulty": 21,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "loan calculator for business loan",
+          "volume": 18100,
+          "difficulty": 21,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "loan calculator business loan",
+          "volume": 18100,
+          "difficulty": 21,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "commercial business loan calculator",
+          "volume": 14800,
+          "difficulty": 18,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "dso-calculator": {
+      "primary": {
+        "keyword": "discounted cash flow",
+        "volume": 110000,
+        "difficulty": 36,
+        "intent": "informational",
+        "cluster": "cash_flow_working_capital",
+        "priority_tier": "P2",
+        "match_via": "cluster"
+      },
+      "secondary": [
+        {
+          "keyword": "discount cash flow",
+          "volume": 110000,
+          "difficulty": 43,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "discounted cash flow training",
+          "volume": 22200,
+          "difficulty": 23,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "cash flow statement",
+          "volume": 18100,
+          "difficulty": 21,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "cash flow statements",
+          "volume": 18100,
+          "difficulty": 23,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "free cash flow definition",
+          "volume": 12100,
+          "difficulty": 17,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "ecommerce-profit-calculator": {
+      "primary": {
+        "keyword": "profit and margin calculator",
+        "volume": 22200,
+        "difficulty": 7,
+        "intent": "commercial",
+        "cluster": "markup_margin",
+        "priority_tier": "P1",
+        "match_via": "slug"
+      },
+      "secondary": [
+        {
+          "keyword": "calculator profit margin",
+          "volume": 22200,
+          "difficulty": 24,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "calculator for profit margin",
+          "volume": 22200,
+          "difficulty": 24,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "margin of profit calculator",
+          "volume": 22200,
+          "difficulty": 24,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "profit and profit margin",
+          "volume": 18100,
+          "difficulty": 24,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "profit profit margin",
+          "volume": 18100,
+          "difficulty": 34,
+          "match_via": "slug"
+        }
+      ]
+    },
+    "employee-cost-calculator": {
+      "primary": {
+        "keyword": "overhead cost",
+        "volume": 4400,
+        "difficulty": 2,
+        "intent": "informational",
+        "cluster": "cost_per_unit",
+        "priority_tier": "P1",
+        "match_via": "slug"
+      },
+      "secondary": [
+        {
+          "keyword": "what is overhead cost",
+          "volume": 3600,
+          "difficulty": 7,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "cost of overhead",
+          "volume": 4400,
+          "difficulty": 10,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "what is a overhead cost",
+          "volume": 2900,
+          "difficulty": 7,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "self employment tax",
+          "volume": 22200,
+          "difficulty": 24,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "estimated tax payment",
+          "volume": 27100,
+          "difficulty": 37,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "estimated-tax-calculator": {
+      "primary": {
+        "keyword": "estimated tax payment",
+        "volume": 27100,
+        "difficulty": 37,
+        "intent": "informational",
+        "cluster": "tax",
+        "priority_tier": "P2",
+        "match_via": "slug"
+      },
+      "secondary": [
+        {
+          "keyword": "pay estimated tax",
+          "volume": 27100,
+          "difficulty": 49,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "estimated tax payments",
+          "volume": 27100,
+          "difficulty": 55,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "estimated tax deposits",
+          "volume": 27100,
+          "difficulty": 55,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "estimated 1099 tax calculator",
+          "volume": 14800,
+          "difficulty": 31,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "estimated tax payments 2025",
+          "volume": 14800,
+          "difficulty": 41,
+          "match_via": "slug"
+        }
+      ]
+    },
+    "freelance-rate-calculator": {
+      "primary": {
+        "keyword": "calculate freelance rate",
+        "volume": 390,
+        "difficulty": 2,
+        "intent": "commercial",
+        "cluster": "pricing",
+        "priority_tier": "P2",
+        "match_via": "slug"
+      },
+      "secondary": [
+        {
+          "keyword": "freelance rate calculator",
+          "volume": 390,
+          "difficulty": 2,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "copywriter freelance rate",
+          "volume": 140,
+          "difficulty": 3,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "freelance rate",
+          "volume": 210,
+          "difficulty": 12,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "hourly rate freelance",
+          "volume": 90,
+          "difficulty": 8,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "hourly rate for freelance",
+          "volume": 90,
+          "difficulty": 15,
+          "match_via": "slug"
+        }
+      ]
+    },
+    "gross-profit-calculator": {
+      "primary": {
+        "keyword": "profit and margin calculator",
+        "volume": 22200,
+        "difficulty": 7,
+        "intent": "commercial",
+        "cluster": "markup_margin",
+        "priority_tier": "P1",
+        "match_via": "slug"
+      },
+      "secondary": [
+        {
+          "keyword": "calculator profit margin",
+          "volume": 22200,
+          "difficulty": 24,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "calculator for profit margin",
+          "volume": 22200,
+          "difficulty": 24,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "margin of profit calculator",
+          "volume": 22200,
+          "difficulty": 24,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "profit and profit margin",
+          "volume": 18100,
+          "difficulty": 24,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "profit profit margin",
+          "volume": 18100,
+          "difficulty": 34,
+          "match_via": "slug"
+        }
+      ]
+    },
+    "hourly-to-salary-calculator": {
+      "primary": {
+        "keyword": "hourly rate freelance",
+        "volume": 90,
+        "difficulty": 8,
+        "intent": "informational",
+        "cluster": "pricing",
+        "priority_tier": "P3",
+        "match_via": "slug"
+      },
+      "secondary": [
+        {
+          "keyword": "hourly rate for freelance",
+          "volume": 90,
+          "difficulty": 15,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "hourly rate calculator freelance",
+          "volume": 90,
+          "difficulty": 20,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "calculate freelance rate",
+          "volume": 390,
+          "difficulty": 2,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "freelance rate calculator",
+          "volume": 390,
+          "difficulty": 2,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "copywriter freelance rate",
+          "volume": 140,
+          "difficulty": 3,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "inventory-turnover-calculator": {
+      "primary": {
+        "keyword": "inventory turnover ratio",
+        "volume": 12100,
+        "difficulty": 20,
+        "intent": "informational",
+        "cluster": "cash_flow_working_capital",
+        "priority_tier": "P1",
+        "match_via": "slug"
+      },
+      "secondary": [
+        {
+          "keyword": "inventory turnover ratio ratio",
+          "volume": 12100,
+          "difficulty": 20,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "inventory turnover ratios",
+          "volume": 12100,
+          "difficulty": 20,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "inventory turnover rates",
+          "volume": 12100,
+          "difficulty": 23,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "rate of inventory turnover",
+          "volume": 12100,
+          "difficulty": 23,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "discounted cash flow",
+          "volume": 110000,
+          "difficulty": 36,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "invoice-calculator": {
+      "primary": {
+        "keyword": "calculate freelance rate",
+        "volume": 390,
+        "difficulty": 2,
+        "intent": "commercial",
+        "cluster": "pricing",
+        "priority_tier": "P2",
+        "match_via": "cluster"
+      },
+      "secondary": [
+        {
+          "keyword": "freelance rate calculator",
+          "volume": 390,
+          "difficulty": 2,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "copywriter freelance rate",
+          "volume": 140,
+          "difficulty": 3,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "graphic design freelance rate",
+          "volume": 320,
+          "difficulty": 10,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "freelance web designer hourly rate",
+          "volume": 50,
+          "difficulty": 2,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "freelance bookkeeper hourly rate",
+          "volume": 50,
+          "difficulty": 2,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "irr-calculator": {
+      "primary": {
+        "keyword": "formula for irr",
+        "volume": 9900,
+        "difficulty": 22,
+        "intent": "informational",
+        "cluster": "roi_npv_irr",
+        "priority_tier": "P2",
+        "match_via": "slug"
+      },
+      "secondary": [
+        {
+          "keyword": "irr formula",
+          "volume": 9900,
+          "difficulty": 23,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "irr return calculator",
+          "volume": 8100,
+          "difficulty": 20,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "irr what is",
+          "volume": 8100,
+          "difficulty": 20,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "what is the irr",
+          "volume": 8100,
+          "difficulty": 20,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "calculator for irr",
+          "volume": 6600,
+          "difficulty": 20,
+          "match_via": "slug"
+        }
+      ]
+    },
+    "markup-calculator": {
+      "primary": {
+        "keyword": "calculator for markup",
+        "volume": 22200,
+        "difficulty": 20,
+        "intent": "commercial",
+        "cluster": "markup_margin",
+        "priority_tier": "P1",
+        "match_via": "slug"
+      },
+      "secondary": [
+        {
+          "keyword": "calculator with markup",
+          "volume": 22200,
+          "difficulty": 20,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "markup calculator",
+          "volume": 22200,
+          "difficulty": 20,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "business markup calculator",
+          "volume": 22200,
+          "difficulty": 21,
+          "match_via": "slug"
+        }
+      ]
+    },
+    "mrr-calculator": {
+      "primary": {
+        "keyword": "customer lifetime value equation",
+        "volume": 2900,
+        "difficulty": 17,
+        "intent": "informational",
+        "cluster": "cac_ltv_marketing",
+        "priority_tier": "P1",
+        "match_via": "cluster"
+      },
+      "secondary": [
+        {
+          "keyword": "cac customer acquisition cost",
+          "volume": 5400,
+          "difficulty": 33,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "customer lifetime value",
+          "volume": 5400,
+          "difficulty": 38,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "lifetime value of a customer",
+          "volume": 5400,
+          "difficulty": 38,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "equation for customer lifetime value",
+          "volume": 2400,
+          "difficulty": 17,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "lifetime value of customer equation",
+          "volume": 2400,
+          "difficulty": 17,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "net-profit-calculator": {
+      "primary": {
+        "keyword": "profit and margin calculator",
+        "volume": 22200,
+        "difficulty": 7,
+        "intent": "commercial",
+        "cluster": "markup_margin",
+        "priority_tier": "P1",
+        "match_via": "slug"
+      },
+      "secondary": [
+        {
+          "keyword": "calculator profit margin",
+          "volume": 22200,
+          "difficulty": 24,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "calculator for profit margin",
+          "volume": 22200,
+          "difficulty": 24,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "margin of profit calculator",
+          "volume": 22200,
+          "difficulty": 24,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "profit and profit margin",
+          "volume": 18100,
+          "difficulty": 24,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "profit profit margin",
+          "volume": 18100,
+          "difficulty": 34,
+          "match_via": "slug"
+        }
+      ]
+    },
+    "npv-calculator": {
+      "primary": {
+        "keyword": "calculator for npv",
+        "volume": 6600,
+        "difficulty": 10,
+        "intent": "commercial",
+        "cluster": "roi_npv_irr",
+        "priority_tier": "P1",
+        "match_via": "slug"
+      },
+      "secondary": [
+        {
+          "keyword": "formula for npv",
+          "volume": 9900,
+          "difficulty": 16,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "formula of npv",
+          "volume": 9900,
+          "difficulty": 16,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "npv formula",
+          "volume": 9900,
+          "difficulty": 16,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "find npv calculator",
+          "volume": 6600,
+          "difficulty": 11,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "equation for npv",
+          "volume": 9900,
+          "difficulty": 20,
+          "match_via": "slug"
+        }
+      ]
+    },
+    "payback-period-calculator": {
+      "primary": {
+        "keyword": "irr supply center inc",
+        "volume": 8100,
+        "difficulty": 10,
+        "intent": "informational",
+        "cluster": "roi_npv_irr",
+        "priority_tier": "P1",
+        "match_via": "cluster"
+      },
+      "secondary": [
+        {
+          "keyword": "calculator for npv",
+          "volume": 6600,
+          "difficulty": 10,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "return on investment roi calculator",
+          "volume": 22200,
+          "difficulty": 34,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "formula for npv",
+          "volume": 9900,
+          "difficulty": 16,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "formula of npv",
+          "volume": 9900,
+          "difficulty": 16,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "npv formula",
+          "volume": 9900,
+          "difficulty": 16,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "payroll-tax-calculator": {
+      "primary": {
+        "keyword": "self employment payroll tax calculator",
+        "volume": 9900,
+        "difficulty": 47,
+        "intent": "commercial",
+        "cluster": "tax",
+        "priority_tier": "P3",
+        "match_via": "slug"
+      },
+      "secondary": [
+        {
+          "keyword": "self employment tax",
+          "volume": 22200,
+          "difficulty": 24,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "estimated tax payment",
+          "volume": 27100,
+          "difficulty": 37,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "self-employment tax",
+          "volume": 22200,
+          "difficulty": 31,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "pay estimated tax",
+          "volume": 27100,
+          "difficulty": 49,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "estimated tax payments",
+          "volume": 27100,
+          "difficulty": 55,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "price-elasticity-calculator": {
+      "primary": {
+        "keyword": "calculate freelance rate",
+        "volume": 390,
+        "difficulty": 2,
+        "intent": "commercial",
+        "cluster": "pricing",
+        "priority_tier": "P2",
+        "match_via": "cluster"
+      },
+      "secondary": [
+        {
+          "keyword": "freelance rate calculator",
+          "volume": 390,
+          "difficulty": 2,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "copywriter freelance rate",
+          "volume": 140,
+          "difficulty": 3,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "graphic design freelance rate",
+          "volume": 320,
+          "difficulty": 10,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "freelance web designer hourly rate",
+          "volume": 50,
+          "difficulty": 2,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "freelance bookkeeper hourly rate",
+          "volume": 50,
+          "difficulty": 2,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "pricing-calculator": {
+      "primary": {
+        "keyword": "pricing margin calculator",
+        "volume": 22200,
+        "difficulty": 27,
+        "intent": "commercial",
+        "cluster": "markup_margin",
+        "priority_tier": "P2",
+        "match_via": "slug"
+      },
+      "secondary": []
+    },
+    "profit-margin-calculator": {
+      "primary": {
+        "keyword": "profit and margin calculator",
+        "volume": 22200,
+        "difficulty": 7,
+        "intent": "commercial",
+        "cluster": "markup_margin",
+        "priority_tier": "P1",
+        "match_via": "slug"
+      },
+      "secondary": [
+        {
+          "keyword": "profit margin defined",
+          "volume": 18100,
+          "difficulty": 16,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "calculator profit margin",
+          "volume": 22200,
+          "difficulty": 24,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "calculation of profit margin",
+          "volume": 22200,
+          "difficulty": 24,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "calculation for profit margin",
+          "volume": 22200,
+          "difficulty": 24,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "calculate the profit margin",
+          "volume": 22200,
+          "difficulty": 24,
+          "match_via": "slug"
+        }
+      ]
+    },
+    "quick-ratio-calculator": {
+      "primary": {
+        "keyword": "discounted cash flow",
+        "volume": 110000,
+        "difficulty": 36,
+        "intent": "informational",
+        "cluster": "cash_flow_working_capital",
+        "priority_tier": "P2",
+        "match_via": "cluster"
+      },
+      "secondary": [
+        {
+          "keyword": "discount cash flow",
+          "volume": 110000,
+          "difficulty": 43,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "discounted cash flow training",
+          "volume": 22200,
+          "difficulty": 23,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "cash flow statement",
+          "volume": 18100,
+          "difficulty": 21,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "cash flow statements",
+          "volume": 18100,
+          "difficulty": 23,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "free cash flow definition",
+          "volume": 12100,
+          "difficulty": 17,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "r-and-d-tax-credit-calculator": {
+      "primary": {
+        "keyword": "self employment tax",
+        "volume": 22200,
+        "difficulty": 24,
+        "intent": "informational",
+        "cluster": "tax",
+        "priority_tier": "P2",
+        "match_via": "cluster"
+      },
+      "secondary": [
+        {
+          "keyword": "estimated tax payment",
+          "volume": 27100,
+          "difficulty": 37,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "self-employment tax",
+          "volume": 22200,
+          "difficulty": 31,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "pay estimated tax",
+          "volume": 27100,
+          "difficulty": 49,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "estimated tax payments",
+          "volume": 27100,
+          "difficulty": 55,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "estimated tax deposits",
+          "volume": 27100,
+          "difficulty": 55,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "revenue-growth-calculator": {
+      "primary": {
+        "keyword": "irr supply center inc",
+        "volume": 8100,
+        "difficulty": 10,
+        "intent": "informational",
+        "cluster": "roi_npv_irr",
+        "priority_tier": "P1",
+        "match_via": "cluster"
+      },
+      "secondary": [
+        {
+          "keyword": "calculator for npv",
+          "volume": 6600,
+          "difficulty": 10,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "return on investment roi calculator",
+          "volume": 22200,
+          "difficulty": 34,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "formula for npv",
+          "volume": 9900,
+          "difficulty": 16,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "formula of npv",
+          "volume": 9900,
+          "difficulty": 16,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "npv formula",
+          "volume": 9900,
+          "difficulty": 16,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "roa-calculator": {
+      "primary": {
+        "keyword": "irr supply center inc",
+        "volume": 8100,
+        "difficulty": 10,
+        "intent": "informational",
+        "cluster": "roi_npv_irr",
+        "priority_tier": "P1",
+        "match_via": "cluster"
+      },
+      "secondary": [
+        {
+          "keyword": "calculator for npv",
+          "volume": 6600,
+          "difficulty": 10,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "return on investment roi calculator",
+          "volume": 22200,
+          "difficulty": 34,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "formula for npv",
+          "volume": 9900,
+          "difficulty": 16,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "formula of npv",
+          "volume": 9900,
+          "difficulty": 16,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "npv formula",
+          "volume": 9900,
+          "difficulty": 16,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "roe-calculator": {
+      "primary": {
+        "keyword": "irr supply center inc",
+        "volume": 8100,
+        "difficulty": 10,
+        "intent": "informational",
+        "cluster": "roi_npv_irr",
+        "priority_tier": "P1",
+        "match_via": "cluster"
+      },
+      "secondary": [
+        {
+          "keyword": "calculator for npv",
+          "volume": 6600,
+          "difficulty": 10,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "return on investment roi calculator",
+          "volume": 22200,
+          "difficulty": 34,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "formula for npv",
+          "volume": 9900,
+          "difficulty": 16,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "formula of npv",
+          "volume": 9900,
+          "difficulty": 16,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "npv formula",
+          "volume": 9900,
+          "difficulty": 16,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "roi-calculator": {
+      "primary": {
+        "keyword": "calculator for roi",
+        "volume": 22200,
+        "difficulty": 38,
+        "intent": "commercial",
+        "cluster": "roi_npv_irr",
+        "priority_tier": "P2",
+        "match_via": "slug"
+      },
+      "secondary": [
+        {
+          "keyword": "roi calculator",
+          "volume": 22200,
+          "difficulty": 38,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "investment roi calculator",
+          "volume": 9900,
+          "difficulty": 47,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "irr supply center inc",
+          "volume": 8100,
+          "difficulty": 10,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "calculator for npv",
+          "volume": 6600,
+          "difficulty": 10,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "return on investment roi calculator",
+          "volume": 22200,
+          "difficulty": 34,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "s-corp-election-calculator": {
+      "primary": {
+        "keyword": "self employment tax",
+        "volume": 22200,
+        "difficulty": 24,
+        "intent": "informational",
+        "cluster": "tax",
+        "priority_tier": "P2",
+        "match_via": "cluster"
+      },
+      "secondary": [
+        {
+          "keyword": "estimated tax payment",
+          "volume": 27100,
+          "difficulty": 37,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "self-employment tax",
+          "volume": 22200,
+          "difficulty": 31,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "pay estimated tax",
+          "volume": 27100,
+          "difficulty": 49,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "estimated tax payments",
+          "volume": 27100,
+          "difficulty": 55,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "estimated tax deposits",
+          "volume": 27100,
+          "difficulty": 55,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "section-179-calculator": {
+      "primary": {
+        "keyword": "self employment tax",
+        "volume": 22200,
+        "difficulty": 24,
+        "intent": "informational",
+        "cluster": "tax",
+        "priority_tier": "P2",
+        "match_via": "cluster"
+      },
+      "secondary": [
+        {
+          "keyword": "estimated tax payment",
+          "volume": 27100,
+          "difficulty": 37,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "self-employment tax",
+          "volume": 22200,
+          "difficulty": 31,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "pay estimated tax",
+          "volume": 27100,
+          "difficulty": 49,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "estimated tax payments",
+          "volume": 27100,
+          "difficulty": 55,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "estimated tax deposits",
+          "volume": 27100,
+          "difficulty": 55,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "self-employment-tax-calculator": {
+      "primary": {
+        "keyword": "self employment tax",
+        "volume": 22200,
+        "difficulty": 24,
+        "intent": "informational",
+        "cluster": "tax",
+        "priority_tier": "P2",
+        "match_via": "slug"
+      },
+      "secondary": [
+        {
+          "keyword": "self-employment tax",
+          "volume": 22200,
+          "difficulty": 31,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "self-employment tax calculator",
+          "volume": 9900,
+          "difficulty": 22,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "self employment tax estimate",
+          "volume": 9900,
+          "difficulty": 26,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "figure self employment tax",
+          "volume": 9900,
+          "difficulty": 29,
+          "match_via": "slug"
+        },
+        {
+          "keyword": "determining self employment tax",
+          "volume": 9900,
+          "difficulty": 30,
+          "match_via": "slug"
+        }
+      ]
+    },
+    "subscription-pricing-calculator": {
+      "primary": {
+        "keyword": "pricing margin calculator",
+        "volume": 22200,
+        "difficulty": 27,
+        "intent": "commercial",
+        "cluster": "markup_margin",
+        "priority_tier": "P2",
+        "match_via": "slug"
+      },
+      "secondary": [
+        {
+          "keyword": "customer lifetime value equation",
+          "volume": 2900,
+          "difficulty": 17,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "cac customer acquisition cost",
+          "volume": 5400,
+          "difficulty": 33,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "customer lifetime value",
+          "volume": 5400,
+          "difficulty": 38,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "lifetime value of a customer",
+          "volume": 5400,
+          "difficulty": 38,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "equation for customer lifetime value",
+          "volume": 2400,
+          "difficulty": 17,
+          "match_via": "cluster"
+        }
+      ]
+    },
+    "working-capital-calculator": {
+      "primary": {
+        "keyword": "working capital",
+        "volume": 14800,
+        "difficulty": 28,
+        "intent": "informational",
+        "cluster": "cash_flow_working_capital",
+        "priority_tier": "P2",
+        "match_via": "slug"
+      },
+      "secondary": [
+        {
+          "keyword": "discounted cash flow",
+          "volume": 110000,
+          "difficulty": 36,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "discount cash flow",
+          "volume": 110000,
+          "difficulty": 43,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "discounted cash flow training",
+          "volume": 22200,
+          "difficulty": 23,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "cash flow statement",
+          "volume": 18100,
+          "difficulty": 21,
+          "match_via": "cluster"
+        },
+        {
+          "keyword": "cash flow statements",
+          "volume": 18100,
+          "difficulty": 23,
+          "match_via": "cluster"
+        }
+      ]
+    }
+  },
+  "unmapped": [
+    "about",
+    "changelog",
+    "contact",
+    "cookies",
+    "corrections-policy",
+    "disclaimer",
+    "disclosure",
+    "discount-calculator",
+    "editorial-policy",
+    "methodology",
+    "privacy",
+    "profit-first-allocation-calculator",
+    "terms"
+  ]
+}

@@ -41,7 +41,7 @@ export default function AboutPage() {
       <section className="mt-12 rounded-xl border border-gray-200 bg-white p-6">
         <h2 className="text-lg font-semibold text-brand-dark">What we publish</h2>
         <p className="mt-2 text-sm leading-relaxed text-gray-700">
-          18 calculators across four topic clusters, plus 25 long-form
+          44 calculators across four topic clusters, plus 25 long-form
           guides. Every calculator runs entirely in your browser; we don&apos;t
           collect or transmit the numbers you enter. Tax and rate defaults
           are sourced from primary government sources (IRS, HMRC, SARS) and

@@ -32,7 +32,7 @@ export default function NotFound() {
       </h1>
       <p className="mx-auto mt-4 max-w-xl text-base text-gray-600">
         The page you tried to open doesn&apos;t exist or has moved. Try the
-        calculators below, or jump back to the homepage to browse all 18 free
+        calculators below, or jump back to the homepage to browse all 44 free
         tools.
       </p>
 

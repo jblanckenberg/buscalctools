@@ -45,3 +45,13 @@ __pycache__/
 
 # local-only scratch image in scripts/
 scripts/img.png
+
+# local agent tooling (added 2026-06-10)
+.claude/
+
+# extra credential patterns (defensive)
+.env
+*.env.bak
+.gsc_oauth_client.json
+.gsc_token.json
+*oauth_client*.json
